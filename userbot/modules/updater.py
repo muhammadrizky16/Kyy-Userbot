@@ -21,7 +21,8 @@ from userbot import (
 from userbot.events import register
 
 requirements_path = path.join(
-    path.dirname(path.dirname(path.dirname(__file__))), "requirements.txt")
+    path.dirname(path.dirname(path.dirname(__file__))), "requirements.txt"
+)
 
 
 async def gen_chlog(repo, diff):
@@ -95,13 +96,15 @@ async def deploy(event, repo, ups_rem, ac_br, txt):
             await asyncio.sleep(5)
             return await event.delete()
         else:
-            await event.edit("`Kyy-Userbot Berhasil DiUpdate,Restart Tunggu Sebentar`")
+            await event.edit(
+                "`✨Kʏʏ-Usᴇʀʙᴏᴛ✨ Berhasil DiUpdate,Restart Tunggu Sebentar`"
+            )
             await asyncio.sleep(15)
             await event.delete()
 
         if BOTLOG:
             await event.client.send_message(
-                BOTLOG_CHATID, "#BOT \n" "`Kyy-Userbot Berhasil Di Update`"
+                BOTLOG_CHATID, "#BOT \n" "`✨Kʏʏ-Usᴇʀʙᴏᴛ✨ Berhasil Di Update`"
             )
 
     else:
@@ -200,9 +203,7 @@ async def upstream(event):
         return repo.__del__()
 
     if conf is None and force_update is False:
-        changelog_str = (
-            f"**Pembaruan Untuk ✨Kʏʏ-Usᴇʀʙᴏᴛ✨ :\n\n⚒️ Pembaruan Data :**\n`{changelog}`"
-        )
+        changelog_str = f"**Pembaruan Untuk ✨Kʏʏ-Usᴇʀʙᴏᴛ✨ :\n\n⚒️ Pembaruan Data :**\n`{changelog}`"
         if len(changelog_str) > 4096:
             await event.edit("`Changelog Terlalu Besar, Lihat File Untuk Melihatnya.`")
             file = open("output.txt", "w+")
@@ -217,7 +218,7 @@ async def upstream(event):
         else:
             await event.edit(changelog_str)
         return await event.respond(
-            "**Perintah Untuk Update, Sebagai Berikut.**\n 𝘾𝙤𝙢𝙢𝙖𝙣𝙙: >`.update now`\n 𝘾𝙤𝙢𝙢𝙖𝙣𝙙: >`.update deploy`\n\n__Untuk Meng Update Fitur Terbaru Dari ✨Kyy-Userbot✨.__"
+            "**Perintah Untuk Update, Sebagai Berikut.**\n 𝘾𝙤𝙢𝙢𝙖𝙣𝙙: >`.update now`\n 𝘾𝙤𝙢𝙢𝙖𝙣𝙙: >`.update deploy`\n\n__Untuk Meng Update Fitur Terbaru Dari ✨Kʏʏ-Usᴇʀʙᴏᴛ✨ .__"
         )
 
     if force_update:
@@ -226,7 +227,7 @@ async def upstream(event):
         )
     else:
         await event.edit("` Proses Update ✨Kʏʏ-Usᴇʀʙᴏᴛ✨, Loading....1%`")
-        await event.edit("` Proses Update ✨Kʏʏ-Usᴇʀʙᴏᴛ✨, Loading....20%`")
+        await event.edit("` Proses Update ✨Kʏʏ-Usᴇʀʙᴏᴛ✨ Loading....20%`")
         await event.edit("` Proses Update ✨Kʏʏ-Usᴇʀʙᴏᴛ✨, Loading....35%`")
         await event.edit("` Proses Update ✨Kʏʏ-Usᴇʀʙᴏᴛ✨, Loading....77%`")
         await event.edit("` Proses Update ✨Kʏʏ-Usᴇʀʙᴏᴛ✨, Updating...90%`")
