@@ -9,7 +9,7 @@ from userbot import CMD_HELP
 from userbot.events import register
 
 
-@register(outgoing=True, pattern='^.sadboy(?: |$)(.*)')
+@register(outgoing=True, pattern="^.sadboy(?: |$)(.*)")
 async def typewriter(typew):
     typew.pattern_match.group(1)
     sleep(2)
@@ -21,7 +21,7 @@ async def typewriter(typew):
 # Create by myself @localheart
 
 
-@register(outgoing=True, pattern='^.lahk(?: |$)(.*)')
+@register(outgoing=True, pattern="^.lahk(?: |$)(.*)")
 async def typewriter(typew):
     typew.pattern_match.group(1)
     await typew.edit("`Lahk, Lo tolol?`")
@@ -33,7 +33,7 @@ async def typewriter(typew):
     await typew.edit("`Gua ga ketrigger sama bocah baru nyemplung!`")
 
 
-@register(outgoing=True, pattern=r'^\.sok(?: |$)(.*)')
+@register(outgoing=True, pattern=r"^\.sok(?: |$)(.*)")
 async def typewriter(typew):
     typew.pattern_match.group(1)
     sleep(1.5)
@@ -48,7 +48,7 @@ async def typewriter(typew):
     await typew.edit("**GA KEREN LO BEGITU NGENTOT**")
 
 
-@register(outgoing=True, pattern='^.wah(?: |$)(.*)')
+@register(outgoing=True, pattern="^.wah(?: |$)(.*)")
 async def typewriter(typew):
     typew.pattern_match.group(1)
     await typew.edit("`Wahh, War nya keren bang`")
@@ -66,7 +66,7 @@ async def typewriter(typew):
     await typew.edit("`Dah sana cabut, Makasih hiburannya, Udah bikin Gua tawa ngakak`")
 
 
-@register(outgoing=True, pattern='^.alay(?: |$)(.*)')
+@register(outgoing=True, pattern="^.alay(?: |$)(.*)")
 async def typewriter(typew):
     typew.pattern_match.group(1)
     sleep(1)
@@ -81,7 +81,7 @@ async def typewriter(typew):
     await typew.edit("pantes **NORAK**")
 
 
-@register(outgoing=True, pattern='^.erpe(?: |$)(.*)')
+@register(outgoing=True, pattern=')"^.erpe(?: |$)(.*)")
 async def typewriter(typew):
     typew.pattern_match.group(1)
     sleep(1)
@@ -104,7 +104,7 @@ async def typewriter(typew):
     await typew.edit("Lari Ada Plastik KePanasan")
 
 
-@register(outgoing=True, pattern='^.ange(?: |$)(.*)')
+@register(outgoing=True, pattern="^.ange(?: |$)(.*)")
 async def typewriter(typew):
     typew.pattern_match.group(1)
     await typew.edit("`Ayanggggg😖`")
@@ -114,7 +114,7 @@ async def typewriter(typew):
     await typew.edit("`Ayukkk Ewean Ayanggg🤤`")
 
 
-@register(outgoing=True, pattern='^.tittle(?: |$)(.*)')
+@register(outgoing=True, pattern=')"^.tittle(?: |$)(.*)")
 async def typewriter(typew):
     typew.pattern_match.group(1)
     await typew.edit("**OI ANAK TITLE**")
