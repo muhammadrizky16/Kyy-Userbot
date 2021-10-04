@@ -9,6 +9,7 @@ import asyncio
 from userbot import ALIVE_NAME, CMD_HELP
 from userbot.events import register
 from platform import uname
+
 modules = CMD_HELP
 
 # ================= CONSTANT =================
@@ -36,7 +37,6 @@ async def help(event):
             "**✨Kʏʏ-Usᴇʀʙᴏᴛ✨**\n\n"
             f"**◉ Bᴏᴛ ᴏꜰ {DEFAULTUSER}**\n**◉ Mᴏᴅᴜʟᴇꜱ : {len(modules)}**\n\n"
             "**• Mᴀɪɴ Mᴇɴᴜ :**\n"
-            f"◉ {string}◉\n\n✐ **ɴᴏᴛᴇꜱ :**  `.help animasi`"
-        )
+            f"◉ {string}◉\n\n✐ **ɴᴏᴛᴇꜱ :**  `.help animasi`")
         await asyncio.sleep(1000)
         await event.delete()
