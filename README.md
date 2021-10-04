@@ -59,7 +59,7 @@ Gunakan bot ini dengan risiko Anda sendiri, dan gunakan dengan bijak.
 `Thanks For all` 🥰
 
 ❁[Kyy](https://github.com/muhammadrizky16/Kyy-Userbot)    Kyy-Userbot\
-❁[Skyzu](https://github.com/Askarbot/Skyzuu-Userbot)    Skyzuu-Userbot\
+❁[Skyzu](https://github.com/Askarbot/Skyzuu-Userbot)    Skyzuu-Userbot
 
 
 ## Stay Support 🚀
