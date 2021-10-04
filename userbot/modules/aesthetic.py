@@ -1,7 +1,6 @@
 from telethon import events
-
-from userbot import CMD_HELP
 from userbot.events import register
+from userbot import CMD_HELP
 
 PRINTABLE_ASCII = range(0x21, 0x7F)
 
@@ -26,9 +25,8 @@ async def _(event):
     raise events.StopPropagation
 
 
-CMD_HELP.update(
-    {
-        "aeshtetic": "𝘾𝙤𝙢𝙢𝙖𝙣𝙙`.ae <teks>`\
+CMD_HELP.update({
+    "aeshtetic":
+    "𝘾𝙤𝙢𝙢𝙖𝙣𝙙`.ae <teks>`\
     \n↳ : Mengubah fonts teks"
-    }
-)
+})
