@@ -98,7 +98,7 @@ async def deploy(event, repo, ups_rem, ac_br, txt):
         if BOTLOG:
             await event.client.send_message(
                 BOTLOG_CHATID, "#BOT \n"
-                "`Rose-Userbot Berhasil Di Update`")
+                "`Kyy-Userbot Berhasil Di Update`")
 
     else:
         await event.edit('`[HEROKU]:'
@@ -235,7 +235,7 @@ async def upstream(event):
 CMD_HELP.update({
     'update':
     "𝘾𝙤𝙢𝙢𝙖𝙣𝙙: `.update`"
-    "\n• : Untuk Melihat Pembaruan Terbaru Rose-Userbot."
+    "\n• : Untuk Melihat Pembaruan Terbaru Kyy-Userbot."
     "\n\n𝘾𝙤𝙢𝙢𝙖𝙣𝙙: `.update now`"
     "\n• : Memperbarui Kyy-Userbot."
     "\n\n𝘾𝙤𝙢𝙢𝙖𝙣𝙙: `.update deploy`"
