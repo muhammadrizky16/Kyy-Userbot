@@ -19,7 +19,7 @@ from PIL import Image
 # ================= CONSTANT =================
 DEFAULTUSER = str(ALIVE_NAME) if ALIVE_NAME else uname().node
 REPOLINK = str(
-    UPSTREAM_REPO_URL) if UPSTREAM_REPO_URL else "https://github.com/vckyou/Geez-UserBot"
+    UPSTREAM_REPO_URL) if UPSTREAM_REPO_URL else "https://github.com/muhammadrizky16/Kyy-UserBot"
 # ============================================
 
 opener = urllib.request.build_opener()
@@ -111,9 +111,9 @@ async def repo_is_here(wannasee):
     """ For .repo command, just returns the repo URL. """
     await wannasee.edit(
         "✨ **Kʏʏ-Usᴇʀʙᴏᴛ** ✨\n"
-        "✰ **Repo Userbot :** [Github](https://github.com/muhammadrizky16/Kyy-Userbot)\n"
-        "✰ **Owner Bot :** [ҡʏʏ](t.me/IDnyaKosong)\n"
-        "✰ 𝗟𝗶𝗰𝗲𝗻𝘀𝗲 : [GPL-3.0 License](https://github.com/muhammadrizky16/Kyy-Userbot/blob/Kyy-Userbot/LICENSE)"
+        "✾ **Repo Userbot :** [Github](https://github.com/muhammadrizky16/Kyy-Userbot)\n"
+        "✾ **Owner Bot :** [ҡʏʏ](t.me/IDnyaKosong)\n"
+        "✾ 𝗟𝗶𝗰𝗲𝗻𝘀𝗲 : [GPL-3.0 License](https://github.com/muhammadrizky16/Kyy-Userbot/blob/Kyy-Userbot/LICENSE)"
     )
 
 
