@@ -81,19 +81,19 @@ async def echo(event):
         try:
             remove_all_echos()
         except Exception as e
-        await event.edit("**Error:**\n`{str(e)}`", 10)
+            await event.edit("**Error:**\n`{str(e)}`", 10)
         else:
             await event.edit("`Echo Pengguna Telah Dihapus, Untuk Semua Pengguna Yang Diaktifkan Di Semua Obrolan.`"
-                             )
+            )
     else:
         lecho = get_echos(event.chat_id)
         if len(lecho) == 0:
             return await event.edit("`Anda belum mengaktifkan Echo setidaknya untuk satu pengguna dalam obrolan ini.`"
-                                    )
+            )
         try:
             remove_echos(event.chat_id)
         except Exception as e
-        await event.edit("**Error:**\n`{str(e)}`", 10)
+            await event.edit("**Error:**\n`{str(e)}`", 10)
         else:
             await event.edit("`Gema yang dihapus untuk semua pengguna yang diaktifkan dalam obrolan ini.`")
 
