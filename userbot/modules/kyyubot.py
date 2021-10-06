@@ -104,7 +104,7 @@ async def typewriter(typew):
     await typew.edit("Lari Ada Plastik KePanasan")
 
 
-@ register(outgoing = True, pattern="^.ange(?: |$)(.*)")
+@ register(outgoing=True, pattern="^.ange(?: |$)(.*)")
 async def typewriter(typew):
     typew.pattern_match.group(1)
     await typew.edit("`Ayanggggg😖`")
@@ -114,7 +114,7 @@ async def typewriter(typew):
     await typew.edit("`Ayukkk Ewean Ayanggg🤤`")
 
 
-@ register(outgoing = True, pattern="^.tittle(?: |$)(.*)")
+@ register(outgoing=True, pattern="^.tittle(?: |$)(.*)")
 async def typewriter(typew):
     typew.pattern_match.group(1)
     await typew.edit("**OI ANAK TITLE**")
@@ -169,4 +169,4 @@ CMD_HELP.update({
     \n↳ : Sangean\
     \n\n𝘾𝙤𝙢𝙢𝙖𝙣𝙙: `.tittle`\
     \n↳ : ngatain bocah gila tittle."
-    })
+})
