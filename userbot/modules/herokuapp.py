@@ -172,8 +172,7 @@ async def dyno_usage(dyno):
             for apps in Apps:
                 if apps.get("app_uuid") == app.id:
                     AppQuotaUsed = apps.get("quota_used") / 60
-                    AppPercentage = math.floor(
-                        apps.get("quota_used") * 100 / quota)
+                    AppPercentage = math.floor(apps.get("quota_used") * 100 / quota)
                     break
             else:
                 AppQuotaUsed = 0
@@ -214,21 +213,29 @@ async def _(dyno):
         log.write(app.get_log())
     fd = codecs.open("logs.txt", "r", encoding="utf-8")
     data = fd.read()
-    key = (requests.post("https://nekobin.com/api/documents",
-                         json={"content": data}) .json() .get("result") .get("key"))
+    key = (
+        requests.post("https://nekobin.com/api/documents", json={"content": data})
+        .json()
+        .get("result")
+        .get("key")
+    )
     url = f"https://nekobin.com/raw/{key}"
     await dyno.edit(f"`Ini Logs Heroku Anda :`\n\nPaste Ke: [Nekobin]({url})")
     return os.remove("logs.txt")
 
 
-CMD_HELP.update({"herokuapp": "𝘾𝙤𝙢𝙢𝙖𝙣𝙙: `.usage`"
-                 "\n↳ : Check Quota Dyno Heroku"
-                 "\n\n𝘾𝙤𝙢𝙢𝙖𝙣𝙙: `.set var <NEW VAR> <VALUE>`"
-                 "\n↳ : Tambahkan Variabel Baru Atau Memperbarui Variabel"
-                 "\nSetelah Menyetel Variabel Tersebut, Rose-Userbot Akan Di Restart."
-                 "\n\n𝘾𝙤𝙢𝙢𝙖𝙣𝙙: `.get var atau .get var <VAR>`"
-                 "\n↳ : Dapatkan Variabel Yang Ada, !!PERINGATAN!! Gunakanlah Di Grup Privasi Anda."
-                 "\nIni Mengembalikan Semua Informasi Pribadi Anda, Harap berhati-hati."
-                 "\n\n𝘾𝙤𝙢𝙢𝙖𝙣𝙙: `.del var <VAR>`"
-                 "\n↳ : Menghapus Variabel Yang Ada"
-                 "\nSetelah Menghapus Variabel, Bot Akan Di Restart."})
+CMD_HELP.update(
+    {
+        "herokuapp": "𝘾𝙤𝙢𝙢𝙖𝙣𝙙: `.usage`"
+        "\n↳ : Check Quota Dyno Heroku"
+        "\n\n𝘾𝙤𝙢𝙢𝙖𝙣𝙙: `.set var <NEW VAR> <VALUE>`"
+        "\n↳ : Tambahkan Variabel Baru Atau Memperbarui Variabel"
+        "\nSetelah Menyetel Variabel Tersebut, Rose-Userbot Akan Di Restart."
+        "\n\n𝘾𝙤𝙢𝙢𝙖𝙣𝙙: `.get var atau .get var <VAR>`"
+        "\n↳ : Dapatkan Variabel Yang Ada, !!PERINGATAN!! Gunakanlah Di Grup Privasi Anda."
+        "\nIni Mengembalikan Semua Informasi Pribadi Anda, Harap berhati-hati."
+        "\n\n𝘾𝙤𝙢𝙢𝙖𝙣𝙙: `.del var <VAR>`"
+        "\n↳ : Menghapus Variabel Yang Ada"
+        "\nSetelah Menghapus Variabel, Bot Akan Di Restart."
+    }
+)
