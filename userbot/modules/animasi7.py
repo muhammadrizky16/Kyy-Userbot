@@ -1,5 +1,4 @@
 from time import sleep
-import asyncio
 
 from userbot import CMD_HELP
 from userbot.events import register
