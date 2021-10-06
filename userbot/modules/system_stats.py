@@ -18,7 +18,7 @@ import sys
 import time
 from datetime import datetime
 import psutil
-from userbot import ALIVE_LOGO, ALIVE_NAME, BOT_VER, CMD_HELP, StartTime, UPSTREAM_REPO_BRANCH, bot
+from userbot import ALIVE_LOGO, ALIVE_NAME, BOT_VER, CMD_HELP, ROSE_TEKS_KUSTOM, StartTime, UPSTREAM_REPO_BRANCH, bot
 from userbot.events import register
 
 
@@ -71,6 +71,7 @@ async def psu(event):
     bt = datetime.fromtimestamp(boot_time_timestamp)
     softw += f"`Waktu Hidup: {bt.day}/{bt.month}/{bt.year}  {bt.hour}:{bt.minute}:{bt.second}`\n"
     # CPU Cores
+    cpuu = "**Informasi CPU**\n"
     cpuu += "`Physical cores   : " + \
         str(psutil.cpu_count(logical=False)) + "`\n"
     cpuu += "`Total cores      : " + \
@@ -230,15 +231,14 @@ async def amireallyalive(alive):
         f" **✨Kʏʏ-Usᴇʀʙᴏᴛ✨** \n\n"
         f"\n__**{KYY_TEKS_KUSTOM}**__\n\n\n"
         f"╭✠╼━━━━━━━━━━━━━━━✠╮\n"
-        f"➥ **Name**        : `{DEFAULTUSER}` \n"
-        f"➥ **Username** : @{user.username} \n"
-        f"➥ **Telethon**   : `{version.__version__}` \n"
-        f"➥ **Python**      : `{python_version()}` \n"
-        f"➥ **Bot Ver**     : `{BOT_VER}` \n"
-        f"➥ **Modules**   : `{len(modules)}` \n"
+        f"◙ **Name** : `{DEFAULTUSER}` \n"
+        f"◙ **Username** : @{user.username} \n"
+        f"◙ **Telethon** : `{version.__version__}` \n"
+        f"◙ **Python**   : `{python_version()}` \n"
+        f"◙ **Bot Ver**  : `{BOT_VER}` \n"
+        f"◙ **Modules**  : `{len(modules)}` \n"
         f"╰✠╼━━━━━━━━━━━━━━━✠╯\n"
-        f"[ɢʀᴏᴜᴘꜱ](https://t.me/sinibrokk) | [ᴄʜᴀɴɴᴇʟ](https://t.me/ahhsudahlahhh) | [ᴏᴡɴᴇʀ](https://t.me/IDnyaKosong) | [ɢɪᴛʜᴜʙ](https://github.com/muhammadrizky16/Kyy-Userbot)"
-    )
+        f"[ɢʀᴏᴜᴘꜱ](https://t.me/sinibrokk) | [ᴄʜᴀɴɴᴇʟ](https://t.me/ahhsudahlahhh) | [ᴏᴡɴᴇʀ](https://t.me/IDnyaKosong) | [ɢɪᴛʜᴜʙ](https://github.com/muhammadrizky16/Kyy-Userbot)")
     if ALIVE_LOGO:
         try:
             logo = ALIVE_LOGO
@@ -265,14 +265,13 @@ async def amireallyalive(alive):
     await get_readable_time((time.time() - StartTime))
     output = (
         f"●▬▬▬▬▬▬ஜ۩۞۩ஜ▬▬▬▬▬▬● \n"
-        f"✾ 🤴 • `Owner    :`[ҡʏʏ](t.me/IDnyaKosong)             ㅤ \n"
-        f"✾ 🖥️ • `System.  :`Ubuntu 20.10            \n"
-        f"✾ ⚙️ • `Telethon :`v.{version.__version__}                ㅤㅤ  \n"
-        f"✾ 🐍 • `Python.  :`v.{python_version()} ㅤㅤ\n"
-        f"✾ 👾 • `Bot      :`v.{BOT_VER}                ㅤㅤㅤ \n"
-        f"✾ 📂 • `Module   :`{len(modules)} ㅤㅤㅤㅤㅤㅤㅤ   \n"
-        f"●▬▬▬▬▬▬ஜ۩۞۩ஜ▬▬▬▬▬▬●"
-    )
+        f"✾ 🤴 • `ᴏᴡɴᴇʀ :`[ҡʏʏ](t.me/IDnyaKosong)             ㅤ \n"
+        f"✾ 🖥️ • `ꜱʏꜱᴛᴇᴍ. :`Ubuntu 20.10            \n"
+        f"✾ ⚙️ • `ᴛᴇʟᴇᴛʜᴏɴ :`v.{version.__version__}                ㅤㅤ  \n"
+        f"✾ 🐍 • `ᴘʏᴛʜᴏɴ. :`v.{python_version()} ㅤㅤ\n"
+        f"✾ 👾 • `ʙᴏᴛ :`v.{BOT_VER}                ㅤㅤㅤ \n"
+        f"✾ 📂 • `ᴍᴏᴅᴜʟᴇ :`{len(modules)} ㅤㅤㅤㅤㅤㅤㅤ   \n"
+        f"●▬▬▬▬▬▬ஜ۩۞۩ஜ▬▬▬▬▬▬●")
     if ALIVE_LOGO:
         try:
             logo = ALIVE_LOGO
@@ -308,16 +307,16 @@ async def redis(alive):
     await asyncio.sleep(2)
     output = (
         f"╭✠╼━━━━━━━━━━━━━━━━━━━✠╮\n"
-        f"┃✧ **Name        :** {DEFAULTUSER} \n"
-        f"┃✧ **Username :** @{user.username} \n"
-        f"┃✧ **Telethon   :** Ver {version.__version__} \n"
-        f"┃✧ **Python      :** Ver {python_version()} \n"
-        f"┃✧ **Branch      :** {UPSTREAM_REPO_BRANCH} \n"
-        f"┃✧ **Bot Ver     :** {BOT_VER} \n"
-        f"┃✧ **Modules   :** {len(modules)} Modules \n"
-        f"┃✧ **Github       :** [ҡʏʏ](https://github.com/muhammadrizky16/Kyy-Userbot) \n"
-        f"┃✧ **Channel    :** [Channel](https://t.me/ahsudahlahhh) \n"
-        f"┃✧ **Owner       :** [ҡʏʏ](https://t.me/IDnyaKosong) \n"
+        f"┃✱ **Name     :** {DEFAULTUSER} \n"
+        f"┃✱ **Username :** @{user.username} \n"
+        f"┃✱ **Telethon :** Ver {version.__version__} \n"
+        f"┃✱ **Python   :** Ver {python_version()} \n"
+        f"┃✱ **Branch   :** {UPSTREAM_REPO_BRANCH} \n"
+        f"┃✱ **Bot Ver  :** {BOT_VER} \n"
+        f"┃✱ **Modules  :** {len(modules)} Modules \n"
+        f"┃✱ **GitHub   :** [ҡʏʏ](https://github.com/Kyy-Userbot) \n"
+        f"┃✱ **Channel  :** [Channel](https://t.me/ahhsudahlahhh) \n"
+        f"┃✱ **Owner    :** [ҡʏʏ](https://t.me/IDnyaKosong) \n"
         f"╰✠╼━━━━━━━━━━━━━━━━━━━✠╯")
     if ALIVE_LOGO:
         try:
@@ -341,7 +340,7 @@ async def redis(alive):
 
 @register(outgoing=True, pattern="^.aliveu")
 async def amireallyaliveuser(username):
-    """For .aliveu command, change the username in the .alive command."""
+    """ For .aliveu command, change the username in the .alive command. """
     message = username.text
     output = ".aliveu [new username] tidak boleh kosong"
     if not (message == ".aliveu" and message[7:8] != " "):
@@ -359,31 +358,29 @@ async def amireallyalivereset(ureset):
     await ureset.edit("`" "Successfully reset user for alive!" "`")
 
 
+CMD_HELP.update({
+    "system":
+    "𝘾𝙤𝙢𝙢𝙖𝙣𝙙: `.sysd`"
+    "\n↳ : Shows system information using neofetch."
+    "\n\n𝘾𝙤𝙢𝙢𝙖𝙣𝙙: `.db`"
+    "\n↳ : Shows database related info."
+    "\n\n𝘾𝙤𝙢𝙢𝙖𝙣𝙙: `.spc`"
+    "\n↳ : Show system specification."
+})
+CMD_HELP.update({
+    "alive":
+    "𝘾𝙤𝙢𝙢𝙖𝙣𝙙: `.alive` or `.on` or `rose`"
+    "\n↳ : To see whether your bot is working or not."
+    "\n\n𝘾𝙤𝙢𝙢𝙖𝙣𝙙: `.aliveu` <text>"
+    "\n↳ : Changes the 'user' in alive to the text you want."
+    "\n\n𝘾𝙤𝙢𝙢𝙖𝙣𝙙: `.restalive`"
+    "\n↳ : Resets the user to default."
+})
 CMD_HELP.update(
     {
-        "system": "𝘾𝙤𝙢𝙢𝙖𝙣𝙙: `.sysd`"
-        "\n↳ : Shows system information using neofetch."
-        "\n\n𝘾𝙤𝙢𝙢𝙖𝙣𝙙: `.db`"
-        "\n↳ : Shows database related info."
-        "\n\n𝘾𝙤𝙢𝙢𝙖𝙣𝙙: `.spc`"
-        "\n↳ : Show system specification."
-    }
-)
-CMD_HELP.update(
-    {
-        "alive": "𝘾𝙤𝙢𝙢𝙖𝙣𝙙: `.alive` or `.on` or `kyy`"
-        "\n↳ : To see whether your bot is working or not."
-        "\n\n𝘾𝙤𝙢𝙢𝙖𝙣𝙙: `.aliveu` <text>"
-        "\n↳ : Changes the 'user' in alive to the text you want."
-        "\n\n𝘾𝙤𝙢𝙢𝙖𝙣𝙙: `.restalive`"
-        "\n↳ : Resets the user to default."
-    }
-)
-CMD_HELP.update(
-    {
-        "botversion": "𝘾𝙤𝙢𝙢𝙖𝙣𝙙: `.botver`"
+        "botversion":
+        "𝘾𝙤𝙢𝙢𝙖𝙣𝙙: `.botver`"
         "\n↳ : Shows the userbot version."
         "\n\n𝘾𝙤𝙢𝙢𝙖𝙣𝙙: `.pip` <module(s)>"
         "\n↳ : Does a search of pip modules(s)."
-    }
-)
+    })
