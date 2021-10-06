@@ -67,6 +67,6 @@ async def tede_chatbot(event):
 
 
 CMD_HELP.update({
-    "chatbot": "`.chatbot` <on/off>\
+"chatbot": "`.chatbot` <on/off>\
 \nUsage: Ya chatbot."
 })
