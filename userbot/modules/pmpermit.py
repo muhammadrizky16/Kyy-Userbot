@@ -38,7 +38,7 @@ DEFAULTUSER = str(ALIVE_NAME) if ALIVE_NAME else uname().node
 CUSTOM_TEXT = str(
     PMPERMIT_TEXT) if PMPERMIT_TEXT else f"__Halo kawan, saya bot yang menjaga room chat Kyy-Userbot {DEFAULTUSER} di mohon jangan melakukan spam , kalau anda melakukan itu OTOMATIS saya akan memblockir anda!__ \n"
 )
-DEF_UNAPPROVED_MSG = (
+DEF_UNAPPROVED_MSG=(
     "╔═════════════════════╗\n"
     "“𝐖𝐞𝐥𝐜𝐨𝐦𝐞 𝐭𝐨 𝐓𝐡𝐞 𝐏𝐫𝐢𝐯𝐚𝐜𝐲 𝐌𝐞𝐬𝐬𝐚𝐠𝐞”    ”\n"
     "╚═════════════════════╝\n"
@@ -51,13 +51,13 @@ DEF_UNAPPROVED_MSG = (
 # =================================================================
 
 
-@register(incoming=True, disable_edited=True, disable_errors=True)
+@ register(incoming = True, disable_edited = True, disable_errors = True)
 async def permitpm(event):
     """Prohibits people from PMing you without approval. \
         Will block retarded nibbas automatically."""
     if not PM_AUTO_BAN:
         return
-    self_user = await event.client.get_me()
+    self_user=await event.client.get_me()
     if (
         event.is_private
         and event.chat_id != 777000
@@ -69,27 +69,27 @@ async def permitpm(event):
             from userbot.modules.sql_helper.pm_permit_sql import is_approved
         except AttributeError:
             return
-        apprv = is_approved(event.chat_id)
-        notifsoff = gvarstatus("NOTIF_OFF")
+        apprv=is_approved(event.chat_id)
+        notifsoff=gvarstatus("NOTIF_OFF")
 
         # Use user custom unapproved message
-        getmsg = gvarstatus("unapproved_msg")
+        getmsg=gvarstatus("unapproved_msg")
         if getmsg is not None:
-            UNAPPROVED_MSG = getmsg
+            UNAPPROVED_MSG=getmsg
         else:
-            UNAPPROVED_MSG = DEF_UNAPPROVED_MSG
+            UNAPPROVED_MSG=DEF_UNAPPROVED_MSG
 
         # This part basically is a sanity check
         # If the message that sent before is Unapproved Message
         # then stop sending it again to prevent FloodHit
         if not apprv and event.text != UNAPPROVED_MSG:
             if event.chat_id in LASTMSG:
-                prevmsg = LASTMSG[event.chat_id]
+                prevmsg=LASTMSG[event.chat_id]
                 # If the message doesn't same as previous one
                 # Send the Unapproved Message again
                 if event.text != prevmsg:
                     async for message in event.client.iter_messages(
-                        event.chat_id, from_user="me", search=UNAPPROVED_MSG
+                        event.chat_id, from_user = "me", search = UNAPPROVED_MSG
                     ):
                         await message.delete()
                     await event.reply(f"{UNAPPROVED_MSG}")
