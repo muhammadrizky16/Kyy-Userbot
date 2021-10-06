@@ -117,6 +117,6 @@ def user_full_name(user):
 
 
 CMD_HELP.update({
-"statme": "`.stats`\
+    "statme": "`.stats`\
 \nUsage : Count the Number of Dialogs you have in your Telegram Account."
 })
