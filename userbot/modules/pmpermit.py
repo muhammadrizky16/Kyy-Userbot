@@ -10,10 +10,8 @@ from sqlalchemy.exc import IntegrityError
 from telethon.tl.functions.contacts import BlockRequest, UnblockRequest
 from telethon.tl.functions.messages import ReportSpamRequest
 from telethon.tl.types import User
-
+from userbot.events import register
 from userbot import (
-    ALIVE_LOGO,
-    ALIVE_NAME,
     BOTLOG,
     BOTLOG_CHATID,
     CMD_HELP,
@@ -21,15 +19,14 @@ from userbot import (
     LASTMSG,
     LOGS,
     PM_AUTO_BAN,
-    PMPERMIT_PIC,
     PMPERMIT_TEXT,
+    PMPERMIT_PIC,
+    ALIVE_NAME,
 )
-from userbot.events import register
 
-if PMPERMIT_PIC is None:
-    CUSTOM_PIC = ALIVE_LOGO
-else:
-    CUSTOM_PIC = str(PMPERMIT_PIC)
+# -------------------------->
+CUSTOM_PIC = PMPERMIT_PIC
+# ---------------------+---->
 
 COUNT_PM = {}
 LASTMSG = {}
@@ -38,10 +35,8 @@ LASTMSG = {}
 # ========================= CONSTANTS ============================
 
 DEFAULTUSER = str(ALIVE_NAME) if ALIVE_NAME else uname().node
-CUSTOM_TEXT = (
-    str(PMPERMIT_TEXT)
-    if PMPERMIT_TEXT
-    else f"__Halo kawan, saya bot yang menjaga room chat Kyy-Userbot {DEFAULTUSER} di mohon jangan melakukan spam , kalau anda melakukan itu OTOMATIS saya akan memblockir anda!__ \n"
+CUSTOM_TEXT = str(
+    PMPERMIT_TEXT) if PMPERMIT_TEXT else f"__Halo kawan, saya bot yang menjaga room chat Kyy-Userbot {DEFAULTUSER} di mohon jangan melakukan spam , kalau anda melakukan itu OTOMATIS saya akan memblockir anda!__ \n"
 )
 DEF_UNAPPROVED_MSG = (
     "╔═════════════════════╗\n"
