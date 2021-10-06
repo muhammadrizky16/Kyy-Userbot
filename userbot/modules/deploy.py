@@ -58,4 +58,4 @@ async def _(event):
 
 CMD_HELP.update({"deploy": ": `.deploy`"
                  "\n↳ : Untuk Deploy ke Heroku.. <Animasi> :v haha"}
-)
+                )

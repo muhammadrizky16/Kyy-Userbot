@@ -141,8 +141,8 @@ async def typewriter(typew):
 
 
 CMD_HELP.update({
-  "toxic":
-  ".d\
+    "toxic":
+    ".d\
 \nUsage: Bacotin Orang.\
 \n\n.e\
 \nUsage: Buat Orang Yang Sok Keras.\
