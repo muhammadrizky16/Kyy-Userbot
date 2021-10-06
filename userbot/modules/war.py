@@ -56,7 +56,7 @@ async def typewriter(typew):
 async def typewriter(typew):
     typew.pattern_match.group(1)
     await typew.edit("**PASANG PP DULU NGENTOT,BIAR ORANG-ORANG PADA TAU BETAPA HINA NYA MUKA LU 😆**"
-                     )
+)
 
 
 @register(outgoing=True, pattern=r"^\.dp(?: |$)(.*)")
