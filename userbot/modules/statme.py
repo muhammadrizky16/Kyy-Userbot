@@ -11,8 +11,8 @@ from userbot import CMD_HELP
 from userbot.events import register
 
 logging.basicConfig(
-    format="[%(levelname) 5s/%(asctime)s] %(name)s: %(message)s",
-    level=logging.WARNING)
+    format="[%(levelname) 5s/%(asctime)s] %(name)s: %(message)s", level=logging.WARNING
+)
 logger = logging.getLogger(__name__)
 
 
@@ -116,6 +116,6 @@ def user_full_name(user):
 
 
 CMD_HELP.update({
-    "statme": "`.stats`\
+"statme": "`.stats`\
 \nUsage : Count the Number of Dialogs you have in your Telegram Account."
 })
