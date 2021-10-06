@@ -7,12 +7,12 @@
 
 import asyncio
 import time
+import redis
+
 from datetime import datetime
 
-import redis
 from speedtest import Speedtest
-
-from userbot import ALIVE_NAME, CMD_HELP, StartTime
+from userbot import CMD_HELP, StartTime, ALIVE_NAME
 from userbot.events import register
 
 
