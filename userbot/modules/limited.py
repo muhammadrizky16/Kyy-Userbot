@@ -26,4 +26,6 @@ async def _(event):
         await event.edit(f"~ {response.message.message}")
 
 
+
 CMD_HELP.update({"limit": "𝘾𝙤𝙢𝙢𝙖𝙣𝙙: `.limit`"
+                 "\n•: ngecek akun kena limit"})
