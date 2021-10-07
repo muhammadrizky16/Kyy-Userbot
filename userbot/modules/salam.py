@@ -39,6 +39,7 @@ CMD_HELP.update({
 \nUsage: Untuk Menjawab Salam."
 })
 
+
 CMD_HELP.update({
     "salam2":
     ".atg\
