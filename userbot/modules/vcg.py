@@ -3,6 +3,7 @@
 # Copyright (c) 2021 Kyy-userbot
 # Thanks Ultroid
 
+
 from telethon.tl.functions.channels import GetFullChannelRequest as getchat
 from telethon.tl.functions.phone import CreateGroupCallRequest as startvc
 from telethon.tl.functions.phone import DiscardGroupCallRequest as stopvc
@@ -77,13 +78,11 @@ async def _(c):
     await c.edit(f"`{z}`Berhasil Mengundang Member ke VCG")
 
 
-CMD_HELP.update(
-    {
+CMD_HELP.update({
         "calls": "𝘾𝙤𝙢𝙢𝙖𝙣𝙙: `.startvc`\
          \n↳ : Memulai Obrolan Suara.\
          \n𝘾𝙤𝙢𝙢𝙖𝙣𝙙: `.stopvc`\
          \n↳ : `Mematikan Obrolan Suarw.`\
          \n𝘾𝙤𝙢𝙢𝙖𝙣𝙙: `.vcinvite`\
          \n↳ : Mengundang Member ke Obrolan suara (kami harus bergabung)."
-    }
-)
+})
