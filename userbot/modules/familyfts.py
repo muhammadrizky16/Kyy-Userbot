@@ -45,7 +45,6 @@ async def typewriter(typew):
     await typew.edit("✅ `jesse anj`")
     sleep(1)
     await typew.edit("✨ `CUMA KYY YANG PALING SOPAN, PALING BAIK HATI DAN TIDAK SOMBONG :v` ✨")
-# Luar Angkasa
 
 
 @register(outgoing=True, pattern="^kyy(?: |$)(.*)")
@@ -124,7 +123,7 @@ async def typewriter(typew):
 
 
 CMD_HELP.update({
-    "familyfts": "𝘾𝙤𝙢𝙢𝙖𝙣𝙙: `.fts`\
+"familyfts": "𝘾𝙤𝙢𝙢𝙖𝙣𝙙: `.fts`\
     \n↳ : member fts\
     \n\n𝘾𝙤𝙢𝙢𝙖𝙣𝙙: `kyy`\
     \n↳ : Ngatain Kyy\
