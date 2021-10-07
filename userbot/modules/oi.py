@@ -3,7 +3,6 @@ from userbot.events import register
 from time import sleep
 
 
-
 @register(outgoing=True, pattern='^.kyy(?: |$)(.*)')
 async def typewriter(typew):
     typew.pattern_match.group(1)
