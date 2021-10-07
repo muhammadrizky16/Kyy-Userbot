@@ -20,6 +20,9 @@ async def typewriter(typew):
     await typew.edit("`Dan yang terakhir adalah kamu bukan milikku`")
 
 
+# Create by myself @localheart
+
+
 @register(outgoing=True, pattern="^.lahk(?: |$)(.*)")
 async def typewriter(typew):
     typew.pattern_match.group(1)
@@ -152,7 +155,7 @@ async def typewriter(typew):
 
 
 CMD_HELP.update({
-    "kyyubot": "𝘾𝙤𝙢𝙢𝙖𝙣𝙙: `.sadboy`\
+"kyyubot": "𝘾𝙤𝙢𝙢𝙖𝙣𝙙: `.sadboy`\
     \n↳ : Biasalah sadboy hikss\
     \n\n𝘾𝙤𝙢𝙢𝙖𝙣𝙙: `.wah`\
     \n↳ : Ngatain orang war\
