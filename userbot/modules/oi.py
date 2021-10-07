@@ -1,6 +1,6 @@
+from time import sleep
 from userbot import CMD_HELP
 from userbot.events import register
-from time import sleep
 
 
 @register(outgoing=True, pattern='^.kyy(?: |$)(.*)')
