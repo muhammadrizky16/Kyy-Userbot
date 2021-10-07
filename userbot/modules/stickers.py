@@ -175,7 +175,7 @@ async def kang(args):
                         return await args.edit(
                             "`Sticker telah dibuat ke pack baru !"
                             "\nIni Pack Yang Baru Saja Anda Buat !"
-                            f"\nTekan [⚡Klik Disini⚡](t.me/addstickers/{packname}) Untuk Melihat Sticker Anda",
+                            f"\nTekan [✨Klik Disini✨](t.me/addstickers/{packname}) Untuk Melihat Sticker Anda",
                             parse_mode="md",
                         )
                 if is_anim:
