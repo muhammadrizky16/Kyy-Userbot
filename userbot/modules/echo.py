@@ -1,10 +1,11 @@
 # Thanks Sandy
 # Recode By Apis
+# fixes by : @pikyus1 / sendi
 
 from userbot import CMD_HELP
 from userbot.events import register
 
-from userbot.utils import edit_delete, edit_or_reply
+from userbot.utils import edit_or_reply
 from userbot.modules.sql_helper.echo_sql import (
     addecho,
     get_all_echos,
@@ -14,7 +15,7 @@ from userbot.modules.sql_helper.echo_sql import (
     remove_echo,
     remove_echos,
 )
-from userbot.utils.event import get_user_from_event
+from userbot.utils.events import get_user_from_event
 
 
 @register(outgoing=True, pattern=r"^\.addecho(?: |$)(.*)")
