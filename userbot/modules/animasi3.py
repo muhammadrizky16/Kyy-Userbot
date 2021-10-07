@@ -1556,7 +1556,7 @@ async def fail(e):
                      "`\n▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀ `")
 
 
-@register(outgoing=True, pattern=r"^\.lol$")
+@register(outgoing=True, pattern=r"^\.lolz$")
 async def lol(e):
     if not e.text[0].isalpha() and e.text[0] not in ("/", "#", "@", "!"):
         await e.edit("`\n╱┏┓╱╱╱╭━━━╮┏┓╱╱╱╱ `"
@@ -1870,7 +1870,7 @@ CMD_HELP.update({
     "\n\n>`.decide` [Alternatif: (.yes, .no, .maybe)]"
     "\nUsage: Buat keputusan cepat."
     "\n\n> `.nou` `.bot` `.rock` `.gey` `.tf` `.paw` `.tai` `.nih`"
-    "\n> `.fag` `.gtfo`; `.stfu` `.lol` `.lool` `.fail` `.leave`"
+    "\n> `.fag` `.gtfo`; `.stfu` `.lolz` `.lool` `.fail` `.leave`"
     "\n> `.iwi` `.sayhi` `.koc` `.gas` `.earth` `.love` `.rain`"
     "\n> `.penis` `.emo` `.fuck` `.skull`  `.monyet`\nUsage: Cobain aja"
     "\n\n\n**Semoga Harimu Menyenangkan**\n"
