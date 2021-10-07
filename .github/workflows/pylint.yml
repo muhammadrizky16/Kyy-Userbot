@@ -1,13 +1,13 @@
-name: PEP8
-on:
-  push:
-    branches: [ '*' ]
+name: PyLint
+
+on: [push, pull_request]
 
 jobs:
   PEP8:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
+
       - name: Setup Python
         uses: actions/setup-python@v1
         with:
@@ -15,18 +15,14 @@ jobs:
 
       - name: Install Python lint libraries
         run: |
-          pip install autopep8 autoflake isort black
-          
+          pip install autopep8 autoflake
       - name: Check for showstoppers
         run: |
           autopep8 --verbose --in-place --recursive --aggressive --aggressive . *.py
       - name: Remove unused imports and variables
         run: |
           autoflake --in-place --recursive --remove-all-unused-imports --remove-unused-variables --ignore-init-module-imports .
-      - name: lint with isort and black
-        run: |
-          isort userbot/modules/*.py
-          black userbot/modules/*.py
+      
       # commit changes
       - uses: stefanzweifel/git-auto-commit-action@v4
         with:
