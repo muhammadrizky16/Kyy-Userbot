@@ -39,11 +39,5 @@ async def _(event):
         await event.delete()
 
 
-CMD_HELP.update(
-    {
-        "logo": "**Plugin : **`logo`\
-        \n\n  •  **Syntax :** `.logo` <text>\
-        \n  •  **Function : **Membuat logo dari Teks yang diberikan\
-    "
-    }
-)
+CMD_HELP.update({"logo": "𝘾𝙤𝙢𝙢𝙖𝙣𝙙: `.logo <text>`"
+                 "\n↳ : Hasilkan logo dari Teks atau Balas Ke gambar yang diberikan, untuk menulis teks Anda di atasnya. Atau Balas Ke File Font, Untuk menulis dengan font itu."})
