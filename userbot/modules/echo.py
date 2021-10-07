@@ -23,8 +23,8 @@ async def echo(event):
         return await edit_or_reply(
             event, "`Balas pesan Pengguna Untuk Echo Pengguna`"
         )
-    kingevent = await edit_or_reply(event, "`Menambahkan Echo ke pengguna...`")
-    user, rank = await get_user_from_event(event, kingevent, nogroup=True)
+    kyyevent = await edit_or_reply(event, "`Menambahkan Echo ke pengguna...`")
+    user, rank = await get_user_from_event(event, kyyevent, nogroup=True)
     if not user:
         return
     reply_msg = await event.get_reply_message()
@@ -49,9 +49,9 @@ async def echo(event):
             user_username,
             chat_type)
     except Exception as e:
-        await edit_delete(kingevent, f"**Error :**\n`{str(e)}`")
+        await edit_delete(kyyevent, f"**Error :**\n`{str(e)}`")
     else:
-        await edit_or_reply(kingevent, "**Sukses**")
+        await edit_or_reply(kyyevent, "**Sukses**")
 
 
 @register(outgoing=True, pattern=r"^\.rmecho(?: |$)(.*)")
@@ -67,7 +67,7 @@ async def echo(event):
         try:
             remove_echo(chat_id, user_id)
         except Exception as e:
-            await edit_delete(kingevent, f"**Error :**\n`{str(e)}`")
+            await edit_delete(kyyevent, f"**Error :**\n`{str(e)}`")
         else:
             await edit_or_reply(event, "Echo Pengguna Telah Dihentikan")
     else:
