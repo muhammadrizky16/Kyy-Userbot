@@ -123,7 +123,7 @@ async def typewriter(typew):
 
 
 CMD_HELP.update({
-"familyfts": "𝘾𝙤𝙢𝙢𝙖𝙣𝙙: `.fts`\
+    "familyfts": "𝘾𝙤𝙢𝙢𝙖𝙣𝙙: `.fts`\
     \n↳ : member fts\
     \n\n𝘾𝙤𝙢𝙢𝙖𝙣𝙙: `kyy`\
     \n↳ : Ngatain Kyy\
