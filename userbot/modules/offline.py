@@ -89,9 +89,8 @@ async def set_not_afk(event):
         os.system("rm -rf *.jpg")
 
 
-@bot.on(
-    events.NewMessage(incoming=True, func=lambda e: bool(e.mentioned or e.is_private))
-)
+@bot.on(events.NewMessage(incoming=True,
+                          func=lambda e: bool(e.mentioned or e.is_private)))
 async def on_afk(event):
     if event.fwd_from:
         return
@@ -112,8 +111,7 @@ async def on_afk(event):
         if reason:
             message_to_reply = (
                 f"𝙋𝙀𝙎𝘼𝙉 𝙊𝙏𝙊𝙈𝘼𝙏𝙄𝙎\n\n╭┈──────────────┈\n**▸ {ALIVE_NAME} ꜱᴇᴅᴀɴɢ ᴏꜰꜰʟɪɴᴇ**\n"
-                f"**▸ ᴋᴀʀᴇɴᴀ :** `{reason}`\n╰┈───────────┈"
-            )
+                f"**▸ ᴋᴀʀᴇɴᴀ :** `{reason}`\n╰┈───────────┈")
         else:
             message_to_reply = f"𝙋𝙀𝙎𝘼𝙉 𝙊𝙏𝙊𝙈𝘼𝙏𝙄𝙎\n\n╭┈──────────────┈\n**▸ {ALIVE_NAME} ꜱᴇᴅᴀɴɢ ᴏꜰꜰʟɪɴᴇ**\n╰┈───────────┈"
         try:
@@ -254,9 +252,5 @@ async def _(event):
             BOTLOG_CHATIDger.warn(str(e))
 
 
-CMD_HELP.update(
-    {
-        "off": ".off (reason) atau balas media untuk itu "
-        "\nPenggunaan afk bisa dengan media keren ketika seseorang menandai atau membalas salah satu pesan atau chat pribadi Anda."
-    }
-)
+CMD_HELP.update({"off": ".off (reason) atau balas media untuk itu "
+                 "\nPenggunaan afk bisa dengan media keren ketika seseorang menandai atau membalas salah satu pesan atau chat pribadi Anda."})

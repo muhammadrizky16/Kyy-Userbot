@@ -19,7 +19,8 @@ async def stickerpack_spam(event):
     if event.fwd_from:
         return
     reply = await event.get_reply_message()
-    if not reply or media_type(reply) is None or media_type(reply) != "Sticker":
+    if not reply or media_type(
+            reply) is None or media_type(reply) != "Sticker":
         return await event.edit(
             "`reply to any sticker to send all stickers in that pack`"
         )

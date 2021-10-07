@@ -131,7 +131,9 @@ async def carbon_api(e):
     chrome_options.add_argument("--disable-gpu")
     prefs = {"download.default_directory": "/root/userbot/.bin"}
     chrome_options.add_experimental_option("prefs", prefs)
-    driver = webdriver.Chrome(executable_path=CHROME_DRIVER, options=chrome_options)
+    driver = webdriver.Chrome(
+        executable_path=CHROME_DRIVER,
+        options=chrome_options)
     driver.get(url)
     await e.edit("`Processing..\n50%`")
     download_path = "/root/userbot/.bin"
@@ -211,8 +213,7 @@ async def moni(event):
             currency_from = input_sgra[1].upper()
             currency_to = input_sgra[2].upper()
             request_url = "https://api.exchangeratesapi.io/latest?base={}".format(
-                currency_from
-            )
+                currency_from)
             current_response = get(request_url).json()
             if currency_to in current_response["rates"]:
                 current_rate = float(current_response["rates"][currency_to])
@@ -393,13 +394,15 @@ async def imdb(e):
         movie_name = e.pattern_match.group(1)
         remove_space = movie_name.split(" ")
         final_name = "+".join(remove_space)
-        page = get("https://www.imdb.com/find?ref_=nv_sr_fn&q=" + final_name + "&s=all")
+        page = get(
+            "https://www.imdb.com/find?ref_=nv_sr_fn&q=" +
+            final_name +
+            "&s=all")
         soup = BeautifulSoup(page.content, "lxml")
         odds = soup.findAll("tr", "odd")
         mov_title = odds[0].findNext("td").findNext("td").text
-        mov_link = (
-            "http://www.imdb.com/" + odds[0].findNext("td").findNext("td").a["href"]
-        )
+        mov_link = ("http://www.imdb.com/" +
+                    odds[0].findNext("td").findNext("td").a["href"])
         page1 = get(mov_link)
         soup = BeautifulSoup(page1.content, "lxml")
         if soup.find("div", "poster"):
@@ -431,7 +434,8 @@ async def imdb(e):
             actors.pop()
             stars = actors[0] + "," + actors[1] + "," + actors[2]
         if soup.find("div", "inline canwrap"):
-            story_line = soup.find("div", "inline canwrap").findAll("p")[0].text
+            story_line = soup.find(
+                "div", "inline canwrap").findAll("p")[0].text
         else:
             story_line = "Not available"
         info = soup.findAll("div", "txt-block")
@@ -733,13 +737,11 @@ async def capture(url):
     height = driver.execute_script(
         "return Math.max(document.body.scrollHeight, document.body.offsetHeight, "
         "document.documentElement.clientHeight, document.documentElement.scrollHeight, "
-        "document.documentElement.offsetHeight);"
-    )
+        "document.documentElement.offsetHeight);")
     width = driver.execute_script(
         "return Math.max(document.body.scrollWidth, document.body.offsetWidth, "
         "document.documentElement.clientWidth, document.documentElement.scrollWidth, "
-        "document.documentElement.offsetWidth);"
-    )
+        "document.documentElement.offsetWidth);")
     driver.set_window_size(width + 125, height + 125)
     wait_for = height / 1000
     await url.edit(
@@ -882,11 +884,11 @@ async def get_dogbin_content(dog_url):
     format_view = f"{DOGBIN_URL}v/"
 
     if message.startswith(format_view):
-        message = message[len(format_view) :]
+        message = message[len(format_view):]
     elif message.startswith(format_normal):
-        message = message[len(format_normal) :]
+        message = message[len(format_normal):]
     elif message.startswith("del.dog/"):
-        message = message[len("del.dog/") :]
+        message = message[len("del.dog/"):]
     else:
         return await dog_url.edit("`Is that even a dogbin url?`")
 
@@ -910,8 +912,8 @@ async def get_dogbin_content(dog_url):
         return
 
     reply_text = (
-        "`Fetched dogbin URL content successfully!`" "\n\n`Content:` " + resp.text
-    )
+        "`Fetched dogbin URL content successfully!`"
+        "\n\n`Content:` " + resp.text)
 
     await dog_url.edit(reply_text)
     if BOTLOG:
@@ -1114,7 +1116,8 @@ async def direct_link_generator(request):
         elif "androidfilehost.com" in link:
             reply += androidfilehost(link)
         else:
-            reply += re.findall(r"\bhttps?://(.*?[^/]+)", link)[0] + "is not supported"
+            reply += re.findall(r"\bhttps?://(.*?[^/]+)",
+                                link)[0] + "is not supported"
     await request.edit(reply)
 
 
@@ -1183,7 +1186,8 @@ def zippy_share(url: str) -> str:
             math = re.search(
                 r"= (?P<url>\".+\" \+ (?P<math>\(.+\)) .+);", script.text
             ).group("math")
-            dl_url = url_raw.replace(math, '"' + str(ast.literal_eval(math)) + '"')
+            dl_url = url_raw.replace(math,
+                                     '"' + str(ast.literal_eval(math)) + '"')
             break
     dl_url = base_url + ast.literal_eval(dl_url)
     name = urllib.parse.unquote(dl_url.split("/")[-1])
@@ -1285,7 +1289,11 @@ def osdn(url: str) -> str:
     except IndexError:
         reply = "`No OSDN links found`\n"
         return reply
-    page = BeautifulSoup(requests.get(link, allow_redirects=True).content, "lxml")
+    page = BeautifulSoup(
+        requests.get(
+            link,
+            allow_redirects=True).content,
+        "lxml")
     info = page.find("a", {"class": "mirror_link"})
     link = urllib.parse.unquote(osdn_link + info["href"])
     reply = f"Mirrors for __{link.split('/')[-1]}__\n"
@@ -1341,7 +1349,10 @@ def androidfilehost(url: str) -> str:
         "authority": "androidfilehost.com",
         "x-requested-with": "XMLHttpRequest",
     }
-    data = {"submit": "submit", "action": "getdownloadmirrors", "fid": f"{fid}"}
+    data = {
+        "submit": "submit",
+        "action": "getdownloadmirrors",
+        "fid": f"{fid}"}
     mirrors = None
     reply = ""
     error = "`Error: Can't find Mirrors for the link`\n"
@@ -1443,7 +1454,8 @@ async def bq(event):
 
     bar_code_type = "code128"
     try:
-        bar_code_mode_f = barcode.get(bar_code_type, message, writer=ImageWriter())
+        bar_code_mode_f = barcode.get(
+            bar_code_type, message, writer=ImageWriter())
         filename = bar_code_mode_f.save(bar_code_type)
         await event.client.send_file(event.chat_id, filename, reply_to=reply_msg_id)
         os.remove(filename)

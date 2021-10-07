@@ -356,6 +356,4 @@ CMD_HELP.update(
         "\n\n𝘾𝙤𝙢𝙢𝙖𝙣𝙙: `.stkrinfo`"
         "\n↳ : Dapatkan Informasi Pack Sticker."
         "\n\n𝘾𝙤𝙢𝙢𝙖𝙣𝙙: `.get`"
-        "\n↳ : Balas Ke Stcker Untuk Mendapatkan File 'PNG' Sticker."
-    }
-)
+        "\n↳ : Balas Ke Stcker Untuk Mendapatkan File 'PNG' Sticker."})

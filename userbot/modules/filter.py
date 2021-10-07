@@ -27,7 +27,8 @@ async def filter_incoming_handler(handler):
             if not filters:
                 return
             for trigger in filters:
-                pattern = r"( |^|[^\w])" + escape(trigger.keyword) + r"( |$|[^\w])"
+                pattern = r"( |^|[^\w])" + \
+                    escape(trigger.keyword) + r"( |$|[^\w])"
                 pro = search(pattern, name, flags=IGNORECASE)
                 if pro and trigger.f_mesg_id:
                     msg_o = await handler.client.get_messages(

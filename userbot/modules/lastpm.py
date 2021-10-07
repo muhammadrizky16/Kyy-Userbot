@@ -64,7 +64,9 @@ async def last_fm(lastFM):
     username = f"https://www.last.fm/user/{LASTFM_USERNAME}"
     if playing is not None:
         try:
-            image = User(LASTFM_USERNAME, lastfm).get_now_playing().get_cover_image()
+            image = User(
+                LASTFM_USERNAME,
+                lastfm).get_now_playing().get_cover_image()
         except IndexError:
             image = None
         tags = await gettags(isNowPlaying=True, playing=playing)
@@ -73,8 +75,7 @@ async def last_fm(lastFM):
         if image:
             output = (
                 f"[‎]({image})[{LASTFM_USERNAME}]({username}) __is now listening to:"
-                f"__\n\n• [{playing}]({rectrack})\n`{tags}`"
-            )
+                f"__\n\n• [{playing}]({rectrack})\n`{tags}`")
             preview = True
         else:
             output = (
@@ -226,13 +227,9 @@ async def lastlog(lstlog):
         await lstlog.edit(LFM_LOG_ERR)
 
 
-CMD_HELP.update(
-    {
-        "lastfm": ">`.lastfm`"
-        "\nUsage: Shows currently scrobbling track or most recent scrobbles if nothing is playing."
-        "\n\n>`.lastbio <on/off>`"
-        "\nUsage: Enables/Disables last.fm current playing to bio."
-        "\n\n>`.lastlog <on/off>`"
-        "\nUsage: Enable/Disable last.fm bio logging in the bot-log group."
-    }
-)
+CMD_HELP.update({"lastfm": ">`.lastfm`"
+                 "\nUsage: Shows currently scrobbling track or most recent scrobbles if nothing is playing."
+                 "\n\n>`.lastbio <on/off>`"
+                 "\nUsage: Enables/Disables last.fm current playing to bio."
+                 "\n\n>`.lastlog <on/off>`"
+                 "\nUsage: Enable/Disable last.fm bio logging in the bot-log group."})

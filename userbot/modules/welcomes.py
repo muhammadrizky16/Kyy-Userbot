@@ -185,6 +185,4 @@ CMD_HELP.update(
         "\n\n>`.checkwelcome`"
         "\nUsage: Check pesan welcome yang anda simpan."
         "\n\n>`.rmwelcome`"
-        "\nUsage: Menghapus pesan welcome yang anda simpan."
-    }
-)
+        "\nUsage: Menghapus pesan welcome yang anda simpan."})

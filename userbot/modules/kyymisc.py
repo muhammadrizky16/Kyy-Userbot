@@ -111,13 +111,21 @@ async def apk(e):
         soup = bs4.BeautifulSoup(page.content, "lxml", from_encoding="utf-8")
         results = soup.findAll("div", "ZmHEEd")
         app_name = (
-            results[0].findNext("div", "Vpfmgd").findNext("div", "WsMG1c nnK0zc").text
-        )
-        app_dev = results[0].findNext("div", "Vpfmgd").findNext("div", "KoLSrc").text
+            results[0].findNext(
+                "div",
+                "Vpfmgd").findNext(
+                "div",
+                "WsMG1c nnK0zc").text)
+        app_dev = results[0].findNext(
+            "div", "Vpfmgd").findNext(
+            "div", "KoLSrc").text
         app_dev_link = (
-            "https://play.google.com"
-            + results[0].findNext("div", "Vpfmgd").findNext("a", "mnKHRc")["href"]
-        )
+            "https://play.google.com" +
+            results[0].findNext(
+                "div",
+                "Vpfmgd").findNext(
+                "a",
+                "mnKHRc")["href"])
         app_rating = (
             results[0]
             .findNext("div", "Vpfmgd")
@@ -235,8 +243,10 @@ async def _(event):
         else:
             xkcd_search_url = "https://relevantxkcd.appspot.com/process?"
             queryresult = requests.get(
-                xkcd_search_url, params={"action": "xkcd", "query": quote(input_str)}
-            ).text
+                xkcd_search_url,
+                params={
+                    "action": "xkcd",
+                    "query": quote(input_str)}).text
             xkcd_id = queryresult.split(" ")[2].lstrip("\n")
     if xkcd_id is None:
         xkcd_url = "https://xkcd.com/info.0.json"
@@ -612,7 +622,9 @@ async def get_full_user(event):
         if event.message.entities is not None:
             mention_entity = event.message.entities
             probable_user_mention_entity = mention_entity[0]
-            if isinstance(probable_user_mention_entity, MessageEntityMentionName):
+            if isinstance(
+                    probable_user_mention_entity,
+                    MessageEntityMentionName):
                 user_id = probable_user_mention_entity.user_id
                 replied_user = await event.client(GetFullUserRequest(user_id))
                 return replied_user, None
@@ -972,7 +984,8 @@ async def cursive2(cursivebolded):
     string = "".join(args).lower()
     for normiecharacter in string:
         if normiecharacter in normiefont:
-            cursiveboldcharacter = cursiveboldx[normiefont.index(normiecharacter)]
+            cursiveboldcharacter = cursiveboldx[normiefont.index(
+                normiecharacter)]
             string = string.replace(normiecharacter, cursiveboldcharacter)
     await cursivebolded.edit(string)
 

@@ -223,6 +223,4 @@ CMD_HELP.update(
         "\n\n𝘾𝙤𝙢𝙢𝙖𝙣𝙙: `.listf`"
         "\n↳ : Lists all connected federations by specified name."
         "\n\n𝘾𝙤𝙢𝙢𝙖𝙣𝙙: `.clearf`"
-        "\n↳ : Disconnects from all connected federations. Use it carefully."
-    }
-)
+        "\n↳ : Disconnects from all connected federations. Use it carefully."})

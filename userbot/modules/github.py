@@ -46,6 +46,5 @@ async def github(event):
                 await event.edit(REPLY)
 
 
-CMD_HELP.update(
-    {"github": ">`.git <username>`" "\nUsage: Like .whois but for GitHub usernames."}
-)
+CMD_HELP.update({"github": ">`.git <username>`"
+                 "\nUsage: Like .whois but for GitHub usernames."})

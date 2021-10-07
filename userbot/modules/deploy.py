@@ -56,6 +56,5 @@ async def _(event):
         await event.edit(animation_chars[i % 22])
 
 
-CMD_HELP.update(
-    {"deploy": ": `.deploy`" "\n↳ : Untuk Deploy ke Heroku.. <Animasi> :v haha"}
-)
+CMD_HELP.update({"deploy": ": `.deploy`"
+                 "\n↳ : Untuk Deploy ke Heroku.. <Animasi> :v haha"})
