@@ -1,3 +1,4 @@
+from userbot import ALIVE_NAME, BOTLOG, BOTLOG_CHATID, CMD_HELP, UPSTREAM_REPO_URL, bot
 from random import randint
 from time import sleep
 from os import execl
@@ -267,24 +268,6 @@ async def scam(results, lim):
     return imglinks
 
 
-import asyncio
-import io
-import os
-import re
-import sys
-import urllib
-from os import execl
-from random import randint
-from time import sleep
-
-import requests
-from bs4 import BeautifulSoup
-from PIL import Image
-
-from userbot import ALIVE_NAME, BOTLOG, BOTLOG_CHATID, CMD_HELP, UPSTREAM_REPO_URL, bot
-from userbot.events import register
-from userbot.utils import time_formatter
-
 # ================= CONSTANT =================
 DEFAULTUSER = str(ALIVE_NAME) if ALIVE_NAME else uname().node
 REPOLINK = (
@@ -451,8 +434,17 @@ async def okgoogle(img):
         image.close()
         # https://stackoverflow.com/questions/23270175/google-reverse-image-search-using-post-request#28792943
         searchUrl = "https://www.google.com/searchbyimage/upload"
-        multipart = {"encoded_image": (name, open(name, "rb")), "image_content": ""}
-        response = requests.post(searchUrl, files=multipart, allow_redirects=False)
+        multipart = {
+            "encoded_image": (
+                name,
+                open(
+                    name,
+                    "rb")),
+            "image_content": ""}
+        response = requests.post(
+            searchUrl,
+            files=multipart,
+            allow_redirects=False)
         fetchUrl = response.headers["Location"]
 
         if response != 400:
@@ -507,9 +499,8 @@ async def ParseSauce(googleurl):
 
     try:
         for similar_image in soup.findAll("input", {"class": "gLFyf"}):
-            url = "https://www.google.com/search?tbm=isch&q=" + urllib.parse.quote_plus(
-                similar_image.get("value")
-            )
+            url = "https://www.google.com/search?tbm=isch&q=" + \
+                urllib.parse.quote_plus(similar_image.get("value"))
             results["similar_images"] = url
     except BaseException:
         pass

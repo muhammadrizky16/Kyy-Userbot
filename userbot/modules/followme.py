@@ -19,6 +19,6 @@ async def usit(e):
 
 
 CMD_HELP.update({
-  "followme": "`.follow`\
+    "followme": "`.follow`\
   \nUsage: Difollow dan Join tod."
 })

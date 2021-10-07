@@ -4,9 +4,9 @@ from userbot.events import register
 
 # ================= CONSTANT =================
 DEFAULTUSER = str(ALIVE_NAME) if ALIVE_NAME else uname().nod
+
+
 @register(outgoing=True, pattern="^.d(?: |$)(.*)")
-
-
 async def typewriter(typew):
     typew.pattern_match.group(1)
     await typew.edit("**BACOT NGENTOTTT!!BAPA LU SURUH RIBUT SAMA GUA**")
