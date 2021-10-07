@@ -3,7 +3,7 @@
 # Licensed under the Raphielscape Public License, Version 1.c (the "License");
 # you may not use this file except in compliance with the License.
 # Fixes By @IDnyaKosong:)
-# From Kyy-Project
+# From Geez-Project
 """Userbot module for keeping control who PM you."""
 
 from sqlalchemy.exc import IntegrityError
@@ -19,14 +19,17 @@ from userbot import (
     LASTMSG,
     LOGS,
     PM_AUTO_BAN,
+    ALIVE_NAME,
     PMPERMIT_TEXT,
     PMPERMIT_PIC,
-    ALIVE_NAME,
+    ALIVE_LOGO,
 )
 
-# -------------------------->
-CUSTOM_PIC = PMPERMIT_PIC
-# ---------------------+---->
+
+if PMPERMIT_PIC is None:
+    CUSTOM_PIC = ALIVE_LOGO
+else:
+    CUSTOM_PIC = str(PMPERMIT_PIC)
 
 COUNT_PM = {}
 LASTMSG = {}
@@ -37,8 +40,7 @@ LASTMSG = {}
 DEFAULTUSER = str(ALIVE_NAME) if ALIVE_NAME else uname().node
 CUSTOM_TEXT = str(
     PMPERMIT_TEXT) if PMPERMIT_TEXT else f"__Halo kawan, saya bot yang menjaga room chat Kyy-Userbot {DEFAULTUSER} di mohon jangan melakukan spam , kalau anda melakukan itu OTOMATIS saya akan memblockir anda!__ \n"
-)
-DEF_UNAPPROVED_MSG=(
+DEF_UNAPPROVED_MSG = (
     "╔═════════════════════╗\n"
     "“𝐖𝐞𝐥𝐜𝐨𝐦𝐞 𝐭𝐨 𝐓𝐡𝐞 𝐏𝐫𝐢𝐯𝐚𝐜𝐲 𝐌𝐞𝐬𝐬𝐚𝐠𝐞”    ”\n"
     "╚═════════════════════╝\n"
