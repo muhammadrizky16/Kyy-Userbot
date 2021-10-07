@@ -14,14 +14,14 @@ import random
 
 from telethon.errors.rpcerrorlist import (
     UserAlreadyParticipantError,
+    UserNotMutualContactError,
     UserPrivacyRestrictedError,
-    UserNotMutualContactError
 )
-
-from userbot.events import register
-from userbot import CMD_HELP
 from telethon.tl.functions.channels import InviteToChannelRequest
 from telethon.tl.types import InputPeerUser
+
+from userbot import CMD_HELP
+from userbot.events import register
 
 
 @register(outgoing=True, pattern=r"^\.getmemb$")
@@ -49,7 +49,7 @@ async def admem(event):
         rows = csv.reader(f, delimiter=",", lineterminator="\n")
         next(rows, None)
         for row in rows:
-            user = {'id': int(row[0]), 'hash': int(row[1])}
+            user = {"id": int(row[0]), "hash": int(row[1])}
             users.append(user)
     n = 0
     for user in users:
@@ -58,7 +58,7 @@ async def admem(event):
             await event.edit(f"**Mencapai 30 anggota, tunggu selama {900/60} menit**")
             await asyncio.sleep(900)
         try:
-            userin = InputPeerUser(user['id'], user['hash'])
+            userin = InputPeerUser(user["id"], user["hash"])
             await event.client(InviteToChannelRequest(chat, [userin]))
             await asyncio.sleep(random.randrange(5, 7))
             await event.edit(f"`Prosess Menambahkan {n} Member...`")
@@ -76,11 +76,12 @@ async def admem(event):
             continue
 
 
-CMD_HELP.update({
-    "scraper":
-    "𝘾𝙤𝙢𝙢𝙖𝙣𝙙: `.getmemb`\
+CMD_HELP.update(
+    {
+        "scraper": "𝘾𝙤𝙢𝙢𝙖𝙣𝙙: `.getmemb`\
    \nUsage : Mengumpulkan Anggota dari Obrolan\
    \n\n𝘾𝙤𝙢𝙢𝙖𝙣𝙙: `.addmemb`\
    \nUsage : Menambahkan Anggota ke Obrolan\
    \nTata Cara Menggunakannya:  Pertama, Anda harus melakukan .getmemb terlebih dahulu dari Obrolan. Lalu buka grup Anda dan ketik .addmemb untuk menambahkan mereka ke grup Anda."
-})
+    }
+)

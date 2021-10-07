@@ -1,16 +1,17 @@
 # Ported By @VckyouuBitch From Geez - Projects
 # Copyright © Team Geez - Project
 
-from telethon.tl import functions
-from telethon.tl.functions.messages import GetFullChatRequest
 from telethon.errors import (
     ChannelInvalidError,
     ChannelPrivateError,
-    ChannelPublicGroupNaError)
+    ChannelPublicGroupNaError,
+)
+from telethon.tl import functions
 from telethon.tl.functions.channels import GetFullChannelRequest
+from telethon.tl.functions.messages import GetFullChatRequest
 
-from userbot.events import register
 from userbot import CMD_HELP
+from userbot.events import register
 
 
 async def get_chatinfo(event):
@@ -37,7 +38,9 @@ async def get_chatinfo(event):
             await event.reply("`Invalid channel/group`")
             return None
         except ChannelPrivateError:
-            await event.reply("`This is a private channel/group or I am banned from there`")
+            await event.reply(
+                "`This is a private channel/group or I am banned from there`"
+            )
             return None
         except ChannelPublicGroupNaError:
             await event.reply("`Channel or supergroup doesn't exist`")
@@ -62,24 +65,33 @@ async def get_users(event):
         return await geez.edit("`Sorry, Can add users here`")
     s = 0
     f = 0
-    error = 'None'
+    error = "None"
 
     await geez.edit("**TerminalStatus**\n\n`Collecting Users.......`")
     async for user in event.client.iter_participants(geezteam.full_chat.id):
         try:
             if error.startswith("Too"):
-                return await geez.edit(f"**Terminal Finished With Error**\n(`May Got Limit Error from telethon Please try agin Later`)\n**Error** : \n`{error}`\n\n• Invited `{s}` people \n• Failed to Invite `{f}` people")
-            await event.client(functions.channels.InviteToChannelRequest(channel=chat, users=[user.id]))
+                return await geez.edit(
+                    f"**Terminal Finished With Error**\n(`May Got Limit Error from telethon Please try agin Later`)\n**Error** : \n`{error}`\n\n• Invited `{s}` people \n• Failed to Invite `{f}` people"
+                )
+            await event.client(
+                functions.channels.InviteToChannelRequest(channel=chat, users=[user.id])
+            )
             s = s + 1
-            await geez.edit(f"**Terminal Running...**\n\n• Invited `{s}` people \n• Failed to Invite `{f}` people\n\n**× LastError:** `{error}`")
+            await geez.edit(
+                f"**Terminal Running...**\n\n• Invited `{s}` people \n• Failed to Invite `{f}` people\n\n**× LastError:** `{error}`"
+            )
         except Exception as e:
             error = str(e)
             f = f + 1
-    return await geez.edit(f"**Terminal Finished** \n\n• Successfully Invited `{s}` people \n• failed to invite `{f}` people")
+    return await geez.edit(
+        f"**Terminal Finished** \n\n• Successfully Invited `{s}` people \n• failed to invite `{f}` people"
+    )
 
 
-CMD_HELP.update({
-    "inviteall":
-        "𝘾𝙤𝙢𝙢𝙖𝙣𝙙: `.inviteall groups username`\
+CMD_HELP.update(
+    {
+        "inviteall": "𝘾𝙤𝙢𝙢𝙖𝙣𝙙: `.inviteall groups username`\
           \n📌 : __Scrapes users from the given chat to your group__."
-})
+    }
+)

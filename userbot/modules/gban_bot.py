@@ -4,8 +4,10 @@ Available Commands:
 .gban REASON
 .ungban REASON"""
 import asyncio
-from userbot.events import register
+
 from userbot import ALIVE_NAME, CMD_HELP, G_BAN_LOGGER_GROUP, bot
+from userbot.events import register
+
 # imported from uniborg by @heyworld
 
 # ================= CONSTANT =================
@@ -29,7 +31,7 @@ async def _(event):
             r_from_id = r.from_id
         await bot.send_message(
             G_BAN_LOGGER_GROUP,
-            "/gban [user](tg://user?id={}) {}".format(r_from_id, reason)
+            "/gban [user](tg://user?id={}) {}".format(r_from_id, reason),
         )
     await event.delete()
     await event.reply("**gbanning...**")
@@ -52,7 +54,7 @@ async def _(event):
         r_from_id = r.from_id
         await bot.send_message(
             G_BAN_LOGGER_GROUP,
-            "/ungban [user](tg://user?id={}) {}".format(r_from_id, reason)
+            "/ungban [user](tg://user?id={}) {}".format(r_from_id, reason),
         )
     await event.delete()
     await event.reply("**ungbanning...**")
@@ -62,9 +64,11 @@ async def _(event):
     await event.delete()
 
 
-CMD_HELP.update({
-    "gbanbot": "`.gbanb`\
+CMD_HELP.update(
+    {
+        "gbanbot": "`.gbanb`\
     \nUsage: globally Ban Bot.\
     \n\n`.ungbanb` :\
     \nUsage: Cancel globally Ban Bot."
-})
+    }
+)

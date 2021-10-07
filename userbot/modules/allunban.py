@@ -1,11 +1,9 @@
 # Port By @VckyouuBitch From GeezProjects
 # Copyright © 2021 Geez-Projects
-from telethon.tl.types import (
-    ChannelParticipantsKicked,
-)
+from telethon.tl.types import ChannelParticipantsKicked
 
-from userbot.events import register
 from userbot import CMD_HELP
+from userbot.events import register
 
 
 @register(outgoing=True, pattern=r"^\.allunban(?: |$)(.*)", groups_only=True)

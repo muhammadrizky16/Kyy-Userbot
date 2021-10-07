@@ -1,5 +1,5 @@
-from userbot.events import register
 from userbot import CMD_HELP
+from userbot.events import register
 
 # Ported By @VckyouuBitch From GeezProject
 # Devoted To GeezProject
@@ -33,8 +33,10 @@ async def remoteaccess(event):
     except BaseException:
         await event.edit("**Terjadi Error. Gagal Mengirim Pesan.**")
 
+
 CMD_HELP.update(
     {
         "message": "`.dm`\
     \nMengirim Pesan Dengan Jarak Jauh Dengan .dm <username> <pesan>."
-    })
+    }
+)

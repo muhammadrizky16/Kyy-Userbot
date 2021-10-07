@@ -1,9 +1,10 @@
 from time import sleep
+
 from userbot import CMD_HELP
 from userbot.events import register
 
 
-@register(outgoing=True, pattern='^.ngentot(?: |$)(.*)')
+@register(outgoing=True, pattern="^.ngentot(?: |$)(.*)")
 async def typewriter(typew):
     typew.pattern_match.group(1)
     sleep(1)
@@ -26,10 +27,12 @@ async def typewriter(typew):
     await typew.edit("**SAMA ORANG LAIN**")
     sleep(1)
     await typew.edit("**HAHAHAHA**")
+
+
 # Create by myself @localheart
 
 
-@register(outgoing=True, pattern='^.goblok(?: |$)(.*)')
+@register(outgoing=True, pattern="^.goblok(?: |$)(.*)")
 async def typewriter(typew):
     typew.pattern_match.group(1)
     sleep(1)
@@ -52,10 +55,12 @@ async def typewriter(typew):
     await typew.edit("**EHHH SANGE NYA MAU DAPAT YANG CANTIK**")
     sleep(1)
     await typew.edit("**HAHAHAHA**")
+
+
 # Create by myself @localheart
 
 
-@register(outgoing=True, pattern='^.ngatain(?: |$)(.*)')
+@register(outgoing=True, pattern="^.ngatain(?: |$)(.*)")
 async def typewriter(typew):
     typew.pattern_match.group(1)
     sleep(1)
@@ -78,14 +83,17 @@ async def typewriter(typew):
     await typew.edit("**EHHH SANGE NYA MAU DAPAT YANG CANTIK**")
     sleep(1)
     await typew.edit("**HAHAHAHA**")
+
+
 # Create by myself @localheart
 
-CMD_HELP.update({
-    "toxic2":
-    "𝘾𝙤𝙢𝙢𝙖𝙣𝙙: `.ngentot`\
+CMD_HELP.update(
+    {
+        "toxic2": "𝘾𝙤𝙢𝙢𝙖𝙣𝙙: `.ngentot`\
     \n↳ : Lu Coba Sendiri Aja."
-    "𝘾𝙤𝙢𝙢𝙖𝙣𝙙: `.goblok`\
+        "𝘾𝙤𝙢𝙢𝙖𝙣𝙙: `.goblok`\
     \n↳ : Lu Coba Sendiri Aja."
-    "𝘾𝙤𝙢𝙢𝙖𝙣𝙙: `.ngatain`\
+        "𝘾𝙤𝙢𝙢𝙖𝙣𝙙: `.ngatain`\
     \n↳ : Lu Coba Sendiri Aja."
-})
+    }
+)

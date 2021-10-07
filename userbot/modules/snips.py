@@ -4,16 +4,13 @@
 # you may not use this file except in compliance with the License.
 """ Userbot module containing commands for keeping global notes. """
 
+from userbot import BOTLOG_CHATID, CMD_HELP
 from userbot.events import register
-from userbot import CMD_HELP, BOTLOG_CHATID
 
 
-@register(outgoing=True,
-          pattern=r"\$\w*",
-          ignore_unsafe=True,
-          disable_errors=True)
+@register(outgoing=True, pattern=r"\$\w*", ignore_unsafe=True, disable_errors=True)
 async def on_snip(event):
-    """ Snips logic. """
+    """Snips logic."""
     try:
         from userbot.modules.sql_helper.snips_sql import get_snip
     except AttributeError:
@@ -24,23 +21,23 @@ async def on_snip(event):
     if not message_id_to_reply:
         message_id_to_reply = None
     if snip and snip.f_mesg_id:
-        msg_o = await event.client.get_messages(entity=BOTLOG_CHATID,
-                                                ids=int(snip.f_mesg_id))
-        await event.client.send_message(event.chat_id,
-                                        msg_o.message,
-                                        reply_to=message_id_to_reply,
-                                        file=msg_o.media)
+        msg_o = await event.client.get_messages(
+            entity=BOTLOG_CHATID, ids=int(snip.f_mesg_id)
+        )
+        await event.client.send_message(
+            event.chat_id, msg_o.message, reply_to=message_id_to_reply, file=msg_o.media
+        )
         await event.delete()
     elif snip and snip.reply:
-        await event.client.send_message(event.chat_id,
-                                        snip.reply,
-                                        reply_to=message_id_to_reply)
+        await event.client.send_message(
+            event.chat_id, snip.reply, reply_to=message_id_to_reply
+        )
         await event.delete()
 
 
 @register(outgoing=True, pattern=r"^.snip (\w*)")
 async def on_snip_save(event):
-    """ For .snip command, saves snips for future use. """
+    """For .snip command, saves snips for future use."""
     try:
         from userbot.modules.sql_helper.snips_sql import add_snip
     except AtrributeError:
@@ -53,15 +50,14 @@ async def on_snip_save(event):
     if msg and msg.media and not string:
         if BOTLOG_CHATID:
             await event.client.send_message(
-                BOTLOG_CHATID, f"#SNIP\
+                BOTLOG_CHATID,
+                f"#SNIP\
             \nKEYWORD: {keyword}\
-            \n\nThe following message is saved as the data for the snip, please do NOT delete it !!"
+            \n\nThe following message is saved as the data for the snip, please do NOT delete it !!",
             )
             msg_o = await event.client.forward_messages(
-                entity=BOTLOG_CHATID,
-                messages=msg,
-                from_peer=event.chat_id,
-                silent=True)
+                entity=BOTLOG_CHATID, messages=msg, from_peer=event.chat_id, silent=True
+            )
             msg_id = msg_o.id
         else:
             await event.edit(
@@ -73,14 +69,14 @@ async def on_snip_save(event):
         string = rep_msg.text
     success = "`Snip {} successfully. Use` **${}** `anywhere to get it`"
     if add_snip(keyword, string, msg_id) is False:
-        await event.edit(success.format('updated', keyword))
+        await event.edit(success.format("updated", keyword))
     else:
-        await event.edit(success.format('saved', keyword))
+        await event.edit(success.format("saved", keyword))
 
 
 @register(outgoing=True, pattern="^.snips$")
 async def on_snip_list(event):
-    """ For .snips command, lists snips saved by you. """
+    """For .snips command, lists snips saved by you."""
     try:
         from userbot.modules.sql_helper.snips_sql import get_snips
     except AttributeError:
@@ -101,7 +97,7 @@ async def on_snip_list(event):
 
 @register(outgoing=True, pattern=r"^.remsnip (\w*)")
 async def on_snip_delete(event):
-    """ For .remsnip command, deletes a snip. """
+    """For .remsnip command, deletes a snip."""
     try:
         from userbot.modules.sql_helper.snips_sql import remove_snip
     except AttributeError:
@@ -114,9 +110,9 @@ async def on_snip_delete(event):
         await event.edit(f"`Couldn't find snip:` **{name}**")
 
 
-CMD_HELP.update({
-    "snips":
-    "\
+CMD_HELP.update(
+    {
+        "snips": "\
 $<snip_name>\
 \nUsage: Gets the specified snip, anywhere.\
 \n\n`.snip` <name> <data> or reply to a message with .snip <name>\
@@ -126,4 +122,5 @@ $<snip_name>\
 \n\n`.remsnip` <snip_name>\
 \nUsage: Deletes the specified snip.\
 "
-})
+    }
+)

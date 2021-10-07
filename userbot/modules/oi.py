@@ -13,6 +13,8 @@ async def typewriter(typew):
     await typew.edit("`19 Tahun`")
     sleep(1)
     await typew.edit("`Tinggal Di Batam, Salam Kenal:)`")
+
+
 # Create by myself @localheart
 
 
@@ -25,6 +27,8 @@ async def typewriter(typew):
     await typew.edit("`Aku Sayang Kamu`")
     sleep(1)
     await typew.edit("`I LOVE YOU 💞`")
+
+
 # Create by myself @localheart
 
 
@@ -37,14 +41,18 @@ async def typewriter(typew):
     await typew.edit("`Tetaplah Bernapas`")
     sleep(1)
     await typew.edit("`Dan Selalu Bersyukur`")
+
+
 # Create by myself @localheart
 
 
-CMD_HELP.update({
-    "oi": "𝘾𝙤𝙢𝙢𝙖𝙣𝙙: `.kyy`\
+CMD_HELP.update(
+    {
+        "oi": "𝘾𝙤𝙢𝙢𝙖𝙣𝙙: `.kyy`\
     \n↳ : perkenalan Kyy\
     \n\n𝘾𝙤𝙢𝙢𝙖𝙣𝙙: `.sayang`\
     \n↳ : Gombalan maut`\
     \n\n𝘾𝙤𝙢𝙢𝙖𝙣𝙙: `.semangat`\
     \n↳ : Jan Lupa Semangat."
-})
+    }
+)

@@ -40,11 +40,15 @@ async def _(event):
     await tap[0].click(event.chat_id)
     await event.delete()
 
-CMD_HELP.update({
-    "games": "\
+
+CMD_HELP.update(
+    {
+        "games": "\
 𝘾𝙤𝙢𝙢𝙖𝙣𝙙: `.xogame`\
 \n↳ : Mainkan game XO bersama temanmu.\
 \n\n𝘾𝙤𝙢𝙢𝙖𝙣𝙙: `.mod <nama app>`\
 \n↳ : Dapatkan applikasi mod\
 \n\n𝘾𝙤𝙢𝙢𝙖𝙣𝙙: `.whisp <teks> <username/ID>`\
-\n↳ : Berikan pesan rahasia"})
+\n↳ : Berikan pesan rahasia"
+    }
+)

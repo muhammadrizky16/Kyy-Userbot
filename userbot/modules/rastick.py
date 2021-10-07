@@ -1,9 +1,10 @@
 import random
 import re
-
-from userbot import bot, CMD_HELP
-from userbot.events import register
 from asyncio import sleep
+
+from userbot import CMD_HELP, bot
+from userbot.events import register
+
 EMOJI_PATTERN = re.compile(
     "["
     "\U0001F1E0-\U0001F1FF"  # flags (iOS)

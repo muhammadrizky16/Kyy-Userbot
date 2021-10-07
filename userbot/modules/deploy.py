@@ -1,8 +1,8 @@
 import asyncio
+from platform import uname
 
 from userbot import ALIVE_NAME, CMD_HELP
 from userbot.events import register
-from platform import uname
 
 # ================= CONSTANT =================
 DEFAULTUSER = str(ALIVE_NAME) if ALIVE_NAME else uname().node
@@ -56,6 +56,6 @@ async def _(event):
         await event.edit(animation_chars[i % 22])
 
 
-CMD_HELP.update({"deploy": ": `.deploy`"
-                 "\n↳ : Untuk Deploy ke Heroku.. <Animasi> :v haha"}
-                )
+CMD_HELP.update(
+    {"deploy": ": `.deploy`" "\n↳ : Untuk Deploy ke Heroku.. <Animasi> :v haha"}
+)

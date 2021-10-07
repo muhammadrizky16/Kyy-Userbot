@@ -1,19 +1,16 @@
 # credits to the respective owner xD
 # imported by @heyworld
-import requests
-import re
-import random
-
-import urllib
+import asyncio
 import os
+import random
+import re
+import urllib
 
+import requests
 from telethon.tl import functions
 
-import asyncio
-
-
-from userbot.events import register
 from userbot import CMD_HELP
+from userbot.events import register
 
 COLLECTION_STRING = [
     "epic-fantasy-wallpaper",
@@ -46,7 +43,7 @@ COLLECTION_STRING = [
     "ice-cream-cone-wallpaper",
     "food-wallpaper-background",
     "snowy-christmas-scenes-wallpaper",
-    "life-quotes-wallpaper"
+    "life-quotes-wallpaper",
 ]
 
 
@@ -56,14 +53,16 @@ async def animepp():
     rnd = random.randint(0, len(COLLECTION_STRING) - 1)
     pack = COLLECTION_STRING[rnd]
     pc = requests.get("http://getwallpapers.com/collection/" + pack).text
-    f = re.compile(r'/\w+/full.+.jpg')
+    f = re.compile(r"/\w+/full.+.jpg")
     f = f.findall(pc)
     fy = "http://getwallpapers.com" + random.choice(f)
     print(fy)
 
     if not os.path.exists("f.ttf"):
         urllib.request.urlretrieve(
-            "https://github.com/rebel6969/mym/raw/master/Rebel-robot-Regular.ttf", "f.ttf")
+            "https://github.com/rebel6969/mym/raw/master/Rebel-robot-Regular.ttf",
+            "f.ttf",
+        )
     urllib.request.urlretrieve(fy, "donottouch.jpg")
 
 
@@ -80,6 +79,10 @@ async def main(event):
         os.system("rm -rf donottouch.jpg")
         await asyncio.sleep(3600)  # Edit this to your required needs
 
-CMD_HELP.update({
-    "randompp": "\n\n⚡𝘾𝙈𝘿⚡: `.pprandom`"
-    "\n↳ : Mengubah Photo Profile Anda Secara Random."})
+
+CMD_HELP.update(
+    {
+        "randompp": "\n\n⚡𝘾𝙈𝘿⚡: `.pprandom`"
+        "\n↳ : Mengubah Photo Profile Anda Secara Random."
+    }
+)

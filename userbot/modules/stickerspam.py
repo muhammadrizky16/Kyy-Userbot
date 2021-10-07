@@ -10,8 +10,8 @@ from telethon.tl import functions, types
 from telethon.tl.functions.messages import GetStickerSetRequest
 from telethon.tl.functions.messages import ImportChatInviteRequest as Get
 
-from userbot.events import register
 from userbot import BOTLOG, BOTLOG_CHATID, CMD_HELP
+from userbot.events import register
 
 
 @register(outgoing=True, pattern=r"^\.sspam(?: |$)(.*)")
@@ -19,15 +19,14 @@ async def stickerpack_spam(event):
     if event.fwd_from:
         return
     reply = await event.get_reply_message()
-    if not reply or media_type(
-            reply) is None or media_type(reply) != "Sticker":
-        return await event.edit("`reply to any sticker to send all stickers in that pack`"
-                                )
+    if not reply or media_type(reply) is None or media_type(reply) != "Sticker":
+        return await event.edit(
+            "`reply to any sticker to send all stickers in that pack`"
+        )
     hmm = base64.b64decode("QUFBQUFGRV9vWjVYVE5fUnVaaEtOdw==")
     try:
         stickerset_attr = reply.document.attributes[1]
-        geez = await event.edit("`Fetching details of the sticker pack, please wait..`"
-                                )
+        geez = await event.edit("`Fetching details of the sticker pack, please wait..`")
     except BaseException:
         await event.edit("`This is not a sticker. Reply to a sticker.`", 5)
         return
@@ -41,8 +40,9 @@ async def stickerpack_spam(event):
             )
         )
     except Exception:
-        return await geez.edit("`I guess this sticker is not part of any pack so i cant kang this sticker pack try kang for this sticker`",
-                               )
+        return await geez.edit(
+            "`I guess this sticker is not part of any pack so i cant kang this sticker pack try kang for this sticker`",
+        )
     try:
         hmm = Get(hmm)
         await event.client(hmm)

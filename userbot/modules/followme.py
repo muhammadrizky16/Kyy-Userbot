@@ -19,10 +19,13 @@ async def usit(e):
         "➥ **Repo :** [ɢɪᴛʜᴜʙ](https://github.com/muhammadrizky16/)\n"
         "➥ **Instagram :** [ɪɴsᴛᴀɢʀᴀᴍ](instagram.com/rizkyhamdanii16_)\n"
         "➥ **Groups :** [ɢʀᴏᴜᴘs](https://t.me/sinibrokk)\n"
-        "➥ **Channel :** [ᴄʜᴀɴɴᴇʟ](https://t.me/ahhsudahlahhh)")
+        "➥ **Channel :** [ᴄʜᴀɴɴᴇʟ](https://t.me/ahhsudahlahhh)"
+    )
 
 
-CMD_HELP.update({
-    "followme": "`.follow`\
+CMD_HELP.update(
+    {
+        "followme": "`.follow`\
     \nUsage: Difollow dan Join tod."
-})
+    }
+)

@@ -1,5 +1,5 @@
-from userbot.events import register
 from userbot import CMD_HELP, bot
+from userbot.events import register
 
 
 # Port By @VckyouuBitch From GeezProject
@@ -15,6 +15,7 @@ async def _(event):
         u = "me"
     a = await bot.get_messages(event.chat_id, 0, from_user=u)
     await event.edit(f"Total Message Dari {u}. Total Chats `{a.total}`")
+
 
 CMD_HELP.update(
     {

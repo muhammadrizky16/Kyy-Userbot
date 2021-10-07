@@ -1,8 +1,9 @@
 # Port By @VckyouuBitch From Geez-Projects
 # # Copyright (C) 2021 Geez-Project
-from userbot.events import register
-from userbot import CMD_HELP
 import asyncio
+
+from userbot import CMD_HELP
+from userbot.events import register
 
 
 @register(outgoing=True, pattern="^.ftyping(?: |$)(.*)")
@@ -76,9 +77,10 @@ async def _(event):
     async with event.client.action(event.chat_id, "game"):
         await asyncio.sleep(t)
 
-CMD_HELP.update({
-    "fakeaction":
-    "𝘾𝙤𝙢𝙢𝙖𝙣𝙙: `.ftyping` <jumlah teks>\
+
+CMD_HELP.update(
+    {
+        "fakeaction": "𝘾𝙤𝙢𝙢𝙖𝙣𝙙: `.ftyping` <jumlah teks>\
    \nUsage : Seakan akan sedang mengetik padahal tidak\
    \n\n𝘾𝙤𝙢𝙢𝙖𝙣𝙙: `.faudio` <jumlah teks>\
    \nUsage : Berfungsi sama seperti ftyping tapi ini dalam bentuk fake audio\
@@ -86,4 +88,5 @@ CMD_HELP.update({
    \nUsage : Berfungsi sama seperti ftyping tapi ini dalam bentuk fake game\
    \n\n𝘾𝙤𝙢𝙢𝙖𝙣𝙙: `.fvideo` <jumlah teks>\
    \nUsage : Berfungsi sama seperti ftyping tapi ini dalam bentuk fake video"
-})
+    }
+)

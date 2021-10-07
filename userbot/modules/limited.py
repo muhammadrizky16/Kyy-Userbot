@@ -5,7 +5,7 @@
 from telethon import events
 from telethon.errors.rpcerrorlist import YouBlockedUserError
 
-from userbot import bot, CMD_HELP
+from userbot import CMD_HELP, bot
 from userbot.events import register
 
 
@@ -26,5 +26,4 @@ async def _(event):
         await event.edit(f"~ {response.message.message}")
 
 
-CMD_HELP.update({"limit": "𝘾𝙤𝙢𝙢𝙖𝙣𝙙: `.limit`"
-                 "\n•: ngecek akun kena limit"})
+CMD_HELP.update({"limit": "𝘾𝙤𝙢𝙢𝙖𝙣𝙙: `.limit`" "\n•: ngecek akun kena limit"})

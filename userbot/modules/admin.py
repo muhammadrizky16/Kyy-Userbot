@@ -385,7 +385,9 @@ async def unmoot(unmot):
 
         try:
             await unmot.client(EditBannedRequest(unmot.chat_id, user.id, UNBAN_RIGHTS))
-            await unmot.edit("```Berhasil Melakukan Unmute! Pengguna Sudah Tidak Lagi Dibisukan```")
+            await unmot.edit(
+                "```Berhasil Melakukan Unmute! Pengguna Sudah Tidak Lagi Dibisukan```"
+            )
             await sleep(3)
             await unmot.delete()
         except UserIdInvalidError:
@@ -530,7 +532,8 @@ async def rm_deletedacc(show):
         if del_u > 0:
             del_status = (
                 f"`Menemukan` **{del_u}** `Akun Hantu/Terhapus/Zombie Dalam Grup Ini,"
-                "\nBersihkan Itu Menggunakan Perintah .zombies clean`")
+                "\nBersihkan Itu Menggunakan Perintah .zombies clean`"
+            )
         return await show.edit(del_status)
 
     # Here laying the sanity check
@@ -672,7 +675,9 @@ async def kick(usr):
             f"[{user.first_name}](tg://user?id={user.id}) **Telah Dikick Dari Grup**\n**Alasan:** `{reason}`"
         )
     else:
-        await usr.edit(f"[{user.first_name}](tg://user?id={user.id}) **Telah Dikick Dari Grup**")
+        await usr.edit(
+            f"[{user.first_name}](tg://user?id={user.id}) **Telah Dikick Dari Grup**"
+        )
         await sleep(5)
         await usr.delete()
 
@@ -715,7 +720,9 @@ async def get_users(show):
     try:
         await show.edit(mentions)
     except MessageTooLongError:
-        await show.edit("Grup Ini Terlalu Besar Mengunggah Daftar Pengguna Sebagai File.")
+        await show.edit(
+            "Grup Ini Terlalu Besar Mengunggah Daftar Pengguna Sebagai File."
+        )
         file = open("daftarpengguna.txt", "w+")
         file.write(mentions)
         file.close()
@@ -749,9 +756,7 @@ async def get_user_from_event(event):
         if event.message.entities is not None:
             probable_user_mention_entity = event.message.entities[0]
 
-            if isinstance(
-                    probable_user_mention_entity,
-                    MessageEntityMentionName):
+            if isinstance(probable_user_mention_entity, MessageEntityMentionName):
                 user_id = probable_user_mention_entity.user_id
                 user_obj = await event.client.get_entity(user_id)
                 return user_obj
@@ -841,9 +846,7 @@ async def get_userdel_from_event(event):
         if event.message.entities is not None:
             probable_user_mention_entity = event.message.entities[0]
 
-            if isinstance(
-                    probable_user_mention_entity,
-                    MessageEntityMentionName):
+            if isinstance(probable_user_mention_entity, MessageEntityMentionName):
                 user_id = probable_user_mention_entity.user_id
                 user_obj = await event.client.get_entity(user_id)
                 return user_obj
@@ -874,7 +877,9 @@ async def get_bots(show):
     mentions = f"<b>Daftar Bot Di {title}:</b>\n"
     try:
         if isinstance(show.to_id, PeerChat):
-            return await show.edit("`Saya mendengar bahwa hanya Supergrup yang dapat memiliki bot`")
+            return await show.edit(
+                "`Saya mendengar bahwa hanya Supergrup yang dapat memiliki bot`"
+            )
         else:
             async for user in show.client.iter_participants(
                 show.chat_id, filter=ChannelParticipantsBots
@@ -890,7 +895,9 @@ async def get_bots(show):
     try:
         await show.edit(mentions, parse_mode="html")
     except MessageTooLongError:
-        await show.edit("Terlalu Banyak Bot Di Grup Ini, Mengunggah Daftar Bot Sebagai File.")
+        await show.edit(
+            "Terlalu Banyak Bot Di Grup Ini, Mengunggah Daftar Bot Sebagai File."
+        )
         file = open("botlist.txt", "w+")
         file.write(mentions)
         file.close()
@@ -933,4 +940,6 @@ CMD_HELP.update(
         "\n\n𝘾𝙤𝙢𝙢𝙖𝙣𝙙: `.users` Atau >`.users` <nama member>"
         "\n↳ : Mendapatkan daftar pengguna daam grup."
         "\n\n𝘾𝙤𝙢𝙢𝙖𝙣𝙙: `.setgpic` <balas ke gambar>"
-        "\n↳ : Mengganti foto profil grup."})
+        "\n↳ : Mengganti foto profil grup."
+    }
+)

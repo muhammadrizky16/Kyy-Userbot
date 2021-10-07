@@ -25,7 +25,9 @@ async def on_new_message(event):
             try:
                 await event.delete()
             except Exception:
-                await event.reply("`Anda Tidak Punya Izin Untuk Menghapus Pesan Disini`")
+                await event.reply(
+                    "`Anda Tidak Punya Izin Untuk Menghapus Pesan Disini`"
+                )
                 await sleep(1)
                 await reply.delete()
                 sql.rm_from_blacklist(event.chat_id, snip.lower())
@@ -88,10 +90,14 @@ async def on_delete_blacklist(rmbl):
         await rmbl.edit("`Berhasil Menghapus` **{}** `Di Blacklist`".format(text))
 
 
-CMD_HELP.update({"blacklist": ">`.listbl`"
-                 "\nUsage: Melihat daftar blacklist yang aktif di obrolan."
-                 "\n\n>`.addbl <kata>`"
-                 "\nUsage: Memasukan pesan ke blacklist 'kata blacklist'."
-                 "\nlord bot akan otomatis menghapus 'kata blacklist'."
-                 "\n\n>`.rmbl <kata>`"
-                 "\nUsage: Menghapus kata blacklist."})
+CMD_HELP.update(
+    {
+        "blacklist": ">`.listbl`"
+        "\nUsage: Melihat daftar blacklist yang aktif di obrolan."
+        "\n\n>`.addbl <kata>`"
+        "\nUsage: Memasukan pesan ke blacklist 'kata blacklist'."
+        "\nlord bot akan otomatis menghapus 'kata blacklist'."
+        "\n\n>`.rmbl <kata>`"
+        "\nUsage: Menghapus kata blacklist."
+    }
+)

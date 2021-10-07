@@ -1,8 +1,10 @@
+import asyncio
 from time import sleep
+
+from telethon import events
+
 from userbot import CMD_HELP, bot
 from userbot.events import register
-from telethon import events
-import asyncio
 
 
 @register(outgoing=True, pattern="^.sayang$")
@@ -34,7 +36,7 @@ async def koc(e):
         await e.edit("SAYANG KAMU💞")
 
 
-@register(outgoing=True, pattern='^.dino(?: |$)(.*)')
+@register(outgoing=True, pattern="^.dino(?: |$)(.*)")
 async def typewriter(typew):
     typew.pattern_match.group(1)
     await typew.edit("`DIN DINNN.....`")
@@ -349,7 +351,7 @@ async def koc(e):
         await e.edit("`GABUT`")
 
 
-@register(outgoing=True, pattern='^.sangean(?: |$)(.*)')
+@register(outgoing=True, pattern="^.sangean(?: |$)(.*)")
 async def typewriter(typew):
     typew.pattern_match.group(1)
     await typew.edit("`Kalo Sange Modal`")
@@ -363,6 +365,8 @@ async def typewriter(typew):
     await typew.edit("`Jadinya Gitu, Sange Berat`")
     sleep(1)
     await typew.edit("`MAKANYA KALO HIDUP HARUS GANTENG KONTOOOLL`")
+
+
 # Create by myself @localheart
 
 
@@ -400,7 +404,8 @@ async def _(event):
             "`Mengirim Cintaku.. 52%\n█████████████▒▒▒▒▒▒▒▒▒▒▒▒ `",
             "`Mengirim Cintaku.. 84%\n█████████████████████▒▒▒▒ `",
             "`Mengirim Cintaku.. 100%\n█████████CINTAKU███████████ `",
-            f"`Cintaku Sekarang Sepenuhnya Terkirim Padamu, Dan Sekarang Aku Sangat Mencintai Mu, I Love You 💞`"]
+            f"`Cintaku Sekarang Sepenuhnya Terkirim Padamu, Dan Sekarang Aku Sangat Mencintai Mu, I Love You 💞`",
+        ]
 
         for i in animation_ttl:
 
@@ -409,7 +414,7 @@ async def _(event):
             await event.edit(animation_chars[i % 11])
 
 
-@register(outgoing=True, pattern='^.yatim(?: |$)(.*)')
+@register(outgoing=True, pattern="^.yatim(?: |$)(.*)")
 async def typewriter(typew):
     typew.pattern_match.group(1)
     sleep(1)
@@ -432,11 +437,13 @@ async def typewriter(typew):
     await typew.edit("`MAAF YA, CANDAA BEBANNNN xixixi 🙈`")
     sleep(1)
     await typew.edit("`Tapi Bo'ong Hiyahiyahiya`")
+
+
 # Create by myself @localheart
 
-CMD_HELP.update({
-    "animasi4":
-    "𝘾𝙤𝙢𝙢𝙖𝙣𝙙: `.gabut` atau `.dino`\
+CMD_HELP.update(
+    {
+        "animasi4": "𝘾𝙤𝙢𝙢𝙖𝙣𝙙: `.gabut` atau `.dino`\
     \n↳ : Dikala gabut, yaaa pake aja xixixi.\
     \n\n𝘾𝙤𝙢𝙢𝙖𝙣𝙙: `.yatim`\
     \n↳ : Buat bercandaan, kalo gasuka jangan dipake.\
@@ -446,4 +453,5 @@ CMD_HELP.update({
     \n↳ : Berubah menjadi kadal.\
     \n\n𝘾𝙤𝙢𝙢𝙖𝙣𝙙: `.sangean`\
     \n↳ : Kasih aja buat orang yang sangean."
-})
+    }
+)

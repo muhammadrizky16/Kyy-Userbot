@@ -3,9 +3,11 @@
 #
 #
 import os
+
 from telethon.errors.rpcerrorlist import YouBlockedUserError
+
+from userbot import CMD_HELP, TEMP_DOWNLOAD_DIRECTORY, bot
 from userbot.events import register
-from userbot import bot, TEMP_DOWNLOAD_DIRECTORY, CMD_HELP
 
 
 @register(outgoing=True, pattern=r"^.hz(:? |$)(.*)?")
@@ -40,7 +42,9 @@ async def _(hazmat):
             """ - don't spam notif - """
             await bot.send_read_acknowledge(conv.chat_id)
         except YouBlockedUserError:
-            await hazmat.reply("`Mohon Maaf, Tolong Buka Blokir` @hazmat_suit_bot `Lalu Coba Lagi`")
+            await hazmat.reply(
+                "`Mohon Maaf, Tolong Buka Blokir` @hazmat_suit_bot `Lalu Coba Lagi`"
+            )
             return
         if response.text.startswith("I can't"):
             await hazmat.edit("`Mohon Maaf, GIF Tidak Bisa...`")

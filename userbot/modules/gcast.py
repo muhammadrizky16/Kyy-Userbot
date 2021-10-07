@@ -1,5 +1,5 @@
-from userbot.events import register
 from userbot import CMD_HELP, bot
+from userbot.events import register
 
 
 @register(outgoing=True, pattern="^.gcast (.*)")
@@ -20,7 +20,9 @@ async def gcast(event):
                 await bot.send_message(chat, msg)
             except BaseException:
                 er += 1
-    await kk.edit(f"**Berhasil Mengirim Pesan Ke** `{done}` **Grup, Gagal Mengirim Pesan Ke** `{er}` **Grup**")
+    await kk.edit(
+        f"**Berhasil Mengirim Pesan Ke** `{done}` **Grup, Gagal Mengirim Pesan Ke** `{er}` **Grup**"
+    )
 
 
 @register(outgoing=True, pattern=r"^\.gucast(?: |$)(.*)")
@@ -41,7 +43,9 @@ async def gucast(event):
                 await bot.send_message(chat, msg)
             except BaseException:
                 er += 1
-    await kk.edit(f"Berhasil Mengirim Pesan Ke `{done}` obrolan, kesalahan dalam `{er}` obrolan(s)")
+    await kk.edit(
+        f"Berhasil Mengirim Pesan Ke `{done}` obrolan, kesalahan dalam `{er}` obrolan(s)"
+    )
 
 
 CMD_HELP.update(

@@ -11,14 +11,20 @@ import time
 from lyrics_extractor import SongLyrics as sl
 from telethon.tl.types import DocumentAttributeAudio
 from youtube_dl import YoutubeDL
-from youtube_dl.utils import (ContentTooShortError, DownloadError,
-                              ExtractorError, GeoRestrictedError,
-                              MaxDownloadsReached, PostProcessingError,
-                              UnavailableVideoError, XAttrMetadataError)
+from youtube_dl.utils import (
+    ContentTooShortError,
+    DownloadError,
+    ExtractorError,
+    GeoRestrictedError,
+    MaxDownloadsReached,
+    PostProcessingError,
+    UnavailableVideoError,
+    XAttrMetadataError,
+)
 from youtubesearchpython import SearchVideos
 
+from userbot import ALIVE_NAME, CMD_HELP
 from userbot.events import register
-from userbot import CMD_HELP, ALIVE_NAME
 
 DEFAULTUSER = str(ALIVE_NAME) if ALIVE_NAME else uname().node
 
@@ -31,7 +37,9 @@ async def download_video(event):
     await event.edit("`Sedang Memproses Musik, Mohon Tunggu Sebentar...`")
     url = event.pattern_match.group(1)
     if not url:
-        return await event.edit("**List Error**\nCara Penggunaan : -`.musik <Judul Lagu>`")
+        return await event.edit(
+            "**List Error**\nCara Penggunaan : -`.musik <Judul Lagu>`"
+        )
     search = SearchVideos(url, offset=1, mode="json", max_results=1)
     test = search.result()
     p = json.loads(test)
@@ -72,9 +80,10 @@ async def download_video(event):
         await event.edit("`The download content was too short.`")
         return
     except GeoRestrictedError:
-        await event.edit("`Video is not available from your geographic location due to"
-                         + " geographic restrictions imposed by a website.`"
-                         )
+        await event.edit(
+            "`Video is not available from your geographic location due to"
+            + " geographic restrictions imposed by a website.`"
+        )
         return
     except MaxDownloadsReached:
         await event.edit("`Max-downloads limit has been reached.`")
@@ -207,7 +216,9 @@ async def download_vsong(event):
 @register(outgoing=True, pattern=r"^\.lirik (.*)")
 async def original(event):
     if not event.pattern_match.group(1):
-        return await event.edit("Beri Saya Sebuah Judul Lagu Untuk Mencari Lirik.\n**Contoh** : `.lirik` <Judul Lagu>")
+        return await event.edit(
+            "Beri Saya Sebuah Judul Lagu Untuk Mencari Lirik.\n**Contoh** : `.lirik` <Judul Lagu>"
+        )
     geez = event.pattern_match.group(1)
     event = await event.edit("`Sedang Mencari Lirik Lagu...`")
     dc = random.randrange(1, 3)

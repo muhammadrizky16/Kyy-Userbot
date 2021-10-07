@@ -3,7 +3,6 @@ import os
 import re
 import textwrap
 import time
-from userbot.utils import progress
 
 from glitch_this import ImageGlitcher
 from PIL import Image, ImageDraw, ImageFont
@@ -12,6 +11,7 @@ from telethon.tl.types import DocumentAttributeFilename
 
 from userbot import CMD_HELP, TEMP_DOWNLOAD_DIRECTORY, bot
 from userbot.events import register
+from userbot.utils import progress
 
 Glitched = TEMP_DOWNLOAD_DIRECTORY + "glitch.gif"
 
@@ -112,9 +112,7 @@ async def draw_meme_text(image_path, text):
     img = Image.open(image_path)
     os.remove(image_path)
     i_width, i_height = img.size
-    m_font = ImageFont.truetype(
-        "GeezFont/GeezFont.otf", int((70 / 640) * i_width)
-    )
+    m_font = ImageFont.truetype("GeezFont/GeezFont.otf", int((70 / 640) * i_width))
     if ";" in text:
         upper_text, lower_text = text.split(";")
     else:

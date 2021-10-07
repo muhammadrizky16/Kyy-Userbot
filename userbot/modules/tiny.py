@@ -1,11 +1,13 @@
 # Ported By VCKYOU @VckyouuBitch
 # Fixes By Koala @Manusiarakitann
 
-from PIL import Image
-import cv2
 import os
-from userbot.events import register
+
+import cv2
+from PIL import Image
+
 from userbot import CMD_HELP, bot
+from userbot.events import register
 
 
 @register(outgoing=True, pattern="^.tiny(?: |$)(.*)", disable_errors=True)
@@ -81,6 +83,9 @@ async def _(event):
     os.remove(ik)
 
 
-CMD_HELP.update({
-    "tiny": "𝘾𝙤𝙢𝙢𝙖𝙣𝙙: `.tiny`\
-    \nUsage : Untuk Memperkecil Sticker."})
+CMD_HELP.update(
+    {
+        "tiny": "𝘾𝙤𝙢𝙢𝙖𝙣𝙙: `.tiny`\
+    \nUsage : Untuk Memperkecil Sticker."
+    }
+)

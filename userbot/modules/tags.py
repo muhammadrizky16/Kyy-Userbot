@@ -9,8 +9,8 @@ from telethon.tl.types import UserStatusOnline as onn
 from telethon.tl.types import UserStatusRecently as rec
 from telethon.utils import get_display_name
 
-from userbot.events import register
 from userbot import CMD_HELP
+from userbot.events import register
 
 
 @register(
@@ -64,20 +64,21 @@ async def _(e):
     await e.delete()
 
 
-CMD_HELP.update({
-    'tags':
-    "𝘾𝙤𝙢𝙢𝙖𝙣𝙙: `.tag all`"
-    "\n• : Tag Top 100 Members of chat."
-    "\n\n𝘾𝙤𝙢𝙢𝙖𝙣𝙙: `.tag admin`"
-    "\n• : Tag Admins of that chat."
-    "\n\n𝘾𝙤𝙢𝙢𝙖𝙣𝙙: `.tag owner`"
-    "\n• : Tag Owner of that chat."
-    "\n\n𝘾𝙤𝙢𝙢𝙖𝙣𝙙: `.tag bot`"
-    "\n• : Tag Bots of that chat."
-    "\n\n𝘾𝙤𝙢𝙢𝙖𝙣𝙙: `.tag rec`"
-    "\n• : Tag recently Active Members."
-    "\n\n𝘾𝙤𝙢𝙢𝙖𝙣𝙙: `.tag on`"
-    "\n• : Tag online Members(work only if privacy off)."
-    "\n\n𝘾𝙤𝙢𝙢𝙖𝙣𝙙: `.tag off`"
-    "\n• : Tag Offline Members(work only if privacy off)."
-})
+CMD_HELP.update(
+    {
+        "tags": "𝘾𝙤𝙢𝙢𝙖𝙣𝙙: `.tag all`"
+        "\n• : Tag Top 100 Members of chat."
+        "\n\n𝘾𝙤𝙢𝙢𝙖𝙣𝙙: `.tag admin`"
+        "\n• : Tag Admins of that chat."
+        "\n\n𝘾𝙤𝙢𝙢𝙖𝙣𝙙: `.tag owner`"
+        "\n• : Tag Owner of that chat."
+        "\n\n𝘾𝙤𝙢𝙢𝙖𝙣𝙙: `.tag bot`"
+        "\n• : Tag Bots of that chat."
+        "\n\n𝘾𝙤𝙢𝙢𝙖𝙣𝙙: `.tag rec`"
+        "\n• : Tag recently Active Members."
+        "\n\n𝘾𝙤𝙢𝙢𝙖𝙣𝙙: `.tag on`"
+        "\n• : Tag online Members(work only if privacy off)."
+        "\n\n𝘾𝙤𝙢𝙢𝙖𝙣𝙙: `.tag off`"
+        "\n• : Tag Offline Members(work only if privacy off)."
+    }
+)

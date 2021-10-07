@@ -5,9 +5,9 @@
 #
 
 import pyfiglet
+
 from userbot import CMD_HELP
 from userbot.events import register
-
 
 CMD_SET = {
     "slant": "slant",
@@ -484,8 +484,5 @@ async def figlet(event):
         result = pyfiglet.figlet_format(text)
     await event.edit(f"‌‌‎`{result}`")
 
-CMD_HELP.update({
-    "figlet":
-        ">`.fg`"
-    "\nUsage : Make a text a figlet.."
-})
+
+CMD_HELP.update({"figlet": ">`.fg`" "\nUsage : Make a text a figlet.."})

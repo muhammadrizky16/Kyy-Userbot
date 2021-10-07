@@ -133,19 +133,25 @@ async def typewriter(typew):
     await typew.edit("`Assalamu'alaikum`")
     sleep(3)
     await typew.edit("**YANG GA JAWAB, FIX ATHEISS!!**")
+
+
 # Create by myself @ram-ubot
 
 
-CMD_HELP.update({
-    "animasi7": "`.gabut` ; `.orgil`\
+CMD_HELP.update(
+    {
+        "animasi7": "`.gabut` ; `.orgil`\
     \nUsage: ntahlah gabut doang.\
     \n\n`.ass`\
     \nUsage: Salam dulu biar sopan."
-})
+    }
+)
 
-CMD_HELP.update({
-    "animasi8": "`.cinta`\
+CMD_HELP.update(
+    {
+        "animasi8": "`.cinta`\
     \nUsage: mengirim cintamu ke seseorang.\
     \n\n`.sange` :\
     \nUsage: cobalah sndiri ngentot."
-})
+    }
+)

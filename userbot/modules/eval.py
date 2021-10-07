@@ -53,8 +53,7 @@ async def _(event):
     elif returned:
         evaluation = returned
 
-    final_output = "**EVAL**: \n`{}` \n\n**OUTPUT**: \n`{}` \n".format(
-        cmd, evaluation)
+    final_output = "**EVAL**: \n`{}` \n\n**OUTPUT**: \n`{}` \n".format(cmd, evaluation)
 
     if len(final_output) >= 4096:
         with io.BytesIO(str.encode(final_output)) as out_file:
@@ -79,7 +78,7 @@ async def aexec(code, smessatatus):
 
 @register(outgoing=True, pattern=r"^\.exec(?: |$|\n)([\s\S]*)")
 async def run(run_q):
-    """ For .exec command, which executes the dynamically created program """
+    """For .exec command, which executes the dynamically created program"""
     code = run_q.pattern_match.group(1)
 
     if run_q.is_channel and not run_q.is_group:
@@ -99,14 +98,8 @@ async def run(run_q):
     else:
         clines = code.splitlines()
         codepre = (
-            clines[0] +
-            "\n" +
-            clines[1] +
-            "\n" +
-            clines[2] +
-            "\n" +
-            clines[3] +
-            "...")
+            clines[0] + "\n" + clines[1] + "\n" + clines[2] + "\n" + clines[3] + "..."
+        )
 
     command = "".join(f"\n {l}" for l in code.split("\n.strip()"))
     process = await asyncio.create_subprocess_exec(
@@ -143,7 +136,7 @@ async def run(run_q):
 
 @register(outgoing=True, pattern=r"^\.term(?: |$|\n)(.*)")
 async def terminal_runner(term):
-    """ For .term command, runs bash commands and scripts on your server. """
+    """For .term command, runs bash commands and scripts on your server."""
     curruser = TERM_ALIAS if TERM_ALIAS else getuser()
     command = term.pattern_match.group(1)
     try:
@@ -193,7 +186,11 @@ async def terminal_runner(term):
         await term.edit(f"`{curruser}:~$ {command}\n{result}`")
 
 
-CMD_HELP.update({"eval": ">`.eval print('world')`"
-                 "\nUsage: Just like exec.", "exec": ">`.exec print('hello')`"
-                 "\nUsage: Execute small python scripts.", "term": ">`.term <cmd>`"
-                 "\nUsage: Run bash commands and scripts on your server.", })
+CMD_HELP.update(
+    {
+        "eval": ">`.eval print('world')`" "\nUsage: Just like exec.",
+        "exec": ">`.exec print('hello')`" "\nUsage: Execute small python scripts.",
+        "term": ">`.term <cmd>`"
+        "\nUsage: Run bash commands and scripts on your server.",
+    }
+)

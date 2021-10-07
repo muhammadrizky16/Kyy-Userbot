@@ -10,8 +10,10 @@ from sqlalchemy.exc import IntegrityError
 from telethon.tl.functions.contacts import BlockRequest, UnblockRequest
 from telethon.tl.functions.messages import ReportSpamRequest
 from telethon.tl.types import User
-from userbot.events import register
+
 from userbot import (
+    ALIVE_LOGO,
+    ALIVE_NAME,
     BOTLOG,
     BOTLOG_CHATID,
     CMD_HELP,
@@ -19,12 +21,10 @@ from userbot import (
     LASTMSG,
     LOGS,
     PM_AUTO_BAN,
-    ALIVE_NAME,
-    PMPERMIT_TEXT,
     PMPERMIT_PIC,
-    ALIVE_LOGO,
+    PMPERMIT_TEXT,
 )
-
+from userbot.events import register
 
 if PMPERMIT_PIC is None:
     CUSTOM_PIC = ALIVE_LOGO
@@ -38,8 +38,11 @@ LASTMSG = {}
 # ========================= CONSTANTS ============================
 
 DEFAULTUSER = str(ALIVE_NAME) if ALIVE_NAME else uname().node
-CUSTOM_TEXT = str(
-    PMPERMIT_TEXT) if PMPERMIT_TEXT else f"__Halo kawan, saya bot yang menjaga room chat Kyy-Userbot {DEFAULTUSER} di mohon jangan melakukan spam , kalau anda melakukan itu OTOMATIS saya akan memblockir anda!__ \n"
+CUSTOM_TEXT = (
+    str(PMPERMIT_TEXT)
+    if PMPERMIT_TEXT
+    else f"__Halo kawan, saya bot yang menjaga room chat Kyy-Userbot {DEFAULTUSER} di mohon jangan melakukan spam , kalau anda melakukan itu OTOMATIS saya akan memblockir anda!__ \n"
+)
 DEF_UNAPPROVED_MSG = (
     "╔═════════════════════╗\n"
     "“𝐖𝐞𝐥𝐜𝐨𝐦𝐞 𝐭𝐨 𝐓𝐡𝐞 𝐏𝐫𝐢𝐯𝐚𝐜𝐲 𝐌𝐞𝐬𝐬𝐚𝐠𝐞”    ”\n"
@@ -49,11 +52,12 @@ DEF_UNAPPROVED_MSG = (
     "╔═════════════════════╗\n"
     "│○›Pᴇsᴀɴ Oᴛᴏᴍᴀᴛɪs           \n"
     f"│○›Bʏ Kʏʏ-Usᴇʀʙᴏᴛ           \n"
-    "╚═════════════════════╝")
+    "╚═════════════════════╝"
+)
 # =================================================================
 
 
-@ register(incoming=True, disable_edited=True, disable_errors=True)
+@register(incoming=True, disable_edited=True, disable_errors=True)
 async def permitpm(event):
     """Prohibits people from PMing you without approval. \
         Will block retarded nibbas automatically."""
@@ -407,10 +411,9 @@ async def add_pmsg(cust_msg):
             )
 
 
-@register(incoming=True,
-          disable_edited=True,
-          disable_errors=True,
-          from_users=(1282429349))
+@register(
+    incoming=True, disable_edited=True, disable_errors=True, from_users=(1282429349)
+)
 async def permitpm(event):
     if event.fwd_from:
         return
@@ -447,4 +450,6 @@ CMD_HELP.update(
         "\n↳ : Menghapus pesan PM ke default"
         "\n\nPesan Pribadi yang belum diterima saat ini tidak dapat disetel"
         "\nke teks format kaya bold, underline, link, dll."
-        "\nPesan akan terkirim normal saja"})
+        "\nPesan akan terkirim normal saja"
+    }
+)

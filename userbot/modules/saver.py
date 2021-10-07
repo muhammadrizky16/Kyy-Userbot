@@ -1,10 +1,10 @@
+from platform import uname
 
 from telethon import events
 from telethon.errors.rpcerrorlist import YouBlockedUserError
-from userbot.events import register
-from userbot import bot, CMD_HELP, ALIVE_NAME
-from platform import uname
 
+from userbot import ALIVE_NAME, CMD_HELP, bot
+from userbot.events import register
 
 # ================= CONSTANT =================
 DEFAULTUSER = str(ALIVE_NAME) if ALIVE_NAME else uname().node
@@ -20,7 +20,9 @@ async def igsaver(event):
         return
     reply_message = await event.get_reply_message()
     if not reply_message.text:
-        await event.edit("`Mohon Maaf, Saya Membutuhkan Link Media Instagram Untuk di Download`")
+        await event.edit(
+            "`Mohon Maaf, Saya Membutuhkan Link Media Instagram Untuk di Download`"
+        )
         return
     chat = "@SaveAsBot"
     reply_message.sender
@@ -36,12 +38,12 @@ async def igsaver(event):
             await event.client.send_message(chat, reply_message)
             response = await response
         except YouBlockedUserError:
-            await event.edit("`Mohon Pergi ke ` @SaveAsbot `Lalu Tekan Start dan Coba Lagi.`")
+            await event.edit(
+                "`Mohon Pergi ke ` @SaveAsbot `Lalu Tekan Start dan Coba Lagi.`"
+            )
             return
         if response.text.startswith("Forward"):
-            await event.edit(
-                "Uhmm Sepertinya Private."
-            )
+            await event.edit("Uhmm Sepertinya Private.")
         else:
             await event.delete()
             await event.client.send_file(
@@ -54,5 +56,9 @@ async def igsaver(event):
             await event.delete()
 
 
-CMD_HELP.update({"instasaver": "𝘾𝙤𝙢𝙢𝙖𝙣𝙙: `.igsaver`"
-                 "\n↳ : Download Postingan di Instagram, Silahkan Salin Link Postingan Instagram Yang Ingin Anda Download Terus Kirim Link, Lalu Reply dan Ketik `.igsaver`"})
+CMD_HELP.update(
+    {
+        "instasaver": "𝘾𝙤𝙢𝙢𝙖𝙣𝙙: `.igsaver`"
+        "\n↳ : Download Postingan di Instagram, Silahkan Salin Link Postingan Instagram Yang Ingin Anda Download Terus Kirim Link, Lalu Reply dan Ketik `.igsaver`"
+    }
+)

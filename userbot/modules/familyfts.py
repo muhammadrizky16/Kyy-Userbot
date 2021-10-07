@@ -44,7 +44,11 @@ async def typewriter(typew):
     sleep(2)
     await typew.edit("✅ `jesse anj`")
     sleep(1)
-    await typew.edit("✨ `CUMA KYY YANG PALING SOPAN, PALING BAIK HATI DAN TIDAK SOMBONG :v` ✨")
+    await typew.edit(
+        "✨ `CUMA KYY YANG PALING SOPAN, PALING BAIK HATI DAN TIDAK SOMBONG :v` ✨"
+    )
+
+
 # Luar Angkasa
 
 
@@ -123,8 +127,9 @@ async def typewriter(typew):
     await typew.edit("**Tapi Bo'ong Hiyahiyahiya**")
 
 
-CMD_HELP.update({
-    "familyfts": "𝘾𝙤𝙢𝙢𝙖𝙣𝙙: `.fts`\
+CMD_HELP.update(
+    {
+        "familyfts": "𝘾𝙤𝙢𝙢𝙖𝙣𝙙: `.fts`\
     \n↳ : member fts\
     \n\n𝘾𝙤𝙢𝙢𝙖𝙣𝙙: `kyy`\
     \n↳ : Ngatain Kyy\
@@ -132,4 +137,5 @@ CMD_HELP.update({
     \n↳ : Ngatain Ryan\
     \n\n𝘾𝙤𝙢𝙢𝙖𝙣𝙙: `komo`\
     \n↳ : Ngatain Komo."
-})
+    }
+)

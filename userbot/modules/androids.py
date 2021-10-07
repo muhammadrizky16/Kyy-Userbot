@@ -98,8 +98,7 @@ async def codename_info(request):
             "certified-android-devices/master/by_brand.json"
         ).text
     )
-    devices_lower = {k.lower(): v for k, v in data.items()
-                     }  # Lower brand names in JSON
+    devices_lower = {k.lower(): v for k, v in data.items()}  # Lower brand names in JSON
     devices = devices_lower.get(brand)
     results = [
         i
@@ -236,11 +235,11 @@ async def devices_specifications(request):
         return
     all_brands = (
         BeautifulSoup(
-            get("https://www.devicespecifications.com/en/brand-more").content,
-            "lxml") .find(
-            "div",
-            {
-                "class": "brand-listing-container-news"}) .findAll("a"))
+            get("https://www.devicespecifications.com/en/brand-more").content, "lxml"
+        )
+        .find("div", {"class": "brand-listing-container-news"})
+        .findAll("a")
+    )
     brand_page_url = None
     try:
         brand_page_url = [
@@ -310,9 +309,9 @@ async def twrp(request):
     await request.edit(reply)
 
 
-CMD_HELP.update({
-    "androids":
-    "𝘾𝙤𝙢𝙢𝙖𝙣𝙙: `.magisk`\
+CMD_HELP.update(
+    {
+        "androids": "𝘾𝙤𝙢𝙢𝙖𝙣𝙙: `.magisk`\
 \n↳ : Get latest Magisk releases\
 \n\n𝘾𝙤𝙢𝙢𝙖𝙣𝙙: `.device <codename>`\
 \n↳ : Get info about android device codename or model.\
@@ -329,4 +328,5 @@ CMD_HELP.update({
 \n\n𝘾𝙤𝙢𝙢𝙖𝙣𝙙 `.gp` Reply to photo or video.\
 \n↳ : Upload photo or video to Google.\
 \n\nYou need G_PHOTOS_CLIENT_ID and G_PHOTOS_CLIENT_SECRET.\nGet it from [here](https://j.mp/39lWQQm)"
-})
+    }
+)

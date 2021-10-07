@@ -7,7 +7,6 @@
 
 from platform import uname
 
-
 from userbot import ALIVE_NAME, BOT_VER, is_mongo_alive, is_redis_alive
 from userbot.events import register
 
@@ -26,8 +25,10 @@ async def amireallydbs(dbs):
         db = "Redis Cache seems to be failing!"
     else:
         db = "Databases functioning normally!"
-    await dbs.edit(""
-                   f"**User :** `{DEFAULTUSER}` \n"
-                   f"**Status Database:** `{db}`\n"
-                   f"**Kyy-Userbot :** `{BOT_VER}`"
-                   "")
+    await dbs.edit(
+        ""
+        f"**User :** `{DEFAULTUSER}` \n"
+        f"**Status Database:** `{db}`\n"
+        f"**Kyy-Userbot :** `{BOT_VER}`"
+        ""
+    )

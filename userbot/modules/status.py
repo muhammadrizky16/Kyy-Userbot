@@ -5,14 +5,9 @@ import os
 import urllib
 
 from telethon.tl import functions
-from userbot.events import register
-from userbot import (
-    CMD_HELP,
-    bot,
-    ALIVE_NAME,
-)
-from userbot import TEMP_DOWNLOAD_DIRECTORY
 
+from userbot import ALIVE_NAME, CMD_HELP, TEMP_DOWNLOAD_DIRECTORY, bot
+from userbot.events import register
 
 OFFLINE_TAG = f"{ALIVE_NAME} #OFFLINE"
 ONLINE_TAG = f"{ALIVE_NAME} #ONLINE"
