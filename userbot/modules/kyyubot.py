@@ -152,7 +152,7 @@ async def typewriter(typew):
 
 
 CMD_HELP.update({
-"kyyubot": "𝘾𝙤𝙢𝙢𝙖𝙣𝙙: `.sadboy`\
+    "kyyubot": "𝘾𝙤𝙢𝙢𝙖𝙣𝙙: `.sadboy`\
     \n↳ : Biasalah sadboy hikss\
     \n\n𝘾𝙤𝙢𝙢𝙖𝙣𝙙: `.wah`\
     \n↳ : Ngatain orang war\
