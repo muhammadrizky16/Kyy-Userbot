@@ -79,7 +79,7 @@ async def _(c):
 
 
 CMD_HELP.update({
-        "calls": "𝘾𝙤𝙢𝙢𝙖𝙣𝙙: `.startvc`\
+    "calls": "𝘾𝙤𝙢𝙢𝙖𝙣𝙙: `.startvc`\
          \n↳ : Memulai Obrolan Suara.\
          \n𝘾𝙤𝙢𝙢𝙖𝙣𝙙: `.stopvc`\
          \n↳ : `Mematikan Obrolan Suarw.`\
