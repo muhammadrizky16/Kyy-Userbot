@@ -1,39 +1,44 @@
-# port by KOALA 🐨 /@manusiarakitann
-
+#credits: mrconfused
+from geopy.geocoders import Nominatim
+from telethon.tl import types
 from userbot.events import register
 from userbot import CMD_HELP
 
 
-@register(outgoing=True, pattern="^.gsend ?(.*)")
-async def remoteaccess(event):
-
-    p = event.pattern_match.group(1)
-    m = p.split(" ")
-
-    chat_id = m[0]
-    try:
-        chat_id = int(chat_id)
-    except BaseException:
-
-        pass
-
-    msg = ""
-    mssg = await event.get_reply_message()
-    if event.reply_to_msg_id:
-        await event.client.send_message(chat_id, mssg)
-        await event.edit("`Pesan Di Di Teruskan Ke Grup Tujuan`")
-    for i in m[1:]:
-        msg += i + " "
-    if msg == "":
+@register(outgoing=True, pattern="^.gps(?: |$)(.*)")
+async def gps(event):
+    if event.fwd_from:
         return
-    try:
-        await event.client.send_message(chat_id, msg)
-        await event.edit("Pesan Di Di Teruskan Ke Grup Tujuan`")
-    except BaseException:
-        await event.edit("** Gagal Mengirim Pesan, Emang Lu Join Grup Nya Goblok ? **")
+    reply_to_id = event.message
+    if event.reply_to_msg_id:
+        reply_to_id = await event.get_reply_message()
+    input_str = event.pattern_match.group(1)
 
-CMD_HELP.update(
-    {
-        "grouplink": ".gsend\
-    \nMengirim Pesan Jarak Jauh Ke Grup Lain .gsend <link grup> <pesan>."
-    })
+    if not input_str:
+        return await event.edit("`Mohon Berikan Tempat Yang Dicari`")
+
+    await event.edit("`Menemukan Lokasi Ini Di Server Map....`")
+
+    geolocator = Nominatim(user_agent="Geez")
+    geoloc = geolocator.geocode(input_str)
+
+    if geoloc:
+        lon = geoloc.longitude
+        lat = geoloc.latitude
+        await reply_to_id.reply(
+            input_str,
+            file=types.InputMediaGeoPoint(
+                types.InputGeoPoint(
+                    lat, lon
+                )
+            )
+        )
+        await event.delete()
+    else:
+        await event.edit("`Saya Tidak Dapat Menemukannya`")
+
+CMD_HELP.update({
+    "gps":
+    ">.`gps`"
+    "\nUsage: Untuk Mendapatkan Lokasi Map"
+})
