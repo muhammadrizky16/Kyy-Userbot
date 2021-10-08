@@ -1,4 +1,4 @@
-<h1 align="center"><img src="./resources/extras/GeezFire.gif" width="35px">Kʏʏ-Usᴇʀʙᴏᴛ<img src="./resources/extras/GeezFire.gif" width="35px"></h1>
+<h1 align="center"><img src="./resources/extras/GeezFire.gif" width="35px">Kyy-Userbot<img src="./resources/extras/GeezFire.gif" width="35px"></h1>
 
 </p>
 
