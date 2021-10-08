@@ -55,7 +55,7 @@ async def typewriter(typew):
     await typew.edit("**BABI LU GOBLOK!!CANTIKAN JUGA GUA HAHAHAHA**")
 
 
-@register(outgoing=True, pattern='^.q(?: |$)(.*)')
+@register(outgoing=True, pattern='^.z(?: |$)(.*)')
 async def typewriter(typew):
     typew.pattern_match.group(1)
     await typew.edit("**BACOTAN LU GAK BIKIN GUA TREMOR GOBLOK HAHAHAHA!!**")
@@ -115,13 +115,13 @@ async def typewriter(typew):
     await typew.edit("**BISMILLAH SLEEP CALL!!😁**")
 
 
-@register(outgoing=True, pattern='^.x(?: |$)(.*)')
+@register(outgoing=True, pattern='^.g(?: |$)(.*)')
 async def typewriter(typew):
     typew.pattern_match.group(1)
     await typew.edit("**GANTENG LU BEGITU???**")
 
 
-@register(outgoing=True, pattern='^.z(?: |$)(.*)')
+@register(outgoing=True, pattern='^.y(?: |$)(.*)')
 async def typewriter(typew):
     typew.pattern_match.group(1)
     await typew.edit("**War War Tai anjing, Ketrigger minta sharelok, Udah di sharelok Ga nyamperin,Keras di sosmed Bhakss...**")
@@ -157,7 +157,7 @@ CMD_HELP.update({
 \nUsage: Biar Dikata Ganteng.\
 \n\n.w\
 \nUsage: Biar Dikata Cantik.\
-\n\n.q\
+\n\n.z\
 \nUsage: Tremor Kan Lu.\
 \n\n.k\
 \nUsage: Memperkenalkan Diri.\
@@ -177,9 +177,9 @@ CMD_HELP.update({
 \nUsage: Nyari Sleep Call.\
 \n\n.j\
 \nUsage: Hujat yang gapunya muka.\
-\n\n.x\
+\n\n.g\
 \nUsage: Kegantengan.\
-\n\n.z\
+\n\n.y\
 \nUsage: teruntuk petarung.\
 \n\n.h\
 \nUsage: Kecantikan.\
