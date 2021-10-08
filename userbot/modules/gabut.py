@@ -7,20 +7,9 @@ DEFAULTUSER = str(ALIVE_NAME) if ALIVE_NAME else uname().node
 # ============================================
 
 
-@register(outgoing=True, pattern="^.g(?: |$)(.*)")
-async def typewriter(typew):
-    typew.pattern_match.group(1)
-    await typew.edit(f"**JAKA SEMBUNG BAWA GOLOK**")
-    sleep(2)
-    await typew.edit("**NIMBRUNG LAH GOBLOKK!!!**")
-# Pantun
-
-
 @register(outgoing=True, pattern="^.p(?: |$)(.*)")
 async def typewriter(typew):
     typew.pattern_match.group(1)
-    await typew.edit("`Salam Dulu Biar Sopan...`")
-    sleep(2)
     await typew.edit("`السَّلاَمُ عَلَيْكُمْ وَرَحْمَةُ اللهِ وَبَرَكَاتُهُ`")
 # Salam
 
@@ -28,8 +17,6 @@ async def typewriter(typew):
 @register(outgoing=True, pattern="^.l(?: |$)(.*)")
 async def typewriter(typew):
     typew.pattern_match.group(1)
-    await typew.edit("`Kalo Orang Salam Itu Dijawab...`")
-    sleep(2)
     await typew.edit("`وَعَلَيْكُمْ السَّلاَمُ وَرَحْمَةُ اللهِ وَبَرَكَاتُهُ`")
 # Menjawab Salam
 
@@ -37,8 +24,6 @@ async def typewriter(typew):
 @register(outgoing=True, pattern="^.istigfar(?: |$)(.*)")
 async def perkenalan(event):
     event.pattern_match.group(1)
-    await event.edit(f"`Heh Kamu Gaboleh Begitu...`")
-    sleep(2)
     await event.edit("`اَسْتَغْفِرُاللهَ الْعَظِيْم`")
 # Istigfar
 
@@ -62,8 +47,6 @@ CMD_HELP.update({
     \nUsage : Untuk Menjawab Salam\
     \n\n Cmd : `.perkenalan`\
     \nUsage : Memperkenalkan Diri\
-    \n\n Cmd : `.g`\
-    \nUsage : Member Goblok\
     \n\n Cmd : `.p`\
     \nUsage : Untuk Memberi Salam."
 })
