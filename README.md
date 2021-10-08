@@ -1,12 +1,7 @@
-## Kyy-Userbot
+<h1 align="center"><img src="./resources/extras/GeezFire.gif" width="35px">Kʏʏ-Usᴇʀʙᴏᴛ<img src="./resources/extras/GeezFire.gif" width="35px"></h1>
 
-Kyy-Userbot adalah sebuah repository yang di rancang untuk membantu akun pengguna telegram dalam menjalankan aktifitas di dalamnya.
+</p>
 
-Dengan memiliki berbagai fitur yang menarik dan menyenangkan.
-
-Bahasa code ini adalah [Python](https://www.python.org/)
-
-Terimakasih telah menggunakan repository ini!
 
 <p align="center">
   <img src="https://telegra.ph/file/44784d03e4e4ecbdf9e04.jpg">
