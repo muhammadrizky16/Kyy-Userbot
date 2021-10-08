@@ -1,4 +1,4 @@
-
+from time import sleep
 from userbot import CMD_HELP
 from userbot.events import register
 
@@ -126,9 +126,7 @@ async def typewriter(typew):
 @register(outgoing=True, pattern="^.o(?: |$)(.*)")
 async def typewriter(typew):
     typew.pattern_match.group(1)
-    await typew.edit(
-        "**MENTANG MENTANG PUNYA BOT MAINNYA BOT!!PANTES MUKANYA KAYA BOT😁**"
-    )
+    await typew.edit("**MENTANG MENTANG PUNYA BOT MAINNYA BOT!!PANTES MUKANYA KAYA BOT😁**")
 
 
 @register(outgoing=True, pattern="^.z(?: |$)(.*)")
