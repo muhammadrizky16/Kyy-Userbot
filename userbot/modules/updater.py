@@ -97,14 +97,14 @@ async def deploy(event, repo, ups_rem, ac_br, txt):
             return await event.delete()
         else:
             await event.edit(
-                "`Rose-Userbot Berhasil DiUpdate🛃,Restart Tunggu Sebentar`"
+                "`Kyy-Userbot Berhasil DiUpdate🛃,Restart Tunggu Sebentar`"
             )
             await asyncio.sleep(15)
             await event.delete()
 
         if BOTLOG:
             await event.client.send_message(
-                BOTLOG_CHATID, "#BOT \n" "`Rose-Userbot Berhasil Di Update`"
+                BOTLOG_CHATID, "#BOT \n" "`Kyy-Userbot Berhasil Di Update`"
             )
 
     else:
@@ -251,7 +251,7 @@ async def upstream(event):
 CMD_HELP.update(
     {
         "update": "𝘾𝙤𝙢𝙢𝙖𝙣𝙙: `.update`"
-        "\n• : Untuk Melihat Pembaruan Terbaru Rose-Userbot."
+        "\n• : Untuk Melihat Pembaruan Terbaru Kyy-Userbot."
         "\n\n𝘾𝙤𝙢𝙢𝙖𝙣𝙙: `.update now`"
         "\n• : Memperbarui Kyy-Userbot."
         "\n\n𝘾𝙤𝙢𝙢𝙖𝙣𝙙: `.update deploy`"
