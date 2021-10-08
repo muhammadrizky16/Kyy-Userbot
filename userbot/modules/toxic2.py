@@ -80,12 +80,40 @@ async def typewriter(typew):
     await typew.edit("**HAHAHAHA**")
 # Create by myself @localheart
 
+
+@register(outgoing=True, pattern='^.yatim(?: |$)(.*)')
+async def typewriter(typew):
+    typew.pattern_match.group(1)
+    sleep(1)
+    await typew.edit("`Hai Anak Kontol 🙈, Jangan Lupa Makan Yaa`")
+    sleep(1)
+    await typew.edit("`Jangan Bilang Lu Ga Dikasih Makan Sama Ortu 😁`")
+    sleep(1)
+    await typew.edit("`APA PERLU GUA SANTUNIN ?? 🙈🙈 xixixi`")
+    sleep(1)
+    await typew.edit("`OH IYAA LUPAAA, LU KAN BEBAN KELUARGA 🤣`")
+    sleep(1)
+    await typew.edit("`MANA MUNGKIN ORTU LU PEDULII xixixi 🙈`")
+    sleep(1)
+    await typew.edit("`KETAWA DULU BOLEH KALI YAA 😁`")
+    sleep(1)
+    await typew.edit("`HAHAHAHAHAHAHA`")
+    sleep(1)
+    await typew.edit("`KASIAN ORTUNYAA GAPEDULIII 🙈🤣`")
+    sleep(1)
+    await typew.edit("`MAAF YA, CANDAA BEBANNNN xixixi 🙈`")
+    sleep(1)
+    await typew.edit("`Tapi Bo'ong Hiyahiyahiya`")
+# Create by myself @localheart
+
+
 CMD_HELP.update({
-    "toxic2":
-    "𝘾𝙤𝙢𝙢𝙖𝙣𝙙: `.ngentot`\
-    \n↳ : Lu Coba Sendiri Aja."
-    "𝘾𝙤𝙢𝙢𝙖𝙣𝙙: `.goblok`\
-    \n↳ : Lu Coba Sendiri Aja."
-    "𝘾𝙤𝙢𝙢𝙖𝙣𝙙: `.ngatain`\
-    \n↳ : Lu Coba Sendiri Aja."
+    "toxic2": "𝘾𝙤𝙢𝙢𝙖𝙣𝙙: `.ngentot`\
+    \n↳ : Cobain aja\
+    \n\n𝘾𝙤𝙢𝙢𝙖𝙣𝙙: `.goblok`\
+    \n↳ : Cobain aja\
+    \n\n𝘾𝙤𝙢𝙢𝙖𝙣𝙙: `.ngatain`\
+    \n↳ : Cobain aja\
+    \n\n𝘾𝙤𝙢𝙢𝙖𝙣𝙙: `.yati`\
+    \n↳ : Cobain aja."
 })
