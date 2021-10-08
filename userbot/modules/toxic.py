@@ -82,12 +82,6 @@ async def typewriter(typew):
 @register(outgoing=True, pattern='^.m(?: |$)(.*)')
 async def typewriter(typew):
     typew.pattern_match.group(1)
-    await typew.edit("**NGOPI BOS NGOPI JANGAN DIAM DIAM BAE!!**")
-
-
-@register(outgoing=True, pattern='^.y(?: |$)(.*)')
-async def typewriter(typew):
-    typew.pattern_match.group(1)
     await typew.edit("**INI GRUB APA KUBURAN SEPI BANGET ASTAGFIRULLAH!!**")
 
 
@@ -172,8 +166,6 @@ CMD_HELP.update({
 \n\n.b\
 \nUsage: Sok Kepinteran.\
 \n\n.m\
-\nUsage: Ngajak Ngopi!!.\
-\n\n.y\
 \nUsage: Gc Nya Kaya kuburan.\
 \n\n.c\
 \nUsage: Dia tuh Ngeyel banget.\
