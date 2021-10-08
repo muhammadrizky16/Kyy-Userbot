@@ -49,7 +49,7 @@ async def stop_voice(c):
     chat = await c.get_chat()
     admin = chat.admin_rights
     creator = chat.creator
-    
+
     if not admin and not creator:
         return await e.edit(NO_ADMIN)
     new_rights = ChatAdminRights(invite_users=True)
