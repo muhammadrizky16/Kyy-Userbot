@@ -1,10 +1,6 @@
-from platform import uname
-from userbot import ALIVE_NAME, CMD_HELP
+from time import sleep
+from userbot import CMD_HELP
 from userbot.events import register
-
-# ================= CONSTANT =================
-DEFAULTUSER = str(ALIVE_NAME) if ALIVE_NAME else uname().node
-# ============================================
 
 
 @register(outgoing=True, pattern="^.d(?: |$)(.*)")
