@@ -70,7 +70,7 @@ async def killdabot(event):
 
 @register(outgoing=True, pattern="^.restart$")
 async def killdabot(event):
-    await event.edit("`Restarting Geez-Userbot...`")
+    await event.edit("`Restarting Kyy-Userbot...`")
     await asyncio.sleep(10)
     await event.delete()
     if BOTLOG:
@@ -87,7 +87,7 @@ async def killdabot(event):
 async def reedme(e):
     await e.edit(
         "Here's Something for You to Read :\n"
-        "\n[✨ Kyy-UserBot Repo](https://github.com/muhammadrizky16/Kyy-Userbot/blob/Kyy-Userbot/README.md)"
+        "\n[✨ Kyy-Userbot Repo](https://github.com/muhammadrizky16/Kyy-Userbot/blob/Kyy-Userbot/README.md)"
         "\n[Setup Guide - Basic](https://telegra.ph/How-to-host-a-Telegram-Userbot-11-02)"
         "\n[Special - Note](https://telegra.ph/Special-Note-11-02)")
 
@@ -112,7 +112,7 @@ async def repo_is_here(wannasee):
     await wannasee.edit(
         "✨ **Kʏʏ-Usᴇʀʙᴏᴛ** ✨ \n"
         "➽ **Repo Userbot :** [Github](https://github.com/muhammadrizky16/Kyy-Userbot)\n"
-        "➽ **Owner Bot :** [Kyy](t.me/IDnyaKosong)\n"
+        "➽ **Owner Bot :** [ҡʏʏ](t.me/IDnyaKosong)\n"
         "➽ 𝗟𝗶𝗰𝗲𝗻𝘀𝗲 : [GPL-3.0 License](https://github.com/muhammadrizky16/Kyy-Userbot/blob/Kyy-Userbot/LICENSE)"
     )
 
