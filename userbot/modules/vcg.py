@@ -79,7 +79,7 @@ async def _(e):
 
 
 CMD_HELP.update({
-    "calls": "𝘾𝙤𝙢𝙢𝙖𝙣𝙙: `.startvc`\
+    "vcg": "𝘾𝙤𝙢𝙢𝙖𝙣𝙙: `.startvc`\
     \n↳ : Start Group Call in a group.\
     \n𝘾𝙤𝙢𝙢𝙖𝙣𝙙: `.stopvc`\
     \n↳ : `Stop Group Call in a group.`\
