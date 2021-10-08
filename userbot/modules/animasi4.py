@@ -349,23 +349,6 @@ async def koc(e):
         await e.edit("`GABUT`")
 
 
-@register(outgoing=True, pattern='^.sangean(?: |$)(.*)')
-async def typewriter(typew):
-    typew.pattern_match.group(1)
-    await typew.edit("`Kalo Sange Modal`")
-    sleep(1)
-    await typew.edit("`Jangan Modal Kontol Doang`")
-    sleep(1)
-    await typew.edit("`Goblook Emang`")
-    sleep(1)
-    await typew.edit("`Kelamaan Nge Jomblo Sih`")
-    sleep(1)
-    await typew.edit("`Jadinya Gitu, Sange Berat`")
-    sleep(1)
-    await typew.edit("`MAKANYA KALO HIDUP HARUS GANTENG KONTOOOLL`")
-# Create by myself @localheart
-
-
 @register(outgoing=True, pattern="^.mf$")
 async def koc(e):
     if not e.text[0].isalpha() and e.text[0] not in ("/", "#", "@", "!"):
@@ -409,41 +392,12 @@ async def _(event):
             await event.edit(animation_chars[i % 11])
 
 
-@register(outgoing=True, pattern='^.yatim(?: |$)(.*)')
-async def typewriter(typew):
-    typew.pattern_match.group(1)
-    sleep(1)
-    await typew.edit("`Hai Anak Kontol 🙈, Jangan Lupa Makan Yaa`")
-    sleep(1)
-    await typew.edit("`Jangan Bilang Lu Ga Dikasih Makan Sama Ortu 😁`")
-    sleep(1)
-    await typew.edit("`APA PERLU GUA SANTUNIN ?? 🙈🙈 xixixi`")
-    sleep(1)
-    await typew.edit("`OH IYAA LUPAAA, LU KAN BEBAN KELUARGA 🤣`")
-    sleep(1)
-    await typew.edit("`MANA MUNGKIN ORTU LU PEDULII xixixi 🙈`")
-    sleep(1)
-    await typew.edit("`KETAWA DULU BOLEH KALI YAA 😁`")
-    sleep(1)
-    await typew.edit("`HAHAHAHAHAHAHA`")
-    sleep(1)
-    await typew.edit("`KASIAN ORTUNYAA GAPEDULIII 🙈🤣`")
-    sleep(1)
-    await typew.edit("`MAAF YA, CANDAA BEBANNNN xixixi 🙈`")
-    sleep(1)
-    await typew.edit("`Tapi Bo'ong Hiyahiyahiya`")
-# Create by myself @localheart
-
 CMD_HELP.update({
     "animasi4":
     "𝘾𝙤𝙢𝙢𝙖𝙣𝙙: `.gabut` atau `.dino`\
     \n↳ : Dikala gabut, yaaa pake aja xixixi.\
-    \n\n𝘾𝙤𝙢𝙢𝙖𝙣𝙙: `.yatim`\
-    \n↳ : Buat bercandaan, kalo gasuka jangan dipake.\
     \n\n𝘾𝙤𝙢𝙢𝙖𝙣𝙙: `.cinta`\
     \n↳ : Mengirim cinta tai anjiing ke seseorang.\
     \n\n𝘾𝙤𝙢𝙢𝙖𝙣𝙙: `.sayang`\
-    \n↳ : Berubah menjadi kadal.\
-    \n\n𝘾𝙤𝙢𝙢𝙖𝙣𝙙: `.sangean`\
-    \n↳ : Kasih aja buat orang yang sangean."
+    \n↳ : Berubah menjadi kadal."
 })
