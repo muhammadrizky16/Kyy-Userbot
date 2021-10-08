@@ -153,32 +153,6 @@ async def typewriter(typew):
     await typew.edit("**SEMOGA CEPET SADAR YA HAHAHAHA**")
 
 
-@register(outgoing=True, pattern='^.yatim(?: |$)(.*)')
-async def typewriter(typew):
-    typew.pattern_match.group(1)
-    sleep(1)
-    await typew.edit("`Hai Anak Kontol 🙈, Jangan Lupa Makan Yaa`")
-    sleep(1)
-    await typew.edit("`Jangan Bilang Lu Ga Dikasih Makan Sama Ortu 😁`")
-    sleep(1)
-    await typew.edit("`APA PERLU GUA SANTUNIN ?? 🙈🙈 xixixi`")
-    sleep(1)
-    await typew.edit("`OH IYAA LUPAAA, LU KAN BEBAN KELUARGA 🤣`")
-    sleep(1)
-    await typew.edit("`MANA MUNGKIN ORTU LU PEDULII xixixi 🙈`")
-    sleep(1)
-    await typew.edit("`KETAWA DULU BOLEH KALI YAA 😁`")
-    sleep(1)
-    await typew.edit("`HAHAHAHAHAHAHA`")
-    sleep(1)
-    await typew.edit("`KASIAN ORTUNYAA GAPEDULIII 🙈🤣`")
-    sleep(1)
-    await typew.edit("`MAAF YA, CANDAA BEBANNNN xixixi 🙈`")
-    sleep(1)
-    await typew.edit("`Tapi Bo'ong Hiyahiyahiya`")
-# Create by myself @localheart
-
-
 CMD_HELP.update({
     "kyyubot": "𝘾𝙤𝙢𝙢𝙖𝙣𝙙: `.sadboy`\
     \n↳ : Biasalah sadboy hikss\
@@ -195,7 +169,5 @@ CMD_HELP.update({
     \n\n𝘾𝙤𝙢𝙢𝙖𝙣𝙙: `.ange`\
     \n↳ : Sangean\
     \n\n𝘾𝙤𝙢𝙢𝙖𝙣𝙙: `.tittle`\
-    \n↳ : Ngatain bocah gila tittle\
-    \n\n𝘾𝙤𝙢𝙢𝙖𝙣𝙙: `.yatim`\
-    \n↳ : Kalo ga suka gausah dipake."
+    \n↳ : Ngatain bocah gila tittle."
 })
