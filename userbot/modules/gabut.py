@@ -11,7 +11,7 @@ DEFAULTUSER = str(ALIVE_NAME) if ALIVE_NAME else uname().node
 async def typewriter(typew):
     typew.pattern_match.group(1)
     await typew.edit(f"**JAKA SEMBUNG BAWA GOLOK**")
-    sleep(3)
+    sleep(2)
     await typew.edit("**NIMBRUNG LAH GOBLOKK!!!**")
 # Pantun
 
