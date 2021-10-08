@@ -223,7 +223,7 @@ async def pipcheck(pip):
         await pip.edit("Gunakan `.help pip` Untuk Melihat Contoh")
 
 
-@register(outgoing=True, pattern=r"^\.(?:rosealive)\s?(.)?")
+@register(outgoing=True, pattern=r"^\.(?:kyyalive)\s?(.)?")
 async def amireallyalive(alive):
     user = await bot.get_me()
     await get_readable_time((time.time() - StartTime))
@@ -259,13 +259,13 @@ async def amireallyalive(alive):
         await alive.delete()
 
 
-@register(outgoing=True, pattern=r"^\.(?:..kyyon)\s?(.)?")
+@register(outgoing=True, pattern=r"^\.(?:kyyon)\s?(.)?")
 async def amireallyalive(alive):
     await bot.get_me()
     await get_readable_time((time.time() - StartTime))
     output = (
         f"●▬▬▬▬▬▬ஜ۩۞۩ஜ▬▬▬▬▬▬● \n"
-        f"✾ 🤴 • `ᴏᴡɴᴇʀ :`[ҡʏʏ](t.me/pikyus1)             ㅤ \n"
+        f"✾ 🤴 • `ᴏᴡɴᴇʀ :`[ҡʏʏ](t.me/IDnyaKosong)             ㅤ \n"
         f"✾ 🖥️ • `ꜱʏꜱᴛᴇᴍ. :`Ubuntu 20.10            \n"
         f"✾ ⚙️ • `ᴛᴇʟᴇᴛʜᴏɴ :`v.{version.__version__}                ㅤㅤ  \n"
         f"✾ 🐍 • `ᴘʏᴛʜᴏɴ. :`v.{python_version()} ㅤㅤ\n"
@@ -314,9 +314,9 @@ async def redis(alive):
         f"┃✱ **Branch   :** {UPSTREAM_REPO_BRANCH} \n"
         f"┃✱ **Bot Ver  :** {BOT_VER} \n"
         f"┃✱ **Modules  :** {len(modules)} Modules \n"
-        f"┃✱ **GitHub   :** [Kyy](https://github.com/Kyy-Userbot) \n"
+        f"┃✱ **GitHub   :** [ҡʏʏ](https://github.com/Kyy-Userbot) \n"
         f"┃✱ **Channel   :** [Channel](https://t.me/ahhsudahlahhh) \n"
-        f"┃✱ **Owner    :** [Kyy](https://t.me/IDnyaKosong) \n"
+        f"┃✱ **Owner    :** [ҡʏʏ](https://t.me/IDnyaKosong) \n"
         f"╰✠╼━━━━━━━━━━━━━━━━━━━✠╯")
     if ALIVE_LOGO:
         try:
