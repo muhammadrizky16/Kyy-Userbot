@@ -315,7 +315,7 @@ async def redis(alive):
         f"┃✱ **Bot Ver  :** {BOT_VER} \n"
         f"┃✱ **Modules  :** {len(modules)} Modules \n"
         f"┃✱ **GitHub   :** [ҡʏʏ](https://github.com/Kyy-Userbot) \n"
-        f"┃✱ **Channel   :** [Channel](https://t.me/ahhsudahlahhh) \n"
+        f"┃✱ **Channel   :** [ᴄʜᴀɴɴᴇʟ](https://t.me/ahhsudahlahhh) \n"
         f"┃✱ **Owner    :** [ҡʏʏ](https://t.me/IDnyaKosong) \n"
         f"╰✠╼━━━━━━━━━━━━━━━━━━━✠╯")
     if ALIVE_LOGO:
