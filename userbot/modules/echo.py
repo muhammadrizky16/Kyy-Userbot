@@ -21,8 +21,8 @@ from userbot.utils.events import get_user_from_event
 async def echo(event):
     if event.reply_to_msg_id is None:
         return await event.edit("`Balas pesan Pengguna untuk menggemakan pesannya`")
-    roseevent = await event.edit("`Tambahkan Echo ke pengguna...`")
-    user, rank = await get_user_from_event(event, roseevent, nogroup=True)
+    kyyevent = await event.edit("`Tambahkan Echo ke pengguna...`")
+    user, rank = await get_user_from_event(event, kyyevent, nogroup=True)
     if not user:
         return
     reply_msg = await event.get_reply_message()
@@ -63,7 +63,7 @@ async def echo(event):
         try:
             remove_echo(chat_id, user_id)
         except Exception as e:
-            await edit_delete(roseevent, f"**Error:**\n`{str(e)}`")
+            await edit_delete(kyyevent, f"**Error:**\n`{str(e)}`")
         else:
             await event.edit("Echo has been stopped for the user")
     else:
@@ -161,9 +161,7 @@ async def samereply(event):
         await event.reply(event.message)
 
 
-CMD_HELP.update(
-    {
-        "echo": "`.addecho` ; `.delecho` ; `.echolist`\
+CMD_HELP.update({
+    "echo": "`.addecho` ; `.delecho` ; `.echolist`\
     \nUsage: Untuk Menambahkan Followers Chat Kamu."
-    }
-)
+})
