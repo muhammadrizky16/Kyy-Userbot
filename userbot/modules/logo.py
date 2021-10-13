@@ -1,3 +1,5 @@
+# 🍀 © @tofik_dn
+# ⚠️ Do not remove credits
 import asyncio
 
 from telethon.errors.rpcerrorlist import YouBlockedUserError
@@ -16,7 +18,7 @@ async def _(event):
         await event.edit("`Give a name too!`")
     else:
         await event.edit("`Processing`")
-    chat = "@skyzuXrobot"
+    chat = "@tdtapibot"
     async with event.client.conversation(chat) as conv:
         try:
             msg = await conv.send_message(f"/logo {text}")
@@ -26,7 +28,7 @@ async def _(event):
             await event.client.send_read_acknowledge(conv.chat_id)
         except YouBlockedUserError:
             await event.edit(
-                "**Error: Mohon Buka Blokir** @skyzuXrobot **Dan Coba Lagi!**"
+                "**Error: Mohon Buka Blokir** @tdtapibot **Dan Coba Lagi!**"
             )
             return
         await asyncio.sleep(0.5)
@@ -39,5 +41,7 @@ async def _(event):
         await event.delete()
 
 
-CMD_HELP.update({"logo": "𝘾𝙤𝙢𝙢𝙖𝙣𝙙: `.logo <text>`"
-                 "\n↳ : Hasilkan logo dari Teks atau Balas Ke gambar yang diberikan, untuk menulis teks Anda di atasnya. Atau Balas Ke File Font, Untuk menulis dengan font itu."})
+CMD_HELP.update({
+        "logo": "**Plugin : **`logo`\
+        \n\n  •  **Syntax :** `.logo` <text>\
+        \n  •  **Function : **Membuat logo dari Teks yang diberikan\"})
