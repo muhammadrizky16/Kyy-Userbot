@@ -113,6 +113,8 @@ async def repo_is_here(wannasee):
         "✨ **Kʏʏ-Usᴇʀʙᴏᴛ** ✨ \n"
         "➥ **Repo Userbot :** [Github](https://github.com/muhammadrizky16/Kyy-Userbot)\n"
         "➥ **Owner Bot :** [ҡʏʏ](t.me/IDnyaKosong)\n"
+        "➥ **Instagram :** [ɪɴsᴛᴀɢʀᴀᴍ](instagram.com/rizkyhamdanii16_)\n"
+        "➥ **Channel :** [ᴄʜᴀɴɴᴇʟ](https://t.me/ahhsudahlahhh)\n"
         "➥ 𝗟𝗶𝗰𝗲𝗻𝘀𝗲 : [GPL-3.0 License](https://github.com/muhammadrizky16/Kyy-Userbot/blob/Kyy-Userbot/LICENSE)"
     )
 
