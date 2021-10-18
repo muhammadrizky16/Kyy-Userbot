@@ -18,19 +18,6 @@ Gunakan bot ini dengan risiko Anda sendiri, dan gunakan dengan bijak.
 ```
 
 
-## Bagaimana Cara Deploy?
-
-```
-* **CARA DEPLOY** 🔧
-
-  > Pertama Dapatkan API_KE & API_HASH Di my.telegram.org (Wajib)
-  > Dapatkan Sesi String pada perintah di bawah ini, jalankan di terminal Anda (wajib)
-  > Dapatkan Bot token Di @BotFather
-  > Next Tekan Tombol Deploy Dibawah
-  > Isi vars Lalu Tekan Deploy Lagi
-  > Terakhir Hidupkan Dyno Lalu Check Logs (settings -> view logs) Jika Berhasil Enjoy :)
-```
-
 ## String Session :
 [![GenerateStringName](https://img.shields.io/badge/repl.it-generateStringName-white)](https://replit.com/@rizkyhmdanii16/StringSession)
 
@@ -47,14 +34,6 @@ Gunakan bot ini dengan risiko Anda sendiri, dan gunakan dengan bijak.
 <p align="left">
 <a href="https://github.com/muhammadrizky16"><img src="https://img.shields.io/badge/GitHub-Follow%20on%20GitHub-inactive.svg?logo=github"></a> <a href="https://instagram.com/rizkyhamdanii16_"><img src="https://img.shields.io/badge/Instagram-Follow%20on%20Instagram-important.svg?logo=instagram"></a>
 </p>
-
-
-## © Credits 
-
-`Thanks For all` 🥰
-
-❁[Kyy](https://github.com/muhammadrizky16/Kyy-Userbot)    Kyy-Userbot\
-❁[Skyzu](https://github.com/Askarbot/Skyzuu-Userbot)    Skyzuu-Userbot
 
 
 ## Stay Support 🚀
