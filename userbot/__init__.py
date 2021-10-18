@@ -561,7 +561,7 @@ with bot:
                 text = (
                     f"❁ __Saya Adalah Kyy Userbot Yang Digunakan Banyak User Telegram__.\n\n"
                     f"❁ __Saya Dibuat Hanya Untuk Bersenang Senang Ditelegram__.\n\n"
-                    f"❁ __Kelebihan Saya Banyak, Saya Mempunyai 183 Modules__.\n\n"
+                    f"❁ __Kelebihan Saya Banyak, Saya Mempunyai 1816 Modules__.\n\n"
                     f"© @IDnyaKosong")
                 await event.edit(
                     text,
@@ -700,7 +700,7 @@ with bot:
                     f"°__Mengubah Emoji Inline Yang Ada Dicomand__ `.helpme`\n\n"
                     f"× `.set var INLINE_PIC` [**LINK**]\n"
                     f"°__Mengubah Foto Yang Ada Dicomand__ `.helpme`\n\n"
-                    f"© @ahhsudahlahhh")
+                    f"© @IDnyaKosong")
                 await event.edit(
                     text,
                     file=kyulogo,
@@ -728,7 +728,7 @@ with bot:
                     f"Modules Name **pmbot**\n\n"
                     f"× `.set var START_WELCOME` [**TEKS**] \n"
                     f"°__Kamu Juga Bisa Mengubah Start Welcome Untuk Bot Kamu Yang Ini, Dengan Cara Diatas Dan Kata Kata Bebas__.\n\n"
-                    f"© @ahhsudahlahhh")
+                    f"© @IDnyaKosong")
                 await event.edit(
                     text,
                     file=kyylogo,
@@ -823,7 +823,7 @@ with bot:
                     f"**|**  [`{percentage}`**%**]\n"
                     f" ✠➲ **ʙᴏᴛ ᴏꜰ :** {ALIVE_NAME}  "
                     "\n╚════════════════════╝"
-                    f"© @ahhsudahlahhh")
+                    f"© @IDnyaKosong")
                 await event.edit(
                     text,
                     file=kyylogo,
