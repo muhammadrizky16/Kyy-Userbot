@@ -361,9 +361,8 @@ with bot:
 
 
 async def check_alive():
-    await bot.send_message(BOTLOG_CHATID, "**✨Kʏʏ-Usᴇʀʙᴏᴛ Berhasil Di Aktifkan✨**")
+    await bot.send_message(BOTLOG_CHATID, "Kʏʏ-Usᴇʀʙᴏᴛ Berhasil Diaktifkan✨**\n━━━━━━━━━━━━━━━\n❃ **Branch :** `Kyy-Userbot`\n❃ **BotVer :** `5.0`\n━━━━━━━━━━━━━━━\n❃ **Support :** @ahhsudahlahhh\n━━━━━━━━━━━━━━━")
     return
-
 with bot:
     try:
         bot.loop.run_until_complete(check_alive())
