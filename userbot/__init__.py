@@ -17,6 +17,7 @@ from pymongo import MongoClient
 from datetime import datetime
 from redis import StrictRedis
 from dotenv import load_dotenv
+from pytgcalls import PyTgCalls
 from requests import get
 from telethon.sync import TelegramClient, custom, events
 from telethon.sessions import StringSession
@@ -332,7 +333,6 @@ except Exception as e:
     print(f"STRING_SESSION - {e}")
     sys.exit()
 call_py = PyTgCalls(bot)
-
 
 async def check_botlog_chatid():
     if not BOTLOG_CHATID and LOGSPAMMER:
