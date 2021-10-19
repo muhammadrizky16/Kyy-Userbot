@@ -17,7 +17,6 @@ from pymongo import MongoClient
 from datetime import datetime
 from redis import StrictRedis
 from dotenv import load_dotenv
-from pytgcalls import PyTgCalls
 from requests import get
 from telethon.sync import TelegramClient, custom, events
 from telethon.sessions import StringSession
