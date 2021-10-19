@@ -6,7 +6,7 @@ from userbot.utils import edit_or_reply
 
 
 @register(outgoing=True, pattern="^.truth$")
-async def tede_truth(event):
+async def _(event):
     try:
         resp = requests.get("https://api-tede.herokuapp.com/api/truth").json()
         results = resp["message"]
@@ -16,7 +16,7 @@ async def tede_truth(event):
 
 
 @register(outgoing=True, pattern="^.dare$")
-async def tede_dare(event):
+async def _(event):
     try:
         resp = requests.get("https://api-tede.herokuapp.com/api/dare").json()
         results = resp["message"]
@@ -27,8 +27,8 @@ async def tede_dare(event):
 
 CMD_HELP.update({
     "truthdare": f"**Plugin : **`truthdare`\
-        \n\n  •  **Syntax :** `.truth`\
-        \n  •  **Function : **Untuk tantangan.\
-        \n\n  •  **Syntax :** `.dare`\
-        \n  •  **Function : **Untuk kejujuran."
+    \n\n  •  **Syntax :** `.truth`\
+    \n  •  **Function : **Untuk tantangan.\
+    \n\n  •  **Syntax :** `.dare`\
+    \n  •  **Function : **Untuk kejujuran."
 })
