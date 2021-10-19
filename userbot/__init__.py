@@ -334,6 +334,7 @@ except Exception as e:
     sys.exit()
 call_py = PyTgCalls(bot)
 
+
 async def check_botlog_chatid():
     if not BOTLOG_CHATID and LOGSPAMMER:
         LOGS.info(
