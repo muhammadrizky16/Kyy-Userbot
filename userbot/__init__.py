@@ -330,9 +330,8 @@ else:
     bot = TelegramClient("userbot", API_KEY, API_HASH)
 
 
-except Exception:
-    print(f"STRING_SESSION - {}")
-    sys.exit()
+except Exception as t:
+    print(f"STRING_SESSION - {t}")
 call_py = PyTgCalls(bot)
 
 
