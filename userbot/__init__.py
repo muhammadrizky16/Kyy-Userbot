@@ -177,9 +177,6 @@ ANTI_SPAMBOT_SHOUT = sb(os.environ.get("ANTI_SPAMBOT_SHOUT", "False"))
 # Youtube API key
 YOUTUBE_API_KEY = os.environ.get("YOUTUBE_API_KEY", None)
 
-# Custom Handler command
-CMD_HANDLER = os.environ.get("CMD_HANDLER") or "."
-
 # Untuk Perintah .kyyalive
 KYY_TEKS_KUSTOM = os.environ.get("KYY_TEKS_KUSTOM", "")
 
@@ -328,14 +325,6 @@ if STRING_SESSION:
 else:
     # pylint: disable=invalid-name
     bot = TelegramClient("userbot", API_KEY, API_HASH)
-
-
-except Exception as e:
-    print(f"STRING_SESSION - {e}"
-       )
-   quit(1)
-call_py = PyTgCalls(bot)
-
 
 async def check_botlog_chatid():
     if not BOTLOG_CHATID and LOGSPAMMER:
