@@ -328,6 +328,10 @@ else:
     # pylint: disable=invalid-name
     bot = TelegramClient("userbot", API_KEY, API_HASH)
 
+except Exception as e:
+    print(f"STRING_SESSION - {e}")
+    sys.exit()
+call_py = PyTgCalls(bot)
 
 async def check_botlog_chatid():
     if not BOTLOG_CHATID and LOGSPAMMER:
