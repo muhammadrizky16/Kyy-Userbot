@@ -45,6 +45,7 @@ pySmartDL
 python-barcode
 python-dotenv
 pytz
+py-tgcalls==0.8.1rc1
 qrcode
 requests>=2.18.4
 search-engine-parser>=0.6.1
@@ -98,7 +99,9 @@ wand
 colour
 scipy
 wordcloud
+yt-dlp
 scikit-image
 pendulum
 opencv-python
+youtube-search
 youtube-search-python
