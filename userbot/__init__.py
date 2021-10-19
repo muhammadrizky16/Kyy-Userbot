@@ -176,6 +176,9 @@ ANTI_SPAMBOT_SHOUT = sb(os.environ.get("ANTI_SPAMBOT_SHOUT", "False"))
 # Youtube API key
 YOUTUBE_API_KEY = os.environ.get("YOUTUBE_API_KEY", None)
 
+# Custom Handler command
+CMD_HANDLER = os.environ.get("CMD_HANDLER") or "."
+
 # Untuk Perintah .kyyalive
 KYY_TEKS_KUSTOM = os.environ.get("KYY_TEKS_KUSTOM", "")
 
