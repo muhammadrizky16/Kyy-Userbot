@@ -363,6 +363,8 @@ with bot:
 async def check_alive():
     await bot.send_message(BOTLOG_CHATID, "**Kʏʏ-Usᴇʀʙᴏᴛ Berhasil Diaktifkan✨**\n━━━━━━━━━━━━━━━\n❃ **Bot Of :** {ALIVE_NAME}\n❃ **Support :** @ahhsudahlahhh\n━━━━━━━━━━━━━━━")
     return
+
+with bot:
     try:
         bot.loop.run_until_complete(check_alive())
     except BaseException:
