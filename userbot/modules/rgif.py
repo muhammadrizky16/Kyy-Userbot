@@ -42,8 +42,8 @@ async def _(event):
     os.remove("danish.mp4")
     os.remove("danish.png")
 
-
 CMD_HELP.update({
-    "rgif": `.rgif`
-    "\nUsage: Reply a image to convert image to rotate gif."
+    "rgif":
+        "`.rgif`\
+          \nUsage: Reply a image to convert image to rotate gif."
 })
