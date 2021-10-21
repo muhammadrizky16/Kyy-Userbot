@@ -44,6 +44,6 @@ async def _(event):
 
 
 CMD_HELP.update({
-        "rgif": `.rgif`\n
-        "\nUsage: Reply a image to convert image to rotate gif."
+    "rgif": `.rgif`\n
+    "\nUsage: Reply a image to convert image to rotate gif."
 })
