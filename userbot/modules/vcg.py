@@ -7,6 +7,7 @@
 from telethon.tl.functions.channels import GetFullChannelRequest as getchat
 from telethon.tl.functions.phone import CreateGroupCallRequest as startvc
 from telethon.tl.functions.phone import DiscardGroupCallRequest as stopvc
+from telethon.tl.functions.phone import EditGroupCallTitleRequest as settitle
 from telethon.tl.functions.phone import GetGroupCallRequest as getvc
 from telethon.tl.functions.phone import InviteToGroupCallRequest as invitetovc
 
@@ -93,7 +94,7 @@ async def change_title(e):
     new_rights = ChatAdminRights(invite_users=True)
     try:
         await e.client(settitle(call=await get_call(e), title=title.strip()))
-        await e.edit(f"**Berhasil Mengubah Judul VCG Menjadi** `{title}`")
+        await e.edit("Berhasil Mengubah Judul VCG Menjadi** `{title}`")")
     except Exception as ex:
         await e.edit(f"**ERROR:** `{ex}`")
 
