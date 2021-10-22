@@ -26,8 +26,8 @@ async def ngapain_rep(message):
             return (data.json())["msg"]
         else:
             LOGS.info("ERROR: API chatbot sedang down, report ke @tedesupport.")
-    except Exception:
-        LOGS.info("ERROR: {str(e)}")
+    except Exception as e:
+        LOGS.info(str(e))
 
 
 async def chat_bot_toggle(db, event):
@@ -44,7 +44,7 @@ async def chat_bot_toggle(db, event):
             return await edit_or_reply(event, "ChatBot Dinonaktifkan!")
         await edit_or_reply(event, "ChatBot Sudah Dinonaktifkan.")
     else:
-        await edit_or_reply(event, "**Usage:**\n.chatbot <on/off>")
+        await edit_or_reply(event, "**Usage:** `.chatbot` <on/off>")
 
 
 @register(outgoing=True, pattern=r"^\.chatbot(?: |$)(.*)")
@@ -55,11 +55,11 @@ async def on_apa_off(event):
 @bot.on(events.NewMessage(incoming=True))
 async def tede_chatbot(event):
     sender = await event.get_sender()
-    if not isinstance(sender, User):
-        return
     if event.chat_id not in aktifnya_chat_bot:
         return
-    if event.text and event.is_reply:
+    if not isinstance(sender, User):
+        return
+    if event.text:
         rep = await ngapain_rep(event.message.message)
         tr = translator.translate(rep, LANGUAGE)
         if tr:
