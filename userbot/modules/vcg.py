@@ -7,7 +7,6 @@
 from telethon.tl.functions.channels import GetFullChannelRequest as getchat
 from telethon.tl.functions.phone import CreateGroupCallRequest as startvc
 from telethon.tl.functions.phone import DiscardGroupCallRequest as stopvc
-from telethon.tl.functions.phone import EditGroupCallTitleRequest as settitle
 from telethon.tl.functions.phone import GetGroupCallRequest as getvc
 from telethon.tl.functions.phone import InviteToGroupCallRequest as invitetovc
 
@@ -79,33 +78,11 @@ async def _(e):
     await e.edit(f"`Invited {z} users`")
 
 
-@register(outgoing=True, pattern=r"^\.vctittle", groups_only=True)
-async def change_title(e):
-    title = e.pattern_match.group(1)
-    chat = await e.get_chat()
-    admin = chat.admin_rights
-    creator = chat.creator
-
-    if not title:
-        return await e.edit("**Silahkan Masukan Title Obrolan Suara Grup**")
-
-    if not admin and not creator:
-        return await e.edit(NO_ADMIN)
-    new_rights = ChatAdminRights(invite_users=True)
-    try:
-        await e.client(settitle(call=await get_call(e), title=title.strip()))
-        await e.edit("Berhasil Mengubah Judul VCG Menjadi `{title}`")
-    except Exception as ex:
-        await e.edit(f"**ERROR:** `{ex}`")
-
-
 CMD_HELP.update({
     "vcg": "𝘾𝙤𝙢𝙢𝙖𝙣𝙙: `.startvc`\
     \n↳ : Untuk Memulai voice chat group.\
     \n𝘾𝙤𝙢𝙢𝙖𝙣𝙙: `.stopvc`\
     \n↳ : Untuk Memberhentikan voice chat group.\
     \n𝘾𝙤𝙢𝙢𝙖𝙣𝙙: `.vcinvite`\
-    \n↳ : Mengundang Member group ke voice chat group. (You must be joined).\
-    \n𝘾𝙤𝙢𝙢𝙖𝙣𝙙: `.vctittle`\
-    \n↳ : Untuk Mengubah title/judul voice chat group."
+    \n↳ : Mengundang Member group ke voice chat group. (You must be joined)."
 })
