@@ -94,7 +94,7 @@ async def change_title(e):
     new_rights = ChatAdminRights(invite_users=True)
     try:
         await e.client(settitle(call=await get_call(e), title=title.strip()))
-        await e.edit("Berhasil Mengubah Judul VCG Menjadi** `{title}`")")
+        await e.edit("Berhasil Mengubah Judul VCG Menjadi `{title}`")
     except Exception as ex:
         await e.edit(f"**ERROR:** `{ex}`")
 
