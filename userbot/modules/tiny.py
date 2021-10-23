@@ -16,7 +16,7 @@ async def _(event):
         return
     xx = await event.edit("`Memproses Tiny....`")
     ik = await bot.download_media(reply)
-    im1 = Image.open("resources/extras/geez.png")
+    im1 = Image.open("resources/sky_blank.png")
     if ik.endswith(".tgs"):
         await event.client.download_media(reply, "geez.tgs")
         os.system("lottie_convert.py geez.tgs json.json")
