@@ -22,10 +22,10 @@ async def _(event):
     download = await bot.download_media(reply.media, path)
     img = cv2.VideoCapture(download)
     ret, frame = img.read()
-    cv2.imwrite("danish.png", frame)
-    danish = PIL.Image.open("danish.png")
+    cv2.imwrite("resources/sky_blank.png", frame)
+    danish = PIL.Image.open("resources/sky_blank.png")
     dark, python = danish.size
-    cobra = f"""ffmpeg -f lavfi -i color=c=00ff00:s={dark}x{python}:d=10 -loop 1 -i danish.png -filter_complex "[1]rotate=angle=PI*t:fillcolor=none:ow='hypot(iw,ih)':oh=ow[fg];[0][fg]overlay=x=(W-w)/2:y=(H-h)/2:shortest=1:format=auto,format=yuv420p" -movflags +faststart danish.mp4 -y"""
+    cobra = f"""ffmpeg -f lavfi -i color=c=00ff00:s={dark}x{python}:d=10 -loop 1 -i sky_blank.png -filter_complex "[1]rotate=angle=PI*t:fillcolor=none:ow='hypot(iw,ih)':oh=ow[fg];[0][fg]overlay=x=(W-w)/2:y=(H-h)/2:shortest=1:format=auto,format=yuv420p" -movflags +faststart danish.mp4 -y"""
     await event.edit("```Processing ...```")
     if event.reply_to_msg_id:
         event.reply_to_msg_id
@@ -40,7 +40,7 @@ async def _(event):
     await event.delete()
     shutil.rmtree(path)
     os.remove("danish.mp4")
-    os.remove("danish.png")
+    os.remove("sky_blank.png")
 
 CMD_HELP.update({
     "rgif":
