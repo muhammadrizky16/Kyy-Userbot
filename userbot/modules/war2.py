@@ -1,4 +1,3 @@
-from time import sleep
 from userbot import CMD_HELP
 from userbot.events import register
 
@@ -85,7 +84,7 @@ async def typewriter(typew):
 
 
 CMD_HELP.update({
-         "war2": "𝘾𝙤𝙢𝙢𝙖𝙣𝙙: .ehh\
+    "war2": "𝘾𝙤𝙢𝙢𝙖𝙣𝙙: .ehh\
          \n↳ : lihat sendiri\
          \n𝘾𝙤𝙢𝙢𝙖𝙣𝙙: .emak\
          \n↳ : lihat sendiri\
