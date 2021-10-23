@@ -115,6 +115,28 @@ async def typewriter(typew):
     await typew.edit("`Ayukkk Ewean Ayanggg🤤`")
 
 
+@register(outgoing=True, pattern=r"^\.virtual(?: |$)(.*)")
+async def typewriter(typew):
+    typew.pattern_match.group(1)
+    await typew.edit("**OOOO**")
+    sleep(1.5)
+    await typew.edit("**INI YANG VIRTUAL**")
+    sleep(1.5)
+    await typew.edit("**YANG KATANYA SAYANG BANGET**")
+    sleep(1.5)
+    await typew.edit("**TAPI TETEP AJA DI TINGGAL**")
+    sleep(1.5)
+    await typew.edit("**NI INGET**")
+    sleep(1.5)
+    await typew.edit("**TANGANNYA AJA GA BISA DI PEGANG**")
+    sleep(1.5)
+    await typew.edit("**APALAGI OMONGANNYA**")
+    sleep(1.5)
+    await typew.edit("**BHAHAHAHA**")
+    sleep(1.5)
+    await typew.edit("**KASIAN MANA MASIH MUDA**")
+
+
 @register(outgoing=True, pattern="^.tittle(?: |$)(.*)")
 async def typewriter(typew):
     typew.pattern_match.group(1)
@@ -168,6 +190,8 @@ CMD_HELP.update({
     \n↳ : Ngatain anak erpe\
     \n\n𝘾𝙤𝙢𝙢𝙖𝙣𝙙: `.ange`\
     \n↳ : Sangean\
+    \n\n𝘾𝙤𝙢𝙢𝙖𝙣𝙙: `.virtual`\
+    \n↳ : Ngatain bocah virtual.\
     \n\n𝘾𝙤𝙢𝙢𝙖𝙣𝙙: `.tittle`\
     \n↳ : Ngatain bocah gila tittle."
 })
