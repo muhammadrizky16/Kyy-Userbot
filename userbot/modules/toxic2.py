@@ -107,6 +107,35 @@ async def typewriter(typew):
 # Create by myself @localheart
 
 
+@register(outgoing=True, pattern=r"^\.kont(?: |$)(.*)")
+async def typewriter(typew):
+    typew.pattern_match.group(1)
+    sleep(1)
+    await typew.edit("**KONTOLL**")
+    sleep(1.5)
+    await typew.edit("**LU ANAK KONTOLL**")
+    sleep(1.5)
+    await typew.edit("**DI BIKIN DARI KONTOLL**")
+    sleep(1.5)
+    await typew.edit("**MUKALU PERSIS KONTOLL**")
+    sleep(1.5)
+    await typew.edit("**DASAR ANAK NGONTOLLLL**")
+    sleep(1.5)
+    await typew.edit("**NOLEP KONTOLL**")
+    sleep(1.5)
+    await typew.edit("**NGERUSUH KONTOLL**")
+    sleep(1.5)
+    await typew.edit("**BENER BENER KONTOLL**")
+    sleep(1.5)
+    await typew.edit("**PADAHAL LO GAPUNYA KONTOLL**")
+    sleep(1.5)
+    await typew.edit("**MENDING LO OPERASI KONTOLL**")
+    sleep(1.5)
+    await typew.edit("**BIAR LO PUNYA KONTOLL**")
+    sleep(1.5)
+    await typew.edit("**KASIAN CACAD GAPUNYA KONTOLL**")
+
+
 CMD_HELP.update({
     "toxic2": "𝘾𝙤𝙢𝙢𝙖𝙣𝙙: `.ngentot`\
     \n↳ : Cobain aja\
@@ -114,6 +143,8 @@ CMD_HELP.update({
     \n↳ : Cobain aja\
     \n\n𝘾𝙤𝙢𝙢𝙖𝙣𝙙: `.ngatain`\
     \n↳ : Cobain aja\
-    \n\n𝘾𝙤𝙢𝙢𝙖𝙣𝙙: `.yati`\
+    \n\n𝘾𝙤𝙢𝙢𝙖𝙣𝙙: `.kont`\
+    \n↳ : Cobain aja\
+    \n\n𝘾𝙤𝙢𝙢𝙖𝙣𝙙: `.yatim`\
     \n↳ : Cobain aja."
 })
