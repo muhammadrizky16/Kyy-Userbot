@@ -954,7 +954,7 @@ with bot:
                     buttons=[
                         [
                             Button.url("❈ꜱᴜᴘᴘᴏʀᴛ❈",
-                                       "t.me/sinibrokk"),
+                                       "t.me/FlicksSupport"),
                             Button.url("❈ᴄʜᴀɴɴᴇʟ❈",
                                        "t.me/ahhsudahlahhh")],
                         [custom.Button.inline(
