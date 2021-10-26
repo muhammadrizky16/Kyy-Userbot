@@ -111,10 +111,10 @@ async def repo_is_here(wannasee):
     """ For .repo command, just returns the repo URL. """
     await wannasee.edit(
         "   ✨ **Kʏʏ-Usᴇʀʙᴏᴛ** ✨ \n"
-        "• **Repo Userbot :** [ɢɪᴛʜᴜʙ](https://github.com/muhammadrizky16/Kyy-Userbot)\n"
-        "• **Owner Bot :** [ҡʏʏ](t.me/IDnyaKosong)\n"
-        "• **Instagram :** [ɪɴsᴛᴀɢʀᴀᴍ](instagram.com/rizkyhamdanii16_)\n"
-        "• **Support :** [ᴄʜᴀɴɴᴇʟ](https://t.me/ahhsudahlahhh)\n"
+        "➽ **Repo Userbot :** [ɢɪᴛʜᴜʙ](https://github.com/muhammadrizky16/Kyy-Userbot)\n"
+        "➽ **Owner Bot :** [ҡʏʏ](t.me/IDnyaKosong)\n"
+        "➽ **Instagram :** [ɪɴsᴛᴀɢʀᴀᴍ](instagram.com/rizkyhamdanii16_)\n"
+        "➽ **Support :** [ᴄʜᴀɴɴᴇʟ](https://t.me/ahhsudahlahhh)\n"
     )
 
 
@@ -122,7 +122,7 @@ async def repo_is_here(wannasee):
 async def repo_is_here(wannasee):
     """For .repo command, just returns the repo URL."""
     await wannasee.edit(
-        f"✾ **GET STRING SESSION TELEGRAM :** [KLIK DISINI](https://replit.com/@rizkyhmdanii16/StringSession)\n"
+        f"➽ **GET STRING SESSION TELEGRAM :** [KLIK DISINI](https://replit.com/@rizkyhmdanii16/StringSession)\n"
     )
 
 
