@@ -1,6 +1,11 @@
-<h1 align="center"><img src="./resources/extras/GeezFire.gif" width="35px">Kyy-Userbot<img src="./resources/extras/GeezFire.gif" width="35px"></h1>
+<h1 align="center"><img src="./resources/extras/GeezFire.gif" width="35px">KYY-USERBOT<img src="./resources/extras/GeezFire.gif" width="35px"></h1>
 
-</p>
+<p align="center">
+    <a href="https://github.com/fjgaming212/Flicks-Userbot/commits/Flicks-Userbot"><img src="https://img.shields.io/github/last-commit/fjgaming212/Flicks-Userbot?color=ff0000&logo=github&logoColor=ffffff&style=for-the-badge" /></a>
+    <a href="https://github.com/fjgaming212/Flicks-Userbot"> <img src="https://img.shields.io/github/repo-size/fjgaming212/Flicks-Userbot?logo=github&style=for-the-badge" /></a>
+    <a href="https://pypi.org/project/Telethon/"><img src="https://img.shields.io/pypi/v/telethon?color=important&label=telethon&logo=python&logoColor=brightgreen&style=for-the-badge" /></a>
+    <img alt="PYTHON" src="https://img.shields.io/badge/PYTHON-v3.9.6-purple?style=for-the-badge&logo=appveyor"/>
+    </p>
 
 
 <p align="center">
