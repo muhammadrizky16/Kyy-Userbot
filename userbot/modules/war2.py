@@ -1,3 +1,4 @@
+from time import sleep
 from userbot import CMD_HELP
 from userbot.events import register
 
@@ -87,28 +88,31 @@ async def typewriter(typew):
     )
 
 
-CMD_HELP.update({
-    "war2": "𝘾𝙤𝙢𝙢𝙖𝙣𝙙: .ehh\
-    \n↳ : lihat sendiri\
-    \n𝘾𝙤𝙢𝙢𝙖𝙣𝙙: .emak\
-    \n↳ : lihat sendiri\
-    \n𝘾𝙤𝙢𝙢𝙖𝙣𝙙: .mas\
-    \n↳ : lihat sendiri\
-    \n𝘾𝙤𝙢𝙢𝙖𝙣𝙙: .dih\
-    \n↳ : lihat sendiri\
-    \n𝘾𝙤𝙢𝙢𝙖𝙣𝙙: .gcs\
-    \n↳ : lihat sendiri\
-    \n𝘾𝙤𝙢𝙢𝙖𝙣𝙙: .skb\
-    \n↳ : lihat sendiri\
-    \n𝘾𝙤𝙢𝙢𝙖𝙣𝙙: .an\
-    \n↳ : lihat sendiri\
-    \n𝘾𝙤𝙢𝙢𝙖𝙣𝙙: .bk\
-    \n↳ : lihat sendiri\
-    \n𝘾𝙤𝙢𝙢𝙖𝙣𝙙: .gj\
-    \n↳ : lihat sendiri\
-    \n𝘾𝙤𝙢𝙢𝙖𝙣𝙙: .gh\
-    \n↳ : lihat sendiri\
-    \n𝘾𝙤𝙢𝙢𝙖𝙣𝙙: .lihat sendiri\
-    \n↳ : lihat sendiri\
-    \n↳ **COBAIN AJA SENDIRI SEMUA!**."
-})
+CMD_HELP.update(
+    {
+        "war2": "𝘾𝙤𝙢𝙢𝙖𝙣𝙙: .ehh\
+        \n↳ : lihat sendiri\
+        \n↳ : lihat sendiri\
+        \n𝘾𝙤𝙢𝙢𝙖𝙣𝙙: .emak\
+        \n𝘾𝙤𝙢𝙢𝙖𝙣𝙙: .mas\
+        \n↳ : lihat sendiri\
+        \n𝘾𝙤𝙢𝙢𝙖𝙣𝙙: .dih\
+        \n↳ : lihat sendiri\
+        \n𝘾𝙤𝙢𝙢𝙖𝙣𝙙: .gcs\
+        \n↳ : lihat sendiri\
+        \n𝘾𝙤𝙢𝙢𝙖𝙣𝙙: .skb\
+        \n↳ : lihat sendiri\
+        \n𝘾𝙤𝙢𝙢𝙖𝙣𝙙: .an\
+        \n↳ : lihat sendiri\
+        \n𝘾𝙤𝙢𝙢𝙖𝙣𝙙: .bk\
+        \n↳ : lihat sendiri\
+        \n𝘾𝙤𝙢𝙢𝙖𝙣𝙙: .gj\
+        \n↳ : lihat sendiri\
+        \n𝘾𝙤𝙢𝙢𝙖𝙣𝙙: .gh\
+        \n↳ : lihat sendiri\
+        \n𝘾𝙤𝙢𝙢𝙖𝙣𝙙: .lihat sendiri\
+        \n↳ : lihat sendiri\
+        \n↳ **COBAIN AJA SENDIRI SEMUA!**.\
+    "
+    }
+)
