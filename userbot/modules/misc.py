@@ -113,10 +113,10 @@ async def repo_is_here(wannasee):
         "**Hey**, I am using **✨Kʏʏ-Usᴇʀʙᴏᴛ✨** \n"
         "卍━━━━━━━━━━━━━━━━━━━━━━卍\n"
         "➣ **Repo Userbot :** [ɢɪᴛʜᴜʙ](https://github.com/muhammadrizky16/Kyy-Userbot)\n"
-        "➣ **Owner Bot :** [ҡʏʏ](t.me/IDnyaKosong)\n"
+        "➣ **Owner Bot       :** [ҡʏʏ](t.me/IDnyaKosong)\n"
         "卍━━━━━━━━━━━━━━━━━━━━━━卍\n"
-        "➣ **Instagram :** [ɪɴsᴛᴀɢʀᴀᴍ](instagram.com/rizkyhamdanii16_)\n"
-        "➣ **Support :** [ᴄʜᴀɴɴᴇʟ](https://t.me/ahhsudahlahhh)\n"
+        "➣ **Instagram       :** [ɪɴsᴛᴀɢʀᴀᴍ](instagram.com/rizkyhamdanii16_)\n"
+        "➣ **Support           :** [ᴄʜᴀɴɴᴇʟ](https://t.me/ahhsudahlahhh)\n"
         "卍━━━━━━━━━━━━━━━━━━━━━━卍\n"
     )
 
