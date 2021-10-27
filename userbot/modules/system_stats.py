@@ -265,7 +265,7 @@ async def amireallyalive(alive):
     await get_readable_time((time.time() - StartTime))
     output = (
         f"●▬▬▬▬▬▬ஜ۩۞۩ஜ▬▬▬▬▬▬● \n"
-        f"✾ 🤴 • `ᴏᴡɴᴇʀ :`[ҡʏʏ](t.me/IDnyaKosong)             ㅤ \n"
+        f"✾ 🤴 • `ᴏᴡɴᴇʀ :`[Kyy](t.me/IDnyaKosong)             ㅤ \n"
         f"✾ 🖥️ • `ꜱʏꜱᴛᴇᴍ. :`Ubuntu 20.10            \n"
         f"✾ ⚙️ • `ᴛᴇʟᴇᴛʜᴏɴ :`v.{version.__version__}                ㅤㅤ  \n"
         f"✾ 🐍 • `ᴘʏᴛʜᴏɴ. :`v.{python_version()} ㅤㅤ\n"
@@ -306,18 +306,18 @@ async def redis(alive):
     await alive.edit("✨")
     await asyncio.sleep(2)
     output = (
-        f"╭✠╼━━━━━━━━━━━━━━━━━━━✠╮\n"
-        f"┃✱ **Name     :** {DEFAULTUSER} \n"
-        f"┃✱ **Username :** @{user.username} \n"
-        f"┃✱ **Telethon :** Ver {version.__version__} \n"
-        f"┃✱ **Python   :** Ver {python_version()} \n"
-        f"┃✱ **Branch   :** {UPSTREAM_REPO_BRANCH} \n"
-        f"┃✱ **Bot Ver  :** {BOT_VER} \n"
-        f"┃✱ **Modules  :** {len(modules)} Modules \n"
-        f"┃✱ **GitHub   :** [ҡʏʏ](https://github.com/Kyy-Userbot) \n"
-        f"┃✱ **Channel   :** [ᴄʜᴀɴɴᴇʟ](https://t.me/ahhsudahlahhh) \n"
-        f"┃✱ **Owner    :** [ҡʏʏ](https://t.me/IDnyaKosong) \n"
-        f"╰✠╼━━━━━━━━━━━━━━━━━━━✠╯")
+        f"┏━━━━━━━━━━━━━━━━━━━ \n"
+        f"┣ **Name     :** {DEFAULTUSER} \n"
+        f"┣ **Username :** @{user.username} \n"
+        f"┣ **Telethon :** Ver {version.__version__} \n"
+        f"┣ **Python   :** Ver {python_version()} \n"
+        f"┣ **Branch   :** {UPSTREAM_REPO_BRANCH} \n"
+        f"┣ **Bot Ver  :** {BOT_VER} \n"
+        f"┣ **Modules  :** {len(modules)} Modules \n"
+        f"┣ **GitHub   :** [Kyy](https://github.com/Kyy-Userbot) \n"
+        f"┣ **Support  :** [Channel](https://t.me/ahhsudahlahhh) \n"
+        f"┣ **Owner    :** [Kyy](https://t.me/IDnyaKosong) \n"
+        f"┗━━━━━━━━━━━━━━━━━━━")
     if ALIVE_LOGO:
         try:
             logo = ALIVE_LOGO
