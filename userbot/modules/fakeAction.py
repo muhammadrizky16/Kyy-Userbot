@@ -77,7 +77,7 @@ async def _(event):
         await asyncio.sleep(t)
 
 
-@register(outgoing=True, pattern=r"^.fround(?: |$)(.*)"))
+@register(outgoing=True, pattern="^.fround(?: |$)(.*)")
 async def _(event):
     t=event.pattern_match.group(1)
     if not (t or t.isdigit()):
@@ -97,7 +97,7 @@ async def _(event):
         await asyncio.sleep(t)
 
 
-@ register(outgoing = True, pattern = "^.fphoto(?: |$)(.*)")
+@register(outgoing=True, pattern="^.fphoto(?: |$)(.*)")
 async def _(event):
     t=event.pattern_match.group(1)
     if not (t or t.isdigit()):
@@ -117,7 +117,7 @@ async def _(event):
         await asyncio.sleep(t)
 
 
-@ register(outgoing = True, pattern = "^.fdocument(?: |$)(.*)")
+@register(outgoing=True, pattern="^.fdocument(?: |$)(.*)")
 async def _(event):
     t=event.pattern_match.group(1)
     if not (t or t.isdigit()):
@@ -137,7 +137,7 @@ async def _(event):
         await asyncio.sleep(t)
 
 
-@ register(outgoing = True, pattern = "^.flocation(?: |$)(.*)")
+@register(outgoing=True, pattern="^.flocation(?: |$)(.*)")
 async def _(event):
     t=event.pattern_match.group(1)
     if not (t or t.isdigit()):
@@ -157,7 +157,7 @@ async def _(event):
         await asyncio.sleep(t)
 
 
-@ register(outgoing = True, pattern = "^.fcontact(?: |$)(.*)")
+@register(outgoing=True, pattern="^.fcontact(?: |$)(.*)")
 async def _(event):
     t=event.pattern_match.group(1)
     if not (t or t.isdigit()):
