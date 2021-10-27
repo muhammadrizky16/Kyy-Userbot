@@ -77,7 +77,7 @@ async def _(event):
         await asyncio.sleep(t)
 
 
-@bot.on(man_cmd(outgoing=True, pattern=r"fround(?: |$)(.*)"))
+@register(outgoing=True, pattern=r"fround(?: |$)(.*)"))
 async def _(event):
     t = event.pattern_match.group(1)
     if not (t or t.isdigit()):
