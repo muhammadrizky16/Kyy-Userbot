@@ -79,15 +79,15 @@ async def _(event):
 
 @register(outgoing=True, pattern="^.fround(?: |$)(.*)")
 async def _(event):
-    t=event.pattern_match.group(1)
+    t = event.pattern_match.group(1)
     if not (t or t.isdigit()):
-        t=100
+        t = 100
     else:
         try:
-            t=int(t)
+            t = int(t)
         except BaseException:
             try:
-                t=await event.ban_time(t)
+                t = await event.ban_time(t)
             except BaseException:
                 return await event.edit("`Masukan jumlah detik yang benar`")
     await event.edit(f"`Memulai merekam video message palsu Selama {t} sec.`")
@@ -99,15 +99,15 @@ async def _(event):
 
 @register(outgoing=True, pattern="^.fphoto(?: |$)(.*)")
 async def _(event):
-    t=event.pattern_match.group(1)
+    t = event.pattern_match.group(1)
     if not (t or t.isdigit()):
-        t=100
+        t = 100
     else:
         try:
-            t=int(t)
+            t = int(t)
         except BaseException:
             try:
-                t=await event.ban_time(t)
+                t = await event.ban_time(t)
             except BaseException:
                 return await event.edit("`Masukan jumlah detik yang benar`")
     await event.edit(f"`Memulai Mengirim Photo Palsu Selama` {t} sec.`")
@@ -119,15 +119,15 @@ async def _(event):
 
 @register(outgoing=True, pattern="^.fdocument(?: |$)(.*)")
 async def _(event):
-    t=event.pattern_match.group(1)
+    t = event.pattern_match.group(1)
     if not (t or t.isdigit()):
-        t=100
+        t = 100
     else:
         try:
-            t=int(t)
+            t = int(t)
         except BaseException:
             try:
-                t=await event.ban_time(t)
+                t = await event.ban_time(t)
             except BaseException:
                 return await event.edit("`Masukan jumlah detik yang benar`")
     await event.edit(f"`Memulai Mengirim Document Palsu Selama` {t} sec.`")
@@ -139,15 +139,15 @@ async def _(event):
 
 @register(outgoing=True, pattern="^.flocation(?: |$)(.*)")
 async def _(event):
-    t=event.pattern_match.group(1)
+    t = event.pattern_match.group(1)
     if not (t or t.isdigit()):
-        t=100
+        t = 100
     else:
         try:
-            t=int(t)
+            t = int(t)
         except BaseException:
             try:
-                t=await event.ban_time(t)
+                t = await event.ban_time(t)
             except BaseException:
                 return await event.edit("`Masukan jumlah detik yang benar`")
     await event.edit(f"`Memulai Share Lokasi Palsu Selama` {t} sec.`")
@@ -159,15 +159,15 @@ async def _(event):
 
 @register(outgoing=True, pattern="^.fcontact(?: |$)(.*)")
 async def _(event):
-    t=event.pattern_match.group(1)
+    t = event.pattern_match.group(1)
     if not (t or t.isdigit()):
-        t=100
+        t = 100
     else:
         try:
-            t=int(t)
+            t = int(t)
         except BaseException:
             try:
-                t=await event.ban_time(t)
+                t = await event.ban_time(t)
             except BaseException:
                 return await event.edit("`Masukan jumlah detik yang benar`")
     await event.edit(f"`Memulai Mengirim Contact Palsu Selama` {t} sec.`")
