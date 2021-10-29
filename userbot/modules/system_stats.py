@@ -308,7 +308,7 @@ async def redis(alive):
     output = (
         f"┏━━━━━━━━━━━━━━━━━━━ \n"
         f"┣  `Name     :` {DEFAULTUSER} \n"
-        f"┣ ` Username :` @{user.username} \n"
+        f"┣  `Username :` @{user.username} \n"
         f"┣  `Telethon :` Ver {version.__version__} \n"
         f"┣  `Python   :` Ver {python_version()} \n"
         f"┣  `Branch   :` {UPSTREAM_REPO_BRANCH} \n"
