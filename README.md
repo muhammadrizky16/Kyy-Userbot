@@ -39,7 +39,3 @@ Gunakan bot ini dengan risiko Anda sendiri, dan gunakan dengan bijak.
 <p align="left">
 <a href="https://github.com/muhammadrizky16"><img src="https://img.shields.io/badge/GitHub-Follow%20on%20GitHub-inactive.svg?logo=github"></a> <a href="https://instagram.com/rizkyhamdanii16_"><img src="https://img.shields.io/badge/Instagram-Follow%20on%20Instagram-important.svg?logo=instagram"></a>
 </p>
-
-
-## Stay Support 🚀
-❁   [LonamiWebs](https://github.com/LonamiWebs/) and [Telethon](https://github.com/LonamiWebs/Telethon)
