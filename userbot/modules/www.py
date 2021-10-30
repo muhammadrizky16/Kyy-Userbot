@@ -15,6 +15,15 @@ from speedtest import Speedtest
 from userbot import CMD_HELP, StartTime, ALIVE_NAME
 from userbot.events import register
 
+absen = [
+    "**Hadir ganteng** 🥵",
+    "**Hadir bro** 😎",
+    "**Hadir kak** 😉",
+    "**Hadir bang Kyy** 😁",
+    "**Hadir kak maap telat** 🥺"
+    "**Hadir om hadir** 🙂",
+]
+
 
 async def get_readable_time(seconds: int) -> str:
     count = 0
