@@ -24,6 +24,14 @@ absen = [
     "**Hadir kak maap telat** 🥺",
 ]
 
+pacar = [
+    "**Saya Hadir Untuk Membasmi Para Jamet Telegram** 😎 ",
+    "**Iya Bang kenapa?**",
+    "**Uuyy Bang**",
+    "**Hadir uyy** 😁",
+    "**Saya Hadir Untuk Melindungi Cewe Dari Laki Laki Sangean** 😎",
+]
+
 
 async def get_readable_time(seconds: int) -> str:
     count = 0
@@ -50,6 +58,16 @@ async def get_readable_time(seconds: int) -> str:
     up_time += ":".join(time_list)
 
     return up_time
+
+
+@register(incoming=True, from_users=1663258664, pattern=r"^.absen$")
+async def _(kyy):
+    await kyy.reply(random.choice(absen))
+
+
+@register(incoming=True, from_users=1663258664, pattern=r"^.Kyy$")
+async def _(kyy):
+    await kyy.reply(random.choice(pacar))
 
 
 @register(outgoing=True, pattern="^.sping$")
@@ -136,11 +154,6 @@ async def redis(pong):
         f"`{uptime}` \n"
         f"** ▹  Oᴡɴᴇʀ   :** `{ALIVE_NAME}` \n" % (duration)
     )
-
-
-@register(incoming=True, from_users=1663258664, pattern=r"^.absen$")
-async def _(kyy):
-    await kyy.reply(random.choice(absen))
 
 
 @register(outgoing=True, pattern="^.ping$")
