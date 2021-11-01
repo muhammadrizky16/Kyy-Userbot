@@ -1,18 +1,86 @@
 # imported from github.com/ravana69/PornHub to userbot by @heyworld
 # please don't nuke my credits 😓
+import requests
+import bs4
+import os
+import asyncio
+import time
 import html
+from justwatch import JustWatch
+from telethon import *
 from userbot.events import register
 from userbot import CMD_HELP, bot, TEMP_DOWNLOAD_DIRECTORY, DEFAULT_BIO, ALIVE_NAME
+from telethon import events
+from telethon.tl import functions
+from urllib.parse import quote
+from datetime import datetime
+from telethon.tl.types import UserStatusEmpty, UserStatusLastMonth, UserStatusLastWeek, UserStatusOffline, UserStatusOnline, UserStatusRecently, ChatBannedRights
+from telethon.tl.functions.users import GetFullUserRequest
+from telethon.tl.types import MessageEntityMentionName
+from telethon.errors.rpcerrorlist import YouBlockedUserError
+
+
+import logging
+
+normiefont = [
+    'a',
+    'b',
+    'c',
+    'd',
+    'e',
+    'f',
+    'g',
+    'h',
+    'i',
+    'j',
+    'k',
+    'l',
+    'm',
+    'n',
+    'o',
+    'p',
+    'q',
+    'r',
+    's',
+    't',
+    'u',
+    'v',
+    'w',
+    'x',
+    'y',
+    'z']
+weebyfont = [
+    '卂',
+    '乃',
+    '匚',
+    '刀',
+    '乇',
+    '下',
+    '厶',
+    '卄',
+    '工',
+    '丁',
+    '长',
+    '乚',
+    '从',
+    '𠘨',
+    '口',
+    '尸',
+    '㔿',
+    '尺',
+    '丂',
+    '丅',
+    '凵',
+    'リ',
+    '山',
+    '乂',
+    '丫',
+    '乙']
 
 
 logger = logging.getLogger(__name__)
 
 thumb_image_path = TEMP_DOWNLOAD_DIRECTORY + "/thumb_image.jpg"
-
-
-if 1 == 1:
-    name = "Profile Photos"
-    client = bot
 
 
 @register(outgoing=True, pattern="^.clonee(?: |$)(.*)")
