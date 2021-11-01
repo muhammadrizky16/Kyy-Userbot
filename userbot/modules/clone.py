@@ -1,10 +1,8 @@
 # imported from github.com/ravana69/PornHub to userbot by @heyworld
 # please don't nuke my credits 😓
-import asyncio
 import html
 from userbot.events import register
 from userbot import CMD_HELP, bot, TEMP_DOWNLOAD_DIRECTORY, DEFAULT_BIO, ALIVE_NAME
-from telethon.tl.functions.users import GetFullUserReques
 
 
 logger = logging.getLogger(__name__)
