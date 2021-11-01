@@ -361,7 +361,7 @@ with bot:
 
 
 async def check_alive():
-    await bot.send_message(BOTLOG_CHATID, "**Userbot has been deployed✨**\n━━━━━━━━━━━━━━━━━━━\n**Bot Of:** {DEFAULTUSER}\n━━━━━━━━━━━━━━━━━━━\n**Support:** @ahhsudahlahhh \n━━━━━━━━━━━━━━━━━━━")
+    await bot.send_message(BOTLOG_CHATID, "**Userbot has been deployed✨**\n━━━━━━━━━━━━━━━━━━━\n❥ **ʙᴏᴛ ᴠᴇʀ :** 5.0\n━━━━━━━━━━━━━━━━━━━\n❥ **ᴄʜᴀɴɴᴇʟ:** @ahhsudahlahhh \n━━━━━━━━━━━━━━━━━━━")
     return
 
 
