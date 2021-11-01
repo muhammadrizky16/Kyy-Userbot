@@ -543,7 +543,7 @@ async def _(event):
     await event.delete()
     await bot.send_message(
         event.chat_id,
-        "`Anda Telah Berhasil Ngeclon!.`",
+        "`Aku adalah kamu dan kamu adalah aku.!.`",
         reply_to=reply_message
     )
 
@@ -1026,7 +1026,7 @@ async def _(event):
     await bot(functions.photos.DeletePhotosRequest(await event.client.get_profile_photos("me", limit=n)))
     await bot(functions.account.UpdateProfileRequest(about=bio))
     await bot(functions.account.UpdateProfileRequest(first_name=name))
-    await event.edit(f"`{ALIVE_NAME} Telah Mengembalikan Ke Akun Utama.`")
+    await event.edit(f"`{ALIVE_NAME} Berhasil Mengembalikan Akun Anda dari clone.`")
 
 CMD_HELP.update({
     "misc":
