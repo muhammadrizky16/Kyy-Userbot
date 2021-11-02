@@ -2,12 +2,10 @@
    Heroku manager for your userbot
 """
 
-import codecs
 import heroku3
 import aiohttp
 import math
 import os
-import requests
 import asyncio
 
 from userbot import (
