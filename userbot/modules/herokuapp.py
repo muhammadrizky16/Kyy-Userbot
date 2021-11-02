@@ -2,10 +2,12 @@
    Heroku manager for your userbot
 """
 
+import codecs
 import heroku3
 import aiohttp
 import math
 import os
+import requests
 import asyncio
 
 from userbot import (
@@ -31,8 +33,7 @@ else:
 """
 
 
-@register(outgoing=True,
-          pattern=r"^.(get|del) var(?: |$)(\w*)")
+@register(outgoing=True,pattern=r"^.(get|del) var(?: |$)(\w*)")
 async def variable(var):
     exe = var.pattern_match.group(1)
     if app is None:
@@ -196,15 +197,13 @@ async def dyno_usage(dyno):
             return True
 
 
-@register(outgoing=True, pattern=r"^\.logs")
+@register(outgoing=True, pattern=r"^.logs(?: |$)")
 async def _(dyno):
     try:
         Heroku = heroku3.from_key(HEROKU_API_KEY)
         app = Heroku.app(HEROKU_APP_NAME)
     except BaseException:
-        return await dyno.reply(
-            "`Please make sure your Heroku API Key, Your App name are configured correctly in the heroku var.`"
-        )
+        return await dyno.reply("`Please make sure your Heroku API Key, Your App name are configured correctly in the heroku var.`")
     await dyno.edit("`Sedang Mengambil Logs Anda`")
     with open("logs.txt", "w") as log:
         log.write(app.get_log())
@@ -212,8 +211,7 @@ async def _(dyno):
     await dyno.client.send_file(
         dyno.chat_id,
         file="logs.txt",
-        caption="`Ini Logs Heroku anda`",
-    )
+        caption="`Ini Logs Heroku anda`",)
     return os.remove("logs.txt")
 
 
