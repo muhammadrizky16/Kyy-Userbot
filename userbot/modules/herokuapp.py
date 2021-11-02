@@ -210,12 +210,12 @@ async def _(dyno):
     await dyno.edit("`Sedang Mengambil Logs Anda`")
     with open("logs.txt", "w") as log:
         log.write(app.get_log())
-    fd = codecs.open("logs.txt", "r", encoding="utf-8")
-    data = fd.read()
-    key = (requests.post("https://nekobin.com/api/documents",
-                         json={"content": data}) .json() .get("result") .get("key"))
-    url = f"https://nekobin.com/raw/{key}"
-    await dyno.edit(f"`Ini Logs Heroku Anda :`\n\nPaste Ke: [Nekobin]({url})")
+    await dyno.delete()
+    await dyno.client.send_file(
+        dyno.chat_id,
+        file="logs.txt",
+        caption="`Ini Logs Heroku anda`",
+    )
     return os.remove("logs.txt")
 
 
