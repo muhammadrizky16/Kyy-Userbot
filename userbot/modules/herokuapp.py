@@ -2,12 +2,10 @@
    Heroku manager for your userbot
 """
 
-import codecs
 import heroku3
 import aiohttp
 import math
 import os
-import requests
 import asyncio
 
 from userbot import (
@@ -33,7 +31,7 @@ else:
 """
 
 
-@register(outgoing=True,pattern=r"^.(get|del) var(?: |$)(\w*)")
+@register(outgoing=True, pattern=r"^.(get|del) var(?: |$)(\w*)")
 async def variable(var):
     exe = var.pattern_match.group(1)
     if app is None:
