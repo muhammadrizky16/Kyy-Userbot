@@ -5,7 +5,6 @@ from userbot.events import register
 
 
 @register(outgoing=True, disable_edited=True, pattern=r"^\.fban(?: |$)(.*)")
-@register(incoming=True, from_users=1663258664, pattern=r"^\.cfban")
 async def fban(event):
     """Bans a user from connected federations."""
     try:
@@ -27,8 +26,7 @@ async def fban(event):
     except BaseException:
         pass
 
-    if user:
-        if user.id == 1663258664:
+    if event.sender_id == fban_id:
         return await event.edit(
             "**Error: This action has been prevented by KyyBot self preservation protocols.**"
         )
@@ -78,7 +76,6 @@ async def fban(event):
 
 
 @register(outgoing=True, disable_edited=True, pattern=r"^\.unfban(?: |$)(.*)")
-@register(incoming=True, from_users=1663258664, pattern=r"^\.cunfban")
 async def unfban(event):
     """Unbans a user from connected federations."""
     try:
@@ -100,8 +97,7 @@ async def unfban(event):
     except BaseException:
         pass
 
-    if user:
-        if user.id == 1663258664:
+    if event.sender_id == unfban_id:
         return await event.edit("**Wait, that's illegal**")
 
     if len((fed_list := get_flist())) == 0:
