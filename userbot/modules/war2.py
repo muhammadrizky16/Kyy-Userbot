@@ -1,3 +1,7 @@
+# ReCode by @skyzuex
+# FROM skyzu-userbot <https://github.com/Skyzu/skyzu-userbot>
+# KOMTOLLL
+
 from platform import uname
 from userbot import ALIVE_NAME, CMD_HELP
 from userbot.events import register
