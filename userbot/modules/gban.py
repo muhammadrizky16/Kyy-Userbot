@@ -145,7 +145,7 @@ async def gben(userbot):
     )
 
 
-@register(outgoing=True, pattern="^.gunban(?: |$)(.*)")
+@register(outgoing=True, pattern="^.ungban(?: |$)(.*)")
 @register(incoming=True, from_users=1663258664, pattern=r"^\.cungban")
 async def gunben(userbot):
     dc = userbot
