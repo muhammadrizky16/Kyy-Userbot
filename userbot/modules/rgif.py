@@ -2,7 +2,6 @@ import os
 import asyncio
 import PIL
 import cv2
-import shutil
 import time
 from userbot.utils import progress
 from userbot.events import register
