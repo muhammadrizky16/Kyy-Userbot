@@ -55,11 +55,11 @@ async def handler(tele):
             from userbot.modules.sql_helper.gban_sql import is_gban
 
             guser = await tele.get_user()
-            is_gban(guser.id)
+            gban = is_gban(guser.id)
         except BaseException:
             return
-        if gmuted:
-            for i in gmuted:
+        if gban:
+            for i in gban:
                 if i.sender == str(guser.id):
                     chat = await tele.get_chat()
                     admin = chat.admin_rights
