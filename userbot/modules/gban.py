@@ -55,7 +55,7 @@ async def handler(tele):
             from userbot.modules.sql_helper.gban_sql import is_gban
 
             guser = await tele.get_user()
-            gban = is_gban(guser.id)
+            is_gban(guser.id)
         except BaseException:
             return
         if gmuted:
@@ -237,4 +237,3 @@ CMD_HELP.update({
 \n**Penjelasan:** Membatalkan Global Banned\
 \n\n**Perintah:** `.listgban`\
 \n**Penjelasan:** Menampilkan List Global Banned"})
-
