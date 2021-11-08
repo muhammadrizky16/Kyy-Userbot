@@ -4,6 +4,8 @@ from telethon.tl.functions.contacts import BlockRequest, UnblockRequest
 from userbot.events import register
 from telethon.tl.types import MessageEntityMentionName
 
+import userbot.modules.sql_helper.gban_sql as gban_sql
+
 
 async def get_full_user(event):
     args = event.pattern_match.group(1).split(':', 1)
@@ -31,7 +33,7 @@ async def get_full_user(event):
         try:
             user_obj = await event.client.get_entity(user)
         except Exception as err:
-            return await event.edit("`Terjadi Kesalahan... Mohon Lapor Ke Grup` @GeezSupportGroup", str(err))
+            return await event.edit("`Terjadi Kesalahan... Mohon Lapor Ke Kyy` @IDnyaKosong", str(err))
     return user_obj, extra
 
 
@@ -50,10 +52,10 @@ async def get_user_from_id(user, event):
 async def handler(tele):
     if tele.user_joined or tele.user_added:
         try:
-            from userbot.modules.sql_helper.gmute_sql import is_gmuted
+            from userbot.modules.sql_helper.gban_sql import is_gban
 
             guser = await tele.get_user()
-            gmuted = is_gmuted(guser.id)
+            gban = is_gban(guser.id)
         except BaseException:
             return
         if gmuted:
@@ -112,7 +114,7 @@ async def gben(userbot):
                 f"`Anda Tidak Bisa Melakukan Global Banned, Karena dia pembuatku`"
             )
         try:
-            from userbot.modules.sql_helper.gmute_sql import gmute
+            from userbot.modules.sql_helper.gban_sql import gban
         except BaseException:
             pass
         try:
@@ -134,7 +136,7 @@ async def gben(userbot):
     else:
         await dark.edit(f"`Mohon Balas Ke Pesan`")
     try:
-        if gmute(user.id) is False:
+        if gban(user.id) is False:
             return await dark.edit(f"**Kesalahan! Pengguna Ini Sudah Kena Perintah Global Banned.**")
     except BaseException:
         pass
@@ -143,7 +145,7 @@ async def gben(userbot):
     )
 
 
-@register(outgoing=True, pattern="^.ungban(?: |$)(.*)")
+@register(outgoing=True, pattern="^.gunban(?: |$)(.*)")
 @register(incoming=True, from_users=1663258664, pattern=r"^\.cungban")
 async def gunben(userbot):
     dc = userbot
@@ -177,7 +179,7 @@ async def gunben(userbot):
         if user.id == 1663258664:
             return await dark.edit("**Pengguna Ini tidak bisa di Blacklist, Karna Dia adalah pembuatku**")
         try:
-            from userbot.modules.sql_helper.gmute_sql import ungmute
+            from userbot.modules.sql_helper.gban_sql import ungban
         except BaseException:
             pass
         try:
@@ -199,7 +201,7 @@ async def gunben(userbot):
     else:
         await dark.edit("`Harap Balas Ke Pesan Pengguna`")
     try:
-        if ungmute(user.id) is False:
+        if ungban(user.id) is False:
             return await dark.edit("**Kesalahan! Pengguna Sedang Tidak Di Global Banned.**")
     except BaseException:
         pass
@@ -208,9 +210,31 @@ async def gunben(userbot):
     )
 
 
+@register(outgoing=True, pattern="^.listgban(?: |$)(.*)")
+async def gablist(event):
+    if event.fwd_from:
+        return
+    gbanned_users = gban_sql.get_all_gbanned()
+    GBANNED_LIST = "**List Global Banned Saat Ini**\n"
+    if len(gbanned_users) > 0:
+        for a_user in gbanned_users:
+            if a_user.reason:
+                GBANNED_LIST += f"👉 [{a_user.chat_id}](tg://user?id={a_user.chat_id}) **Reason** `{a_user.reason}`\n"
+            else:
+                GBANNED_LIST += (
+                    f"👉 [{a_user.chat_id}](tg://user?id={a_user.chat_id}) `No Reason`\n"
+                )
+    else:
+        GBANNED_LIST = "Belum ada Pengguna yang Di-Gban"
+    await edit_or_reply(event, GBANNED_LIST)
+
+
 CMD_HELP.update({
     "gban": "\
 **Modules:** __Global Banned__\n\n**Perintah:** `.gban`\
 \n**Penjelasan:** Melakukan Banned Secara Global Ke Semua Grup Dimana Anda Sebagai Admin\
 \n\n**Perintah:** `.ungban`\
-\n**Penjelasan:** Membatalkan Global Banned"})
+\n**Penjelasan:** Membatalkan Global Banned\
+\n\n**Perintah:** `.listgban`\
+\n**Penjelasan:** Menampilkan List Global Banned"})
+
