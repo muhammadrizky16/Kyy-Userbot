@@ -19,7 +19,7 @@ async def _(event):
     try:
         query = event.pattern_match.group(1)
         await event.edit("`Mohon Menunggu, Saya Sedang Mencari Wallpaper.....`")
-        async with bot.conversation("@SaitamaRobot") as conv:
+        async with bot.conversation("@tdapibot") as conv:
             try:
                 query1 = await conv.send_message(f"/wall {query}")
                 asyncio.sleep(3)
