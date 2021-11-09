@@ -100,8 +100,8 @@ CMD_HELP.update(
     {
         "war2": "𝘾𝙤𝙢𝙢𝙖𝙣𝙙: .ehh\
         \n↳ : lihat sendiri\
-        \n↳ : lihat sendiri\
         \n𝘾𝙤𝙢𝙢𝙖𝙣𝙙: .emak\
+        \n↳ : lihat sendiri\
         \n𝘾𝙤𝙢𝙢𝙖𝙣𝙙: .mas\
         \n↳ : lihat sendiri\
         \n𝘾𝙤𝙢𝙢𝙖𝙣𝙙: .dih\
