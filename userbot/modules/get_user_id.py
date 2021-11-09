@@ -4,7 +4,7 @@ from userbot.events import register
 from userbot import bot, CMD_HELP
 
 
-@register(outgoing=True, pattern=r"^\.getid(?: |$)(.*)")
+@register(outgoing=True, pattern=r"^\.gid(?: |$)(.*)")
 async def _(event):
     if event.fwd_from:
         return
