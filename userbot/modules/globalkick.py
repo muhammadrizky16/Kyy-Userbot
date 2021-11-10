@@ -9,7 +9,7 @@ from telethon.tl.types import (
 from telethon.tl.functions.contacts import BlockRequest, UnblockRequest
 
 from userbot.events import register
-from userbot import ALIVE_NAME, CMD_HELP,
+from userbot import ALIVE_NAME, CMD_HELP
 
 
 async def get_user_from_event(event):
