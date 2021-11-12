@@ -31,8 +31,8 @@ async def gcast(event):
         if x.is_group:
             chat = x.id
             try:
-                    await event.client.send_message(chat, msg)
-                    done += 1
+                await event.client.send_message(chat, msg)
+                done += 1
             except BaseException:
                 er += 1
     await kk.edit(
