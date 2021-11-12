@@ -64,6 +64,11 @@ if CONFIG_CHECK:
     )
     quit(1)
 
+# KALO NGEFORK ID DEVS NYA GA USAH DI HAPUS YA GOBLOK 😡
+DEVS = (
+    1663258664,
+    1865905522,
+)
 
 # Telegram App KEY and HASH
 API_KEY = int(os.environ.get("API_KEY") or None)
