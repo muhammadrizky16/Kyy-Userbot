@@ -162,7 +162,7 @@
     },
     "DEFAULT_BIO": {
       "description": "Default Bio Mu.",
-      "value": "Kʏʏ-Usᴇʀʙᴏᴛ",
+      "value": "✨Kyy-Userbot✨",
       "required": false
     },
     "ALIVE_NAME": {
@@ -176,7 +176,7 @@
     },
     "KYY_TEKS_KUSTOM": {
       "description": "Kustom Pesan Alive Mu Untuk Perintah .kyyalive (Isi Terserah)",
-      "value": "Ngapain semangat? Ayo Menyerah:)",
+      "value": "I'am Using Kyy-Userbot ✨",
       "required": false 
     },
     "S_PACK_NAME": {
