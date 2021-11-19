@@ -314,7 +314,7 @@ async def redis(alive):
         f"┣  `Branch   :` {UPSTREAM_REPO_BRANCH} \n"
         f"┣  `Bot Ver  :` {BOT_VER} \n"
         f"┣  `Modules  :` {len(modules)} Modules \n"
-        f"┣  `GitHub   :` [Kyy](https://github.com/Kyy-Userbot) \n"
+        f"┣  `GitHub   :` [Kyy](https://github.com/muhammadrizky16/Kyy-Userbot) \n"
         f"┣  `Support  :` [Channel](https://t.me/ahhsudahlahhh) \n"
         f"┣  `Owner    :` [Kyy](https://t.me/IDnyaKosong) \n"
         f"┗━━━━━━━━━━━━━━━━━━━")
