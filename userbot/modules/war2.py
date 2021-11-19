@@ -1,6 +1,6 @@
 # ReCode by @skyzu
 # FROM skyzu-userbot <https://github.com/Skyzu/skyzu-userbot>
-# KOMTOLLL
+# KONTOLLLLLLL
 
 from platform import uname
 from userbot import ALIVE_NAME, CMD_HELP
