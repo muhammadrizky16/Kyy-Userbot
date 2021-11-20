@@ -22,13 +22,9 @@ async def github(event):
             created_at = result.get("created_at", "Not Found")
 
             REPLY = (
-                f"Info Akun GitHub `{username}`\n"
-                f"`Nama Pengguna :` {name}\n"
-                f"`Bio           :` {bio}\n"
-                f"`URL           :` {url}\n"
-                f"`Perusahaan    :` {company}\n"
-                f"`Dibuat pada   :` {created_at}`\n"
-                f"`Info lainnya  : [Disini](https://api.github.com/users/{username}/events/public)"
+                f"GitHub Info for `{event.pattern_match.group(1)}`"
+                f"\nUsername: `{name}`\nBio: `{bio}`\nURL: {url}"
+                f"\nCompany: `{company}`\nCreated at: `{created_at}`"
             )
 
             if not result.get("repos_url", None):
