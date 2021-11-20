@@ -187,8 +187,8 @@ async def dyno_usage(dyno):
                 "\n◖════════════════════◗\n"
                 " ☂ **sɪsᴀ ᴋᴏᴜᴛᴀ ᴅʏɴᴏ ʙᴜʟᴀɴ ɪɴɪ :**\n"
                 f"  ➽  `{hours}`**ᴊᴀᴍ**  `{minutes}`**ᴍᴇɴɪᴛ**  "
-                f"** |** [`{percentage}`** %**]\n
-                f" ✠➲ **ʙᴏᴛ ᴏꜰ :** {ALIVE_NAME} "
+                f"**|**  [`{percentage}`**%**]\n"
+                f" ✠➲ **ʙᴏᴛ ᴏꜰ :** {ALIVE_NAME}  "
                 "\n╚════════════════════╝"
             )
             await asyncio.sleep(20)
