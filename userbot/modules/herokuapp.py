@@ -183,14 +183,14 @@ async def dyno_usage(dyno):
                 "╔════════════════════╗\n"
                 f" ☂ **ᴘᴇɴɢɢᴜɴᴀ ᴅʏɴᴏ sᴀᴀᴛ ɪɴɪ :**\n"
                 f"  ➽  `{AppHours}`**ᴊᴀᴍ**  `{AppMinutes}`**ᴍᴇɴɪᴛ**  "
-                f"**|**  [`{AppPercentage}`**%**]\n"
-                f" ✠➲ **ʙᴏᴛ ᴏꜰ :** {ALIVE_NAME} "
+                f"**|**  [`{AppPercentage}`**%**]"
                 "\n◖════════════════════◗\n"
                 " ☂ **sɪsᴀ ᴋᴏᴜᴛᴀ ᴅʏɴᴏ ʙᴜʟᴀɴ ɪɴɪ :**\n"
                 f"  ➽  `{hours}`**ᴊᴀᴍ**  `{minutes}`**ᴍᴇɴɪᴛ**  "
-                f"**|**  [`{percentage}`**%**]\n"
-                f"  ☂ **ᴘᴇʀᴋɪʀᴀᴀɴ sɪsᴀ​ :** {day} **ʜᴀʀɪ ʟᴀɢɪ**​ "
+                f"**|**  [`{percentage}`**%**]\n
+                f"  ☂ **ᴘᴇʀᴋɪʀᴀᴀɴ sɪsᴀ​ :** {day} ʜᴀʀɪ ʟᴀɢɪ​ "
                 "\n╚════════════════════╝"
+                f" ✠➲ **ʙᴏᴛ ᴏꜰ :** {ALIVE_NAME} \n"
             )
             await asyncio.sleep(20)
             await event.delete()
