@@ -1,4 +1,4 @@
-<h1 align="center"><img src="./resources/extras/GeezFire.gif" width="35px">Kyy-Userbot<img src="./resources/extras/GeezFire.gif" width="35px"></h1>
+<h1 align="center"><img src="./resources/extras/GeezFire.gif" width="35px">KYY-USERBOT<img src="./resources/extras/GeezFire.gif" width="35px"></h1>
 
 <p align="center">
     <a href="https://github.com/muhammadrizky16/Kyy-Userbot/commits/Kyy-Userbot"><img src="https://img.shields.io/github/last-commit/muhammadrizky16/Kyy-Userbot?color=ff0000&logo=github&logoColor=ffffff&style=for-the-badge" /></a>
@@ -28,7 +28,7 @@ Gunakan bot ini dengan risiko Anda sendiri, dan gunakan dengan bijak.
 
 
 <h3 align="center">Klik Tombol di Bawah ini untuk Deploy di Heroku :</h3>
-<p align="center"><a href="https://heroku.com/deploy?template=https://github.com/muhammadrizky16/Kyy-Userbot/tree/Kyy-Userbot"> <img src="https://img.shields.io/badge/Deploy%20Ke%20Heroku-purple?style=flat&logo=heroku" width="150" height="30.00" /></a></p>
+<p align="center"><a href="https://heroku.com/deploy?template=https://github.com/muhammadrizky16/Kyy-Userbot/tree/Kyy-Userbot"> <img src="https://img.shields.io/badge/Deploy%20Ke%20Heroku-black?style=flat&logo=heroku" width="150" height="30.00" /></a></p>
 
 
 ### Support & Updates 
