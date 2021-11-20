@@ -15,7 +15,8 @@ from userbot import (
     HEROKU_API_KEY,
     BOTLOG,
     BOTLOG_CHATID,
-    CMD_HELP)
+    CMD_HELP,
+    ALIVE_NAME)
 from userbot.events import register
 
 heroku_api = "https://api.heroku.com"
@@ -32,7 +33,8 @@ else:
 """
 
 
-@register(outgoing=True, pattern=r"^.(get|del) var(?: |$)(\w*)")
+@register(outgoing=True,
+          pattern=r"^.(get|del) var(?: |$)(\w*)")
 async def variable(var):
     exe = var.pattern_match.group(1)
     if app is None:
@@ -196,13 +198,15 @@ async def dyno_usage(dyno):
             return True
 
 
-@register(outgoing=True, pattern=r"^.logs(?: |$)")
+@register(outgoing=True, pattern=r"^\.logs")
 async def _(dyno):
     try:
         Heroku = heroku3.from_key(HEROKU_API_KEY)
         app = Heroku.app(HEROKU_APP_NAME)
     except BaseException:
-        return await dyno.reply("`Please make sure your Heroku API Key, Your App name are configured correctly in the heroku var.`")
+        return await dyno.reply(
+            "`Please make sure your Heroku API Key, Your App name are configured correctly in the heroku var.`"
+        )
     await dyno.edit("`Sedang Mengambil Logs Anda`")
     with open("logs.txt", "w") as log:
         log.write(app.get_log())
@@ -210,7 +214,8 @@ async def _(dyno):
     await dyno.client.send_file(
         dyno.chat_id,
         file="logs.txt",
-        caption="`Ini Logs Heroku anda`",)
+        caption="`Ini Logs Heroku anda`",
+    )
     return os.remove("logs.txt")
 
 
@@ -220,7 +225,7 @@ CMD_HELP.update({"herokuapp": "𝘾𝙤𝙢𝙢𝙖𝙣𝙙: `.usage`"
                  "\n↳ : Melihat Logs Heroku Anda"
                  "\n\n𝘾𝙤𝙢𝙢𝙖𝙣𝙙: `.set var <NEW VAR> <VALUE>`"
                  "\n↳ : Tambahkan Variabel Baru Atau Memperbarui Variabel"
-                 "\nSetelah Menyetel Variabel Tersebut, Kyy-Userbot Akan Di Restart."
+                 "\nSetelah Menyetel Variabel Tersebut, Rose-Userbot Akan Di Restart."
                  "\n\n𝘾𝙤𝙢𝙢𝙖𝙣𝙙: `.get var atau .get var <VAR>`"
                  "\n↳ : Dapatkan Variabel Yang Ada, !!PERINGATAN!! Gunakanlah Di Grup Privasi Anda."
                  "\nIni Mengembalikan Semua Informasi Pribadi Anda, Harap berhati-hati."
