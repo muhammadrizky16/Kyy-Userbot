@@ -50,7 +50,7 @@ async def typewriter(typew):
     await typew.edit("**IUHH DEMEN KOK SAMA 2D😖**")
 
 
-@register(outgoing=True, pattern="^.wibbu(?: |$)(.*)")
+@register(outgoing=True, pattern="^.wibu(?: |$)(.*)")
 async def typewriter(typew):
     typew.pattern_match.group(1)
     await typew.edit("**WI WIII WIIII WIIII.....**")
