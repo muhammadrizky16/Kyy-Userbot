@@ -233,7 +233,7 @@ async def amireallyalive(alive):
         f"╭✠╼━━━━━━━━━━━━━━━✠╮\n"
         f"◙ `Name       :` {DEFAULTUSER} \n"
         f"◙ `Username   :` @{user.username} \n"
-        f"◙ `Telethon   :` {version.__version__}` \n"
+        f"◙ `Telethon   :` {version.__version__} \n"
         f"◙ `Python     :` {python_version()} \n"
         f"◙ `Bot Ver    :` {BOT_VER} \n"
         f"◙ `Modules    :` {len(modules)} \n"
@@ -265,12 +265,12 @@ async def amireallyalive(alive):
     await get_readable_time((time.time() - StartTime))
     output = (
         f"●▬▬▬▬▬▬ஜ۩۞۩ஜ▬▬▬▬▬▬● \n"
-        f"✾ 🤴 • `ᴏᴡɴᴇʀ     :`[Kyy](t.me/IDnyaKosong)             ㅤ \n"
-        f"✾ 🖥️ • `ꜱʏꜱᴛᴇᴍ   :`Ubuntu 20.10            \n"
-        f"✾ ⚙️ • `ᴛᴇʟᴇᴛʜᴏɴ :`v.{version.__version__}                ㅤㅤ  \n"
-        f"✾ 🐍 • `ᴘʏᴛʜᴏɴ   :`v.{python_version()} ㅤㅤ\n"
-        f"✾ 👾 • `ʙᴏᴛ      :`v.{BOT_VER}                ㅤㅤㅤ \n"
-        f"✾ 📂 • `ᴍᴏᴅᴜʟᴇ   :`{len(modules)} ㅤㅤㅤㅤㅤㅤㅤ   \n"
+        f"✾ 🤴 • `ᴏᴡɴᴇʀ    :`[Kyy](t.me/IDnyaKosong) \n"
+        f"✾ 🖥️ • `ꜱʏꜱᴛᴇᴍ   :`Ubuntu 20.10 \n"
+        f"✾ ⚙️ • `ᴛᴇʟᴇᴛʜᴏɴ :`v.{version.__version__} \n"
+        f"✾ 🐍 • `ᴘʏᴛʜᴏɴ   :`v.{python_version()} \n"
+        f"✾ 👾 • `ʙᴏᴛ      :`v.{BOT_VER} \n"
+        f"✾ 📂 • `ᴍᴏᴅᴜʟᴇ   :`{len(modules)} \n"
         f"●▬▬▬▬▬▬ஜ۩۞۩ஜ▬▬▬▬▬▬●")
     if ALIVE_LOGO:
         try:
