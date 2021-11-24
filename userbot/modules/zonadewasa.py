@@ -11,7 +11,7 @@ from userbot import CMD_HELP
 from userbot.events import register
 
 
-@register(outgoing=True, pattern=r"^\.spill(?: |$)(.*)")
+@register(outgoing=True, pattern=r"^\.payudara(?: |$)(.*)")
 async def boobs(event):
     if event.fwd_from:
         return
