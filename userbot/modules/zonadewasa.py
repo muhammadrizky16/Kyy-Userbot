@@ -7,7 +7,6 @@ import asyncio
 import os
 import urllib
 
-from userbot import TEMP_DOWNLOAD_DIRECTORY
 from userbot import CMD_HELP
 from userbot.events import register
 
