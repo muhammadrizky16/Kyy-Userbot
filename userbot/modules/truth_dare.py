@@ -44,9 +44,9 @@ CMD_HELP.update(
     {
         "truth_dare": "** Plugin :** truth_dare\
         \n\n  •  Perintah : `.truth`\
-        \n  •  Function : Untuk menirim pesan truth\
+        \n  •  Function : Untuk mengirim pesan truth secara random\
         \n\n  •  Perintah : `.dare`\
-        \n  •  Function : Untuk menirim pesan dare\
+        \n  •  Function : Untuk mengirim pesan dare secara random\
     "
     }
 )
