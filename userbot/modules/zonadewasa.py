@@ -7,11 +7,10 @@ import asyncio
 import os
 import urllib
 
-from telethon import events
-from telethon.errors.rpcerrorlist import YouBlockedUserError
 
-from userbot import bot, CMD_HELP
+from userbot import CMD_HELP
 from userbot.events import register
+
 
 @register(outgoing=True, pattern=r"^\.spill(?: |$)(.*)")
 async def boobs(event):
@@ -24,7 +23,8 @@ async def boobs(event):
     await asyncio.sleep(0.5)
     await a.edit("Ini besar banget nih 😂")
     nsfw = requests.get("http://api.oboobs.ru/noise/1").json()[0]["preview"]
-    urllib.request.urlretrieve("http://media.oboobs.ru/{}".format(nsfw), pic_loc)
+    urllib.request.urlretrieve(
+        "http://media.oboobs.ru/{}".format(nsfw), pic_loc)
     await event.client.send_file(event.chat_id, pic_loc, force_document=False)
     os.remove(pic_loc)
     await event.delete()
