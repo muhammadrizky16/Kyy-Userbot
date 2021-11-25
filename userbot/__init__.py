@@ -478,20 +478,16 @@ with bot:
                 u = await event.client.get_entity(event.chat_id)
                 c = await event.client.get_entity(event.user_id)
                 await event.reply(
-                    f"** Selamat Datang Digrub **👋\n"
-                    f"[{get_display_name(u)}](tg: // user?id={u.id})\n"
-                    f"────────────────────\n"
-                    f"📮 ** Nama: ** [{get_display_name(c)}](tg: // user?id={c.id})\n"
-                    f"────────────────────\n"
-                    f"✏️ ** ID: ** {c.id}\n"
-                    f"────────────────────\n"
-                    f"🤴 **ʙᴏᴛᴏꜰ: ** {DEFAULTUSER}\n\n"
-                    f"➠ ** Ketik ** /rules supaya tahu peraturan Group ini\n"
-                    f"➠ **Atau** Kalian Bisa Klik /notes Dibawah Jika Ada\n",
+                    f"**Hallo Kamu**\n**Welcome To** [{get_display_name(u)}](tg://user?id={u.id}) \n\n"
+                    f"✥ **ᴘᴇɴɢɢᴜɴᴀ​ :** {get_display_name(c)} \n"
+                    f"✥ **ɪᴅ ᴘᴇɴɢɢᴜɴᴀ​ :** {c.id} \n"
+                    f"✥ **ᴜsᴇʀɴᴀᴍᴇ​ :** @{c.username} \n"
+                    f"✥ **ᴍᴇɴᴛɪᴏɴ​ :** [{get_display_name(c)}](tg://user?id={c.id}) \n\n"
+                    f"sᴇᴍᴏɢᴀ ʙᴇᴛᴀʜ ᴅɪsɪɴɪ ʏᴀ​ ✨\n",
                     buttons=[
                         [
-                            Button.url("ᴄʜᴀɴɴᴇʟ",
-                                       "https://t.me/ahhsudahlahhh")],
+                            Button.url("ʀᴇᴘᴏ​",
+                                       "https://github.com/muhammadrizky16/Kyy-Userbot")],
                     ]
                 )
 
@@ -535,7 +531,7 @@ with bot:
         async def on_plug_in_callback_query_handler(event):
             if event.query.user_id == uid:
                 buttons = paginate_help(0, dugmeler, "helpme")
-                text = f"Usᴇʀʙᴏᴛ​ Tᴇʟᴇɢʀᴀᴍ\n\n**Mᴀɪɴ Mᴇɴᴜ​**\n\n❥ **ʙᴏᴛ ᴏꜰ :** {DEFAULTUSER}\n❥ **ʙᴏᴛ ᴠᴇʀ :** 5.0\n❥ **ᴍᴏᴅᴜʟᴇꜱ :** {len(plugins)}\n❥ **ʙᴏᴛʏᴏᴜ :** @{BOT_USERNAME} "
+                text = f"Usᴇʀʙᴏᴛ​ Tᴇʟᴇɢʀᴀᴍ\n\n**ɪɴʟɪɴᴇ ᴍᴇɴᴜ​**\n\n❥ **ʙᴏᴛ ᴏꜰ :** {DEFAULTUSER}\n❥ **ʙᴏᴛ ᴠᴇʀ :** 5.0\n❥ **ᴍᴏᴅᴜʟᴇꜱ :** {len(plugins)}\n❥ **ʙᴏᴛʏᴏᴜ :** @{BOT_USERNAME} "
                 await event.edit(text,
                                  file=kyylogo,
                                  buttons=buttons,
