@@ -107,10 +107,6 @@
       "description": "Nama Sticker Pack Mu",
       "required": false
     },
-    "UB_BLACK_LIST_CHAT": {
-      "description": "Isi Apa Aja",
-      "required": false
-    },
     "WEATHER_DEFCITY": {
       "description": "Set the default city for the userbot's weather module.",
       "value": "Batam",
@@ -120,10 +116,6 @@
       "description": "Set this to True in case you want the error logs to be stored in the userbot log group, instead of spitting out the file in the current chat, requires a valid BOTLOG_CHATID to be set.",
       "value": "True",
       "required": true
-    },
-    "UPSTREAM_REPO_URL": {
-      "description": "In case you maintain a fork, add your repo URL here.",
-      "required": false
     },
     "BOT_TOKEN": {
       "description": "Set this to enable inline bot helper. get the token from @BotFather",
