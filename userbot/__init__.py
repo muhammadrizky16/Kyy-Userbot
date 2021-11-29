@@ -377,7 +377,7 @@ with bot:
 
 
 async def check_alive():
-    await bot.send_file(BOTLOG_CHATID, ALIVE_LOGO, caption=f"**Kyy-Userbot has been deployed✨**\n━━━━━━━━━━━━━━━━━━━\n❃ **ʙᴏᴛ ᴏꜰ :** {ALIVE_NAME}\n❃ **ʙᴏᴛ ᴠᴇʀ :** 7.0\n━━━━━━━━━━━━━━━━━━━\n❃ **sᴜᴘᴘᴏʀᴛ :** @ahhsudahlahhh \n━━━━━━━━━━━━━━━━━━━")
+    await bot.send_file(BOTLOG_CHATID, ALIVE_LOGO, caption=f"**Kyy-Userbot Berhasil Diaktifkan✨**\n━━━━━━━━━━━━━━━━━━━\n❃ **ʙᴏᴛ ᴏꜰ :** {ALIVE_NAME}\n❃ **ʙᴏᴛ ᴠᴇʀ :** 7.0\n━━━━━━━━━━━━━━━━━━━\n❃ **sᴜᴘᴘᴏʀᴛ :** @ahhsudahlahhh \n━━━━━━━━━━━━━━━━━━━")
     return
 
 
@@ -920,7 +920,7 @@ with bot:
             else:
                 result = builder.article(
                     " ✨Kʏʏ-Usᴇʀʙᴏᴛ✨",
-                    text="""°KYY-USERBOT°""",
+                    text="""°Kyy-Userbot°""",
                     buttons=[
                         [
                             custom.Button.url(
@@ -931,7 +931,7 @@ with bot:
                                 "Channel",
                                 "t.me/ahhsudahlahhh")],
                         [custom.Button.url(
-                            "LICENSE",
+                            "License",
                             "https://github.com/muhammadrizky16/Kyy-Userbot/LICENSE")],
                     ],
                     link_preview=False,
