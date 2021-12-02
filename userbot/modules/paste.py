@@ -7,7 +7,7 @@
 
 import os
 
-from userbot import register
+from userbot.events import register
 from userbot import CMD_HELP, TEMP_DOWNLOAD_DIRECTORY
 from userbot.utils import edit_delete, edit_or_reply
 from userbot.utils.pastebin import PasteBin
