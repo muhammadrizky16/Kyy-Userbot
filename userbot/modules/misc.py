@@ -115,7 +115,7 @@ async def repo_is_here(wannasee):
         "➣ **Repo Userbot :** [ɢɪᴛʜᴜʙ](https://github.com/muhammadrizky16/Kyy-Userbot)\n"
         "➣ **Owner Bot       :** [ҡʏʏ](t.me/IDnyaKosong)\n"
         "卍━━━━━━━━━━━━━━━━━━━━━━卍\n"
-        "➣ **Support       :** [sᴜᴘᴘᴏʀᴛ](https://t.me/NastySupportt)\n"
+        "➣ **Support           :** [sᴜᴘᴘᴏʀᴛ](https://t.me/NastySupportt)\n"
         "➣ **Channel           :** [ᴄʜᴀɴɴᴇʟ](https://t.me/ahhsudahlahhh)\n"
         "卍━━━━━━━━━━━━━━━━━━━━━━卍\n"
     )
