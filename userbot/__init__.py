@@ -969,7 +969,7 @@ with bot:
                     buttons=[
                         [
                             Button.url("❈ꜱᴜᴘᴘᴏʀᴛ❈",
-                                       "t.me/FlicksSupport"),
+                                       "t.me/NastySupportt"),
                             Button.url("❈ᴄʜᴀɴɴᴇʟ❈",
                                        "t.me/ahhsudahlahhh")],
                         [custom.Button.inline(
