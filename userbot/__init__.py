@@ -380,7 +380,7 @@ with bot:
 
 
 async def check_alive():
-    await bot.send_file(BOTLOG_CHATID, ALIVE_LOGO, caption=f"**Kyy-Userbot Berhasil Diaktifkan✨**\n━━━━━━━━━━━━━━━━━━━\n❃ **ʙᴏᴛ ᴏꜰ :** {ALIVE_NAME}\n❃ **ʙᴏᴛ ᴠᴇʀ :** 7.0\n━━━━━━━━━━━━━━━━━━━\n❃ **sᴜᴘᴘᴏʀᴛ​ :** @NastySupportt\n❃ **ᴄʜᴀɴɴᴇʟ​ :** @ahhsudahlahhh \n━━━━━━━━━━━━━━━━━━━")
+    await bot.send_file(BOTLOG_CHATID, ALIVE_LOGO, caption=f"**Kyy-Userbot Berhasil Diaktifkan✨**\n━━━━━━━━━━━━━━━━━━━\n❃ **ʙᴏᴛ ᴏꜰ :** {ALIVE_NAME}\n❃ **ʙᴏᴛ ᴠᴇʀ :** 7.0\n━━━━━━━━━━━━━━━━━━━\n❃ **sᴜᴘᴘᴏʀᴛ​ :** @NastySupportt\n❃ **ᴄʜᴀɴɴᴇʟ​ :** @NastyProject \n━━━━━━━━━━━━━━━━━━━")
     return
 
 
@@ -894,7 +894,7 @@ with bot:
                     buttons=[
                         [
                             Button.url("ᴄʜᴀɴɴᴇʟ",
-                                       "t.me/ahhsudahlahhh")],
+                                       "t.me/NastyProject")],
                     ]
                 )
 
@@ -932,7 +932,7 @@ with bot:
 
                             custom.Button.url(
                                 "Channel",
-                                "t.me/ahhsudahlahhh")],
+                                "t.me/NastyProject")],
                         [custom.Button.url(
                             "License",
                             "https://github.com/muhammadrizky16/Kyy-Userbot/LICENSE")],
@@ -974,7 +974,7 @@ with bot:
                             Button.url("❈ꜱᴜᴘᴘᴏʀᴛ❈",
                                        "t.me/NastySupportt"),
                             Button.url("❈ᴄʜᴀɴɴᴇʟ❈",
-                                       "t.me/ahhsudahlahhh")],
+                                       "t.me/NastyProject")],
                         [custom.Button.inline(
                             "°ᴏᴘᴇɴ ᴍᴇɴᴜ°", data="open_plugin")],
                         [custom.Button.inline(
