@@ -1,5 +1,5 @@
 wheel
-aiohttp[speedups]
+aiohttp[speedups]>=3.5.4
 aiofiles
 aria2p
 wheel
@@ -30,7 +30,7 @@ gTTS>=2.1.1
 gTTS-token>=1.1.3
 hachoir>=3.0a5
 REPO_LINK
-heroku3
+heroku3>=3.4.0
 httplib2>=0.18.0
 humanize 
 lxml
