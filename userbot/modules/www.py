@@ -157,7 +157,6 @@ async def redis(pong):
 
 
 @register(outgoing=True, pattern="^.ping$")
-@register(incoming=True, from_users=DEVS, pattern=r"^\.cping(?: |$)(.*)")
 async def pingme(pong):
     """For .ping command, ping the userbot from any chat."""
     uptime = await get_readable_time((time.time() - StartTime))
