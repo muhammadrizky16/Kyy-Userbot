@@ -89,7 +89,7 @@ async def _(kyy):
         return await kyy.edit(f"**Maaf {ALIVE_NAME} Bukan Admin 👮**")
     try:
         await diorbot.edit(settitle(call=await get_call(e), title=title.strip()))
-        await diorbot.edit( f"`Berhasil Mengubah Judul VCG Menjadi` `{title}`")
+        await diorbot.edit(f"`Berhasil Mengubah Judul VCG Menjadi` `{title}`")
     except Exception as ex:
         await diorbot.edit(f"**ERROR:** `{ex}`")
 
