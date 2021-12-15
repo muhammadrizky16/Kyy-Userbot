@@ -1,8 +1,5 @@
 # Thanks Full To Team Ultroid
-# Ported By Vcky @VckyouuBitch
-# Copyright (c) 2021 Geez - Projects
-# Fix By Kyy @IDnyaKosong
-
+# Ported By Kyy @IDnyaKosong
 
 from telethon.tl.functions.channels import GetFullChannelRequest as getchat
 from telethon.tl.functions.phone import CreateGroupCallRequest as startvc
@@ -78,11 +75,32 @@ async def _(e):
     await e.edit(f"`Invited {z} users`")
 
 
-CMD_HELP.update({
-    "vcg": "𝘾𝙤𝙢𝙢𝙖𝙣𝙙: `.startvc`\
-    \n↳ : Untuk Memulai voice chat group.\
-    \n𝘾𝙤𝙢𝙢𝙖𝙣𝙙: `.stopvc`\
-    \n↳ : Untuk Memberhentikan voice chat group.\
-    \n𝘾𝙤𝙢𝙢𝙖𝙣𝙙: `.vcinvite`\
-    \n↳ : Mengundang Member group ke voice chat group. (You must be joined)."
-})
+@register(outgoing=True, pattern=r"^\.vctitle", groups_only=True)
+async def _(kyy):
+    title = e.pattern_match.group(1)
+    chat = await diorbot.get_chat()
+    admin = chat.admin_rights
+    creator = chat.creator
+
+    if not title:
+        return await kyy.edit("**Silahkan Masukan Title Obrolan Suara Grup**")
+
+    if not admin and not creator:
+        return await kyy.edit(f"**Maaf {ALIVE_NAME} Bukan Admin 👮**")
+    try:
+        await diorbot.edit(settitle(call=await get_call(e), title=title.strip()))
+        await diorbot.edit( f"`Berhasil Mengubah Judul VCG Menjadi` `{title}`")
+    except Exception as ex:
+        await diorbot.edit(f"**ERROR:** `{ex}`")
+
+
+CMD_HELP.update(
+    {
+        "vcg": "𝘾𝙤𝙢𝙢𝙖𝙣𝙙: `.startvc`\
+         \n↳ : Start Group Call in a group.\
+         \n𝘾𝙤𝙢𝙢𝙖𝙣𝙙: `.stopvc`\
+         \n↳ : `Stop Group Call in a group.`\
+         \n𝘾𝙤𝙢𝙢𝙖𝙣𝙙: `.vcinvite`\
+         \n↳ : Invite all members of group in Group Call. (You must be joined)."
+    }
+)
