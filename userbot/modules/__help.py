@@ -24,5 +24,5 @@ async def yardim(event):
             )
     except Exception:
         return await event.edit(
-            "`Anda tidak dapat mengirim hasil sebaris dalam hal ini ke chat (disebabkan oleh Mengirim Inline Sebaris)`"
+            "`Anda tidak dapat mengirim hasil sebaris dalam hal ini ke chat (disebabkan oleh Mengirim Inline Sebaris)\ngunakan perintah .inlineon`"
         )
