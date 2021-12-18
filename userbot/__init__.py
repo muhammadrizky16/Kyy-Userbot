@@ -554,42 +554,6 @@ with bot:
                                  buttons=buttons,
                                  link_preview=False,
                                  )
-            elif query.startswith("about"):
-                result = builder.article(
-                    "Tentang Flicks-Userbot ",
-                    text=f"Flicks-Userbot [☘️]({ALIVE_LOGO}) adalah userbot Telegram modular yang berjalan di Python 3.6 dengan database sqlalchemy\n[Fariz](tg://openmessage?user_id=1514078508) membuat dan menambahkan modul yang dibutuhkan.\nUntuk mengetahui perintah Flicks-Userbot gunakan perintah `.helpme` dan untuk mengecek userbot gunakan perintah `.alive`",
-                    buttons=[
-                        [
-                            custom.Button.url(
-                                "ᴅᴇᴘʟᴏʏ​",
-                                "https://heroku.com/deploy?template=https://github.com/fjgaming212/Deploy-Flicks"),
-                            custom.Button.url(
-                                "ʀᴇᴘᴏ",
-                                "https://github.com/fjgaming212/Flicks-Userbot")],
-                        [custom.Button.url(
-                            "ᴜᴘᴅᴀᴛᴇs ᴄʜᴀɴɴᴇʟ​",
-                            "t.me/InfoFlicksUserbot")]],
-                    link_preview=True)
-            else:
-                result = builder.article(
-                    " Kyy-Userbot ",
-                    text=f"""**Kyy-Userbot**\n➖➖➖➖➖➖➖➖➖➖\n✥**Mᴀsᴛᴇʀ​** {ALIVE_NAME}\n✥**Vᴇʀsɪ :** {BOT_VER}\n✥**Plugin** : {len(plugins)}\n✥**ᴀssɪsᴛᴇɴ :** @{BOT_USERNAME}\n➖➖➖➖➖➖➖➖➖➖""",
-                    buttons=[
-                        [
-                            custom.Button.url(
-                                "sᴜᴘᴘᴏʀᴛ",
-                                "t.me/FlicksSupport"),
-                            custom.Button.url(
-                                "ᴄʜᴀɴɴᴇʟ​​",
-                                "t.me/InfoFlicksUserbot")],
-                        [custom.Button.url(
-                            "ʀᴇᴘᴏ",
-                            "https://github.com/fjgaming212/Flicks-Userbot")]],
-                    link_preview=False,
-                )
-            await event.answer(
-                [result], switch_pm="👥 USERBOT PORTAL", switch_pm_param="start"
-            )
 
             else:
                 reply_pop_up_alert = f"❌ WARNINGS ❌\n\nAnda Tidak Mempunyai Hak Untuk Menekan Tombol Button Ini."
