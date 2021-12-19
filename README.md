@@ -38,3 +38,11 @@ Gunakan bot ini dengan risiko Anda sendiri, dan gunakan dengan bijak.
 <p align="left">
 <a href="https://github.com/muhammadrizky16"><img src="https://img.shields.io/badge/GitHub-Follow%20on%20GitHub-inactive.svg?logo=github"></a> <a href="https://instagram.com/rizkyhamdanii16_"><img src="https://img.shields.io/badge/Instagram-Follow%20on%20Instagram-important.svg?logo=instagram"></a>
 </p>
+
+##
+
+🔰 **THANKS YOU TO**
+*   [Sendi](https://github.com/SendiAp/Rose-Userbot)   Rose-Userbot
+*   [Kyy](https://github.com/muhammadrizky16/Kyy-Userbot)   Kyy - Userbot
+*   [Skyzu](https://github.com/Skyzu/skyzu-userbot)   skyzu-userbot
+*   DAN TERIMAKASIH KEPADA USERBOT LAINNYA
