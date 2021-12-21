@@ -1,5 +1,5 @@
 # ReCode by @skyzu
-# FROM skyzu-userbot <https://github.com/Skyzu/skyzu-userbot>
+# FROM skyzu-userbot <https://github.com/Kayzyu/Kayyzyu-UBOT>
 # KONTOLLLLLLL
 
 from platform import uname
