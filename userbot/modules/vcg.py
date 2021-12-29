@@ -1,6 +1,7 @@
 # Thanks Full To Team Ultroid
 # Ported By Kyy @IDnyaKosong
 
+
 from telethon.tl.functions.channels import GetFullChannelRequest as getchat
 from telethon.tl.functions.phone import CreateGroupCallRequest as startvc
 from telethon.tl.functions.phone import DiscardGroupCallRequest as stopvc
@@ -11,12 +12,12 @@ from telethon.tl.types import ChatAdminRights
 from userbot import CMD_HELP
 from userbot.events import register
 
-NO_ADMIN = "`Maaf Kamu Bukan Admin 👮"
+NO_ADMIN = "`Maaf Kamu Bukan Admin 👮`"
 
 
 async def get_call(event):
     kyy = await event.client(getchat(event.chat_id))
-    kyy = await event.client(getvc(kyy.full_chat.call))
+    kyy = await event.client(getvc(kyy.full_chat.call, limit=1))
     return kyy.call
 
 
@@ -25,82 +26,62 @@ def user_list(l, n):
         yield l[i: i + n]
 
 
-@register(outgoing=True, pattern=r"^\.startvc$", groups_only=True)
-async def _(e):
-    chat = await e.get_chat()
+@register(outgoing=True, pattern=r"^\.startvc$")
+async def start_voice(c):
+    chat = await c.get_chat()
     admin = chat.admin_rights
     creator = chat.creator
 
     if not admin and not creator:
-        return await e.edit(NO_ADMIN)
-    new_rights = ChatAdminRights(invite_users=True)
+        await c.edit(f"**Maaf {ALIVE_NAME} Bukan Admin 👮**")
+        return
     try:
-        await e.client(startvc(e.chat_id))
-        await e.edit("`Memulai Obrolan Suara`")
+        await c.client(startvc(c.chat_id))
+        await c.edit("`Memulai Obrolan Suara`")
     except Exception as ex:
-        await e.edit(f"`{str(ex)}`")
+        await c.edit(f"**ERROR:** `{ex}`")
 
 
-@register(outgoing=True, groups_only=True, pattern=r"^\.stopvc$")
+@register(outgoing=True, pattern=r"^\.stopvc$")
 async def stop_voice(c):
     chat = await c.get_chat()
     admin = chat.admin_rights
     creator = chat.creator
 
     if not admin and not creator:
-        return await e.edit(NO_ADMIN)
-    new_rights = ChatAdminRights(invite_users=True)
+        await c.edit(f"**Maaf {ALIVE_NAME} Bukan Admin 👮**")
+        return
     try:
         await c.client(stopvc(await get_call(c)))
         await c.edit("`Mematikan Obrolan Suara`")
     except Exception as ex:
         await c.edit(f"**ERROR:** `{ex}`")
 
-
 @register(outgoing=True, pattern=r"^\.vcinvite", groups_only=True)
-async def _(e):
-    await e.edit("`Sedang Mengivinte Member...`")
+async def _(kyy):
+    await kyy.edit("`Memulai Invite member group...`")
     users = []
     z = 0
-    async for x in e.client.iter_participants(e.chat_id):
+    async for x in kyy.client.iter_participants(kyy.chat_id):
         if not x.bot:
             users.append(x.id)
     hmm = list(user_list(users, 6))
     for p in hmm:
         try:
-            await e.client(invitetovc(call=await get_call(e), users=p))
+            await kyy.client(invitetovc(call=await get_call(kyy), users=p))
             z += 6
         except BaseException:
             pass
-    await e.edit(f"`Invited {z} users`")
-
-
-@register(outgoing=True, pattern=r"^\.vctitle", groups_only=True)
-async def _(kyy):
-    title = e.pattern_match.group(1)
-    chat = await diorbot.get_chat()
-    admin = chat.admin_rights
-    creator = chat.creator
-
-    if not title:
-        return await kyy.edit("**Silahkan Masukan Title Obrolan Suara Grup**")
-
-    if not admin and not creator:
-        return await kyy.edit(f"**Maaf {ALIVE_NAME} Bukan Admin 👮**")
-    try:
-        await diorbot.edit(settitle(call=await get_call(e), title=title.strip()))
-        await diorbot.edit(f"`Berhasil Mengubah Judul VCG Menjadi` `{title}`")
-    except Exception as ex:
-        await diorbot.edit(f"**ERROR:** `{ex}`")
+    await kyy.edit(f"`Menginvite {z} Member`")
 
 
 CMD_HELP.update(
     {
         "vcg": "𝘾𝙤𝙢𝙢𝙖𝙣𝙙: `.startvc`\
-         \n↳ : Start Group Call in a group.\
+         \n↳ : Memulai Obrolan Suara dalam Group.\
          \n𝘾𝙤𝙢𝙢𝙖𝙣𝙙: `.stopvc`\
-         \n↳ : `Stop Group Call in a group.`\
+         \n↳ : `Menghentikan Obrolan Suara Pada Group.`\
          \n𝘾𝙤𝙢𝙢𝙖𝙣𝙙: `.vcinvite`\
-         \n↳ : Invite all members of group in Group Call. (You must be joined)."
+         \n↳ : Invite semua member yang berada di group."
     }
 )
