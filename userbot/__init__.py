@@ -918,13 +918,13 @@ with bot:
                 )
             elif query.startswith("tb_btn"):
                 result = builder.article(
-                    "Bantuan Dari ✨Kʏʏ-Usᴇʀʙᴏᴛ✨",
+                    "Bantuan Dari ✨ҡʏʏ-υѕєявσт✨",
                     text="Daftar Plugins",
                     buttons=[],
                     link_preview=True)
             else:
                 result = builder.article(
-                    " ✨Kʏʏ-Usᴇʀʙᴏᴛ✨",
+                    " ✨ҡʏʏ-υѕєявσт✨",
                     text="""°Kyy-Userbot°""",
                     buttons=[
                         [
