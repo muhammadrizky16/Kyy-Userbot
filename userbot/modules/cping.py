@@ -5,12 +5,6 @@
     Information Superhighway (yes, Internet). """
 
 import random
-
-
-from userbot import (
-    DEVS,
-)
-
 from userbot.events import register
 
 # OWN BY RENDY CODE
