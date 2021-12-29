@@ -8,7 +8,6 @@ from telethon.tl.functions.phone import DiscardGroupCallRequest as stopvc
 from telethon.tl.functions.phone import GetGroupCallRequest as getvc
 from telethon.tl.functions.phone import InviteToGroupCallRequest as invitetovc
 
-from telethon.tl.types import ChatAdminRights
 from userbot import CMD_HELP
 from userbot.events import register
 
@@ -56,6 +55,7 @@ async def stop_voice(c):
         await c.edit("`Mematikan Obrolan Suara`")
     except Exception as ex:
         await c.edit(f"**ERROR:** `{ex}`")
+
 
 @register(outgoing=True, pattern=r"^\.vcinvite", groups_only=True)
 async def _(kyy):
