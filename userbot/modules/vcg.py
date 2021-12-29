@@ -59,7 +59,7 @@ async def stop_voice(c):
 
 @register(outgoing=True, pattern=r"^\.vcinvite", groups_only=True)
 async def _(kyy):
-    await kyy.edit("`Memulai Invite member group...`")
+    await kyy.edit("`Sedang Menginvite Member...`")
     users = []
     z = 0
     async for x in kyy.client.iter_participants(kyy.chat_id):
