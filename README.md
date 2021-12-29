@@ -42,7 +42,7 @@ Gunakan bot ini dengan risiko Anda sendiri, dan gunakan dengan bijak.
 ##
 
 🔰 **THANKS YOU TO**
-*   [Sendi](https://github.com/SendiAp/Rose-Userbot)   Rose-Userbot
 *   [Kyy](https://github.com/muhammadrizky16/Kyy-Userbot)   Kyy - Userbot
+*   [Sendi](https://github.com/SendiAp/Rose-Userbot)   Rose-Userbot
 *   [Skyzu](https://github.com/Skyzu/skyzu-userbot)   skyzu-userbot
 *   DAN TERIMAKASIH KEPADA USERBOT LAINNYA
