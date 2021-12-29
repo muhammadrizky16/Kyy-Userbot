@@ -1,5 +1,5 @@
 # Thanks Full To Team Ultroid
-# Ported By Kyy @IDnyaKosong
+# Fiks By Kyy @IDnyaKosong
 
 
 from telethon.tl.functions.channels import GetFullChannelRequest as getchat
