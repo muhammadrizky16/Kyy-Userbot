@@ -122,7 +122,7 @@ async def redis(pong):
     end = datetime.now()
     duration = (end - start).microseconds / 1000
     await pong.edit(
-        f"**✨Kʏʏ-Usᴇʀʙᴏᴛ✨**\n"
+        f"**✨ҡʏʏ-υѕєявσт✨**\n"
         f"➾ __Signal__    __:__ "
         f"`%sms` \n"
         f"➾ __Uptime__ __:__ "
@@ -146,7 +146,7 @@ async def redis(pong):
     end = datetime.now()
     duration = (end - start).microseconds / 1000
     await pong.edit(
-        f"**✨ Kʏʏ-Usᴇʀʙᴏᴛ  ✨**\n\n"
+        f"**✨ ҡʏʏ-υѕєявσт ✨**\n\n"
         f"** ▹  Sɪɢɴᴀʟ   :** "
         f"`%sms` \n"
         f"** ▹  Uᴘᴛɪᴍᴇ  :** "
@@ -173,7 +173,7 @@ async def pingme(pong):
         f"`%sms` \n"
         f"☂️ **Uᴘᴛɪᴍᴇ :** "
         f"`{uptime}` \n"
-        f"✠➲ **Oᴡɴᴇʀ :** `{ALIVE_NAME}`" % (duration)
+        f"☞ **Oᴡɴᴇʀ :** `{ALIVE_NAME}`" % (duration)
     )
 
 
@@ -202,7 +202,7 @@ async def speedtst(spd):
         f"`{result['ping']}` \n"
         "✧ **ISP:** "
         f"`{result['client']['isp']}` \n"
-        "✧ **BOT:** ✨Kʏʏ-Usᴇʀʙᴏᴛ✨"
+        "✧ **BOT:** ✨ҡʏʏ-υѕєявσт✨"
     )
 
 
