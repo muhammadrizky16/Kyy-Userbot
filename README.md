@@ -27,7 +27,7 @@ Gunakan bot ini dengan risiko Anda sendiri, dan gunakan dengan bijak.
 [![GenerateStringName](https://img.shields.io/badge/repl.it-generateStringName-white)](https://replit.com/@rizkyhmdanii16/StringSession)
 
 
-## Heroku Deployment 💜
+## Heroku Deployment
 [![Deploy](https://www.herokucdn.com/deploy/button.svg)](https://heroku.com/deploy?template=https://github.com/muhammadrizky16/UserbotDeploy)
 
 
