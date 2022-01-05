@@ -118,7 +118,7 @@ CMD_HELP.update(
         \n↳ : lihat sendiri\
         \n𝘾𝙤𝙢𝙢𝙖𝙣𝙙: .gh\
         \n↳ : lihat sendiri\
-        \n𝘾𝙤𝙢𝙢𝙖𝙣𝙙: .lihat sendiri\
+        \n𝘾𝙤𝙢𝙢𝙖𝙣𝙙: .lol\
         \n↳ : lihat sendiri\
         \n↳ **COBAIN AJA SENDIRI SEMUA!**.\
     "
