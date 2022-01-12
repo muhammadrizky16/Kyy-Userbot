@@ -138,11 +138,11 @@ async def typewriter(typew):
     typew.pattern_match.group(1)
     await typew.edit("**MENTANG MENTANG PUNYA BOT MAINNYA BOT!!PANTES MUKANYA KAYA BOT😁**")
 
+
 @register(outgoing=True, pattern='^.1(?: |$)(.*)')
 async def typewriter(typew):
     typew.pattern_match.group(1)
     await typew.edit("**NORAK LU KONTOL!! MAKE USERBOT CUMAN BUAT WAR MALAH SOK KERAS**")
-
 
 
 CMD_HELP.update({
