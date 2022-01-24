@@ -13,6 +13,9 @@
 from userbot import CMD_HELP
 from userbot.events import register
 
+GCAST_BLACKLIST = [
+    -1001380293847,  # NastySupport
+]
 
 @register(outgoing=True, pattern=r"^\.gcast(?: |$)(.*)")
 async def gcast(event):
