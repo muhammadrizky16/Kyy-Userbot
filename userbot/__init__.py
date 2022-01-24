@@ -5,6 +5,7 @@ import os
 import time
 import re
 import redis
+import random
 
 from sys import version_info
 from logging import basicConfig, getLogger, INFO, DEBUG
