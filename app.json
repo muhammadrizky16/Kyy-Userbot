@@ -22,6 +22,11 @@
       "description": "Dapatkan Api Hash Di Web my.telegram.org",
       "required": true
     },
+    "ALIVE_LOGO": {
+      "description": "Gambar dalam module .alive",
+      "value": "https://telegra.ph/file/276d22aac9f400898cd27.jpg",
+      "required": false
+    },
      "STRING_SESSION": {
       "description": "Dapatkan String Session di termux caranya ada di repo, jika tidak tau reponya tanya ke @IDnyaKosong di telegram",
       "required": true
@@ -53,18 +58,9 @@
       "value": "False",
       "required": true
     },
-    "TMP_DOWNLOAD_DIRECTORY": {
-      "description": "Download location for many modules (GDrive, .download etc..)",
-      "value": "./downloads/"
-    },
     "ALIVE_NAME": {
       "description": "Nama untuk menunjukan pesan .alive",
       "required": true
-    },
-     "ALIVE_LOGO": {
-      "description": "Gambar dalam module .alive",
-      "value": "https://telegra.ph/file/276d22aac9f400898cd27.jpg",
-      "required": false
     },
     "S_PACK_NAME": {
       "description": "Nama Sticker Pack Mu",
@@ -77,12 +73,11 @@
     },
     "BOT_TOKEN": {
       "description": "Set this to enable inline bot helper. get the token from @BotFather",
-      "required": true
+      "required": false
     },
     "BOT_USERNAME": {
       "description": "Username Bot Kamu Di @BotFather, Tanpa @",
-      "value": "BotFather",
-      "required": true
+      "required": false
     }
   },
   "addons": [
