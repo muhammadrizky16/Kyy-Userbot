@@ -171,7 +171,7 @@ PM_LOGGR_BOT_API_ID = int(os.environ.get("PM_LOGGR_BOT_API_ID", "-100"))
 # OpenWeatherMap API Key
 OPEN_WEATHER_MAP_APPID = os.environ.get(
     "OPEN_WEATHER_MAP_APPID") or "5ed2fcba931692ec6bd0a8a3f8d84936"
-WEATHER_DEFCITY = os.environ.get("WEATHER_DEFCITY", "Batam"))
+WEATHER_DEFCITY =sb(os.environ.get("WEATHER_DEFCITY", "Batam"))
 
 # Lydia API
 LYDIA_API_KEY=os.environ.get(
@@ -192,7 +192,7 @@ YOUTUBE_API_KEY=os.environ.get(
     "YOUTUBE_API_KEY") or "AIzaSyACwFrVv-mlhICIOCvDQgaabo6RIoaK8Dg"
 
 # Untuk Perintah .kyyalive
-KYY_TEKS_KUSTOM=os.environ.get("KYY_TEKS_KUSTOM", "I'am Using Kyy-Userbot ✨"))
+KYY_TEKS_KUSTOM=sb(os.environ.get("KYY_TEKS_KUSTOM", "I'am Using Kyy-Userbot ✨"))
 
 # Untuk Mengubah Pesan Welcome
 START_WELCOME=os.environ.get("START_WELCOME", None)
