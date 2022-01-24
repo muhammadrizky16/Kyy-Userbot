@@ -17,6 +17,7 @@ GCAST_BLACKLIST = [
     -1001380293847,  # NastySupport
 ]
 
+
 @register(outgoing=True, pattern=r"^\.gcast(?: |$)(.*)")
 async def gcast(event):
     xx = event.pattern_match.group(1)
