@@ -193,10 +193,7 @@ YOUTUBE_API_KEY = os.environ.get(
     "YOUTUBE_API_KEY") or "AIzaSyACwFrVv-mlhICIOCvDQgaabo6RIoaK8Dg"
 
 # Untuk Perintah .kyyalive
-KYY_TEKS_KUSTOM = sb(
-    os.environ.get(
-        "KYY_TEKS_KUSTOM",
-        "I'am Using Kyy-Userbot ✨"))
+KYY_TEKS_KUSTOM = os.environ.get("KYY_TEKS_KUSTOM","I'am Using Kyy-Userbot ✨")
 
 # Untuk Mengubah Pesan Welcome
 START_WELCOME = os.environ.get("START_WELCOME", None)
