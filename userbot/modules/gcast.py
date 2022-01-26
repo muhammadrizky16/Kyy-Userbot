@@ -34,6 +34,7 @@ async def gcast(event):
     async for x in event.client.iter_dialogs():
         if x.is_group:
             chat = x.id
+            if chat not in GCAST_BLACKLIST:
             try:
                 await event.client.send_message(chat, msg)
                 done += 1
