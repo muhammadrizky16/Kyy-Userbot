@@ -16,6 +16,7 @@ cffi>=1.0.0
 dnspython
 emoji
 PyPDF2
+pybase64
 cryptg
 patool
 gitpython
