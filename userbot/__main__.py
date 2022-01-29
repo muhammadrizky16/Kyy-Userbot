@@ -31,7 +31,7 @@ LOGS.info(
     f"✨Kyy-Userbot✨ ⚙️ V{BOT_VER} [TELAH DIAKTIFKAN!]")
 
 
-bot.loop.run_until_complete(checking())
+# bot.loop.run_until_complete(checking())
 if len(argv) not in (1, 3, 4):
     bot.disconnect()
 else:

@@ -23,6 +23,7 @@ from telethon.sync import TelegramClient, custom, events
 from telethon.sessions import StringSession
 from telethon import Button, events, functions, types
 from telethon.utils import get_display_name
+from userbot.utils import checking
 
 redis_db = None
 
@@ -389,6 +390,7 @@ async def check_alive():
 
 with bot:
     try:
+        bot.loop.run_until_complete(checking())
         bot.loop.run_until_complete(check_alive())
     except BaseException:
         LOGS.info(
