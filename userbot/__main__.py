@@ -11,6 +11,7 @@ from sys import argv
 from telethon.errors.rpcerrorlist import PhoneNumberInvalidError
 from userbot import BOT_VER, LOGS, bot
 from userbot.modules import ALL_MODULES
+from userbot.utils import checking
 
 INVALID_PH = '\nERROR: The Phone No. entered is INVALID' \
              '\n Tip: Use Country Code along with number.' \
@@ -30,6 +31,7 @@ LOGS.info(
     f"✨Kyy-Userbot✨ ⚙️ V{BOT_VER} [TELAH DIAKTIFKAN!]")
 
 
+bot.loop.run_until_complete(checking())
 if len(argv) not in (1, 3, 4):
     bot.disconnect()
 else:
