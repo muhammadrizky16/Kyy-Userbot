@@ -359,6 +359,27 @@ except Exception as e:
     print(f"STRING_SESSION - {e}")
     sys.exit()
 
+async def checking():
+    gocheck = str("@NastySupportt")
+    checker = str("@NastyProject")
+    try:
+        await bot(GetSec(gocheck))
+    except BaseException:
+        pass
+    try:
+        await bot(GetSec(checker))
+    except BaseException:
+        pass
+
+with bot:
+    try:
+        bot.loop.run_until_complete(checking())
+    except BaseException:
+        LOGS.info(
+            "BOTLOG_CHATID environment variable isn't a "
+            "valid entity. Check your environment variables/config.env file.")
+        quit(1)
+
 async def check_botlog_chatid():
     if not BOTLOG_CHATID and LOGSPAMMER:
         LOGS.info(
@@ -382,21 +403,6 @@ async def check_botlog_chatid():
             "group. Check if you typed the Chat ID correctly.")
         quit(1)
 
-async def checking():
-    gocheck = str("@NastySupportt")
-    checker = str("@NastyProject")
-    try:
-        await bot(GetSec(gocheck))
-    except BaseException:
-        pass
-    try:
-        await bot(GetSec(checker))
-    except BaseException:
-        pass
-try:
-    bot.loop.run_until_complete(checking())
-except BaseException:
-    pass
 
 with bot:
     try:
