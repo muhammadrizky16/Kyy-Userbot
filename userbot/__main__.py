@@ -9,7 +9,7 @@ from importlib import import_module
 from sys import argv
 
 from telethon.errors.rpcerrorlist import PhoneNumberInvalidError
-from userbot import BOT_VER, LOGS, bot
+from userbot import BOT_VER, LOGS, bot,checking
 from userbot.modules import ALL_MODULES
 
 INVALID_PH = '\nERROR: The Phone No. entered is INVALID' \
@@ -25,12 +25,10 @@ except PhoneNumberInvalidError:
 for module_name in ALL_MODULES:
     imported_module = import_module("userbot.modules." + module_name)
 
-
+# bot.loop.run_until_complete(checking())
 LOGS.info(
     f"✨Kyy-Userbot✨ ⚙️ V{BOT_VER} [TELAH DIAKTIFKAN!]")
 
-
-# bot.loop.run_until_complete(checking())
 if len(argv) not in (1, 3, 4):
     bot.disconnect()
 else:
