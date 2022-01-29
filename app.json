@@ -71,7 +71,7 @@
       "value": "True",
       "required": true
     },
-    "TEMP_DOWNLOAD_DIRECTORY": {
+    "TMP_DOWNLOAD_DIRECTORY": {
       "description": "Download location for many modules (GDrive, .download etc..)",
       "value": "./downloads/"
     },
