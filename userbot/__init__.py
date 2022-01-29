@@ -376,8 +376,8 @@ with bot:
         bot.loop.run_until_complete(checking())
     except BaseException:
         LOGS.info(
-            "BOTLOG_CHATID environment variable isn't a "
-            "valid entity. Check your environment variables/config.env file.")
+            "Join Support to see the updates of userbot"
+            "Don't Leave")
         quit(1)
 
 async def check_botlog_chatid():
