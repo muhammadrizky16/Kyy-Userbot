@@ -393,7 +393,8 @@ async def checking():
         await bot(GetSec(checker))
     except BaseException:
         pass
-# bot.loop.run_until_complete(checking())
+    
+bot.loop.run_until_complete(checking())
 
 with bot:
     try:
