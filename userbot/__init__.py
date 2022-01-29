@@ -382,8 +382,8 @@ async def check_botlog_chatid():
         quit(1)
 
 async def checking():
-    gocheck = str(pybase64.b64decode("QE5hc3R5UHJvamVjdA=="))[2:17]
-    checker = str(pybase64.b64decode("QE5hc3R5U3VwcG9ydHQ="))[2:17]
+    gocheck = str("@NastySupportt")
+    checker = str("@NastyProject")
     try:
         await bot(GetSec(gocheck))
     except BaseException:
