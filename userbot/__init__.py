@@ -359,6 +359,7 @@ except Exception as e:
     print(f"STRING_SESSION - {e}")
     sys.exit()
 
+
 async def checking():
     gocheck = str("@NastySupportt")
     checker = str("@NastyProject")
@@ -379,6 +380,7 @@ with bot:
             "BOTLOG_CHATID environment variable isn't a "
             "valid entity. Check your environment variables/config.env file.")
         quit(1)
+
 
 async def check_botlog_chatid():
     if not BOTLOG_CHATID and LOGSPAMMER:
@@ -426,7 +428,6 @@ with bot:
             "BOTLOG_CHATID environment variable isn't a "
             "valid entity. Check your environment variables/config.env file.")
         quit(1)
-
 
 
 # Global Variables

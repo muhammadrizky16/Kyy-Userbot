@@ -1,8 +1,6 @@
 
-from telethon.tl.functions.channels import JoinChannelRequest as Get
 from telethon.tl.types import MessageEntityMentionName
 
-from userbot import bot
 from userbot.core.logger import logging
 from userbot.utils.tools import edit_delete
 
@@ -69,4 +67,3 @@ async def get_user_from_event(
     if not noedits:
         await edit_delete(kyyevent, "__Couldn't fetch user to proceed further__")
     return None, None
-
