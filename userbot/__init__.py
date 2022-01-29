@@ -7,6 +7,7 @@ import re
 import redis
 import random
 import pybase64
+import sys
 
 from sys import version_info
 from logging import basicConfig, getLogger, INFO, DEBUG
@@ -356,7 +357,7 @@ try:
     )
 except Exception as e:
     print(f"STRING_SESSION - {e}")
-    quit(1)
+    sys.exit()
 
 async def check_botlog_chatid():
     if not BOTLOG_CHATID and LOGSPAMMER:
@@ -392,16 +393,7 @@ async def checking():
         await bot(GetSec(checker))
     except BaseException:
         pass
-    
-with bot:
-    try:
-        bot.loop.run_until_complete(checking())
-    except BaseException:
-        LOGS.info(
-            "BOTLOG_CHATID environment variable isn't a "
-            "valid entity. Check your environment variables/config.env file.")
-        quit(1)
-
+# bot.loop.run_until_complete(checking())
 
 with bot:
     try:
