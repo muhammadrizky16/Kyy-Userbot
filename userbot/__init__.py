@@ -390,7 +390,6 @@ async def check_alive():
 
 with bot:
     try:
-        bot.loop.run_until_complete(checking())
         bot.loop.run_until_complete(check_alive())
     except BaseException:
         LOGS.info(
