@@ -16,6 +16,7 @@
 from .format import parse_pre
 from .chrome import chrome, options
 from .google_images_download import googleimagesdownload
+from .events import checking
 from .progress import progress, CancelProcess
 from .tools import (
     humanbytes,
