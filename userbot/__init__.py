@@ -763,7 +763,7 @@ with bot:
                     f"© @IDnyaKosong")
                 await event.edit(
                     text,
-                    file=kyulogo,
+                    file=kyylogo,
                     link_preview=True,
                     buttons=[
                         [
