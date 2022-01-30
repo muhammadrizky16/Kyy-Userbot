@@ -967,14 +967,14 @@ with bot:
                     buttons=[
                         [
                             custom.Button.url(
-                                "Kyy",
+                                "ҡʏʏ",
                                 "https://github.com/muhammadrizky16/Kyy-Userbot"),
 
                             custom.Button.url(
-                                "Channel",
+                                "ᴄʜᴀɴɴᴇʟ",
                                 "t.me/NastyProject")],
                         [custom.Button.url(
-                            "License",
+                            "ʟɪᴄᴇɴsᴇ",
                             "https://github.com/muhammadrizky16/Kyy-Userbot/LICENSE")],
                     ],
                     link_preview=False,
