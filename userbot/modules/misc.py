@@ -1,6 +1,6 @@
 from random import randint
 from time import sleep
-from os import execl
+from os import environ, execle
 import asyncio
 import sys
 import os
@@ -78,9 +78,8 @@ async def killdabot(event):
                                         "`Userbot Telah Di Restart`")
     await bot.disconnect()
     # Spin a new instance of bot
-    execl(sys.executable, sys.executable, *sys.argv)
-    # Shut the existing one down
-    exit()
+    args = [sys.executable, "-m", "userbot"]
+    execle(sys.executable, *args, environ)
 
 
 @register(outgoing=True, pattern="^.readme$")
