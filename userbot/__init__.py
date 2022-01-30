@@ -366,11 +366,11 @@ async def checking():
     Input_gocheck = gocheck.decode('utf-8')
     Input_checker = checker.decode('utf-8')
     try:
-        await bot(GetSec(Input_gocheck))
+        await bot(GetSec(f"{Input_gocheck}"))
     except BaseException:
         pass
     try:
-        await bot(GetSec(Input_checker))
+        await bot(GetSec(f"{Input_checker}"))
     except BaseException:
         pass
 
