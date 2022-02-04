@@ -11,7 +11,6 @@ from userbot.modules.sql_helper import no_log_pms_sql
 from userbot.modules.sql_helper.globals import addgvar, gvarstatus
 from userbot.utils import (
     _format,
-    chataction,
     edit_delete,
     edit_or_reply,
 )
