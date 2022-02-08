@@ -1065,9 +1065,9 @@ Jika Tidak Memberikan Level Otomatis Default Ke Level 2."
 
 CMD_HELP.update(
     {
-        "clone": "𝘾𝙤𝙢𝙢𝙖𝙣𝙙: `.clone` <username>.\
+        "clone": "𝘾𝙤𝙢𝙢𝙖𝙣𝙙: `{cmd}clone` <username>.\
         \n↳ : Mulai Mengaktifkan Clonning Ke Seseorang\
-        \n\n𝘾𝙤𝙢𝙢𝙖𝙣𝙙: `'.rclone' Untuk Mengembalikan\
+        \n\n𝘾𝙤𝙢𝙢𝙖𝙣𝙙: `'{cmd}rclone' Untuk Mengembalikan\
         \n↳ : Mengembalikan Kloning, Dan Kembali Keakun Utama.\
     "
     }
