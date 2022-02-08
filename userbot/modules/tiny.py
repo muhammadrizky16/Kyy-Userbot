@@ -4,11 +4,11 @@
 from PIL import Image
 import cv2
 import os
-from userbot.events import register
-from userbot import CMD_HELP, bot
+from userbot.utils import kyy_cmd
+from userbot import CMD_HELP, bot, CMD_HANDLER as cmd
 
 
-@register(outgoing=True, pattern="^.tiny(?: |$)(.*)", disable_errors=True)
+@kyy_cmd(pattern="tiny(?: |$)(.*)")
 async def _(event):
     reply = await event.get_reply_message()
     if not (reply and (reply.media)):
@@ -82,5 +82,5 @@ async def _(event):
 
 
 CMD_HELP.update({
-    "tiny": "𝘾𝙤𝙢𝙢𝙖𝙣𝙙: `.tiny`\
+    f"tiny": "𝘾𝙤𝙢𝙢𝙖𝙣𝙙: `{cmd}tiny`\
     \nUsage : Untuk Memperkecil Sticker."})
