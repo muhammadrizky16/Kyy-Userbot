@@ -43,7 +43,7 @@ async def _(event):
 
 CMD_HELP.update(
     {
-        f"asupan": "**Plugin : **`asupan`\
+        "asupan": f"**Plugin : **`asupan`\
         \n\n  •  **Syntax :** `{cmd}asupan`\
         \n  •  **Function : **Untuk Mengirim video asupan secara random.\
         \n\n  •  **Syntax :** `{cmd}chika`\
