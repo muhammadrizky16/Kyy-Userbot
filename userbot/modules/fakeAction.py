@@ -1,11 +1,11 @@
 # Port By @IDnyaKosong From Kyy-Userbot
 # # Copyright (C) 2021 Kyy-Userbot
-from userbot.events import register
-from userbot import CMD_HELP
+from userbot.utils import kyy_cmd
+from userbot import CMD_HELP, CMD_HANDLER as cmd
 import asyncio
 
 
-@register(outgoing=True, pattern="^.ftyping(?: |$)(.*)")
+@kyy_cmd(pattern="^.ftyping(?: |$)(.*)")
 async def _(event):
     t = event.pattern_match.group(1)
     if not (t or t.isdigit()):
@@ -23,7 +23,7 @@ async def _(event):
         await asyncio.sleep(t)
 
 
-@register(outgoing=True, pattern="^.faudio(?: |$)(.*)")
+@kyy_cmd(pattern="^.faudio(?: |$)(.*)")
 async def _(event):
     t = event.pattern_match.group(1)
     if not (t or t.isdigit()):
@@ -41,7 +41,7 @@ async def _(event):
         await asyncio.sleep(t)
 
 
-@register(outgoing=True, pattern="^.fvideo(?: |$)(.*)")
+@kyy_cmd(pattern="^.fvideo(?: |$)(.*)")
 async def _(event):
     t = event.pattern_match.group(1)
     if not (t or t.isdigit()):
@@ -59,7 +59,7 @@ async def _(event):
         await asyncio.sleep(t)
 
 
-@register(outgoing=True, pattern="^.fgame(?: |$)(.*)")
+@kyy_cmd(pattern="^.fgame(?: |$)(.*)")
 async def _(event):
     t = event.pattern_match.group(1)
     if not (t or t.isdigit()):
@@ -77,7 +77,7 @@ async def _(event):
         await asyncio.sleep(t)
 
 
-@register(outgoing=True, pattern="^.fround(?: |$)(.*)")
+@kyy_cmd(pattern="^.fround(?: |$)(.*)")
 async def _(event):
     t = event.pattern_match.group(1)
     if not (t or t.isdigit()):
@@ -97,7 +97,7 @@ async def _(event):
         await asyncio.sleep(t)
 
 
-@register(outgoing=True, pattern="^.fphoto(?: |$)(.*)")
+@kyy_cmd(pattern="^.fphoto(?: |$)(.*)")
 async def _(event):
     t = event.pattern_match.group(1)
     if not (t or t.isdigit()):
@@ -117,7 +117,7 @@ async def _(event):
         await asyncio.sleep(t)
 
 
-@register(outgoing=True, pattern="^.fdocument(?: |$)(.*)")
+@kyy_cmd(pattern="^.fdocument(?: |$)(.*)")
 async def _(event):
     t = event.pattern_match.group(1)
     if not (t or t.isdigit()):
@@ -137,7 +137,7 @@ async def _(event):
         await asyncio.sleep(t)
 
 
-@register(outgoing=True, pattern="^.flocation(?: |$)(.*)")
+@kyy_cmd(pattern="^.flocation(?: |$)(.*)")
 async def _(event):
     t = event.pattern_match.group(1)
     if not (t or t.isdigit()):
@@ -157,7 +157,7 @@ async def _(event):
         await asyncio.sleep(t)
 
 
-@register(outgoing=True, pattern="^.fcontact(?: |$)(.*)")
+@kyy_cmd(pattern="^.fcontact(?: |$)(.*)")
 async def _(event):
     t = event.pattern_match.group(1)
     if not (t or t.isdigit()):
@@ -179,20 +179,20 @@ async def _(event):
 
 CMD_HELP.update({
     "fakeaction":
-    "𝘾𝙤𝙢𝙢𝙖𝙣𝙙: `.ftyping` <jumlah teks>\
+    f"𝘾𝙤𝙢𝙢𝙖𝙣𝙙: `{cmd}ftyping` <jumlah teks>\
    \nUsage : Seakan akan sedang mengetik padahal tidak\
-   \n\n𝘾𝙤𝙢𝙢𝙖𝙣𝙙: `.faudio` <jumlah teks>\
+   \n\n𝘾𝙤𝙢𝙢𝙖𝙣𝙙: `{cmd}faudio` <jumlah teks>\
    \nUsage : Berfungsi sama seperti ftyping tapi ini dalam bentuk fake audio\
-   \n\n𝘾𝙤𝙢𝙢𝙖𝙣𝙙: `.fvideo` <jumlah teks>\
+   \n\n𝘾𝙤𝙢𝙢𝙖𝙣𝙙: `{cmd}video` <jumlah teks>\
    \nUsage : Berfungsi sama seperti ftyping tapi ini dalam bentuk fake video\
-   \n\n𝘾𝙤𝙢𝙢𝙖𝙣𝙙: `.fgame` <jumlah teks>\
+   \n\n𝘾𝙤𝙢𝙢𝙖𝙣𝙙: `{cmd}fgame` <jumlah teks>\
    \nUsage : Berfungsi sama seperti ftyping tapi ini dalam bentuk fake game\
-   \n\n𝘾𝙤𝙢𝙢𝙖𝙣𝙙: `.fphoto` <jumlah teks>\
+   \n\n𝘾𝙤𝙢𝙢𝙖𝙣𝙙: `{cmd}fphoto` <jumlah teks>\
    \nUsage : Berfungsi sama seperti ftyping tapi ini dalam bentuk fake foto\
-   \n\n𝘾𝙤𝙢𝙢𝙖𝙣𝙙: `.fdocument` <jumlah teks>\
+   \n\n𝘾𝙤𝙢𝙢𝙖𝙣𝙙: `{cmd}fdocument` <jumlah teks>\
    \nUsage : Berfungsi sama seperti ftyping tapi ini dalam bentuk fake document\
-   \n\n𝘾𝙤𝙢𝙢𝙖𝙣𝙙: `.flocation` <jumlah teks>\
+   \n\n𝘾𝙤𝙢𝙢𝙖𝙣𝙙: `{cmd}flocation` <jumlah teks>\
    \nUsage : Berfungsi sama seperti ftyping tapi ini dalam bentuk fake location\
-   \n\n𝘾𝙤𝙢𝙢𝙖𝙣𝙙: `.fcontact` <jumlah teks>\
+   \n\n𝘾𝙤𝙢𝙢𝙖𝙣𝙙: `{cmd}fcontact` <jumlah teks>\
    \nUsage : Berfungsi sama seperti ftyping tapi ini dalam bentuk fake contact"
 })
