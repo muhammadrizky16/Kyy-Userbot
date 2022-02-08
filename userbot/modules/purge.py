@@ -135,13 +135,13 @@ async def selfdestruct(destroy):
 
 CMD_HELP.update({"purge": f">`{cmd}purge`"
                  "\nUsage: Membersihkan semua pesan mulai dari pesan yang dibalas.",
-                 f"purgeme": ">`{cmd}purgeme <angka>`"
+                 "purgeme": f">`{cmd}purgeme <angka>`"
                  "\nUsage: Menghapus jumlah pesan anda, yang mau anda hapus.",
-                 f"del": ">`{cmd}del`"
+                 "del": f">`{cmd}del`"
                  "\nUsage: Menghapus pesan, balas ke pesan.",
-                 f"edit": ">`{cmd}edit <pesan baru>`"
+                 "edit": f">`{cmd}edit <pesan baru>`"
                  "\nUsage: Ganti pesan terakhir Anda dengan <pesan baru>.",
-                 f"sd": ">`{cmd}sd <x> <pesan>`"
+                 "sd": f">`{cmd}sd <x> <pesan>`"
                  "\nUsage: Membuat pesan yang hancur sendiri dalam x detik."
                  "\nJaga agar detik di bawah 100 karena bot Anda akan tidur.",
                  })
