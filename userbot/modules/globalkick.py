@@ -59,7 +59,7 @@ except BaseException:
     client2 = client3 = None
 
 
-@kyy_cmd(pattern=r"^\.gkick(?: |$)(.*)")
+@kyy_cmd(pattern="gkick(?: |$)(.*)")
 @register(incoming=True, from_users=DEVS, pattern=r"^\.cgkick")
 async def gspide(rk):
     lazy = rk
