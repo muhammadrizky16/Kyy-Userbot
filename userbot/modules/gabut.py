@@ -7,28 +7,28 @@ DEFAULTUSER = str(ALIVE_NAME) if ALIVE_NAME else uname().node
 # ============================================
 
 
-@kyy_cmd(pattern="^.p(?: |$)(.*)")
+@kyy_cmd(pattern="p(?: |$)(.*)")
 async def typewriter(typew):
     typew.pattern_match.group(1)
     await typew.edit("`السَّلاَمُ عَلَيْكُمْ وَرَحْمَةُ اللهِ وَبَرَكَاتُهُ`")
 # Salam
 
 
-@kyy_cmd(pattern="^.l(?: |$)(.*)")
+@kyy_cmd(pattern="l(?: |$)(.*)")
 async def typewriter(typew):
     typew.pattern_match.group(1)
     await typew.edit("`وَعَلَيْكُمْ السَّلاَمُ وَرَحْمَةُ اللهِ وَبَرَكَاتُهُ`")
 # Menjawab Salam
 
 
-@kyy_cmd(pattern="^.istigfar(?: |$)(.*)")
+@kyy_cmd(pattern="istigfar(?: |$)(.*)")
 async def perkenalan(event):
     event.pattern_match.group(1)
     await event.edit("`اَسْتَغْفِرُاللهَ الْعَظِيْم`")
 # Istigfar
 
 
-@kyy_cmd(pattern="^.perkenalan(?: |$)(.*)")
+@kyy_cmd(pattern="perkenalan(?: |$)(.*)")
 async def perkenalan(event):
     event.pattern_match.group(1)
     await event.edit(f"`Hai Guys , Perkenalkan Nama Gw {DEFAULTUSER}`")
