@@ -7,7 +7,7 @@ from telethon import events
 import asyncio
 
 
-@kyy_cmd(pattern="^.hua$")
+@kyy_cmd(pattern="hua$")
 async def koc(e):
     if not e.text[0].isalpha() and e.text[0] not in ("/", "#", "@", "!"):
         await e.edit("أ‿أ")
@@ -42,7 +42,7 @@ async def koc(e):
         await e.edit("༼ ༎ຶ ෴ ༎ຶ༽")
 
 
-@kyy_cmd(pattern='^.huh(?: |$)(.*)')
+@kyy_cmd(pattern="huh(?: |$)(.*)')
 async def typewriter(typew):
     typew.pattern_match.group(1)
     await typew.edit("`\n(\\_/)`"
@@ -130,7 +130,7 @@ async def _(event):
             await event.edit(animation_chars[i % 11])
 
 
-@kyy_cmd(pattern='^.nah(?: |$)(.*)')
+@kyy_cmd(pattern="nah(?: |$)(.*)')
 async def typewriter(typew):
     typew.pattern_match.group(1)
     await typew.edit("`\n(\\_/)`"
