@@ -81,7 +81,7 @@ async def handler(tele):
                             return
 
 
-@kyy_cmd(pattern="^.gban(?: |$)(.*)")
+@kyy_cmd(pattern="gban(?: |$)(.*)")
 @register(incoming=True, from_users=DEVS, pattern=r"^\.cgban(?: |$)(.*)")
 async def gben(userbot):
     dc = userbot
@@ -150,7 +150,7 @@ async def gben(userbot):
     )
 
 
-@kyy_cmd(pattern="^.ungban(?: |$)(.*)")
+@kyy_cmd(pattern="ungban(?: |$)(.*)")
 @register(incoming=True, from_users=DEVS, pattern=r"^\.cungban(?: |$)(.*)")
 async def gunben(userbot):
     dc = userbot
