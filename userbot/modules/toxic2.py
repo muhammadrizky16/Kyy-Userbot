@@ -1,9 +1,9 @@
 from time import sleep
-from userbot import CMD_HELP
-from userbot.events import register
+from userbot import CMD_HELP, CMD_HANDLER as cmd
+from userbot.utils import kyy_cmd
 
 
-@register(outgoing=True, pattern='^.ngentot(?: |$)(.*)')
+@kyy_cmd(pattern='ngentot(?: |$)(.*)')
 async def typewriter(typew):
     typew.pattern_match.group(1)
     sleep(1)
@@ -29,7 +29,7 @@ async def typewriter(typew):
 # Create by myself @localheart
 
 
-@register(outgoing=True, pattern='^.goblok(?: |$)(.*)')
+@kyy_cmd(pattern='goblok(?: |$)(.*)')
 async def typewriter(typew):
     typew.pattern_match.group(1)
     sleep(1)
@@ -55,7 +55,7 @@ async def typewriter(typew):
 # Create by myself @localheart
 
 
-@register(outgoing=True, pattern='^.ngatain(?: |$)(.*)')
+@kyy_cmd(pattern='ngatain(?: |$)(.*)')
 async def typewriter(typew):
     typew.pattern_match.group(1)
     sleep(1)
@@ -81,7 +81,7 @@ async def typewriter(typew):
 # Create by myself @localheart
 
 
-@register(outgoing=True, pattern='^.yatim(?: |$)(.*)')
+@kyy_cmd(pattern='yatim(?: |$)(.*)')
 async def typewriter(typew):
     typew.pattern_match.group(1)
     sleep(1)
@@ -107,7 +107,7 @@ async def typewriter(typew):
 # Create by myself @localheart
 
 
-@register(outgoing=True, pattern=r"^\.kont(?: |$)(.*)")
+@kyy_cmd(pattern="kont(?: |$)(.*)")
 async def typewriter(typew):
     typew.pattern_match.group(1)
     sleep(1)
@@ -137,14 +137,14 @@ async def typewriter(typew):
 
 
 CMD_HELP.update({
-    "toxic2": "𝘾𝙤𝙢𝙢𝙖𝙣𝙙: `.ngentot`\
+    "toxic2": f"𝘾𝙤𝙢𝙢𝙖𝙣𝙙: `{cmd}ngentot`\
     \n↳ : Cobain aja\
-    \n\n𝘾𝙤𝙢𝙢𝙖𝙣𝙙: `.goblok`\
+    \n\n𝘾𝙤𝙢𝙢𝙖𝙣𝙙: `{cmd}goblok`\
     \n↳ : Cobain aja\
-    \n\n𝘾𝙤𝙢𝙢𝙖𝙣𝙙: `.ngatain`\
+    \n\n𝘾𝙤𝙢𝙢𝙖𝙣𝙙: `{cmd}ngatain`\
     \n↳ : Cobain aja\
-    \n\n𝘾𝙤𝙢𝙢𝙖𝙣𝙙: `.kont`\
+    \n\n𝘾𝙤𝙢𝙢𝙖𝙣𝙙: `{cmd}kont`\
     \n↳ : Cobain aja\
-    \n\n𝘾𝙤𝙢𝙢𝙖𝙣𝙙: `.yatim`\
+    \n\n𝘾𝙤𝙢𝙢𝙖𝙣𝙙: `{cmd}yatim`\
     \n↳ : Cobain aja."
 })
