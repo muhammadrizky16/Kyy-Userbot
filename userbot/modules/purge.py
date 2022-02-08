@@ -13,7 +13,7 @@ from userbot.utils import kyy_cmd
 from userbot.events import register
 
 
-@kyy_cmd(pattern=r"^\.purge$")
+@kyy_cmd(pattern="purge$")
 @register(incoming=True, from_users=DEVS, pattern=r"^\.cpurge$")
 async def fastpurger(purg):
     chat = await purg.get_input_chat()
@@ -47,7 +47,7 @@ async def fastpurger(purg):
     await done.delete()
 
 
-@kyy_cmd(pattern=r"^\.purgeme")
+@kyy_cmd(pattern="purgeme")
 @register(incoming=True, from_users=DEVS, pattern=r"^\.cpurgeme")
 async def purgeme(delme):
     message = delme.text
@@ -75,7 +75,7 @@ async def purgeme(delme):
     await smsg.delete()
 
 
-@kyy_cmd(pattern=r"^\.del$")
+@kyy_cmd(pattern="del$")
 @register(incoming=True, from_users=DEVS, pattern=r"^\.cdel$")
 async def delete_it(delme):
     msg_src = await delme.get_reply_message()
@@ -97,7 +97,7 @@ async def delete_it(delme):
             """
 
 
-@kyy_cmd(pattern=r"^\.edit")
+@kyy_cmd(pattern="edit")
 async def editer(edit):
     message = edit.text
     chat = await edit.get_input_chat()
@@ -117,7 +117,7 @@ async def editer(edit):
    """
 
 
-@kyy_cmd(pattern=r"^\.sd")
+@kyy_cmd(pattern="sd")
 async def selfdestruct(destroy):
     message = destroy.text
     counter = int(message[4:6])
