@@ -4,15 +4,15 @@ from datetime import datetime
 from PIL import Image
 from telegraph import Telegraph, exceptions, upload_file
 
-from userbot import CMD_HELP, TEMP_DOWNLOAD_DIRECTORY, bot
-from userbot.events import register
+from userbot import CMD_HELP, TEMP_DOWNLOAD_DIRECTORY, bot, CMD_HANDLER as cmd
+from userbot.utils import kyy_cmd
 
 telegraph = Telegraph()
 r = telegraph.create_account(short_name="telegraph")
 auth_url = r["auth_url"]
 
 
-@register(outgoing=True, pattern=r"^\.tg (m|t)$")
+@kyy_cmd(pattern="tg (m|t)$")
 async def telegraphs(graph):
     await graph.edit("`Sedang Memproses...`")
     if not graph.text[0].isalpha() and graph.text[0] not in (
@@ -93,5 +93,5 @@ def resize_image(image):
     im.save(image, "PNG")
 
 
-CMD_HELP.update({"telegraph": ">`.tg` <m|t>"
+CMD_HELP.update({"telegraph": f">`{cmd}tg` <m|t>"
                  "\nUsage: Mengunggah t(Teks) Atau m(Media) Ke Telegraph."})
