@@ -10,7 +10,8 @@ import io
 import re
 
 import userbot.modules.sql_helper.blacklist_sql as sql
-from userbot import CMD_HELP
+from userbot import CMD_HELP, CMD_HANDLER as cmd
+from userbot.utils import kyy_cmd
 from userbot.events import register
 
 
@@ -32,7 +33,7 @@ async def on_new_message(event):
             break
 
 
-@register(outgoing=True, pattern=r"^\.addbl(?: |$)(.*)")
+@kyy_cmd(pattern="addbl(?: |$)(.*)")
 async def on_add_black_list(addbl):
     text = addbl.pattern_match.group(1)
     to_blacklist = list(
@@ -46,7 +47,7 @@ async def on_add_black_list(addbl):
     )
 
 
-@register(outgoing=True, pattern=r"^\.listbl(?: |$)(.*)")
+@kyy_cmd(pattern="listbl(?: |$)(.*)")
 async def on_view_blacklist(listbl):
     all_blacklisted = sql.get_chat_blacklist(listbl.chat_id)
     OUT_STR = "Blacklists in the Current Chat:\n"
@@ -88,10 +89,10 @@ async def on_delete_blacklist(rmbl):
         await rmbl.edit("`Berhasil Menghapus` **{}** `Di Blacklist`".format(text))
 
 
-CMD_HELP.update({"blacklist": ">`.listbl`"
+CMD_HELP.update({"blacklist": f">`{cmd}listbl`"
                  "\nUsage: Melihat daftar blacklist yang aktif di obrolan."
-                 "\n\n>`.addbl <kata>`"
+                 f"\n\n>`{cmd}addbl <kata>`"
                  "\nUsage: Memasukan pesan ke blacklist 'kata blacklist'."
                  "\nlord bot akan otomatis menghapus 'kata blacklist'."
-                 "\n\n>`.rmbl <kata>`"
+                 f"\n\n>`{cmd}rmbl <kata>`"
                  "\nUsage: Menghapus kata blacklist."})
