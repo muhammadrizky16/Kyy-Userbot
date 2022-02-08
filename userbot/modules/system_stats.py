@@ -223,7 +223,7 @@ async def pipcheck(pip):
         await pip.edit("Gunakan `.help pip` Untuk Melihat Contoh")
 
 
-@kyy_cmd(pattern="(?:kyyalive)\s?(.)?")
+@kyy_cmd(pattern="(?:kyyalive)\\s?(.)?")
 async def amireallyalive(alive):
     user = await bot.get_me()
     await get_readable_time((time.time() - StartTime))
@@ -259,7 +259,7 @@ async def amireallyalive(alive):
         await alive.delete()
 
 
-@kyy_cmd(pattern="(?:kyyon)\s?(.)?")
+@kyy_cmd(pattern="(?:kyyon)\\s?(.)?")
 async def amireallyalive(alive):
     await bot.get_me()
     await get_readable_time((time.time() - StartTime))
@@ -292,7 +292,7 @@ async def amireallyalive(alive):
         await alive.delete()
 
 
-@kyy_cmd(pattern="(?:alive|on)\s?(.)?")
+@kyy_cmd(pattern="(?:alive|on)\\s?(.)?")
 async def redis(alive):
     user = await bot.get_me()
     await get_readable_time((time.time() - StartTime))
