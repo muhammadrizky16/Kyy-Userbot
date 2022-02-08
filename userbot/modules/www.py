@@ -70,7 +70,7 @@ async def _(kyy):
     await kyy.reply(random.choice(pacar))
 
 
-@kyy_cmd(pattern="^.sping$")
+@kyy_cmd(pattern="sping$")
 async def redis(pong):
     """For .ping command, ping the userbot from any chat."""
     await get_readable_time((time.time() - StartTime))
@@ -89,7 +89,7 @@ async def redis(pong):
     )
 
 
-@kyy_cmd(pattern="^.lping$")
+@kyy_cmd(pattern="lping$")
 async def redis(pong):
     """For .ping command, ping the userbot from any chat."""
     uptime = await get_readable_time((time.time() - StartTime))
@@ -106,7 +106,7 @@ async def redis(pong):
     )
 
 
-@kyy_cmd(pattern="^.xping$")
+@kyy_cmd(pattern="xping$")
 async def redis(pong):
     """For .ping command, ping the userbot from any chat."""
     uptime = await get_readable_time((time.time() - StartTime))
@@ -131,7 +131,7 @@ async def redis(pong):
     )
 
 
-@kyy_cmd(pattern="^.sinyal$")
+@kyy_cmd(pattern="sinyal$")
 async def redis(pong):
     """For .ping command, ping the userbot from any chat."""
     uptime = await get_readable_time((time.time() - StartTime))
@@ -156,7 +156,7 @@ async def redis(pong):
     )
 
 
-@kyy_cmd(pattern="^.ping$")
+@kyy_cmd(pattern="ping$")
 async def pingme(pong):
     """For .ping command, ping the userbot from any chat."""
     uptime = await get_readable_time((time.time() - StartTime))
@@ -178,7 +178,7 @@ async def pingme(pong):
     )
 
 
-@kyy_cmd(pattern="^.kecepatan$")
+@kyy_cmd(pattern="kecepatan$")
 async def speedtst(spd):
     """For .speed command, use SpeedTest to check server speeds."""
     await spd.edit("**Sedang Menjalankan Tes Kecepatan Jaringan,Mohon Tunggu...**")
@@ -220,7 +220,7 @@ def speed_convert(size):
     return f"{round(size, 2)} {units[zero]}"
 
 
-@kyy_cmd(pattern="^.pong$")
+@kyy_cmd(pattern="pong$")
 async def pingme(pong):
     """For .ping command, ping the userbot from any chat."""
     start = datetime.now()
@@ -233,7 +233,7 @@ async def pingme(pong):
     await pong.edit(f"**✨KyyName : {ALIVE_NAME}**\n📗 `%sms`" % (duration))
 
 
-@kyy_cmd(pattern="^.pink$")
+@kyy_cmd(pattern="pink$")
 async def redis(pong):
     """For .ping command, ping the userbot from any chat."""
     uptime = await get_readable_time((time.time() - StartTime))
