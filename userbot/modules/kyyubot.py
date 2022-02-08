@@ -4,11 +4,11 @@
 
 
 from time import sleep
-from userbot import CMD_HELP
-from userbot.events import register
+from userbot import CMD_HELP, CMD_HANDLER as cmd
+from userbot.utils import kyy_cmd
 
 
-@register(outgoing=True, pattern="^.sadboy(?: |$)(.*)")
+@kyy_cmd(pattern="^.sadboy(?: |$)(.*)")
 async def typewriter(typew):
     typew.pattern_match.group(1)
     sleep(2)
@@ -22,7 +22,7 @@ async def typewriter(typew):
 # Create by myself @localheart
 
 
-@register(outgoing=True, pattern="^.lahk(?: |$)(.*)")
+@kyy_cmd(pattern="^.lahk(?: |$)(.*)")
 async def typewriter(typew):
     typew.pattern_match.group(1)
     await typew.edit("`Lahk, Lo tolol?`")
@@ -34,7 +34,7 @@ async def typewriter(typew):
     await typew.edit("`Gua ga ketrigger sama bocah baru nyemplung!`")
 
 
-@register(outgoing=True, pattern=r"^\.sok(?: |$)(.*)")
+@kyy_cmd(pattern=r"^\.sok(?: |$)(.*)")
 async def typewriter(typew):
     typew.pattern_match.group(1)
     sleep(1.5)
@@ -49,7 +49,7 @@ async def typewriter(typew):
     await typew.edit("**GA KEREN LO BEGITU NGENTOT**")
 
 
-@register(outgoing=True, pattern="^.wah(?: |$)(.*)")
+@kyy_cmd(pattern="^.wah(?: |$)(.*)")
 async def typewriter(typew):
     typew.pattern_match.group(1)
     await typew.edit("`Wahh, War nya keren bang`")
@@ -67,7 +67,7 @@ async def typewriter(typew):
     await typew.edit("`Dah sana cabut, Makasih hiburannya, Udah bikin Gua tawa ngakak`")
 
 
-@register(outgoing=True, pattern="^.alay(?: |$)(.*)")
+@kyy_cmd(pattern="^.alay(?: |$)(.*)")
 async def typewriter(typew):
     typew.pattern_match.group(1)
     sleep(1)
@@ -82,7 +82,7 @@ async def typewriter(typew):
     await typew.edit("pantes **NORAK**")
 
 
-@register(outgoing=True, pattern="^.erpe(?: |$)(.*)")
+@kyy_cmd(pattern="^.erpe(?: |$)(.*)")
 async def typewriter(typew):
     typew.pattern_match.group(1)
     sleep(1)
@@ -105,7 +105,7 @@ async def typewriter(typew):
     await typew.edit("Lari Ada Plastik KePanasan")
 
 
-@register(outgoing=True, pattern="^.ange(?: |$)(.*)")
+@kyy_cmd(pattern="^.ange(?: |$)(.*)")
 async def typewriter(typew):
     typew.pattern_match.group(1)
     await typew.edit("`Ayanggggg😖`")
@@ -115,7 +115,7 @@ async def typewriter(typew):
     await typew.edit("`Ayukkk Ewean Ayanggg🤤`")
 
 
-@register(outgoing=True, pattern=r"^\.virtual(?: |$)(.*)")
+@kyy_cmd(pattern=r"^\.virtual(?: |$)(.*)")
 async def typewriter(typew):
     typew.pattern_match.group(1)
     await typew.edit("**OOOO**")
@@ -137,7 +137,7 @@ async def typewriter(typew):
     await typew.edit("**KASIAN MANA MASIH MUDA**")
 
 
-@register(outgoing=True, pattern="^.tittle(?: |$)(.*)")
+@kyy_cmd(pattern="^.tittle(?: |$)(.*)")
 async def typewriter(typew):
     typew.pattern_match.group(1)
     await typew.edit("**OI ANAK TITLE**")
@@ -176,22 +176,22 @@ async def typewriter(typew):
 
 
 CMD_HELP.update({
-    "kyyubot": "𝘾𝙤𝙢𝙢𝙖𝙣𝙙: `.sadboy`\
+    "kyyubot": f"𝘾𝙤𝙢𝙢𝙖𝙣𝙙: `{cmd}sadboy`\
     \n↳ : Biasalah sadboy hikss\
-    \n\n𝘾𝙤𝙢𝙢𝙖𝙣𝙙: `.wah`\
+    \n\n𝘾𝙤𝙢𝙢𝙖𝙣𝙙: `{cmd}wah`\
     \n↳ : Ngatain orang war\
-    \n\n𝘾𝙤𝙢𝙢𝙖𝙣𝙙: `.sok`\
+    \n\n𝘾𝙤𝙢𝙢𝙖𝙣𝙙: `{cmd}sok`\
     \n↳ : Ngatain orang sok keras2\
-    \n\n𝘾𝙤𝙢𝙢𝙖𝙣𝙙: `.lahk`\
+    \n\n𝘾𝙤𝙢𝙢𝙖𝙣𝙙: `{cmd}lahk`\
     \n↳ : Ngatain orang sok keras.\
-    \n\n𝘾𝙤𝙢𝙢𝙖𝙣𝙙: `.alay`\
+    \n\n𝘾𝙤𝙢𝙢𝙖𝙣𝙙: `{cmd}alay`\
     \n↳ : Ngatain orang alay\
-    \n\n𝘾𝙤𝙢𝙢𝙖𝙣𝙙: `.erpe`\
+    \n\n𝘾𝙤𝙢𝙢𝙖𝙣𝙙: `{cmd}erpe`\
     \n↳ : Ngatain anak erpe\
-    \n\n𝘾𝙤𝙢𝙢𝙖𝙣𝙙: `.ange`\
+    \n\n𝘾𝙤𝙢𝙢𝙖𝙣𝙙: `{cmd}ange`\
     \n↳ : Sangean\
-    \n\n𝘾𝙤𝙢𝙢𝙖𝙣𝙙: `.virtual`\
+    \n\n𝘾𝙤𝙢𝙢𝙖𝙣𝙙: `{cmd}virtual`\
     \n↳ : Ngatain bocah virtual.\
-    \n\n𝘾𝙤𝙢𝙢𝙖𝙣𝙙: `.tittle`\
+    \n\n𝘾𝙤𝙢𝙢𝙖𝙣𝙙: `{cmd}tittle`\
     \n↳ : Ngatain bocah gila tittle."
 })
