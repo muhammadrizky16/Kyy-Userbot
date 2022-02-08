@@ -10,7 +10,7 @@ from userbot import bot, BOT_USERNAME
 from userbot.utils import kyy_cmd
 
 
-@kyy_cmd(pattern=r"^\.inlineon(?: |$)(.*)")
+@kyy_cmd(pattern="inlineon(?: |$)(.*)")
 async def _(event):
     await event.edit(f"Sedang menyalakan inline untuk `@{BOT_USERNAME}` tunggu sebentar")
     async with bot.conversation("@BotFather") as conv:
