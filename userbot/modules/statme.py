@@ -7,8 +7,8 @@ from telethon.events import NewMessage
 from telethon.tl.custom import Dialog
 from telethon.tl.types import Channel, Chat, User
 
-from userbot.events import register
-from userbot import CMD_HELP
+from userbot.utils import kyy_cmd
+from userbot import CMD_HELP, CMD_HANDLER as cmd
 
 logging.basicConfig(
     format='[%(levelname) 5s/%(asctime)s] %(name)s: %(message)s',
@@ -16,7 +16,7 @@ logging.basicConfig(
 logger = logging.getLogger(__name__)
 
 
-@register(outgoing=True, pattern=r"^.stats(?: |$)(.*)")
+@kyy_cmd(pattern=r"^.stats(?: |$)(.*)")
 async def stats(event: NewMessage.Event) -> None:  # pylint: disable = R0912, R0914, R0915
     """Command to get stats about the account"""
     await event.edit('`Collecting stats, Wait Master`')
@@ -113,6 +113,6 @@ def user_full_name(user):
 
 CMD_HELP.update({
     "statme":
-    "𝘾𝙤𝙢𝙢𝙖𝙣𝙙: `.stats`\
+    f"𝘾𝙤𝙢𝙢𝙖𝙣𝙙: `{cmd}stats`\
     \n↳ : Count the Number of Dialogs you have in your Telegram Account."
 })
