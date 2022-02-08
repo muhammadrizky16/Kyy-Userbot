@@ -9,6 +9,7 @@ import sys
 from git import Repo
 from git.exc import GitCommandError, InvalidGitRepositoryError, NoSuchPathError
 
+from userbot import CMD_HANDLER as cmd
 from userbot import (
     BOTLOG,
     BOTLOG_CHATID,
@@ -17,7 +18,7 @@ from userbot import (
     HEROKU_APP_NAME,
     UPSTREAM_REPO_URL,
     UPSTREAM_REPO_BRANCH)
-from userbot.events import register
+from userbot.utils import kyy_cmd
 
 requirements_path = path.join(
     path.dirname(path.dirname(path.dirname(__file__))), 'requirements.txt')
@@ -143,7 +144,7 @@ async def update(event, repo, ups_rem, ac_br):
     return
 
 
-@register(outgoing=True, pattern=r"^.update(?: |$)(now|deploy)?")
+@kyy_cmd(pattern=r"^.update(?: |$)(now|deploy)?")
 async def upstream(event):
     "For .update command, check if the bot is up to date, update if specified"
     await event.edit("**Mengecek Pembaruan, Silakan Menunggu....**")
@@ -250,11 +251,11 @@ async def upstream(event):
 
 CMD_HELP.update(
     {
-        "update": "𝘾𝙤𝙢𝙢𝙖𝙣𝙙: `.update`"
+        "update": f"𝘾𝙤𝙢𝙢𝙖𝙣𝙙: `{cmd}update`"
         "\n• : Untuk Melihat Pembaruan Terbaru Kyy-Userbot."
-        "\n\n𝘾𝙤𝙢𝙢𝙖𝙣𝙙: `.update now`"
+        f"\n\n𝘾𝙤𝙢𝙢𝙖𝙣𝙙: `{cmd}update now`"
         "\n• : Memperbarui Kyy-Userbot."
-        "\n\n𝘾𝙤𝙢𝙢𝙖𝙣𝙙: `.update deploy`"
+        f"\n\n𝘾𝙤𝙢𝙢𝙖𝙣𝙙: `{cmd}update deploy`"
         "\n• : Memperbarui Kyy-Userbot Dengan Cara Men-Deploy Ulang."
     }
 )
