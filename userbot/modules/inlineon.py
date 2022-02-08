@@ -7,10 +7,10 @@ from telethon import events
 from telethon.errors.rpcerrorlist import YouBlockedUserError
 
 from userbot import bot, BOT_USERNAME
-from userbot.events import register
+from userbot.utils import kyy_cmd
 
 
-@register(outgoing=True, pattern=r"^\.inlineon(?: |$)(.*)")
+@kyy_cmd(pattern=r"^\.inlineon(?: |$)(.*)")
 async def _(event):
     await event.edit(f"Sedang menyalakan inline untuk `@{BOT_USERNAME}` tunggu sebentar")
     async with bot.conversation("@BotFather") as conv:
