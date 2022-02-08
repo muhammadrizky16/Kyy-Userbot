@@ -19,8 +19,8 @@ from telethon.tl.types import (
     MessageMediaPhoto,
 )
 
-from userbot import CMD_HELP, S_PACK_NAME as custompack, bot
-from userbot.events import register
+from userbot import CMD_HELP, S_PACK_NAME as custompack, bot, CMD_HANDLER as cmd
+from userbot.utils import kyy_cmd
 
 
 KANGING_STR = [
@@ -29,7 +29,7 @@ KANGING_STR = [
 ]
 
 
-@register(outgoing=True, pattern=r"^\.(?:tikel|kang)\s?(.)?")
+@kyy_cmd(pattern=r"^\.(?:tikel|kang)\s?(.)?")
 async def kang(args):
     user = await bot.get_me()
     if not user.username:
@@ -271,7 +271,7 @@ async def resize_photo(photo):
     return image
 
 
-@register(outgoing=True, pattern=r"^\.stkrinfo$")
+@kyy_cmd(pattern=r"^\.stkrinfo$")
 async def get_pack_info(event):
     if not event.is_reply:
         return await event.edit(
@@ -316,7 +316,7 @@ async def get_pack_info(event):
     await event.edit(OUTPUT)
 
 
-@register(outgoing=True, pattern=r"^\.get$")
+@kyy_cmd(pattern=r"^\.get$")
 async def sticker_to_png(sticker):
     if not sticker.is_reply:
         await sticker.edit("`NULL information to fetch...`")
@@ -348,13 +348,13 @@ async def sticker_to_png(sticker):
 
 CMD_HELP.update(
     {
-        "stickers": "𝘾𝙤𝙢𝙢𝙖𝙣𝙙: `.kang | .tikel [emoji('s)]?`"
-        "\n↳ : Balas .tikel Ke Sticker Atau Gambar Untuk Menambahkan Ke Pack Mu "
+        "stickers": f"𝘾𝙤𝙢𝙢𝙖𝙣𝙙: `{cmd}kang | {cmd}tikel [emoji('s)]?`"
+        f"\n↳ : Balas {cmd}tikel Ke Sticker Atau Gambar Untuk Menambahkan Ke Pack Mu "
         "\nBisa Memilih Emoji Sesuai Pilihanmu."
-        "\n\n𝘾𝙤𝙢𝙢𝙖𝙣𝙙: `.kang | .tikel  (emoji['s]]?` [nomer]?"
+        f"\n\n𝘾𝙤𝙢𝙢𝙖𝙣𝙙: `{cmd}kang | {cmd}tikel  (emoji['s]]?` [nomer]?"
         "\n↳ : Ambil Sticker/Gambar Ke Pack Baru Mu "
         "Dan Bisa Pilih Emoji Sticker Mu."
-        "\n\n𝘾𝙤𝙢𝙢𝙖𝙣𝙙: `.stkrinfo`"
+        f"\n\n𝘾𝙤𝙢𝙢𝙖𝙣𝙙: `{cmd}stkrinfo`"
         "\n↳ : Dapatkan Informasi Pack Sticker."
-        "\n\n𝘾𝙤𝙢𝙢𝙖𝙣𝙙: `.get`"
+        f"\n\n𝘾𝙤𝙢𝙢𝙖𝙣𝙙: `{cmd}get`"
         "\n↳ : Balas Ke Stcker Untuk Mendapatkan File 'PNG' Sticker."})
