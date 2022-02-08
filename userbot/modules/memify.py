@@ -10,7 +10,7 @@ from userbot.utils import kyy_cmd
 THUMB_IMAGE_PATH = "./thumb_image.jpg"
 
 
-@kyy_cmd(pattern=r"^\.mmf(?: |$)(.*)")
+@kyy_cmd(pattern="mmf(?: |$)(.*)")
 async def mim(event):
     if event.fwd_from:
         return
