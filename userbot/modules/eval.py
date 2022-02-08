@@ -18,7 +18,7 @@ from userbot import CMD_HELP, TERM_ALIAS, CMD_HANDLER as cmd
 from userbot.utils import kyy_cmd
 
 
-@kyy_cmd(pattern="eval(?: |$|\n)([\s\S]*)")
+@kyy_cmd(pattern="eval(?: |$|\n)([\\s\\S]*)")
 async def _(event):
     if event.fwd_from:
         return
@@ -77,7 +77,7 @@ async def aexec(code, smessatatus):
     return await locals()["__aexec"](message, reply, message.client)
 
 
-@kyy_cmd(pattern="exec(?: |$|\n)([\s\S]*)")
+@kyy_cmd(pattern="exec(?: |$|\n)([\\s\\S]*)")
 async def run(run_q):
     """ For .exec command, which executes the dynamically created program """
     code = run_q.pattern_match.group(1)
