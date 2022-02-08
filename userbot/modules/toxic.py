@@ -173,7 +173,7 @@ CMD_HELP.update({
 \nUsage: Sok Kepinteran.\
 \n\n{cmd}m\
 \nUsage: Gc Nya Kaya kuburan.\
-\n\{cmd}c\
+\n\\{cmd}c\
 \nUsage: Dia tuh Ngeyel banget.\
 \n\n{cmd}s\
 \nUsage: Haha sokap.\
