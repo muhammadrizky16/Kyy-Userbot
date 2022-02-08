@@ -46,7 +46,7 @@ async def chat_bot_toggle(event):
         await event.edit("**Usage:** `.chatbot` <on/off>")
 
 
-@kyy_cmd(pattern=r"^\.chatbot(?: |$)(.*)")
+@kyy_cmd(pattern="chatbot(?: |$)(.*)")
 async def on_apa_off(event):
     await chat_bot_toggle(event)
 
