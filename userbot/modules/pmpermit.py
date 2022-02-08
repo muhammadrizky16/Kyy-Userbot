@@ -213,7 +213,7 @@ async def notifon(non_event):
     await non_event.edit("`Notifikasi Dari Pesan Pribadi Tidak Disetujui, Tidak Lagi Dibisukan!`")
 
 
-@kyy_cmd(pattern="(?:setuju|ok)\s?(.)?")
+@kyy_cmd(pattern="(?:setuju|ok)\\s?(.)?")
 async def approvepm(apprvpm):
     """For .ok command, give someone the permissions to PM you."""
     try:
@@ -262,7 +262,7 @@ async def approvepm(apprvpm):
         )
 
 
-@kyy_cmd(pattern="(?:tolak|nopm)\s?(.)?")
+@kyy_cmd(pattern="(?:tolak|nopm)\\s?(.)?")
 async def disapprovepm(disapprvpm):
     try:
         from userbot.modules.sql_helper.pm_permit_sql import dissprove
@@ -341,7 +341,7 @@ async def unblockpm(unblock):
         )
 
 
-@kyy_cmd(pattern="(set|get|reset) pm_msg(?: |$)(\w*)")
+@kyy_cmd(pattern="(set|get|reset) pm_msg(?: |$)(\\w*)")
 async def add_pmsg(cust_msg):
     """Set your own Unapproved message"""
     if not PM_AUTO_BAN:
