@@ -3,11 +3,11 @@
 
 import requests
 
-from userbot import CMD_HELP
-from userbot.events import register
+from userbot import CMD_HELP, CMD_HANDLER as cmd
+from userbot.utils import kyy_cmd
 
 
-@register(outgoing=True, pattern=r"^\.asupan$")
+@kyy_cmd(pattern=r"^\.asupan$")
 async def _(event):
     try:
         response = requests.get(
@@ -18,7 +18,7 @@ async def _(event):
         await event.edit("**Tidak bisa menemukan video asupan.**")
 
 
-@register(outgoing=True, pattern=r"^\.chika$")
+@kyy_cmd(pattern=r"^\.chika$")
 async def _(event):
     try:
         response = requests.get(
@@ -29,7 +29,7 @@ async def _(event):
         await event.edit("**Tidak bisa menemukan video chikakiku.**")
 
 
-@register(outgoing=True, pattern=r"^\.bocil$")
+@kyy_cmd(pattern=r"^\.bocil$")
 async def _(event):
     try:
         response = requests.get(
@@ -43,12 +43,12 @@ async def _(event):
 
 CMD_HELP.update(
     {
-        "asupan": "**Plugin : **`asupan`\
-        \n\n  •  **Syntax :** `.asupan`\
+        f"asupan": "**Plugin : **`asupan`\
+        \n\n  •  **Syntax :** `{cmd}asupan`\
         \n  •  **Function : **Untuk Mengirim video asupan secara random.\
-        \n\n  •  **Syntax :** `.chika`\
+        \n\n  •  **Syntax :** `{cmd}chika`\
         \n  •  **Function : **Untuk Mengirim video chikakiku secara random.\
-        \n\n  •  **Syntax :** `.bocil`\
+        \n\n  •  **Syntax :** `{cmd}bocil`\
         \n  •  **Function : **Untuk Mengirim video bocil secara random.\
     "
     }
