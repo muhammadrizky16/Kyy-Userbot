@@ -4,7 +4,7 @@ from userbot.utils import kyy_cmd
 from asyncio.exceptions import TimeoutError
 
 
-@kyy_cmd(pattern=r"^\.sg(?: |$)(.*)")
+@kyy_cmd(pattern="sg(?: |$)(.*)")
 async def lastname(steal):
     if steal.fwd_from:
         return
