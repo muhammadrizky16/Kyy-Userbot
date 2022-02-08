@@ -12,7 +12,7 @@ import redis
 
 from datetime import datetime
 from speedtest import Speedtest
-from userbot import CMD_HELP, StartTime, ALIVE_NAME, CMD_HANDLER as hndlr
+from userbot import CMD_HELP, StartTime, ALIVE_NAME, CMD_HANDLER as cmd
 from userbot.events import register
 from userbot.utils import kyy_cmd
 
@@ -266,11 +266,11 @@ async def redis(pong):
 
 CMD_HELP.update(
     {
-        "ping": f"𝘾𝙤𝙢𝙢𝙖𝙣𝙙: `{hndlr}ping` | `{hndlr}lping` | `{hndlr}xping` | `{hndlr}sinyal` | `{hndlr}sping` | `{hndlr}pink`\
+        "ping": f"𝘾𝙤𝙢𝙢𝙖𝙣𝙙: `{cmd}ping` | `{cmd}lping` | `{cmd}xping` | `{cmd}sinyal` | `{cmd}sping` | `{cmd}pink`\
          \n↳ : Untuk Menunjukkan Ping Bot Anda.\
-         \n\n𝘾𝙤𝙢𝙢𝙖𝙣𝙙: `{hndlr}kecepatan`\
+         \n\n𝘾𝙤𝙢𝙢𝙖𝙣𝙙: `{cmd}kecepatan`\
          \n↳ : Untuk Menunjukkan Kecepatan Jaringan Anda.\
-         \n\n𝘾𝙤𝙢𝙢𝙖𝙣𝙙: `{hndlr}pong`\
+         \n\n𝘾𝙤𝙢𝙢𝙖𝙣𝙙: `{cmd}pong`\
          \n↳ : Sama Seperti Perintah Ping."
     }
 )
