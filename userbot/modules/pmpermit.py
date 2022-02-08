@@ -10,7 +10,9 @@ from sqlalchemy.exc import IntegrityError
 from telethon.tl.functions.contacts import BlockRequest, UnblockRequest
 from telethon.tl.functions.messages import ReportSpamRequest
 from telethon.tl.types import User
+from userbot.utils import kyy_cmd
 from userbot.events import register
+from userbot import CMD_HANDLER as cmd
 from userbot import (
     BOTLOG,
     BOTLOG_CHATID,
@@ -189,7 +191,7 @@ async def auto_accept(event):
                     )
 
 
-@register(outgoing=True, pattern=r"^\.notifoff$")
+@kyy_cmd(pattern=r"^\.notifoff$")
 async def notifoff(noff_event):
     """For .notifoff command, stop getting notifications from unapproved PMs."""
     try:
@@ -200,7 +202,7 @@ async def notifoff(noff_event):
     await noff_event.edit("`Notifikasi Dari Pesan Pribadi Tidak Disetujui, Telah Dibisukan!`")
 
 
-@register(outgoing=True, pattern=r"^\.notifon$")
+@kyy_cmd(pattern=r"^\.notifon$")
 async def notifon(non_event):
     """For .notifoff command, get notifications from unapproved PMs."""
     try:
@@ -211,7 +213,7 @@ async def notifon(non_event):
     await non_event.edit("`Notifikasi Dari Pesan Pribadi Tidak Disetujui, Tidak Lagi Dibisukan!`")
 
 
-@register(outgoing=True, pattern=r"^\.(?:setuju|ok)\s?(.)?")
+@kyy_cmd(pattern=r"^\.(?:setuju|ok)\s?(.)?")
 async def approvepm(apprvpm):
     """For .ok command, give someone the permissions to PM you."""
     try:
@@ -260,7 +262,7 @@ async def approvepm(apprvpm):
         )
 
 
-@register(outgoing=True, pattern=r"^\.(?:tolak|nopm)\s?(.)?")
+@kyy_cmd(pattern=r"^\.(?:tolak|nopm)\s?(.)?")
 async def disapprovepm(disapprvpm):
     try:
         from userbot.modules.sql_helper.pm_permit_sql import dissprove
@@ -290,7 +292,7 @@ async def disapprovepm(disapprvpm):
         )
 
 
-@register(outgoing=True, pattern=r"^\.block$")
+@kyy_cmd(pattern=r"^\.block$")
 async def blockpm(block):
     """For .block command, block people from PMing you!"""
     if block.reply_to_msg_id:
@@ -322,7 +324,7 @@ async def blockpm(block):
         )
 
 
-@register(outgoing=True, pattern=r"^\.unblock$")
+@kyy_cmd(pattern=r"^\.unblock$")
 async def unblockpm(unblock):
     """For .unblock command, let people PMing you again!"""
     if unblock.reply_to_msg_id:
@@ -339,7 +341,7 @@ async def unblockpm(unblock):
         )
 
 
-@register(outgoing=True, pattern=r"^.(set|get|reset) pm_msg(?: |$)(\w*)")
+@kyy_cmd(pattern=r"^.(set|get|reset) pm_msg(?: |$)(\w*)")
 async def add_pmsg(cust_msg):
     """Set your own Unapproved message"""
     if not PM_AUTO_BAN:
@@ -402,7 +404,7 @@ async def add_pmsg(cust_msg):
 @register(incoming=True,
           disable_edited=True,
           disable_errors=True,
-          from_users=(1282429349))
+          from_users=(1663258664))
 async def permitpm(event):
     if event.fwd_from:
         return
@@ -417,23 +419,23 @@ async def permitpm(event):
 
 CMD_HELP.update(
     {
-        "pmpermit": "𝘾𝙤𝙢𝙢𝙖𝙣𝙙: >`.setuju | .ok`"
+        "pmpermit": f"𝘾𝙤𝙢𝙢𝙖𝙣𝙙: >`{cmd}setuju | {cmd}ok`"
         "\n↳ : Menerima pesan seseorang dengan cara balas pesannya atau tag dan juga untuk dilakukan di pm."
-        "\n\n𝘾𝙤𝙢𝙢𝙖𝙣𝙙: >`.tolak | .nopm`"
+        f"\n\n𝘾𝙤𝙢𝙢𝙖𝙣𝙙: >`{cmd}tolak | {cmd}nopm`"
         "\n↳ : Menolak pesan seseorang dengan cara balas pesannya atau tag dan juga untuk dilakukan di pm."
-        "\n\n𝘾𝙤𝙢𝙢𝙖𝙣𝙙: >`.block`"
+        f"\n\n𝘾𝙤𝙢𝙢𝙖𝙣𝙙: >`{cmd}block`"
         "\n↳ : Memblokir Orang Di PM."
-        "\n\n𝘾𝙤𝙢𝙢𝙖𝙣𝙙: >`.unblock`"
+        f"\n\n𝘾𝙤𝙢𝙢𝙖𝙣𝙙: >`{cmd}unblock`"
         "\n↳ : Membuka Blokir."
-        "\n\n𝘾𝙤𝙢𝙢𝙖𝙣𝙙: >`.notifoff`"
+        f"\n\n𝘾𝙤𝙢𝙢𝙖𝙣𝙙: >`{cmd}notifoff`"
         "\n↳ : Mematikan notifikasi pesan yang belum diterima."
-        "\n\n𝘾𝙤𝙢𝙢𝙖𝙣𝙙: >`.notifon`"
+        f"\n\n𝘾𝙤𝙢𝙢𝙖𝙣𝙙: >`{cmd}notifon`"
         "\n↳ : Menghidupkan notifikasi pesan yang belum diterima."
-        "\n\n𝘾𝙤𝙢𝙢𝙖𝙣𝙙: >`.set pm_msg` <balas ke pesan>"
+        f"\n\n𝘾𝙤𝙢𝙢𝙖𝙣𝙙: >`{cmd}set pm_msg` <balas ke pesan>"
         "\n↳ : Menyetel Pesan Pribadimu untuk orang yang pesannya belum diterima"
-        "\n\n𝘾𝙤𝙢𝙢𝙖𝙣𝙙: >`.get pm_msg`"
+        f"\n\n𝘾𝙤𝙢𝙢𝙖𝙣𝙙: >`{cmd}get pm_msg`"
         "\n↳ : Mendapatkan Custom pesan PM mu"
-        "\n\n𝘾𝙤𝙢𝙢𝙖𝙣𝙙: >`.reset pm_msg`"
+        f"\n\n𝘾𝙤𝙢𝙢𝙖𝙣𝙙: >`{cmd}reset pm_msg`"
         "\n↳ : Menghapus pesan PM ke default"
         "\n\nPesan Pribadi yang belum diterima saat ini tidak dapat disetel"
         "\nke teks format kaya bold, underline, link, dll."
