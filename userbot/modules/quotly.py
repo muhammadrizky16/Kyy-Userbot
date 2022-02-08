@@ -12,8 +12,8 @@ from asyncio.exceptions import TimeoutError
 
 from telethon import events
 from telethon.errors.rpcerrorlist import YouBlockedUserError
-from userbot import CMD_HELP, bot
-from userbot.events import register
+from userbot import CMD_HELP, bot, CMD_HANDLER as cmd
+from userbot.utils import kyy_cmd
 
 if 1 == 1:
     strings = {
@@ -42,7 +42,7 @@ if 1 == 1:
               "default_username_color": "#b48bf2"}
 
 
-@register(outgoing=True, pattern=r"^\.q")
+@kyy_cmd(pattern=r"^\.q")
 async def quotess(qotli):
     if qotli.fwd_from:
         return
@@ -81,7 +81,7 @@ async def quotess(qotli):
         await qotli.edit()
 
 
-@register(outgoing=True, pattern="^.xquote(?: |$)(.*)")
+@kyy_cmd(pattern="^.xquote(?: |$)(.*)")
 async def quote_search(event):
     if event.fwd_from:
         return
@@ -107,8 +107,8 @@ async def quote_search(event):
 
 CMD_HELP.update({
     "quotly":
-    "𝘾𝙤𝙢𝙢𝙖𝙣𝙙: `.q`\
+    f"𝘾𝙤𝙢𝙢𝙖𝙣𝙙: `{cmd}q`\
 \n↳ : Mengubah Pesan Menjadi sticker.\
-\n\n𝘾𝙤𝙢𝙢𝙖𝙣𝙙: `.xquote`\
+\n\n𝘾𝙤𝙢𝙢𝙖𝙣𝙙: `{cmd}xquote`\
 \n↳ : Mengubah Pesan Menjadi sticker."
 })
