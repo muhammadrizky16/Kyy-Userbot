@@ -12,8 +12,9 @@ import redis
 
 from datetime import datetime
 from speedtest import Speedtest
-from userbot import CMD_HELP, StartTime, ALIVE_NAME
+from userbot import CMD_HELP, StartTime, ALIVE_NAME, CMD_HANDLER as hndlr
 from userbot.events import register
+from userbot.utils import kyy_cmd
 
 absen = [
     "**Hadir ganteng** 🥵",
@@ -69,7 +70,7 @@ async def _(kyy):
     await kyy.reply(random.choice(pacar))
 
 
-@register(outgoing=True, pattern="^.sping$")
+@kyy_cmd(pattern="^.sping$")
 async def redis(pong):
     """For .ping command, ping the userbot from any chat."""
     await get_readable_time((time.time() - StartTime))
@@ -88,7 +89,7 @@ async def redis(pong):
     )
 
 
-@register(outgoing=True, pattern="^.lping$")
+@kyy_cmd(pattern="^.lping$")
 async def redis(pong):
     """For .ping command, ping the userbot from any chat."""
     uptime = await get_readable_time((time.time() - StartTime))
@@ -105,7 +106,7 @@ async def redis(pong):
     )
 
 
-@register(outgoing=True, pattern="^.xping$")
+@kyy_cmd(pattern="^.xping$")
 async def redis(pong):
     """For .ping command, ping the userbot from any chat."""
     uptime = await get_readable_time((time.time() - StartTime))
@@ -130,7 +131,7 @@ async def redis(pong):
     )
 
 
-@register(outgoing=True, pattern="^.sinyal$")
+@kyy_cmd(pattern="^.sinyal$")
 async def redis(pong):
     """For .ping command, ping the userbot from any chat."""
     uptime = await get_readable_time((time.time() - StartTime))
@@ -155,7 +156,7 @@ async def redis(pong):
     )
 
 
-@register(outgoing=True, pattern="^.ping$")
+@kyy_cmd(pattern="^.ping$")
 async def pingme(pong):
     """For .ping command, ping the userbot from any chat."""
     uptime = await get_readable_time((time.time() - StartTime))
@@ -177,7 +178,7 @@ async def pingme(pong):
     )
 
 
-@register(outgoing=True, pattern="^.kecepatan$")
+@kyy_cmd(pattern="^.kecepatan$")
 async def speedtst(spd):
     """For .speed command, use SpeedTest to check server speeds."""
     await spd.edit("**Sedang Menjalankan Tes Kecepatan Jaringan,Mohon Tunggu...**")
@@ -219,7 +220,7 @@ def speed_convert(size):
     return f"{round(size, 2)} {units[zero]}"
 
 
-@register(outgoing=True, pattern="^.pong$")
+@kyy_cmd(pattern="^.pong$")
 async def pingme(pong):
     """For .ping command, ping the userbot from any chat."""
     start = datetime.now()
@@ -232,7 +233,7 @@ async def pingme(pong):
     await pong.edit(f"**✨KyyName : {ALIVE_NAME}**\n📗 `%sms`" % (duration))
 
 
-@register(outgoing=True, pattern="^.pink$")
+@kyy_cmd(pattern="^.pink$")
 async def redis(pong):
     """For .ping command, ping the userbot from any chat."""
     uptime = await get_readable_time((time.time() - StartTime))
@@ -265,11 +266,11 @@ async def redis(pong):
 
 CMD_HELP.update(
     {
-        "ping": "𝘾𝙤𝙢𝙢𝙖𝙣𝙙: `.ping` | `.lping` | `.xping` | `.sinyal` | `.sping` | `.pink`\
+        "ping": "𝘾𝙤𝙢𝙢𝙖𝙣𝙙: `{hndlr}ping` | `{hndlr}lping` | `{hndlr}xping` | `{hndlr}sinyal` | `{hndlr}sping` | `{hndlr}pink`\
          \n↳ : Untuk Menunjukkan Ping Bot Anda.\
-         \n\n𝘾𝙤𝙢𝙢𝙖𝙣𝙙: `.kecepatan`\
+         \n\n𝘾𝙤𝙢𝙢𝙖𝙣𝙙: `{hndlr}kecepatan`\
          \n↳ : Untuk Menunjukkan Kecepatan Jaringan Anda.\
-         \n\n𝘾𝙤𝙢𝙢𝙖𝙣𝙙: `.pong`\
+         \n\n𝘾𝙤𝙢𝙢𝙖𝙣𝙙: `{hndlr}pong`\
          \n↳ : Sama Seperti Perintah Ping."
     }
 )
