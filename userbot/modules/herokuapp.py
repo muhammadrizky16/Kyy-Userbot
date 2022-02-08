@@ -33,7 +33,7 @@ else:
 """
 
 
-@kyy_cmd(pattern="(get|del) var(?: |$)(\w*)")
+@kyy_cmd(pattern="(get|del) var(?: |$)(\\w*)")
 async def variable(var):
     exe = var.pattern_match.group(1)
     if app is None:
