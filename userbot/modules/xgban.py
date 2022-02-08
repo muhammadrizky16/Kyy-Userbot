@@ -1,13 +1,13 @@
 from asyncio import sleep
 from telethon.tl.types import ChatBannedRights
 from telethon.tl.functions.channels import EditBannedRequest
-from userbot.events import register
-from userbot import CMD_HELP
+from userbot.utils import kyy_cmd
+from userbot import CMD_HELP, CMD_HANDLER as cmd
 
 
 # Port By @VckyouuBitch From GeezProject
 # Perkontolan Dengan Hapus Credits
-@register(outgoing=True, pattern="^.allban(?: |$)(.*)")
+@kyy_cmd(pattern="^.allban(?: |$)(.*)")
 async def testing(event):
     nikal = await event.get_chat()
     chutiya = await event.client.get_me()
@@ -31,8 +31,8 @@ async def testing(event):
 
 CMD_HELP.update(
     {
-        "allban": "**Plugin : **`allban`\
-    \n\n**Syntax : **`.allban`\
+        "allban": f"**Plugin : **`allban`\
+    \n\n**Syntax : **`{cmd}allban`\
     \n**Function : **ban all members in 1 cmnd"
     }
 )
