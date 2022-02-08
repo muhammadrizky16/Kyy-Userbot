@@ -10,7 +10,7 @@ from userbot.utils import kyy_cmd
 chat = "@BotFather"
 
 
-@kyy_cmd(pattern="^botbaru ?(.*)")
+@kyy_cmd(pattern="botbaru ?(.*)")
 async def _(event):
     if event.fwd_from:
         return
