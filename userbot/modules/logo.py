@@ -4,7 +4,7 @@ import asyncio
 
 from telethon.errors.rpcerrorlist import YouBlockedUserError
 
-from userbot import ALIVE_NAME, CMD_HELP, CMD_HANDLER as cmd
+from userbot import ALIVE_NAME, CMD_HELP
 from userbot.utils import kyy_cmd
 
 
