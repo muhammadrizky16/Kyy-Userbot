@@ -1,10 +1,10 @@
 from telethon.errors.rpcerrorlist import YouBlockedUserError
-from userbot import bot, CMD_HELP
-from userbot.events import register
+from userbot import bot, CMD_HELP, CMD_HANDLER as cmd
+from userbot.utils import kyy_cmd
 from asyncio.exceptions import TimeoutError
 
 
-@register(outgoing=True, pattern=r"^\.sg(?: |$)(.*)")
+@kyy_cmd(pattern=r"^\.sg(?: |$)(.*)")
 async def lastname(steal):
     if steal.fwd_from:
         return
@@ -57,6 +57,6 @@ async def lastname(steal):
 
 CMD_HELP.update({
     "sangmata":
-        "`.sg`\
+        f"`{cmd}sg`\
           \nUsage: Mendapatkan Riwayat Nama Pengguna."
 })
