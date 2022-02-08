@@ -5,7 +5,7 @@ from userbot import CMD_HELP, CMD_HANDLER as cmd
 from userbot.utils import kyy_cmd
 
 
-@kyy_cmd(pattern="^.wibu2(?: |$)(.*)")
+@kyy_cmd(pattern="wibu2(?: |$)(.*)")
 async def typewriter(typew):
     typew.pattern_match.group(1)
     sleep(0.07)
@@ -50,7 +50,7 @@ async def typewriter(typew):
     await typew.edit("**IUHH DEMEN KOK SAMA 2D😖**")
 
 
-@kyy_cmd(pattern="^.wibu(?: |$)(.*)")
+@kyy_cmd(pattern="wibu(?: |$)(.*)")
 async def typewriter(typew):
     typew.pattern_match.group(1)
     await typew.edit("**WI WIII WIIII WIIII.....**")
