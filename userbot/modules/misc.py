@@ -6,7 +6,7 @@ import sys
 import os
 import io
 import sys
-from userbot import ALIVE_NAME, UPSTREAM_REPO_URL, BOTLOG, BOTLOG_CHATID, CMD_HELP, bot, CMD_HANDLER as cmd
+from userbot import ALIVE_NAME, BOTLOG, BOTLOG_CHATID, CMD_HELP, UPSTREAM_REPO_URL, bot
 from userbot.utils import kyy_cmd
 from userbot.utils import time_formatter
 import urllib
@@ -152,7 +152,7 @@ async def raw(event):
             caption="`Here's the decoded message data !!`")
 
 
-@kyy_cmd(pattern="reverse(?: |$)(\d*)")
+@kyy_cmd(pattern="reverse(?: |$)(\\d*)")
 async def okgoogle(img):
     """ For .reverse command, Google search images and stickers. """
     if os.path.isfile("okgoogle.png"):
