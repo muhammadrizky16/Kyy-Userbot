@@ -25,7 +25,7 @@ def user_list(l, n):
         yield l[i: i + n]
 
 
-@kyy_cmd(pattern=r"^\.startvc$")
+@kyy_cmd(pattern="startvc$")
 async def start_voice(c):
     chat = await c.get_chat()
     admin = chat.admin_rights
@@ -41,7 +41,7 @@ async def start_voice(c):
         await c.edit(f"**ERROR:** `{ex}`")
 
 
-@kyy_cmd(pattern=r"^\.stopvc$")
+@kyy_cmd(pattern="stopvc$")
 async def stop_voice(c):
     chat = await c.get_chat()
     admin = chat.admin_rights
@@ -57,7 +57,7 @@ async def stop_voice(c):
         await c.edit(f"**ERROR:** `{ex}`")
 
 
-@kyy_cmd(pattern=r"^\.vcinvite")
+@kyy_cmd(pattern="vcinvite")
 async def _(kyy):
     await kyy.edit("`Sedang Menginvite Member...`")
     users = []
