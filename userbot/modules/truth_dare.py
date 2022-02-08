@@ -2,11 +2,11 @@
 from telethon import events
 from telethon.errors.rpcerrorlist import YouBlockedUserError
 
-from userbot import bot, CMD_HELP
-from userbot.events import register
+from userbot import bot, CMD_HELP, CMD_HANDLER as cmd
+from userbot.utils import kyy_cmd
 
 
-@register(outgoing=True, pattern=r"^\.truth(?: |$)(.*)")
+@kyy_cmd(pattern="truth(?: |$)(.*)")
 async def _(event):
     await event.edit("Mengirim pesan truth...")
     async with bot.conversation("@truthordares_bot") as conv:
@@ -23,7 +23,7 @@ async def _(event):
         await event.edit(f"**Pesan truth**\n\n{response.message.message}")
 
 
-@register(outgoing=True, pattern=r"^\.dare(?: |$)(.*)")
+@kyy_cmd(pattern="dare(?: |$)(.*)")
 async def _(event):
     await event.edit("Mengirim pesan dare...")
     async with bot.conversation("@truthordares_bot") as conv:
@@ -40,7 +40,7 @@ async def _(event):
         await event.edit(f"**Pesan dare**\n\n{response.message.message}")
 
 
-@register(outgoing=True, pattern=r"^\.spill(?: |$)(.*)")
+@kyy_cmd(pattern="spill(?: |$)(.*)")
 async def _(event):
     await event.edit("Mengirim pesan spill...")
     async with bot.conversation("@Spillgame_bot") as conv:
@@ -59,12 +59,12 @@ async def _(event):
 
 CMD_HELP.update(
     {
-        "truth_dare": "** Plugin :** truth_dare\
-        \n\n  •  Perintah : `.truth`\
+        "truth_dare": f"** Plugin :** truth_dare\
+        \n\n  •  Perintah : `{cmd}truth`\
         \n  •  Function : Untuk mengirim pesan truth\
-        \n\n  •  Perintah : `.dare`\
+        \n\n  •  Perintah : `{cmd}dare`\
         \n  •  Function : Untuk mengirim pesan dare\
-        \n\n  •  Perintah : `.spill`\
+        \n\n  •  Perintah : `{cmd}spill`\
         \n  •  Function : Untuk Pertanyaan\
     "
     }
