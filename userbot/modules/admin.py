@@ -115,7 +115,7 @@ async def set_group_photo(gpic):
             await gpic.edit(PP_ERROR)
 
 
-@flicks_cmd(pattern="promote(?:\\s|$)([\\s\\S]*)")
+@kyy_cmd(pattern="promote(?:\\s|$)([\\s\\S]*)")
 async def promote(promt):
     # Get targeted chat
     chat = await promt.get_chat()
