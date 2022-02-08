@@ -29,7 +29,7 @@ KANGING_STR = [
 ]
 
 
-@kyy_cmd(pattern=r"^\.(?:tikel|kang)\s?(.)?")
+@kyy_cmd(pattern="(?:tikel|kang)\s?(.)?")
 async def kang(args):
     user = await bot.get_me()
     if not user.username:
@@ -271,7 +271,7 @@ async def resize_photo(photo):
     return image
 
 
-@kyy_cmd(pattern=r"^\.stkrinfo$")
+@kyy_cmd(pattern="stkrinfo$")
 async def get_pack_info(event):
     if not event.is_reply:
         return await event.edit(
@@ -316,7 +316,7 @@ async def get_pack_info(event):
     await event.edit(OUTPUT)
 
 
-@kyy_cmd(pattern=r"^\.get$")
+@kyy_cmd(pattern="get$")
 async def sticker_to_png(sticker):
     if not sticker.is_reply:
         await sticker.edit("`NULL information to fetch...`")
