@@ -8,7 +8,7 @@ from userbot.utils import kyy_cmd
 from userbot import CMD_HELP, CMD_HANDLER as cmd
 
 
-@kyy_cmd(pattern=r"^\.allunban(?: |$)(.*)")
+@kyy_cmd(pattern="allunban(?: |$)(.*)")
 async def _(event):
     await event.edit("`Sedang Mencari List Banning.`")
     p = 0
