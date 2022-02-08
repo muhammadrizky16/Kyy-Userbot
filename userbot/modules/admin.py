@@ -30,7 +30,7 @@ from telethon.tl.types import (
     PeerChat,
 )
 
-from userbot import BOTLOG, BOTLOG_CHATID, CMD_HELP, DEVS
+from userbot import BOTLOG, BOTLOG_CHATID, CMD_HELP
 from userbot.utils import kyy_cmd
 from userbot import CMD_HANDLER as cmd
 from userbot.events import register
