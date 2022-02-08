@@ -1,34 +1,34 @@
 from platform import uname
-from userbot import ALIVE_NAME, CMD_HELP
-from userbot.events import register
+from userbot import ALIVE_NAME, CMD_HELP, CMD_HANDLER as cmd
+from userbot.utils import kyy_cmd
 
 # ================= CONSTANT =================
 DEFAULTUSER = str(ALIVE_NAME) if ALIVE_NAME else uname().node
 # ============================================
 
 
-@register(outgoing=True, pattern="^.p(?: |$)(.*)")
+@kyy_cmd(pattern="^.p(?: |$)(.*)")
 async def typewriter(typew):
     typew.pattern_match.group(1)
     await typew.edit("`السَّلاَمُ عَلَيْكُمْ وَرَحْمَةُ اللهِ وَبَرَكَاتُهُ`")
 # Salam
 
 
-@register(outgoing=True, pattern="^.l(?: |$)(.*)")
+@kyy_cmd(pattern="^.l(?: |$)(.*)")
 async def typewriter(typew):
     typew.pattern_match.group(1)
     await typew.edit("`وَعَلَيْكُمْ السَّلاَمُ وَرَحْمَةُ اللهِ وَبَرَكَاتُهُ`")
 # Menjawab Salam
 
 
-@register(outgoing=True, pattern="^.istigfar(?: |$)(.*)")
+@kyy_cmd(pattern="^.istigfar(?: |$)(.*)")
 async def perkenalan(event):
     event.pattern_match.group(1)
     await event.edit("`اَسْتَغْفِرُاللهَ الْعَظِيْم`")
 # Istigfar
 
 
-@register(outgoing=True, pattern="^.perkenalan(?: |$)(.*)")
+@kyy_cmd(pattern="^.perkenalan(?: |$)(.*)")
 async def perkenalan(event):
     event.pattern_match.group(1)
     await event.edit(f"`Hai Guys , Perkenalkan Nama Gw {DEFAULTUSER}`")
@@ -42,11 +42,11 @@ async def perkenalan(event):
 
 
 CMD_HELP.update({
-    "gabut": "**Modules** - `Gabut`\
-    \n\n Cmd : `.l`\
+    "gabut": f"**Modules** - `Gabut`\
+    \n\n Cmd : `{cmd}l`\
     \nUsage : Untuk Menjawab Salam\
-    \n\n Cmd : `.perkenalan`\
+    \n\n Cmd : `{cmd}perkenalan`\
     \nUsage : Memperkenalkan Diri\
-    \n\n Cmd : `.p`\
+    \n\n Cmd : `{cmd}p`\
     \nUsage : Untuk Memberi Salam."
 })
