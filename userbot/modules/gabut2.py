@@ -3,7 +3,7 @@ from userbot import CMD_HELP, CMD_HANDLER as cmd
 from userbot.utils import kyy_cmd
 
 
-@kyy_cmd(pattern='^.Kyy(?: |$)(.*)')
+@kyy_cmd(pattern='Kyy(?: |$)(.*)')
 async def typewriter(typew):
     typew.pattern_match.group(1)
     sleep(3)
@@ -15,7 +15,7 @@ async def typewriter(typew):
 # Create by myself @localheart
 
 
-@kyy_cmd(pattern='^.sayang(?: |$)(.*)')
+@kyy_cmd(pattern='sayang(?: |$)(.*)')
 async def typewriter(typew):
     typew.pattern_match.group(1)
     sleep(3)
@@ -27,7 +27,7 @@ async def typewriter(typew):
 # Create by myself @localheart
 
 
-@kyy_cmd(pattern='^.semangat(?: |$)(.*)')
+@kyy_cmd(pattern='semangat(?: |$)(.*)')
 async def typewriter(typew):
     typew.pattern_match.group(1)
     sleep(3)
