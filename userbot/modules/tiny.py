@@ -5,7 +5,7 @@ from PIL import Image
 import cv2
 import os
 from userbot.utils import kyy_cmd
-from userbot import CMD_HELP, bot, CMD_HANDLER as cmd
+from userbot import CMD_HELP, bot
 
 
 @kyy_cmd(pattern="tiny(?: |$)(.*)")
