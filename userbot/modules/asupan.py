@@ -7,7 +7,7 @@ from userbot import CMD_HELP, CMD_HANDLER as cmd
 from userbot.utils import kyy_cmd
 
 
-@kyy_cmd(pattern=r"^\.asupan$")
+@kyy_cmd(pattern=".asupan$")
 async def _(event):
     try:
         response = requests.get(
@@ -18,7 +18,7 @@ async def _(event):
         await event.edit("**Tidak bisa menemukan video asupan.**")
 
 
-@kyy_cmd(pattern=r"^\.chika$")
+@kyy_cmd(pattern="chika$")
 async def _(event):
     try:
         response = requests.get(
@@ -29,7 +29,7 @@ async def _(event):
         await event.edit("**Tidak bisa menemukan video chikakiku.**")
 
 
-@kyy_cmd(pattern=r"^\.bocil$")
+@kyy_cmd(pattern="bocil$")
 async def _(event):
     try:
         response = requests.get(
