@@ -1,7 +1,7 @@
 # lorduserbot
 from telethon.tl import functions
 from userbot.utils import kyy_cmd
-from userbot import CMD_HELP, CMD_HANDLER as cmd
+from userbot import CMD_HELP
 
 
 @kyy_cmd(pattern="^.buat (gb|g|c)(?: |$)(.*)")
