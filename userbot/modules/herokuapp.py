@@ -33,7 +33,7 @@ else:
 """
 
 
-@kyy_cmd(pattern=r"^.(get|del) var(?: |$)(\w*)")
+@kyy_cmd(pattern="(get|del) var(?: |$)(\w*)")
 async def variable(var):
     exe = var.pattern_match.group(1)
     if app is None:
@@ -95,7 +95,7 @@ async def variable(var):
             return True
 
 
-@kyy_cmd(pattern=r'^.set var (\w*) ([\s\S]*)')
+@kyy_cmd(pattern=r'set var (\w*) ([\s\S]*)')
 async def set_var(var):
     await var.edit("`Sedang Menyetel Config Vars ヅ`")
     variable = var.pattern_match.group(1)
@@ -124,7 +124,7 @@ async def set_var(var):
 """
 
 
-@kyy_cmd(pattern=r"^.usage(?: |$)")
+@kyy_cmd(pattern="usage(?: |$)")
 async def dyno_usage(dyno):
     """
         Get your account Dyno Usage
@@ -197,7 +197,7 @@ async def dyno_usage(dyno):
             return True
 
 
-@kyy_cmd(pattern=r"^\.logs")
+@kyy_cmd(pattern="logs")
 async def _(dyno):
     try:
         Heroku = heroku3.from_key(HEROKU_API_KEY)
