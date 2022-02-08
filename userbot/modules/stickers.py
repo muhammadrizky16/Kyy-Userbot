@@ -29,7 +29,7 @@ KANGING_STR = [
 ]
 
 
-@kyy_cmd(pattern="(?:tikel|kang)\s?(.)?")
+@kyy_cmd(pattern="(?:tikel|kang)\\s?(.)?")
 async def kang(args):
     user = await bot.get_me()
     if not user.username:
