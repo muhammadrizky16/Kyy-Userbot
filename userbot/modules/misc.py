@@ -6,8 +6,8 @@ import sys
 import os
 import io
 import sys
-from userbot import ALIVE_NAME, UPSTREAM_REPO_URL, BOTLOG, BOTLOG_CHATID, CMD_HELP, bot
-from userbot.events import register
+from userbot import ALIVE_NAME, UPSTREAM_REPO_URL, BOTLOG, BOTLOG_CHATID, CMD_HELP, bot, CMD_HANDLER as cmd
+from userbot.utils import kyy_cmd
 from userbot.utils import time_formatter
 import urllib
 import requests
@@ -27,7 +27,7 @@ useragent = 'Mozilla/5.0 (Linux; Android 9; SM-G960F Build/PPR1.180610.011; wv) 
 opener.addheaders = [('User-agent', useragent)]
 
 
-@register(outgoing=True, pattern="^.random")
+@kyy_cmd(pattern="random")
 async def randomise(items):
     """ For .random command, get a random item from the list of items. """
     itemo = (items.text[8:]).split()
@@ -41,7 +41,7 @@ async def randomise(items):
                      itemo[index] + "`")
 
 
-@register(outgoing=True, pattern="^.sleep ([0-9]+)$")
+@kyy_cmd(pattern="sleep ([0-9]+)$")
 async def sleepybot(time):
     """ For .sleep command, let the userbot snooze for a few second. """
     counter = int(time.pattern_match.group(1))
@@ -56,7 +56,7 @@ async def sleepybot(time):
     await time.edit("`OK, I'm awake now.`")
 
 
-@register(outgoing=True, pattern="^.shutdown$")
+@kyy_cmd(pattern="shutdown$")
 async def killdabot(event):
     """ For .shutdown command, shut the bot down."""
     await event.edit("`Mematikan Kyy-Userbot....`")
@@ -68,7 +68,7 @@ async def killdabot(event):
     await bot.disconnect()
 
 
-@register(outgoing=True, pattern="^.restart$")
+@kyy_cmd(pattern="restart$")
 async def killdabot(event):
     await event.edit("`Restarting Kyy-Userbot...`")
     await asyncio.sleep(10)
@@ -81,7 +81,7 @@ async def killdabot(event):
     execle(sys.executable, *args, environ)
 
 
-@register(outgoing=True, pattern="^.readme$")
+@kyy_cmd(pattern="readme$")
 async def reedme(e):
     await e.edit(
         "Here's Something for You to Read :\n"
@@ -90,7 +90,7 @@ async def reedme(e):
         "\n[Special - Note](https://telegra.ph/Special-Note-11-02)")
 
 
-@register(outgoing=True, pattern="^.repeat (.*)")
+@kyy_cmd(pattern="repeat (.*)")
 async def repeat(rep):
     cnt, txt = rep.pattern_match.group(1).split(' ', 1)
     replyCount = int(cnt)
@@ -104,7 +104,7 @@ async def repeat(rep):
     await rep.edit(replyText)
 
 
-@register(outgoing=True, pattern="^.repo$")
+@kyy_cmd(pattern="repo$")
 async def repo_is_here(wannasee):
     """ For .repo command, just returns the repo URL. """
     await wannasee.edit(
@@ -119,7 +119,7 @@ async def repo_is_here(wannasee):
     )
 
 
-@register(outgoing=True, pattern=r"^\.string$")
+@kyy_cmd(pattern="string$")
 async def repo_is_here(wannasee):
     """For .repo command, just returns the repo URL."""
     await wannasee.edit(
@@ -128,7 +128,7 @@ async def repo_is_here(wannasee):
     )
 
 
-@register(outgoing=True, pattern="^.raw$")
+@kyy_cmd(pattern="raw$")
 async def raw(event):
     the_real_message = None
     reply_to_id = None
@@ -152,7 +152,7 @@ async def raw(event):
             caption="`Here's the decoded message data !!`")
 
 
-@register(outgoing=True, pattern=r"^.reverse(?: |$)(\d*)")
+@kyy_cmd(pattern="reverse(?: |$)(\d*)")
 async def okgoogle(img):
     """ For .reverse command, Google search images and stickers. """
     if os.path.isfile("okgoogle.png"):
@@ -271,23 +271,23 @@ async def scam(results, lim):
 
 
 CMD_HELP.update({
-    "random": "𝘾𝙤𝙢𝙢𝙖𝙣𝙙: `.random <item1> <item2> ... <itemN>`\
+    f"random": "𝘾𝙤𝙢𝙢𝙖𝙣𝙙: `{cmd}random <item1> <item2> ... <itemN>`\
     \n↳ : Dapatkan item acak dari daftar item.",
-    "sleep": "𝘾𝙤𝙢𝙢𝙖𝙣𝙙: `.sleep <seconds>`\
-    \n↳ : `.sleep`\
+    f"sleep": "𝘾𝙤𝙢𝙢𝙖𝙣𝙙: `{cmd}sleep <seconds>`\
+    \n↳ : `{cmd}sleep`\
     \n  •  **Function : Biarkan Kyy-Userbot tidur selama beberapa detik.",
-    "shutdown": "𝘾𝙤𝙢𝙢𝙖𝙣𝙙: `.shutdown`\
+    f"shutdown": "𝘾𝙤𝙢𝙢𝙖𝙣𝙙: `{cmd}shutdown`\
     \n↳ : Mematikan bot",
-    "repo": "𝘾𝙤𝙢𝙢𝙖𝙣𝙙: `.repo`\
+    f"repo": "𝘾𝙤𝙢𝙢𝙖𝙣𝙙: `{cmd}repo`\
     \n↳ : Menampilan link Repository Kyy-Userbot.",
-    "string": "𝘾𝙤𝙢𝙢𝙖𝙣𝙙: `.string`\
+    f"string": "𝘾𝙤𝙢𝙢𝙖𝙣𝙙: `{cmd}string`\
     \n↳: Menampilkan link String Kyy-Userbot",
-    "readme": "𝘾𝙤𝙢𝙢𝙖𝙣𝙙 `.readme`\
+    f"readme": "𝘾𝙤𝙢𝙢𝙖𝙣𝙙 `{cmd}readme`\
     \n↳ : Menyediakan tautan untuk mengatur userbot dan modulnya.",
-    "repeat": "𝘾𝙤𝙢𝙢𝙖𝙣𝙙: `.repeat <no> <text>`\
+    f"repeat": "𝘾𝙤𝙢𝙢𝙖𝙣𝙙: `{cmd}repeat <no> <text>`\
     \n↳ : Mengulangi teks untuk beberapa kali. Jangan bingung ini dengan spam tho.",
-    "restart": "𝘾𝙤𝙢𝙢𝙖𝙣𝙙: `.restart`\
+    f"restart": "𝘾𝙤𝙢𝙢𝙖𝙣𝙙: `{cmd}restart`\
     \n↳ : Merestart bot",
-    "raw": "𝘾𝙤𝙢𝙢𝙖𝙣𝙙: `.raw`\
+    f"raw": "𝘾𝙤𝙢𝙢𝙖𝙣𝙙: `{cmd}raw`\
     \n↳ : Dapatkan data berformat seperti JSON terperinci tentang pesan yang dibalas.",
 })
