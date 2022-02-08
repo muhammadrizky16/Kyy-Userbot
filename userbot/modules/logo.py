@@ -8,7 +8,7 @@ from userbot import ALIVE_NAME, CMD_HELP
 from userbot.utils import kyy_cmd
 
 
-@kyy_cmd(pattern=r"^\.logo(?: |$)(.*)")
+@kyy_cmd(pattern="logo(?: |$)(.*)")
 async def _(event):
     if event.fwd_from:
         return
