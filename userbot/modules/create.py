@@ -1,10 +1,10 @@
 # lorduserbot
 from telethon.tl import functions
-from userbot.events import register
-from userbot import CMD_HELP
+from userbot.utils import kyy_cmd
+from userbot import CMD_HELP, CMD_HANDLER as cmd
 
 
-@register(outgoing=True, pattern="^.buat (gb|g|c)(?: |$)(.*)")
+@kyy_cmd(pattern="^.buat (gb|g|c)(?: |$)(.*)")
 async def telegraphs(grop):
     """ For .create command, Creating New Group & Channel """
     if not grop.text[0].isalpha() and grop.text[0] not in ("/", "#", "@", "!"):
@@ -43,13 +43,13 @@ async def telegraphs(grop):
                 await grop.edit(str(e))
 
 CMD_HELP.update({
-    "membuat": "\
+    f"membuat": "\
 Membuat\
 \nUsage: Untuk membuat Channel, Grup dan Grup bersama Bot.\
-\n\n`.buat g` <nama grup>\
+\n\n`{cmd}buat g` <nama grup>\
 \nUsage: Membuat grup mu.\
-\n\n`.buat gb` <nama grup>\
+\n\n`{cmd}buat gb` <nama grup>\
 \nUsage: Membuat Grup bersama bot.\
-\n\n`.buat c` <nama channel>\
+\n\n`{cmd}buat c` <nama channel>\
 \nUsage: Membuat sebuah Channel.\
 "})
