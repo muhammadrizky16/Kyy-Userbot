@@ -8,6 +8,7 @@ from telethon.tl.types import (
     MessageEntityMentionName)
 from telethon.tl.functions.contacts import BlockRequest, UnblockRequest
 
+from userbot.events import register
 from userbot.utils import kyy_cmd
 from userbot import ALIVE_NAME, DEVS, CMD_HELP, CMD_HANDLER as cmd
 
