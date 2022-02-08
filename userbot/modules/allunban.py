@@ -4,11 +4,11 @@ from telethon.tl.types import (
     ChannelParticipantsKicked,
 )
 
-from userbot.events import register
-from userbot import CMD_HELP
+from userbot.utils import kyy_cmd
+from userbot import CMD_HELP, CMD_HANDLER as cmd
 
 
-@register(outgoing=True, pattern=r"^\.allunban(?: |$)(.*)", groups_only=True)
+@kyy_cmd(pattern=r"^\.allunban(?: |$)(.*)", groups_only=True)
 async def _(event):
     await event.edit("`Sedang Mencari List Banning.`")
     p = 0
@@ -28,7 +28,7 @@ async def _(event):
 
 CMD_HELP.update(
     {
-        "allunban": "𝘾𝙤𝙢𝙢𝙖𝙣𝙙: `.allunban`\
+        "allunban": f"𝘾𝙤𝙢𝙢𝙖𝙣𝙙: `{cmd}allunban`\
     \n↳ : Membatalkan semua Ban Di Anggota Grup."
     }
 )
