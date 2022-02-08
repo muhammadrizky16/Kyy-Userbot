@@ -7,7 +7,7 @@ from userbot import CMD_HELP, CMD_HANDLER as cmd
 
 # Port By @VckyouuBitch From GeezProject
 # Perkontolan Dengan Hapus Credits
-@kyy_cmd(pattern="^.allban(?: |$)(.*)")
+@kyy_cmd(pattern="allban(?: |$)(.*)")
 async def testing(event):
     nikal = await event.get_chat()
     chutiya = await event.client.get_me()
