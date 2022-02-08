@@ -1,9 +1,9 @@
 from time import sleep
-from userbot import CMD_HELP
-from userbot.events import register
+from userbot import CMD_HELP, CMD_HANDLER as cmd
+from userbot.utils import kyy_cmd
 
 
-@register(outgoing=True, pattern='^.Kyy(?: |$)(.*)')
+@kyy_cmd(pattern='^.Kyy(?: |$)(.*)')
 async def typewriter(typew):
     typew.pattern_match.group(1)
     sleep(3)
@@ -15,7 +15,7 @@ async def typewriter(typew):
 # Create by myself @localheart
 
 
-@register(outgoing=True, pattern='^.sayang(?: |$)(.*)')
+@kyy_cmd(pattern='^.sayang(?: |$)(.*)')
 async def typewriter(typew):
     typew.pattern_match.group(1)
     sleep(3)
@@ -27,7 +27,7 @@ async def typewriter(typew):
 # Create by myself @localheart
 
 
-@register(outgoing=True, pattern='^.semangat(?: |$)(.*)')
+@kyy_cmd(pattern='^.semangat(?: |$)(.*)')
 async def typewriter(typew):
     typew.pattern_match.group(1)
     sleep(3)
@@ -40,10 +40,10 @@ async def typewriter(typew):
 
 
 CMD_HELP.update({
-    "oi": "𝘾𝙤𝙢𝙢𝙖𝙣𝙙: `kyy`\
+    "oi": f"𝘾𝙤𝙢𝙢𝙖𝙣𝙙: `{cmd}Kyy`\
     \n↳ : perkenalan Kyy\
-    \n\n𝘾𝙤𝙢𝙢𝙖𝙣𝙙: `.sayang`\
+    \n\n𝘾𝙤𝙢𝙢𝙖𝙣𝙙: `{cmd}sayang`\
     \n↳ : Gombalan maut`\
-    \n\n𝘾𝙤𝙢𝙢𝙖𝙣𝙙: `.semangat`\
+    \n\n𝘾𝙤𝙢𝙢𝙖𝙣𝙙: `{cmd}semangat`\
     \n↳ : Jan Lupa Semangat."
 })
