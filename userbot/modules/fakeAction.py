@@ -5,7 +5,7 @@ from userbot import CMD_HELP, CMD_HANDLER as cmd
 import asyncio
 
 
-@kyy_cmd(pattern="^.ftyping(?: |$)(.*)")
+@kyy_cmd(pattern="ftyping(?: |$)(.*)")
 async def _(event):
     t = event.pattern_match.group(1)
     if not (t or t.isdigit()):
@@ -23,7 +23,7 @@ async def _(event):
         await asyncio.sleep(t)
 
 
-@kyy_cmd(pattern="^.faudio(?: |$)(.*)")
+@kyy_cmd(pattern="faudio(?: |$)(.*)")
 async def _(event):
     t = event.pattern_match.group(1)
     if not (t or t.isdigit()):
@@ -41,7 +41,7 @@ async def _(event):
         await asyncio.sleep(t)
 
 
-@kyy_cmd(pattern="^.fvideo(?: |$)(.*)")
+@kyy_cmd(pattern="fvideo(?: |$)(.*)")
 async def _(event):
     t = event.pattern_match.group(1)
     if not (t or t.isdigit()):
@@ -59,7 +59,7 @@ async def _(event):
         await asyncio.sleep(t)
 
 
-@kyy_cmd(pattern="^.fgame(?: |$)(.*)")
+@kyy_cmd(pattern="fgame(?: |$)(.*)")
 async def _(event):
     t = event.pattern_match.group(1)
     if not (t or t.isdigit()):
@@ -77,7 +77,7 @@ async def _(event):
         await asyncio.sleep(t)
 
 
-@kyy_cmd(pattern="^.fround(?: |$)(.*)")
+@kyy_cmd(pattern="fround(?: |$)(.*)")
 async def _(event):
     t = event.pattern_match.group(1)
     if not (t or t.isdigit()):
@@ -97,7 +97,7 @@ async def _(event):
         await asyncio.sleep(t)
 
 
-@kyy_cmd(pattern="^.fphoto(?: |$)(.*)")
+@kyy_cmd(pattern="fphoto(?: |$)(.*)")
 async def _(event):
     t = event.pattern_match.group(1)
     if not (t or t.isdigit()):
@@ -117,7 +117,7 @@ async def _(event):
         await asyncio.sleep(t)
 
 
-@kyy_cmd(pattern="^.fdocument(?: |$)(.*)")
+@kyy_cmd(pattern="fdocument(?: |$)(.*)")
 async def _(event):
     t = event.pattern_match.group(1)
     if not (t or t.isdigit()):
@@ -137,7 +137,7 @@ async def _(event):
         await asyncio.sleep(t)
 
 
-@kyy_cmd(pattern="^.flocation(?: |$)(.*)")
+@kyy_cmd(pattern="flocation(?: |$)(.*)")
 async def _(event):
     t = event.pattern_match.group(1)
     if not (t or t.isdigit()):
@@ -157,7 +157,7 @@ async def _(event):
         await asyncio.sleep(t)
 
 
-@kyy_cmd(pattern="^.fcontact(?: |$)(.*)")
+@kyy_cmd(pattern="fcontact(?: |$)(.*)")
 async def _(event):
     t = event.pattern_match.group(1)
     if not (t or t.isdigit()):
