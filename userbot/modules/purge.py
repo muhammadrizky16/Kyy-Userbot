@@ -8,11 +8,12 @@ from asyncio import sleep
 
 from telethon.errors import rpcbaseerrors
 
-from userbot import CMD_HELP, DEVS
+from userbot import CMD_HELP, DEVS, CMD_HANDLER as cmd
+from userbot.utils import kyy_cmd
 from userbot.events import register
 
 
-@register(outgoing=True, pattern=r"^\.purge$")
+@kyy_cmd(pattern=r"^\.purge$")
 @register(incoming=True, from_users=DEVS, pattern=r"^\.cpurge$")
 async def fastpurger(purg):
     chat = await purg.get_input_chat()
@@ -46,7 +47,7 @@ async def fastpurger(purg):
     await done.delete()
 
 
-@register(outgoing=True, pattern=r"^\.purgeme")
+@kyy_cmd(pattern=r"^\.purgeme")
 @register(incoming=True, from_users=DEVS, pattern=r"^\.cpurgeme")
 async def purgeme(delme):
     message = delme.text
@@ -74,8 +75,8 @@ async def purgeme(delme):
     await smsg.delete()
 
 
-@register(outgoing=True, pattern=r"^\.del$")
-@register(incoming=True, from_users=1663258664, pattern=r"^\.cdel$")
+@kyy_cmd(pattern=r"^\.del$")
+@register(incoming=True, from_users=DEVS, pattern=r"^\.cdel$")
 async def delete_it(delme):
     msg_src = await delme.get_reply_message()
     if delme.reply_to_msg_id:
@@ -96,7 +97,7 @@ async def delete_it(delme):
             """
 
 
-@register(outgoing=True, pattern=r"^\.edit")
+@kyy_cmd(pattern=r"^\.edit")
 async def editer(edit):
     message = edit.text
     chat = await edit.get_input_chat()
@@ -116,7 +117,7 @@ async def editer(edit):
    """
 
 
-@register(outgoing=True, pattern=r"^\.sd")
+@kyy_cmd(pattern=r"^\.sd")
 async def selfdestruct(destroy):
     message = destroy.text
     counter = int(message[4:6])
@@ -132,15 +133,15 @@ async def selfdestruct(destroy):
     """
 
 
-CMD_HELP.update({"purge": ">`.purge`"
+CMD_HELP.update({"purge": f">`{cmd}purge`"
                  "\nUsage: Membersihkan semua pesan mulai dari pesan yang dibalas.",
-                 "purgeme": ">`.purgeme <angka>`"
+                 f"purgeme": ">`{cmd}purgeme <angka>`"
                  "\nUsage: Menghapus jumlah pesan anda, yang mau anda hapus.",
-                 "del": ">`.del`"
+                 f"del": ">`{cmd}del`"
                  "\nUsage: Menghapus pesan, balas ke pesan.",
-                 "edit": ">`.edit <pesan baru>`"
+                 f"edit": ">`{cmd}edit <pesan baru>`"
                  "\nUsage: Ganti pesan terakhir Anda dengan <pesan baru>.",
-                 "sd": ">`.sd <x> <pesan>`"
+                 f"sd": ">`{cmd}sd <x> <pesan>`"
                  "\nUsage: Membuat pesan yang hancur sendiri dalam x detik."
                  "\nJaga agar detik di bawah 100 karena bot Anda akan tidur.",
                  })
