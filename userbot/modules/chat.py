@@ -188,7 +188,7 @@ async def sedNinjaToggle(event):
         await event.delete()
 
 
-@kyy_cmd(pattern=".chatinfo(?: |$)(.*)", outgoing=True)
+@kyy_cmd(pattern=".chatinfo(?: |$)(.*)")
 async def info(event):
     await event.edit("`Menganalisis Obrolan Ini...`")
     chat = await get_chatinfo(event)
