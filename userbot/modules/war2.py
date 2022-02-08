@@ -3,15 +3,15 @@
 # KONTOLLLLLLL
 
 from platform import uname
-from userbot import ALIVE_NAME, CMD_HELP
-from userbot.events import register
+from userbot import ALIVE_NAME, CMD_HELP, CMD_HANDLER as cmd
+from userbot.utils import kyy_cmd
 
 # ================= CONSTANT =================
 DEFAULTUSER = str(ALIVE_NAME) if ALIVE_NAME else uname().node
 # ============================================
 
 
-@register(outgoing=True, pattern=r"^\.emak(?: |$)(.*)")
+@kyy_cmd(pattern="emak(?: |$)(.*)")
 async def typewriter(typew):
     typew.pattern_match.group(1)
     await typew.edit(
@@ -19,14 +19,14 @@ async def typewriter(typew):
     )
 
 
-@register(outgoing=True, pattern=r"^\.ehh(?: |$)(.*)")
+@kyy_cmd(pattern="ehh(?: |$)(.*)")
 async def typewriter(typew):
     typew.pattern_match.group(1)
     await typew.edit(
         "**EHH TOLOL PEKERJAAN KAKEK LO DULU ITU JADI BABU BABU KOMPENI YANG DI SURUH BIKININ KOPI TERUS MOTONG RUMPUT DI HALAMAN RUMAH YAELAH KASIAN BAT KASIAN KAKEK LO ITU UDAH KONTET KURUS KERING KEREMPENG LAGI KAKEK LO DULU MATINYA KE ABISAN TENAGA PAS NYABUTIN RUMPUT TOLOL HAHA NENEK LO JUGA JADI LACUR KOMPENI NENEK LO AJE JADI LACUR KOMPENI CUMA DI BAYAR PAKE SINGKONG REBUS DOANG SATU BIJI TERUS NENEK LO ITU MATINYA PAS DI GANGBANG SAMA TENTARA KOMPENI MEMEK NENEK LO ITU DI SODOK SODOK MAKE SENAPAN NOH SAMPE MEMEKNYA LOBEH LEBAR BAT LEBAR KEK JALAN RAYA HAHA.BADUR BADUT IYE GUE TAU LO MAIN TELE ITU DI JADIIN BADUT ALIANSI KAN HAHAHA MANGKANYA BANG KALO JADI ORANG PAS DI SENGGOL LAWAN JANGAN DIEM BAE KEK BATU HAHA DI JADIIN BADUT KAN LO DI LEDEK LEDEKIN SAMA SEMUA ALIANSI,GUE TAU TUJUAN LO MAEN TELE ITU UNTUK MENCARI MEMEK MEMEK SEGAR KAN HAHA KETAUAN ORANG ORANG KEK LO OTAK SANGEAN YANG HAUS AKAN MEMEK DAN TOKET SAKING GK MAU MODAL DI RL BUAT NYEWA LACUR JADI LO MEMILIH BIAT MAIN TELE BORO BORO DAPET LAH LU KAGA DAPET SAMA SEKALI MANGKANYA GANTENG KONTOL LO UDAH JELEK PENGENNYA YANG BAGUS BAGUS NYADAR DIRI LO ITU UDAH JELEK TERUS MISKIN LAGI**")
 
 
-@register(outgoing=True, pattern=r"^\.mas(?: |$)(.*)")
+@kyy_cmd(pattern="mas(?: |$)(.*)")
 async def typewriter(typew):
     typew.pattern_match.group(1)
     await typew.edit(
@@ -34,7 +34,7 @@ async def typewriter(typew):
     )
 
 
-@register(outgoing=True, pattern=r"^\.dih(?: |$)(.*)")
+@kyy_cmd(pattern="dih(?: |$)(.*)")
 async def typewriter(typew):
     typew.pattern_match.group(1)
     await typew.edit(
@@ -42,21 +42,21 @@ async def typewriter(typew):
     )
 
 
-@register(outgoing=True, pattern=r"^\.gcs(?: |$)(.*)")
+@kyy_cmd(pattern="gcs(?: |$)(.*)")
 async def typewriter(typew):
     typew.pattern_match.group(1)
     await typew.edit("**GC SAMPAH KAYA GINI, BUBARIN AJA GOBLOK!!**"
                      )
 
 
-@register(outgoing=True, pattern=r"^\.skb(?: |$)(.*)")
+@kyy_cmd(pattern="skb(?: |$)(.*)")
 async def typewriter(typew):
     typew.pattern_match.group(1)
     await typew.edit("**EMANG KITA KENAL? KAGA GOBLOK SOKAB BANGET LU GOBLOK**"
                      )
 
 
-@register(outgoing=True, pattern=r"^\.an(?: |$)(.*)")
+@kyy_cmd(pattern="an(?: |$)(.*)")
 async def typewriter(typew):
     typew.pattern_match.group(1)
     await typew.edit(
@@ -64,7 +64,7 @@ async def typewriter(typew):
     )
 
 
-@register(outgoing=True, pattern=r"^\.bk(?: |$)(.*)")
+@kyy_cmd(pattern="bk(?: |$)(.*)")
 async def typewriter(typew):
     typew.pattern_match.group(1)
     await typew.edit(
@@ -72,7 +72,7 @@ async def typewriter(typew):
     )
 
 
-@register(outgoing=True, pattern=r"^\.gj(?: |$)(.*)")
+@kyy_cmd(pattern="gj(?: |$)(.*)")
 async def typewriter(typew):
     typew.pattern_match.group(1)
     await typew.edit(
@@ -80,7 +80,7 @@ async def typewriter(typew):
     )
 
 
-@register(outgoing=True, pattern=r"^\.gh(?: |$)(.*)")
+@kyy_cmd(pattern="gh(?: |$)(.*)")
 async def typewriter(typew):
     typew.pattern_match.group(1)
     await typew.edit(
@@ -88,7 +88,7 @@ async def typewriter(typew):
     )
 
 
-@register(outgoing=True, pattern=r"^\.lol(?: |$)(.*)")
+@kyy_cmd(pattern="lol(?: |$)(.*)")
 async def typewriter(typew):
     typew.pattern_match.group(1)
     await typew.edit(
@@ -98,27 +98,27 @@ async def typewriter(typew):
 
 CMD_HELP.update(
     {
-        "war2": "𝘾𝙤𝙢𝙢𝙖𝙣𝙙: .ehh\
+        "war2": f"𝘾𝙤𝙢𝙢𝙖𝙣𝙙: {cmd}ehh\
         \n↳ : lihat sendiri\
-        \n𝘾𝙤𝙢𝙢𝙖𝙣𝙙: .emak\
+        \n𝘾𝙤𝙢𝙢𝙖𝙣𝙙: {cmd}emak\
         \n↳ : lihat sendiri\
-        \n𝘾𝙤𝙢𝙢𝙖𝙣𝙙: .mas\
+        \n𝘾𝙤𝙢𝙢𝙖𝙣𝙙: {cmd}mas\
         \n↳ : lihat sendiri\
-        \n𝘾𝙤𝙢𝙢𝙖𝙣𝙙: .dih\
+        \n𝘾𝙤𝙢𝙢𝙖𝙣𝙙: {cmd}dih\
         \n↳ : lihat sendiri\
-        \n𝘾𝙤𝙢𝙢𝙖𝙣𝙙: .gcs\
+        \n𝘾𝙤𝙢𝙢𝙖𝙣𝙙: {cmd}gcs\
         \n↳ : lihat sendiri\
-        \n𝘾𝙤𝙢𝙢𝙖𝙣𝙙: .skb\
+        \n𝘾𝙤𝙢𝙢𝙖𝙣𝙙: {cmd}skb\
         \n↳ : lihat sendiri\
-        \n𝘾𝙤𝙢𝙢𝙖𝙣𝙙: .an\
+        \n𝘾𝙤𝙢𝙢𝙖𝙣𝙙: {cmd}an\
         \n↳ : lihat sendiri\
-        \n𝘾𝙤𝙢𝙢𝙖𝙣𝙙: .bk\
+        \n𝘾𝙤𝙢𝙢𝙖𝙣𝙙: {cmd}bk\
         \n↳ : lihat sendiri\
-        \n𝘾𝙤𝙢𝙢𝙖𝙣𝙙: .gj\
+        \n𝘾𝙤𝙢𝙢𝙖𝙣𝙙: {cmd}gj\
         \n↳ : lihat sendiri\
-        \n𝘾𝙤𝙢𝙢𝙖𝙣𝙙: .gh\
+        \n𝘾𝙤𝙢𝙢𝙖𝙣𝙙: {cmd}gh\
         \n↳ : lihat sendiri\
-        \n𝘾𝙤𝙢𝙢𝙖𝙣𝙙: .lol\
+        \n𝘾𝙤𝙢𝙢𝙖𝙣𝙙: {cmd}lol\
         \n↳ : lihat sendiri\
         \n↳ **COBAIN AJA SENDIRI SEMUA!**.\
     "
