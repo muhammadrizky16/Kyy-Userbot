@@ -42,7 +42,7 @@ if 1 == 1:
               "default_username_color": "#b48bf2"}
 
 
-@kyy_cmd(pattern=r"^\.q")
+@kyy_cmd(pattern="q")
 async def quotess(qotli):
     if qotli.fwd_from:
         return
@@ -81,7 +81,7 @@ async def quotess(qotli):
         await qotli.edit()
 
 
-@kyy_cmd(pattern="^.xquote(?: |$)(.*)")
+@kyy_cmd(pattern="xquote(?: |$)(.*)")
 async def quote_search(event):
     if event.fwd_from:
         return
