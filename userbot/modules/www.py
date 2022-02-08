@@ -266,7 +266,7 @@ async def redis(pong):
 
 CMD_HELP.update(
     {
-        "ping": "𝘾𝙤𝙢𝙢𝙖𝙣𝙙: `{hndlr}ping` | `{hndlr}lping` | `{hndlr}xping` | `{hndlr}sinyal` | `{hndlr}sping` | `{hndlr}pink`\
+        "ping": f"𝘾𝙤𝙢𝙢𝙖𝙣𝙙: `{hndlr}ping` | `{hndlr}lping` | `{hndlr}xping` | `{hndlr}sinyal` | `{hndlr}sping` | `{hndlr}pink`\
          \n↳ : Untuk Menunjukkan Ping Bot Anda.\
          \n\n𝘾𝙤𝙢𝙢𝙖𝙣𝙙: `{hndlr}kecepatan`\
          \n↳ : Untuk Menunjukkan Kecepatan Jaringan Anda.\
