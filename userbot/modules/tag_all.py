@@ -24,7 +24,7 @@ class FlagContainer:
     is_active = False
 
 
-@kyy_cmd(pattern="mention(?: |$)(.*)", disable_errors=True)
+@kyy_cmd(pattern="mention(?: |$)(.*)")
 async def _(event):
     if event.fwd_from:
         return
