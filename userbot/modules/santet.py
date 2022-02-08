@@ -3,7 +3,7 @@ from userbot import CMD_HELP, CMD_HANDLER as cmd
 from userbot.utils import kyy_cmd
 
 
-@kyy_cmd(pattern="santet(?: |$)(.*)')
+@kyy_cmd(pattern='santet(?: |$)(.*)')
 async def typewriter(typew):
     typew.pattern_match.group(1)
     await typew.edit("`Anda Telah Mengaktifkan Perintah Santet Online ツ`")
