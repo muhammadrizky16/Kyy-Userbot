@@ -193,7 +193,7 @@ async def dyno_usage(dyno):
                 "\n╚════════════════════╝"
             )
             await asyncio.sleep(20)
-            # await event.delete()
+            await dyno.delete()
             return True
 
 
