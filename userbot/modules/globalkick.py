@@ -8,8 +8,8 @@ from telethon.tl.types import (
     MessageEntityMentionName)
 from telethon.tl.functions.contacts import BlockRequest, UnblockRequest
 
-from userbot.events import register
-from userbot import ALIVE_NAME, DEVS, CMD_HELP
+from userbot.utils import kyy_cmd
+from userbot import ALIVE_NAME, DEVS, CMD_HELP, CMD_HANDLER as cmd
 
 
 async def get_user_from_event(event):
@@ -58,7 +58,7 @@ except BaseException:
     client2 = client3 = None
 
 
-@register(outgoing=True, pattern=r"^\.gkick(?: |$)(.*)")
+@kyy_cmd(pattern=r"^\.gkick(?: |$)(.*)")
 @register(incoming=True, from_users=DEVS, pattern=r"^\.cgkick")
 async def gspide(rk):
     lazy = rk
@@ -112,7 +112,7 @@ async def gspide(rk):
     return await rkp.edit(f"`{ALIVE_NAME}:` **GKicked [{user.first_name}](tg://user?id={user.id}) in {a} chat(s) **")
 
 CMD_HELP.update({
-    "gkick": "\
-`.gkick reason`\
+    f"gkick": "\
+`{cmd}gkick reason`\
 \nUsage: Globally Ban users from all the Group Administrations bots where you are SUDO"
 })
