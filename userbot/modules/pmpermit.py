@@ -191,7 +191,7 @@ async def auto_accept(event):
                     )
 
 
-@kyy_cmd(pattern=r"^\.notifoff$")
+@kyy_cmd(pattern="notifoff$")
 async def notifoff(noff_event):
     """For .notifoff command, stop getting notifications from unapproved PMs."""
     try:
@@ -202,7 +202,7 @@ async def notifoff(noff_event):
     await noff_event.edit("`Notifikasi Dari Pesan Pribadi Tidak Disetujui, Telah Dibisukan!`")
 
 
-@kyy_cmd(pattern=r"^\.notifon$")
+@kyy_cmd(pattern="notifon$")
 async def notifon(non_event):
     """For .notifoff command, get notifications from unapproved PMs."""
     try:
@@ -213,7 +213,7 @@ async def notifon(non_event):
     await non_event.edit("`Notifikasi Dari Pesan Pribadi Tidak Disetujui, Tidak Lagi Dibisukan!`")
 
 
-@kyy_cmd(pattern=r"^\.(?:setuju|ok)\s?(.)?")
+@kyy_cmd(pattern="(?:setuju|ok)\s?(.)?")
 async def approvepm(apprvpm):
     """For .ok command, give someone the permissions to PM you."""
     try:
@@ -262,7 +262,7 @@ async def approvepm(apprvpm):
         )
 
 
-@kyy_cmd(pattern=r"^\.(?:tolak|nopm)\s?(.)?")
+@kyy_cmd(pattern="(?:tolak|nopm)\s?(.)?")
 async def disapprovepm(disapprvpm):
     try:
         from userbot.modules.sql_helper.pm_permit_sql import dissprove
@@ -292,7 +292,7 @@ async def disapprovepm(disapprvpm):
         )
 
 
-@kyy_cmd(pattern=r"^\.block$")
+@kyy_cmd(pattern="block$")
 async def blockpm(block):
     """For .block command, block people from PMing you!"""
     if block.reply_to_msg_id:
@@ -324,7 +324,7 @@ async def blockpm(block):
         )
 
 
-@kyy_cmd(pattern=r"^\.unblock$")
+@kyy_cmd(pattern="unblock$")
 async def unblockpm(unblock):
     """For .unblock command, let people PMing you again!"""
     if unblock.reply_to_msg_id:
@@ -341,7 +341,7 @@ async def unblockpm(unblock):
         )
 
 
-@kyy_cmd(pattern=r"^.(set|get|reset) pm_msg(?: |$)(\w*)")
+@kyy_cmd(pattern="(set|get|reset) pm_msg(?: |$)(\w*)")
 async def add_pmsg(cust_msg):
     """Set your own Unapproved message"""
     if not PM_AUTO_BAN:
