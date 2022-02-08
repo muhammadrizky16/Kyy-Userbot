@@ -22,11 +22,6 @@
       "description": "Dapatkan Api Hash Di Web my.telegram.org",
       "required": true
     },
-    "ALIVE_LOGO": {
-      "description": "Gambar dalam module .alive",
-      "value": "https://telegra.ph/file/276d22aac9f400898cd27.jpg",
-      "required": false
-    },
      "STRING_SESSION": {
       "description": "Dapatkan String Session di termux caranya ada di repo, jika tidak tau reponya tanya ke @IDnyaKosong di telegram",
       "required": true
