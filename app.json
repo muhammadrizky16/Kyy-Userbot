@@ -44,7 +44,7 @@
       "required": true
     },
     "PM_AUTO_BAN": {
-      "description": "PM Auto-Ban Feature Switch. Also known as the 'bleep blop, this is a bot...' module.",
+      "description": "PM Auto-Ban Feature Switch. Also known as the 'bleep blop, this is a bot...' module. or /skip",
       "value": "False",
       "required": true
     },
@@ -53,7 +53,7 @@
       "required": true
     },
     "S_PACK_NAME": {
-      "description": "Nama Sticker Pack Mu",
+      "description": "Nama Sticker Pack Mu, bisa di /skip",
       "required": false
     },
     "BOT_TOKEN": {
