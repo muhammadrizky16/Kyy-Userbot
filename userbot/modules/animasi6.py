@@ -55,5 +55,5 @@ async def typewriter(typew):
 CMD_HELP.update({
     "animasi6":
     f"`{cmd}rumah` ; `{cmd}join` ; `{cmd}malam` ; `{cmd}thanks`\
-    \nUsage: liat aja."
+    \nUsage: test aja."
 })
