@@ -50,7 +50,7 @@ async def koc(e):
         sleep(1)
         await e.edit("OH BABY")
         sleep(1)
-        await e.edit("AKU SAYANG KAMU💞")
+        await e.edit("AKU SANGE SAYANG💞")
 
 
 @kyy_cmd(pattern="orgil(?: |$)(.*)")
