@@ -3,12 +3,12 @@
 # Ya gitu deh:')
 
 from shutil import rmtree
-from userbot.events import register
-from userbot import CMD_HELP
+from userbot.utils import kyy_cmd
+from userbot import CMD_HELP, CMD_HANDLER as cmd
 from userbot.utils import googleimagesdownload
 
 
-@register(outgoing=True, pattern="^.img (.*)")
+@kyy_cmd(pattern="img (.*)")
 async def goimg(event):
     query = event.pattern_match.group(1)
     if not query:
@@ -38,7 +38,7 @@ async def goimg(event):
 
 CMD_HELP.update(
     {
-        "img": "𝘾𝙤𝙢𝙢𝙖𝙣𝙙: `.img <search_query>`\
+        "img": f"𝘾𝙤𝙢𝙢𝙖𝙣𝙙: `{cmd}img <search_query>`\
          \n↳ : Does an image search on Google and shows 5 images."
     }
 )

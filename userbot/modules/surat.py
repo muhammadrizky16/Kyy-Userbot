@@ -1,6 +1,6 @@
 from time import sleep
 
-from userbot import CMD_HELP, CMD HANDLER as cmd
+from userbot import CMD_HELP, CMD_HANDLER as cmd
 from userbot.utils import kyy_cmd
 
 
