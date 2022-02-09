@@ -1,10 +1,10 @@
 from time import sleep
 
-from userbot import CMD_HELP
-from userbot.events import register
+from userbot import CMD_HELP, CMD HANDLER as cmd
+from userbot.utils import kyy_cmd
 
 
-@register(outgoing=True, pattern='^.alfatihah(?: |$)(.*)')
+@kyy_cmd(pattern='alfatihah(?: |$)(.*)')
 async def typewriter(typew):
     typew.pattern_match.group(1)
     sleep(1)
@@ -29,6 +29,6 @@ async def typewriter(typew):
 
 CMD_HELP.update({
     "surat":
-    "𝘾𝙤𝙢𝙢𝙖𝙣𝙙: `.alfatihah`\
+    f"𝘾𝙤𝙢𝙢𝙖𝙣𝙙: `{cmd}alfatihah`\
     \n↳ : Surat Alfatihah."
 })

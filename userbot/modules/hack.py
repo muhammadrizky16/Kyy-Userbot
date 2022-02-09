@@ -1,10 +1,10 @@
-from userbot import CMD_HELP
-from userbot.events import register
+from userbot import CMD_HELP, CMD_HANDLER as cmd
+from userbot.utils import kyy_cmd
 
 import asyncio
 
 
-@register(outgoing=True, pattern='^.hack(?: |$)(.*)')
+@kyy_cmd(pattern='hack(?: |$)(.*)')
 async def hack(event):
     range(0, 11)
     await event.edit("Installing.")
@@ -113,6 +113,6 @@ async def hack(event):
 
 
 CMD_HELP.update({
-    "hack": "𝘾𝙤𝙢𝙢𝙖𝙣𝙙: `.hack`\
+    "hack": f"𝘾𝙤𝙢𝙢𝙖𝙣𝙙: `{cmd}hack`\
         \n↳ : Untuk hacking via Termux."
 })
