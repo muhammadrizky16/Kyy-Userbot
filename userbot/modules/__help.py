@@ -1,7 +1,6 @@
 import logging
 
 from userbot import BOT_USERNAME
-from userbot.events import register
 from userbot.utils import kyy_cmd
 
 logging.basicConfig(
