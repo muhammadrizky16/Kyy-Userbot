@@ -5,16 +5,15 @@
 #
 """ Userbot start point """
 
+import sys
 from importlib import import_module
-from sys import argv
 
+import requests
 from telethon.errors.rpcerrorlist import PhoneNumberInvalidError
-from userbot import BOT_VER, LOGS, bot
+from userbot import BOT_TOKEN, BOT_VER, LOGS, ALIVE_NAME, bot
 from userbot.modules import ALL_MODULES
+from userbot.utils import autobot
 
-INVALID_PH = '\nERROR: The Phone No. entered is INVALID' \
-             '\n Tip: Use Country Code along with number.' \
-             '\n or check your phone number and try again !'
 
 try:
     bot.start()
@@ -27,9 +26,13 @@ for module_name in ALL_MODULES:
 
 # bot.loop.run_until_complete(checking())
 LOGS.info(
+    f"Jika {ALIVE_NAME} Membutuhkan Bantuan, Silahkan Tanyakan di Grup https://t.me/NastySupportt")
+LOGS.info(
     f"✨Kyy-Userbot✨ ⚙️ V{BOT_VER} [TELAH DIAKTIFKAN!]")
 
-if len(argv) not in (1, 3, 4):
+if not BOT_TOKEN:
+    bot.loop.run_until_complete(autobot())
+if len(sys.argv) not in (1, 3, 4):
     bot.disconnect()
 else:
     bot.run_until_disconnected()
