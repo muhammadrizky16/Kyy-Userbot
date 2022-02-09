@@ -36,10 +36,10 @@ async def tmeme(e):
             "WSpam was executed successfully")
 
 
-@kyy_cmd(pattern="spam(.*)")
+@kyy_cmd(pattern="spam (\d+) (.+)")
 async def spammer(e):
-    counter = int(e.pattern_match.group(1).split(" ", 1)[0])
-    spam_message = str(e.pattern_match.group(1).split(" ", 1)[1])
+    counter = int(e.pattern_match.group(1)) 
+    spam_message = str(e.pattern_match.group(2))
     await e.delete()
     await asyncio.wait([e.respond(spam_message) for i in range(counter)])
     if BOTLOG:
