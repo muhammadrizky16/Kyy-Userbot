@@ -4,8 +4,8 @@ Available Commands:
 .gban REASON
 .ungban REASON"""
 import asyncio
-from userbot import CMD_HELP
-from userbot.events import register
+from userbot import CMD_HELP, CMD_HANDLER as cmd
+from userbot.utils import kyy_cmd
 from userbot import ALIVE_NAME, G_BAN_LOGGER_GROUP, bot
 # imported from uniborg by @heyworld
 
@@ -14,7 +14,7 @@ DEFAULTUSER = str(ALIVE_NAME) if ALIVE_NAME else uname().node
 # ============================================
 
 
-@register(outgoing=True, pattern="^.gbanb(?: |$)(.*)")
+@kyy_cmd(pattern="gbanb(?: |$)(.*)")
 async def _(event):
     if G_BAN_LOGGER_GROUP is None:
         await event.edit("Set G_BAN_LOGGER_GROUP in vars otherwise module won't work.")
@@ -40,7 +40,7 @@ async def _(event):
     await event.delete()
 
 
-@register(outgoing=True, pattern="^.ungbanb(?: |$)(.*)")
+@kyy_cmd(pattern="ungbanb(?: |$)(.*)")
 async def _(event):
     if G_BAN_LOGGER_GROUP is None:
         await event.edit("Set G_BAN_LOGGER_GROUP in vars otherwise module won't work.")
@@ -63,8 +63,8 @@ async def _(event):
     await event.delete()
 
 CMD_HELP.update({
-    "gbanbot": "`.gbanb`\
+    "gbanbot": f"`{cmd}gbanb`\
     \nUsage: globally Ban Bot.\
-    \n\n`.ungbanb` :\
+    \n\n`{cmd}ungbanb` :\
     \nUsage: Cancel globally Ban Bot."
 })
