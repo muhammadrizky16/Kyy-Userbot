@@ -64,7 +64,7 @@ async def tiny_pic_spam(e):
             "PicSpam was executed successfully")
 
 
-@kyy_cmd(pattern="delayspam(.*)")
+@kyy_cmd(pattern="delayspam (\\d+) ?(.*)")
 async def spammer(e):
     spamDelay = float(e.pattern_match.group(1).split(' ', 2)[0])
     counter = int(e.pattern_match.group(1).split(' ', 2)[1])
