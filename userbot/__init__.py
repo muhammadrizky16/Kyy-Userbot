@@ -910,7 +910,7 @@ with bot:
                 reply_pop_up_alert = f"❌ DISCLAIMER ❌\n\nAnda Tidak Mempunyai Hak Untuk Menekan Tombol Button Ini"
                 await event.answer(reply_pop_up_alert, cache_time=0, alert=True)
 
-        @ tgbot.on(
+        @tgbot.on(
             events.callbackquery.CallbackQuery(  # pylint:disable=E0602
                 data=re.compile(rb"restart_bot")
             )
@@ -930,7 +930,7 @@ with bot:
                     ]
                 )
 
-        @ tgbot.on(
+        @tgbot.on(
             events.callbackquery.CallbackQuery(  # pylint:disable=E0602
                 data=re.compile(rb"closed")
             )
@@ -950,7 +950,7 @@ with bot:
                     ]
                 )
 
-        @ tgbot.on(events.InlineQuery)  # pylint:disable=E0602
+        @tgbot.on(events.InlineQuery)  # pylint:disable=E0602
         async def inline_handler(event):
             builder = event.builder
             result = None
@@ -993,7 +993,7 @@ with bot:
                 )
             await event.answer([result] if result else None)
 
-        @ tgbot.on(
+        @tgbot.on(
             events.callbackquery.CallbackQuery(  # pylint:disable=E0602
                 data=re.compile(rb"helpme_next\((.+?)\)")
             )
@@ -1010,7 +1010,7 @@ with bot:
                 reply_pop_up_alert = f"🚫!WARNING!🚫 Jangan Menggunakan Milik {DEFAULTUSER}."
                 await event.answer(reply_pop_up_alert, cache_time=0, alert=True)
 
-        @ tgbot.on(
+        @tgbot.on(
             events.callbackquery.CallbackQuery(  # pylint:disable=E0602
                 data=re.compile(rb"helpme_close\((.+?)\)")
             )
@@ -1034,14 +1034,14 @@ with bot:
                     ]
                 )
 
-        @ tgbot.on(events.CallbackQuery(data=b"close"))
+        @tgbot.on(events.CallbackQuery(data=b"close"))
         async def close(event):
             buttons = [
                 (custom.Button.inline("Open Menu", data="open_plugin"),),
             ]
             await event.edit(f"Menu Ditutup! ", buttons=buttons)
 
-        @ tgbot.on(
+        @tgbot.on(
             events.callbackquery.CallbackQuery(  # pylint:disable=E0602
                 data=re.compile(rb"helpme_prev\((.+?)\)")
             )
@@ -1059,7 +1059,7 @@ with bot:
                 reply_pop_up_alert = f"🚫!WARNING!🚫 Jangan Menggunakan Milik {DEFAULTUSER}."
                 await event.answer(reply_pop_up_alert, cache_time=0, alert=True)
 
-        @ tgbot.on(
+        @tgbot.on(
             events.callbackquery.CallbackQuery(  # pylint:disable=E0602
                 data=re.compile(rb"ub_modul_(.*)")
             )
