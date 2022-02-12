@@ -7,7 +7,7 @@
 
 import sys
 from importlib import import_module
-from telethon.tl.functions.channels import InviteToChannelRequest
+from telethon.tl.functions.channels import InviteToChannelRequest as Addbot
 
 from telethon.errors.rpcerrorlist import PhoneNumberInvalidError
 from userbot import BOTLOG_CHATID,BOT_USERNAME, BOT_TOKEN, BOT_VER, LOGS, ALIVE_NAME, bot
@@ -39,7 +39,7 @@ async def check_alive():
     except Exception as e:
         LOGS.info(str(e))
     try:
-        await bot(InviteToChannelRequest(int(BOTLOG_CHATID), [BOT_USERNAME]))
+        await bot(Addbot(int(BOTLOG_CHATID), [BOT_USERNAME]))
     except BaseException:
         pass
 
