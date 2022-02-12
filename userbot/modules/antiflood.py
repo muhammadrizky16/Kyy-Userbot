@@ -4,7 +4,7 @@ from telethon.tl.types import ChatBannedRights
 from userbot.utils.tools import is_admin
 import userbot.modules.sql_helper.antiflood_sql as sql
 from userbot.events import register
-
+from userbot.utils import kyy_cmd
 
 CHAT_FLOOD = sql.__load_flood_settings()
 # warn mode for anti flood
@@ -56,7 +56,7 @@ because he reached the defined flood limit.""".format(event.message.from_id),
         )
 
 
-@register(outgoing=True, pattern="^.setflood(?: |$)(.*)")
+@kyy_cmd(pattern="setflood(?: |$)(.*)")
 async def _(event):
     if event.fwd_from:
         return
