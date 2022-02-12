@@ -9,7 +9,7 @@ import sys
 from importlib import import_module
 
 from telethon.errors.rpcerrorlist import PhoneNumberInvalidError
-from userbot import BOT_TOKEN, BOT_VER, LOGS, ALIVE_NAME, bot
+from userbot import BOT_TOKEN, BOT_VER, LOGS, ALIVE_NAME, bot,check_alive
 from userbot.modules import ALL_MODULES
 from userbot.utils import autobot
 
@@ -29,9 +29,10 @@ LOGS.info(
 LOGS.info(
     f"✨Kyy-Userbot✨ ⚙️ V{BOT_VER} [TELAH DIAKTIFKAN!]")
 
+bot.loop.run_until_complete(check_alive())
 if not BOT_TOKEN:
     LOGS.info(
-        "Starting autobot on @Botfather..."
+        "BOT_TOKEN Vars tidak terisi, Memulai Membuat BOT Otomatis di @Botfather..."
     )
     bot.loop.run_until_complete(autobot())
 
