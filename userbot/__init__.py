@@ -234,7 +234,7 @@ BITLY_TOKEN = os.environ.get(
 TERM_ALIAS = os.environ.get("TERM_ALIAS", "Kyy-Userbot")
 
 # Bot Version
-BOT_VER = os.environ.get("BOT_VER", "7.0")
+BOT_VER = os.environ.get("BOT_VER", "8.0")
 
 # Default .alive Username
 ALIVE_USERNAME = os.environ.get("ALIVE_USERNAME", None)
@@ -594,7 +594,7 @@ with bot:
             if event.query.user_id == uid and query.startswith(
                     "@IDnyaKosong"):
                 buttons = paginate_help(0, dugmeler, "helpme")
-                text = f"Usᴇʀʙᴏᴛ​ Tᴇʟᴇɢʀᴀᴍ\n\n**ɪɴʟɪɴᴇ ᴍᴇɴᴜ​**\n\n❥ **ʙᴏᴛ ᴏꜰ :** {DEFAULTUSER}\n❥ **ʙᴏᴛ ᴠᴇʀ :** 5.0\n❥ **ᴍᴏᴅᴜʟᴇꜱ :** {len(plugins)}\n❥ **ʙᴏᴛʏᴏᴜ :** @{BOT_USERNAME} "
+                text = f"Usᴇʀʙᴏᴛ​ Tᴇʟᴇɢʀᴀᴍ\n\n**ɪɴʟɪɴᴇ ᴍᴇɴᴜ​**\n\n❥ **ʙᴏᴛ ᴏꜰ :** {DEFAULTUSER}\n❥ **ʙᴏᴛ ᴠᴇʀ :** 8.0\n❥ **ᴍᴏᴅᴜʟᴇꜱ :** {len(plugins)}\n❥ **ʙᴏᴛʏᴏᴜ :** @{BOT_USERNAME} "
                 await event.edit(text,
                                  file=kyylogo,
                                  buttons=buttons,
@@ -640,7 +640,7 @@ with bot:
                     ]
                 )
             else:
-                reply_pop_up_alert = f"🤴 Name : {DEFAULTUSER}\n🤖 Bot Ver : 7.0\n🛠 Modules : {len(plugins)}\n✨ Branch : Kyy-Userbot"
+                reply_pop_up_alert = f"🤴 Name : {DEFAULTUSER}\n🤖 Bot Ver : 8.0\n🛠 Modules : {len(plugins)}\n✨ Branch : Kyy-Userbot"
                 await event.answer(reply_pop_up_alert, cache_time=0, alert=True)
 
         @tgbot.on(
@@ -957,7 +957,7 @@ with bot:
                 result = builder.photo(
                     file=kyylogo,
                     link_preview=False,
-                    text=f"Usᴇʀʙᴏᴛ​ Tᴇʟᴇɢʀᴀᴍ\n\n**ɪɴʟɪɴᴇ ᴍᴇɴᴜ​​**\n\n❥ **ʙᴏᴛ ᴏꜰ :** {DEFAULTUSER}\n❥ **ʙᴏᴛ ᴠᴇʀ :** 7.0\n❥ **ᴍᴏᴅᴜʟᴇꜱ :** {len(plugins)}\n❥ **ʙᴏᴛʏᴏᴜ :** @{BOT_USERNAME}".format(
+                    text=f"Usᴇʀʙᴏᴛ​ Tᴇʟᴇɢʀᴀᴍ\n\n**ɪɴʟɪɴᴇ ᴍᴇɴᴜ​​**\n\n❥ **ʙᴏᴛ ᴏꜰ :** {DEFAULTUSER}\n❥ **ʙᴏᴛ ᴠᴇʀ :** 8.0\n❥ **ᴍᴏᴅᴜʟᴇꜱ :** {len(plugins)}\n❥ **ʙᴏᴛʏᴏᴜ :** @{BOT_USERNAME}".format(
                         len(dugmeler),
                     ),
                     buttons=buttons,
