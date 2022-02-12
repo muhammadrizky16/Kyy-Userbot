@@ -3,7 +3,7 @@ from userbot import CMD_HELP, bot, CMD_HANDLER as cmd
 from userbot.utils import kyy_cmd
 
 
-@kyy_cmd(pattern="(?:dgrup|dg)\s?(.*)?")
+@kyy_cmd(pattern="(?:dgrup|dg)\\s?(.*)?")
 async def _(event):
     if event.fwd_from:
         return
