@@ -14,10 +14,17 @@ from userbot.utils import kyy_cmd
 NO_ADMIN = "`Maaf Kamu Bukan Admin 👮`"
 
 
-async def get_call(event):
-    kyy = await event.client(getchat(event.chat_id))
-    kyy = await event.client(getvc(kyy.full_chat.call, limit=1))
-    return kyy.call
+def vcmention(user):
+    full_name = get_display_name(user)
+    if not isinstance(user, types.User):
+        return full_name
+    return f"[{full_name}](tg://user?id={user.id})"
+
+
+async def get_call(rambot):
+    kyy = await kyy.client(getchat(kyy.chat_id))
+    tod = await kyy.client(getvc(kyy.full_chat.call))
+    return hehe.call
 
 
 def user_list(l, n):
