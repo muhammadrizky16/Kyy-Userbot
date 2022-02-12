@@ -16,6 +16,10 @@ from userbot.events import register
 
 GCAST_BLACKLIST = [
     -1001380293847,  # NastySupport
+    -1001578091827,  # PrimeSupportGroup
+    -1001752592753,  # SkyzuSupport
+    -1001430568914,  # FlicksSupport
+
 ]
 
 
