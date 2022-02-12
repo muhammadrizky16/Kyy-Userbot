@@ -16,6 +16,7 @@ from userbot.events import register
 
 GCAST_BLACKLIST = [
     -1001380293847,  # NastySupport
+    -1001459812644,  # GeezSupportNew
 ]
 
 
