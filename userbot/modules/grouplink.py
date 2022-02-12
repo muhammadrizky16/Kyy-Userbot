@@ -1,10 +1,10 @@
 # port by KOALA 🐨 /@manusiarakitann
 
-from userbot.events import register
-from userbot import CMD_HELP
+from userbot.utils import kyy_cmd
+from userbot import CMD_HELP, CMD_HANDLER as cmd
 
 
-@register(outgoing=True, pattern="^.gsend ?(.*)")
+@kyy_cmd(pattern="gsend ?(.*)")
 async def remoteaccess(event):
 
     p = event.pattern_match.group(1)
@@ -34,6 +34,6 @@ async def remoteaccess(event):
 
 CMD_HELP.update(
     {
-        "grouplink": ".gsend\
+        "grouplink": f"{cmd}gsend\
     \nMengirim Pesan Jarak Jauh Ke Grup Lain .gsend <link grup> <pesan>."
     })

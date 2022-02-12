@@ -1,9 +1,9 @@
-from userbot.events import register
-from userbot import CMD_HELP, bot
+from userbot.utils import kyy_cmd
+from userbot import CMD_HELP, bot, CMD_HANDLER as cmd
 from telethon.errors.rpcerrorlist import YouBlockedUserError
 
 
-@register(outgoing=True, pattern=r"^\.detect(?: |$)(.*)")
+@kyy_cmd(pattern="detect(?: |$)(.*)")
 async def detect(event):
     if event.fwd_from:
         return
@@ -63,6 +63,6 @@ def user_full_name(user):
 
 CMD_HELP.update({
     "detection":
-        "𝘾𝙤𝙢𝙢𝙖𝙣𝙙: `.detect`\
+        f"𝘾𝙤𝙢𝙢𝙖𝙣𝙙: `{cmd}detect`\
           \n📌 : Melihat Riwayat Grup Yang Pernah/Sedang dimasuki."
 })

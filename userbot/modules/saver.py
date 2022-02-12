@@ -1,8 +1,8 @@
 
 from telethon import events
 from telethon.errors.rpcerrorlist import YouBlockedUserError
-from userbot.events import register
-from userbot import bot, CMD_HELP, ALIVE_NAME
+from userbot.utils import kyy_cmd
+from userbot import bot, CMD_HELP, ALIVE_NAME, CMD_HANDLER as cmd
 from platform import uname
 
 
@@ -11,7 +11,7 @@ DEFAULTUSER = str(ALIVE_NAME) if ALIVE_NAME else uname().node
 # ============================================
 
 
-@register(outgoing=True, pattern="^.igsaver ?(.*)")
+@kyy_cmd(pattern="igsaver ?(.*)")
 async def igsaver(event):
     if event.fwd_from:
         return
@@ -54,5 +54,5 @@ async def igsaver(event):
             await event.delete()
 
 
-CMD_HELP.update({"instasaver": "𝘾𝙤𝙢𝙢𝙖𝙣𝙙: `.igsaver`"
-                 "\n↳ : Download Postingan di Instagram, Silahkan Salin Link Postingan Instagram Yang Ingin Anda Download Terus Kirim Link, Lalu Reply dan Ketik `.igsaver`"})
+CMD_HELP.update({"instasaver": f"𝘾𝙤𝙢𝙢𝙖𝙣𝙙: `{cmd}igsaver`"
+                 f"\n↳ : Download Postingan di Instagram, Silahkan Salin Link Postingan Instagram Yang Ingin Anda Download Terus Kirim Link, Lalu Reply dan Ketik `{cmd}igsaver`"})
