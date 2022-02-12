@@ -9,7 +9,7 @@ import lyricsgenius
 
 from userbot.utils import kyy_cmd
 from userbot import CMD_HELP, GENIUS, lastfm, LASTFM_USERNAME
-from userbot imoort CMD_HANDLER as cmd
+from userbot import CMD_HANDLER as cmd
 from pylast import User
 
 if GENIUS is not None:
