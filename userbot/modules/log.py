@@ -16,6 +16,7 @@ from userbot.utils.tools import media_type
 
 from userbot.utils import kyy_cmd
 
+
 class LOG_CHATS:
     def __init__(self):
         self.RECENT_USER = None
