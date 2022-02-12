@@ -17,7 +17,7 @@ from userbot.utils import autobot
 try:
     bot.start()
 except PhoneNumberInvalidError:
-    print(INVALID_PH)
+    print("The phone number is incorrect!")
     exit(1)
 
 for module_name in ALL_MODULES:
@@ -29,8 +29,12 @@ LOGS.info(
 LOGS.info(
     f"✨Kyy-Userbot✨ ⚙️ V{BOT_VER} [TELAH DIAKTIFKAN!]")
 
-if BOT_TOKEN == "":
-    bot.loop.run_until_complete(autobot())
+if not BOT_TOKEN:
+    LOGS.info(
+        "Starting autobot on @Botfather..."
+    )
+    bot.loop.run_until_complete(autobot()) 
+    
 if len(sys.argv) not in (1, 3, 4):
     bot.disconnect()
 else:
