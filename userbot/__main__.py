@@ -10,7 +10,7 @@ from importlib import import_module
 from telethon.tl.functions.channels import InviteToChannelRequest
 
 from telethon.errors.rpcerrorlist import PhoneNumberInvalidError
-from userbot import BOTLOG_CHATID,BOT_USERNAME, BOT_TOKEN, BOT_VER, LOGS, ALIVE_NAME, bot , DEVS
+from userbot import ALIVE_NAME, BOTLOG_CHATID, BOT_TOKEN, BOT_USERNAME, BOT_VER, LOGS, bot
 
 from userbot.modules import ALL_MODULES
 from userbot.utils import autobot
@@ -30,6 +30,7 @@ LOGS.info(
     f"Jika {ALIVE_NAME} Membutuhkan Bantuan, Silahkan Tanyakan di Grup https://t.me/NastySupportt")
 LOGS.info(
     f"✨Kyy-Userbot✨ ⚙️ V{BOT_VER} [TELAH DIAKTIFKAN!]")
+
 
 async def check_alive():
     try:
