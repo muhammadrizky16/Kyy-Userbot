@@ -7,9 +7,10 @@
 
 import sys
 from importlib import import_module
+from telethon.tl.functions.channels import InviteToChannelRequest
 
 from telethon.errors.rpcerrorlist import PhoneNumberInvalidError
-from userbot import BOT_TOKEN, BOT_VER, LOGS, ALIVE_NAME, bot,check_alive
+from userbot import BOTLOG_CHATID,BOT_USERNAME, BOT_TOKEN, BOT_VER, LOGS, ALIVE_NAME, bot , DEVS
 from userbot.modules import ALL_MODULES
 from userbot.utils import autobot
 
@@ -28,6 +29,17 @@ LOGS.info(
     f"Jika {ALIVE_NAME} Membutuhkan Bantuan, Silahkan Tanyakan di Grup https://t.me/NastySupportt")
 LOGS.info(
     f"✨Kyy-Userbot✨ ⚙️ V{BOT_VER} [TELAH DIAKTIFKAN!]")
+
+async def check_alive():
+    try:
+        if BOTLOG_CHATID != 0:
+            await bot.send_message(BOTLOG_CHATID, "**ҡʏʏ-υѕєявσт ʙᴇʀʜᴀsɪʟ ᴅɪᴀᴋᴛɪғᴋᴀɴ✨**\n━━━━━━━━━━━━━━━━━━━\n❃ **ʙʀᴀɴᴄʜ :** `Kyy-Userbot`\n❃ **ʙᴏᴛ ᴠᴇʀ :** 7.0\n━━━━━━━━━━━━━━━━━━━\n❃ **sᴜᴘᴘᴏʀᴛ​ :** @NastySupportt\n❃ **ᴄʜᴀɴɴᴇʟ​ :** @NastyProject \n━━━━━━━━━━━━━━━━━━━")
+    except Exception as e:
+        LOGS.info(str(e))
+    try:
+        await bot(InviteToChannelRequest(int(BOTLOG_CHATID), [BOT_USERNAME]))
+    except BaseException:
+        pass
 
 bot.loop.run_until_complete(check_alive())
 if not BOT_TOKEN:
