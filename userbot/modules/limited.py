@@ -5,11 +5,11 @@
 from telethon import events
 from telethon.errors.rpcerrorlist import YouBlockedUserError
 
-from userbot import bot, CMD_HELP
-from userbot.events import register
+from userbot import bot, CMD_HELP, CMD_HANDLER as cmd
+from userbot.utils import kyy_cmd
 
 
-@register(outgoing=True, pattern=r"^\.limit(?: |$)(.*)")
+@kyy_cmd(pattern="limit(?: |$)(.*)")
 async def _(event):
     await event.edit("`Checking If You Are Limited...`")
     async with bot.conversation("@SpamBot") as conv:
@@ -26,5 +26,5 @@ async def _(event):
         await event.edit(f"~ {response.message.message}")
 
 
-CMD_HELP.update({"limit": "𝘾𝙤𝙢𝙢𝙖𝙣𝙙: `.limit`"
+CMD_HELP.update({"limit": f"𝘾𝙤𝙢𝙢𝙖𝙣𝙙: `{cmd}limit`"
                  "\n•: ngecek akun kena limit"})

@@ -11,11 +11,11 @@ import textwrap
 
 
 from PIL import Image, ImageDraw, ImageFont
-from userbot import CMD_HELP
-from userbot.events import register
+from userbot import CMD_HELP, CMD_HANDLER as cmd
+from userbot.utils import kyy_cmd
 
 
-@register(outgoing=True, pattern=r"^\.stick (.*)")
+@kyy_cmd(pattern="stick (.*)")
 async def stext(event):
     sticktext = event.pattern_match.group(1)
 
@@ -59,6 +59,6 @@ async def stext(event):
 
 CMD_HELP.update({
     'stickertext':
-    "𝘾𝙤𝙢𝙢𝙖𝙣𝙙: `.stick` <text>"
+    f"𝘾𝙤𝙢𝙢𝙖𝙣𝙙: `{cmd}stick` <text>"
     "\nUsage: Mengubah Teks/Kata-Kata, Menjadi Stiker Anda."
 })

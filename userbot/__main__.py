@@ -7,7 +7,7 @@
 
 import sys
 from importlib import import_module
-from telethon.tl.functions.channels import InviteToChannelRequest
+from telethon.tl.functions.channels import InviteToChannelRequest as Addbot
 
 from telethon.errors.rpcerrorlist import PhoneNumberInvalidError
 from userbot import BOTLOG_CHATID, BOT_USERNAME, BOT_TOKEN, BOT_VER, LOGS, ALIVE_NAME, bot
@@ -35,11 +35,11 @@ LOGS.info(
 async def check_alive():
     try:
         if BOTLOG_CHATID != 0:
-            await bot.send_message(BOTLOG_CHATID, "**ҡʏʏ-υѕєявσт ʙᴇʀʜᴀsɪʟ ᴅɪᴀᴋᴛɪғᴋᴀɴ✨**\n━━━━━━━━━━━━━━━━━━━\n❃ **ʙʀᴀɴᴄʜ :** `Kyy-Userbot`\n❃ **ʙᴏᴛ ᴠᴇʀ :** 7.0\n━━━━━━━━━━━━━━━━━━━\n❃ **sᴜᴘᴘᴏʀᴛ​ :** @NastySupportt\n❃ **ᴄʜᴀɴɴᴇʟ​ :** @NastyProject \n━━━━━━━━━━━━━━━━━━━")
+            await bot.send_message(BOTLOG_CHATID, "**ҡʏʏ-υѕєявσт ʙᴇʀʜᴀsɪʟ ᴅɪᴀᴋᴛɪғᴋᴀɴ✨**\n━━━━━━━━━━━━━━━━━━━\n❃ **ʙʀᴀɴᴄʜ :** `Kyy-Userbot`\n❃ **ʙᴏᴛ ᴠᴇʀ :** 8.0\n━━━━━━━━━━━━━━━━━━━\n❃ **sᴜᴘᴘᴏʀᴛ​ :** @NastySupportt\n❃ **ᴄʜᴀɴɴᴇʟ​ :** @NastyProject \n━━━━━━━━━━━━━━━━━━━")
     except Exception as e:
         LOGS.info(str(e))
     try:
-        await bot(InviteToChannelRequest(int(BOTLOG_CHATID), [BOT_USERNAME]))
+        await bot(Addbot(int(BOTLOG_CHATID), [BOT_USERNAME]))
     except BaseException:
         pass
 

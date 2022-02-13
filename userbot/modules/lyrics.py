@@ -7,15 +7,16 @@
 import os
 import lyricsgenius
 
-from userbot.events import register
+from userbot.utils import kyy_cmd
 from userbot import CMD_HELP, GENIUS, lastfm, LASTFM_USERNAME
+from userbot import CMD_HANDLER as cmd
 from pylast import User
 
 if GENIUS is not None:
     genius = lyricsgenius.Genius(GENIUS)
 
 
-@register(outgoing=True, pattern="^.lyrics (?:(now)|(.*) - (.*))")
+@kyy_cmd(pattern="lyrics (?:(now)|(.*) - (.*))")
 async def lyrics(lyric):
     await lyric.edit("`Getting information...`")
     if GENIUS is None:
@@ -60,8 +61,8 @@ async def lyrics(lyric):
 
 CMD_HELP.update({
     "lyrics":
-    "`.lyrics` **<artist name> - <song name>**"
+    f"`{cmd}lyrics` **<artist name> - <song name>**"
     "\nUsage: Get lyrics matched artist and song."
-    "\n\n`.lyrics now`"
+    f"\n\n`{cmd}lyrics now`"
     "\nUsage: Get lyrics artist and song from current lastfm scrobbling."
 })

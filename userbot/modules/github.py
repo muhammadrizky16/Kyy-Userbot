@@ -1,9 +1,9 @@
 import aiohttp
-from userbot.events import register
-from userbot import CMD_HELP
+from userbot.utils import kyy_cmd
+from userbot import CMD_HELP, CMD_HANDLER as cmd
 
 
-@register(pattern=r".git (.*)", outgoing=True)
+@kyy_cmd(pattern="git (.*)")
 async def github(event):
     URL = f"https://api.github.com/users/{event.pattern_match.group(1)}"
     await event.get_chat()
@@ -45,6 +45,6 @@ async def github(event):
 
 
 CMD_HELP.update({
-    "github": ".git <nama pengguna>"
+    "github": f"{cmd}git <nama pengguna>"
     "\nPenjelasan: Seperti .whois tetapi untuk nama pengguna GitHub."
 })

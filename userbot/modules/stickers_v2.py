@@ -1,11 +1,11 @@
 from telethon import events
 from telethon.errors.rpcerrorlist import YouBlockedUserError
 import io
-from userbot import bot, CMD_HELP
-from userbot.events import register
+from userbot import bot, CMD_HELP, CMD_HANDLER as cmd
+from userbot.utils import kyy_cmd
 
 
-@register(outgoing=True, pattern="^.itos$")
+@kyy_cmd(pattern="itos$")
 async def _(event):
     if event.fwd_from:
         return
@@ -38,7 +38,7 @@ async def _(event):
             await event.client.delete_message(event.chat_id, [msg.id, response.id])
 
 
-@register(outgoing=True, pattern="^.get$")
+@kyy_cmd(pattern="get$")
 async def _(event):
     if event.fwd_from:
         return
@@ -84,7 +84,7 @@ async def _(event):
         await bot.send_read_acknowledge(conv.chat_id)
 
 
-@register(outgoing=True, pattern="^.stoi$")
+@kyy_cmd(pattern="stoi$")
 async def sticker_to_png(sticker):
     if not sticker.is_reply:
         await sticker.edit("`NULL information to feftch...`")
@@ -107,9 +107,9 @@ async def sticker_to_png(sticker):
     return
 
 
-CMD_HELP.update({"stickers2": "𝘾𝙤𝙢𝙢𝙖𝙣𝙙: `.itos`"
+CMD_HELP.update({"stickers2": f"𝘾𝙤𝙢𝙢𝙖𝙣𝙙: `{cmd}itos`"
                  "\n↳ : Balas ke sticker atau gambar .itos untuk mengambil sticker bukan ke pack."
-                 "\n\n𝘾𝙤𝙢𝙢𝙖𝙣𝙙: `.get`"
+                 f"\n\n𝘾𝙤𝙢𝙢𝙖𝙣𝙙: `{cmd}get`"
                  "\n↳ : Balas ke sticker untuk mendapatkan file 'PNG' sticker."
-                 "\n\n𝘾𝙤𝙢𝙢𝙖𝙣𝙙: `.stoi`"
+                 f"\n\n𝘾𝙤𝙢𝙢𝙖𝙣𝙙: `{cmd}stoi`"
                  "\n↳ : Balas Ke sticker untuk mendapatkan file 'PNG' sticker."})

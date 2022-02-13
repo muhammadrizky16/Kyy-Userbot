@@ -9,12 +9,13 @@ from asyncio import sleep
 from telethon.tl.functions.messages import ImportChatInviteRequest as Get
 
 from userbot import BOTLOG, BOTLOG_CHATID, CMD_HELP, LOGS
-from userbot.events import register
+from userbot import CMD_HANDLER as cmd
+from userbot.utils import kyy_cmd
 from userbot.modules.sql_helper import broadcast_sql as sql
 from userbot.utils import parse_pre
 
 
-@register(outgoing=True, pattern=r"^\.sendto ?(.*)")
+@kyy_cmd(pattern="sendto ?(.*)")
 async def catbroadcast_send(event):
     if event.fwd_from:
         return
@@ -66,7 +67,7 @@ async def catbroadcast_send(event):
         )
 
 
-@register(outgoing=True, pattern=r"^\.fwdto ?(.*)")
+@kyy_cmd(pattern="fwdto ?(.*)")
 async def catbroadcast_send(event):
     if event.fwd_from:
         return
@@ -118,7 +119,7 @@ async def catbroadcast_send(event):
         )
 
 
-@register(outgoing=True, pattern=r"^\.addto ?(.*)")
+@kyy_cmd(pattern="addto ?(.*)")
 async def catbroadcast_add(event):
     if event.fwd_from:
         return
@@ -154,7 +155,7 @@ async def catbroadcast_add(event):
             )
 
 
-@register(outgoing=True, pattern=r"^\.rmfrom ?(.*)")
+@kyy_cmd(pattern="rmfrom ?(.*)")
 async def catbroadcast_remove(event):
     if event.fwd_from:
         return
@@ -190,7 +191,7 @@ async def catbroadcast_remove(event):
             )
 
 
-@register(outgoing=True, pattern=r"^\.list ?(.*)")
+@kyy_cmd(pattern="list ?(.*)")
 async def catbroadcast_list(event):
     if event.fwd_from:
         return
@@ -230,7 +231,7 @@ async def catbroadcast_list(event):
     await catevent.edit(finaloutput)
 
 
-@register(outgoing=True, pattern=r"^\.listall ?(.*)")
+@kyy_cmd(pattern="listall ?(.*)")
 async def catbroadcast_list(event):
     if event.fwd_from:
         return
@@ -246,7 +247,7 @@ async def catbroadcast_list(event):
     await event.efit(resultext)
 
 
-@register(outgoing=True, pattern=r"^\.frmfrom ?(.*)")
+@kyy_cmd(pattern="frmfrom ?(.*)")
 async def catbroadcast_remove(event):
     if event.fwd_from:
         return
@@ -303,7 +304,7 @@ async def catbroadcast_remove(event):
             )
 
 
-@register(outgoing=True, pattern=r"^\.delc ?(.*)")
+@kyy_cmd(pattern="delc ?(.*)")
 async def catbroadcast_delete(event):
     if event.fwd_from:
         return
@@ -329,16 +330,16 @@ async def catbroadcast_delete(event):
 
 CMD_HELP.update(
     {
-        "siaran": "**𝘾𝙤𝙢𝙢𝙖𝙣𝙙 : **`siaran`\
-        \n\n  **𝘾𝙤𝙢𝙢𝙖𝙣𝙙 :** `.sendto` <category_name>\
+        "siaran": f"**𝘾𝙤𝙢𝙢𝙖𝙣𝙙 : **`siaran`\
+        \n\n  **𝘾𝙤𝙢𝙢𝙖𝙣𝙙 :** `{cmd}sendto` <category_name>\
         \n  **Usage : **akan mengirim pesan balasan ke semua obrolan dalam kategori yang diberikan.\
-        \n\n  **𝘾𝙤𝙢𝙢𝙖𝙣𝙙 :** `.fwdto` <category_name>\
+        \n\n  **𝘾𝙤𝙢𝙢𝙖𝙣𝙙 :** `{cmd}fwdto` <category_name>\
         \n  **Usage : **akan meneruskan pesan yang dibalas ke semua obrolan di kategori berikan. \
-        \n\n  **𝘾𝙤𝙢𝙢𝙖𝙣𝙙 :** `.addto` <category name>\
+        \n\n  **𝘾𝙤𝙢𝙢𝙖𝙣𝙙 :** `{cmd}addto` <category name>\
         \n  **Usage : **Ini akan menambahkan obrolan / pengguna / saluran ini ke kategori nama yang diberikan. \
-        \n\n  **𝘾𝙤𝙢𝙢𝙖𝙣𝙙 :** `.rmfrom` <category name>\
+        \n\n  **𝘾𝙤𝙢𝙢𝙖𝙣𝙙 :** `{cmd}rmfrom` <category name>\
         \n  **Usage : **Untuk menghapus Obrolan / pengguna / saluran dari nama kategori yang diberikan. \
-        \n\n  **𝘾𝙤𝙢𝙢𝙖𝙣𝙙 :** `.list` <category_name>\
+        \n\n  **𝘾𝙤𝙢𝙢𝙖𝙣𝙙 :** `{cmd}list` <category_name>\
         \n  **Usage : **Akan menampilkan daftar semua obrolan dalam kategori yang diberikan. \
         \n\n  **𝘾𝙤𝙢𝙢𝙖𝙣𝙙 :** `.listall`\
         \n  **Usage : **Akan menampilkan daftar semua nama kategori. \

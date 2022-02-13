@@ -10,11 +10,11 @@ from telethon.tl import functions, types
 from telethon.tl.functions.messages import GetStickerSetRequest
 from telethon.tl.functions.messages import ImportChatInviteRequest as Get
 
-from userbot.events import register
-from userbot import BOTLOG, BOTLOG_CHATID, CMD_HELP
+from userbot.utils import kyy_cmd
+from userbot import BOTLOG, BOTLOG_CHATID, CMD_HELP, CMD_HANDLER as cmd
 
 
-@register(outgoing=True, pattern=r"^\.sspam(?: |$)(.*)")
+@kyy_cmd(pattern="sspam(?: |$)(.*)")
 async def stickerpack_spam(event):
     if event.fwd_from:
         return
@@ -74,10 +74,7 @@ async def stickerpack_spam(event):
         await event.client.send_file(BOTLOG_CHATID, reqd_sticker_set.documents[0])
 
 
-CMD_HELP.update(
-    {
-        "sspam": "**Plugin : Sticker Pack Spam**\
-        \n\n**Command  :** `.sspam`\
-        \n**Usage :** `Balas ke sticker, Fungsi Spam Satu Pack.`"
-    }
-)
+CMD_HELP.update({
+    "sspam": f"𝘾𝙤𝙢𝙢𝙖𝙣𝙙: `{cmd}sspam`\
+        \n↳ : Balas ke sticker, Fungsi Spam Satu Pack."
+})
