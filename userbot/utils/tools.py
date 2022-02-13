@@ -8,6 +8,7 @@ import os.path
 from html_telegraph_poster import TelegraphPoster
 from typing import Optional, Union
 from userbot import bot, LOGS
+from userbot.utils.format import md_to_text, paste_message
 
 from telethon.tl.functions.channels import GetParticipantRequest
 from telethon.tl.types import ChannelParticipantAdmin, ChannelParticipantCreator, DocumentAttributeFilename
