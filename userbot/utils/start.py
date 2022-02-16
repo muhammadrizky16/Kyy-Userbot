@@ -3,8 +3,6 @@ from telethon import Button
 from userbot import BOTLOG, BOTLOG_CHATID, LOGS, tgbot
 
 
-
-
 async def startupmessage():
     """
     Start up message in telegram logger group

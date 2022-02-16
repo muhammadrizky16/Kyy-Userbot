@@ -19,7 +19,6 @@ from telethon.tl.functions.phone import InviteToGroupCallRequest as invitetovc
 
 from userbot import CMD_HANDLER as cmd
 from userbot import CMD_HELP
-from userbot.events import register
 from userbot.utils import edit_delete, edit_or_reply, kyy_cmd
 
 
@@ -38,12 +37,13 @@ def vcmention(user):
 
 async def get_call(kyybot):
     kyy = await kyy.client(getchat(kyy.chat_id))
-    tod = await kyy.client(getvc(kyy.full_chat.call))
+    await kyy.client(getvc(kyy.full_chat.call))
     return hehe.call
+
 
 def user_list(l, n):
     for i in range(0, len(l), n):
-        yield l[i : i + n]
+        yield l[i: i + n]
 
 
 @kyy_cmd(pattern="startvc$")
