@@ -13,7 +13,7 @@ from telethon.errors.rpcerrorlist import PhoneNumberInvalidError
 from userbot import BOTLOG_CHATID, BOT_USERNAME, BOT_TOKEN, BOT_VER, LOGS, ALIVE_NAME, bot
 
 from userbot.modules import ALL_MODULES
-from userbot.utils import autobot
+from userbot.utils import autobot, startupmessage
 
 
 try:
@@ -35,7 +35,7 @@ LOGS.info(
 async def check_alive():
     try:
         if BOTLOG_CHATID != 0:
-            await send_message()
+            await startupmessage()
     except Exception as e:
         LOGS.info(str(e))
     try:
