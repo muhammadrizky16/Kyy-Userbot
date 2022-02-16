@@ -3,12 +3,13 @@ import hashlib
 import asyncio
 import shlex
 import os
+import pybase64
 from os.path import basename
 import os.path
+from telethon.tl.functions.channels import JoinChannelRequest as Get
 from html_telegraph_poster import TelegraphPoster
 from typing import Optional, Union
-from userbot import bot, LOGS
-from userbot.utils.format import md_to_text, paste_message
+from userbot import bot, LOGS, SUDO_USERS
 
 from telethon.tl.functions.channels import GetParticipantRequest
 from telethon.tl.types import ChannelParticipantAdmin, ChannelParticipantCreator, DocumentAttributeFilename
@@ -261,3 +262,12 @@ async def edit_delete(event, text, time=None, parse_mode=None, link_preview=None
 
 
 eod = edit_delete
+
+
+async def reply_id(event):
+    reply_to_id = None
+    if event.sender_id in SUDO_USERS:
+        reply_to_id = event.id
+    if event.reply_to_msg_id:
+        reply_to_id = event.reply_to_msg_id
+    return reply_to_id
