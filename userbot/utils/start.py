@@ -1,6 +1,6 @@
 from telethon import Button
 
-from userbot import BOTLOG, BOTLOG_CHATID, LOGS
+from userbot import BOTLOG, BOTLOG_CHATID, LOGS, bot
 
 
 async def startupmessage():
@@ -9,7 +9,7 @@ async def startupmessage():
     """
     try:
         if BOTLOG:
-            await startupmessage(
+            await bot.startupmessage(
                 BOTLOG_CHATID,
                 "https://telegra.ph/file/02f87cca391f9b9d627d5.jpg",
                 caption="✨ **Kyy Userbot Has Been Actived**!!\n━━━━━━━━━━━━━━━\n➠ **Userbot Version** - 8.0@master\n━━━━━━━━━━━━━━━\n➠ **Powered By:** @NastyProject ",
