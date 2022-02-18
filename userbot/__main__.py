@@ -35,7 +35,7 @@ LOGS.info(
 async def check_alive():
     try:
         if BOTLOG_CHATID != 0:
-            await bot.startupmessage()
+            await bot.send_message(BOTLOG_CHATID, "✨ **Kyy Userbot Has Been Actived**!!\n━━━━━━━━━━━━━━━\n➠ **Userbot Version** - 8.0@master\n━━━━━━━━━━━━━━━\n➠ **Powered By:** @NastyProject ")
     except Exception as e:
         LOGS.info(str(e))
     try:
