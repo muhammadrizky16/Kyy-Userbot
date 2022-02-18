@@ -35,7 +35,7 @@ LOGS.info(
 async def check_alive():
     try:
         if BOTLOG_CHATID != 0:
-            await startupmessage()
+            await bot.startupmessage()
     except Exception as e:
         LOGS.info(str(e))
     try:
