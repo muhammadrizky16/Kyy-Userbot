@@ -46,11 +46,12 @@ DEF_UNAPPROVED_MSG = (
     "╔═════════════════════╗\n"
     "“𝐖𝐞𝐥𝐜𝐨𝐦𝐞 𝐭𝐨 𝐓𝐡𝐞 𝐏𝐫𝐢𝐯𝐚𝐜𝐲 𝐌𝐞𝐬𝐬𝐚𝐠𝐞”    ”\n"
     "╚═════════════════════╝\n"
-    "**ᴛᴏʟᴏɴɢ ᴊᴀɴɢᴀɴ ᴍᴇʟᴀᴋᴜᴋᴀɴ sᴘᴀᴍ ᴄʜᴀᴛ ᴋᴇᴘᴀᴅᴀ ᴍᴀᴊɪᴋᴀɴ sᴀʏᴀ** \n"
-    f"**ᴋᴀʀᴇɴᴀ sᴀʏᴀ ᴀᴋᴀɴ ᴏᴛᴏᴍᴀᴛɪs ᴍᴇᴍʙʟᴏᴋɪʀ ᴋᴀᴍᴜ, ᴛᴜɴɢɢᴜ sᴀᴍᴘᴀɪ {DEFAULTUSER} ᴍᴇɴᴇʀɪᴍᴀ ᴘᴇsᴀɴ ᴋᴀᴍᴜ [⚠️]({ALIVE_LOGO})** \n"
+    "**Dimohon Untuk Tidak Melakukan Spam Ke Room Chat ini** \n"
+    f"**Karena bisa menggangu {ALIVE_NAME} [⚠️]({ALIVE_LOGO})\n"
+    f"Jika Anda Melakukan Spamming, Anda Akan Terblokir Otomatis\n"
     "╔═════════════════════╗\n"
-    "│○›Pᴇsᴀɴ Oᴛᴏᴍᴀᴛɪs           \n"
-    f"│○›Bʏ ҡʏʏ-υѕєявσт           \n"
+    f"➠**Owner :** {ALIVE_NAME} \n"
+    f"➠**Pesan otomatis by Kyy-Userbot** \n"
     "╚═════════════════════╝")
 # =================================================================
 
