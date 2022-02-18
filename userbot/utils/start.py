@@ -1,6 +1,6 @@
 from telethon import Button
 
-from userbot import BOTLOG, BOTLOG_CHATID, LOGS, tgbot
+from userbot import BOTLOG, BOTLOG_CHATID, LOGS
 
 
 async def startupmessage():
