@@ -17,13 +17,13 @@ from youtube_dl.utils import (ContentTooShortError, DownloadError,
                               UnavailableVideoError, XAttrMetadataError)
 from youtubesearchpython import SearchVideos
 
-from userbot.events import register
-from userbot import CMD_HELP, ALIVE_NAME
+from userbot.utils import kyy_cmd
+from userbot import CMD_HELP, ALIVE_NAME, CMD_HANDLER as cmd
 
 DEFAULTUSER = str(ALIVE_NAME) if ALIVE_NAME else uname().node
 
 
-@register(outgoing=True, pattern=r"^\.song (.*)")
+@kyy_cmd(pattern="song (.*)")
 async def download_video(event):
     a = event.text
     if len(a) >= 5 and a[5] == "s":
@@ -129,7 +129,7 @@ Connected to server...
         pass
 
 
-@register(outgoing=True, pattern=r"^\.vsongs (.*)")
+@kyy_cmd(pattern="vsongs (.*)")
 async def download_vsong(event):
     x = await event.edit("Processing..")
     url = event.pattern_match.group(1)
@@ -204,7 +204,7 @@ async def download_vsong(event):
     await x.delete()
 
 
-@register(outgoing=True, pattern=r"^\.lirik (.*)")
+@kyy_cmd(pattern="lirik (.*)")
 async def original(event):
     if not event.pattern_match.group(1):
         return await event.edit("Beri Saya Sebuah Judul Lagu Untuk Mencari Lirik.\n**Contoh** : `.lirik` <Judul Lagu>")
@@ -226,11 +226,11 @@ async def original(event):
 
 CMD_HELP.update(
     {
-        "musikdownload": "𝘾𝙤𝙢𝙢𝙖𝙣𝙙: `.song <Penyanyi atau Band - Judul Lagu>`\
+        "musikdownload": f"𝘾𝙤𝙢𝙢𝙖𝙣𝙙: `{cmd}song <Penyanyi atau Band - Judul Lagu>`\
          \n↳ : Mengunduh Sebuah Lagu Yang Diinginkan.\
-         \n𝘾𝙤𝙢𝙢𝙖𝙣𝙙: `.vsong` `<judul lagu>`\
+         \n𝘾𝙤𝙢𝙢𝙖𝙣𝙙: `{cmd}vsong` `<judul lagu>`\
          \n↳ : `unggah video lagu.`\
-         \n𝘾𝙤𝙢𝙢𝙖𝙣𝙙: `.lirik` <Penyanyi atau Band - Judul Lagu>`\
+         \n𝘾𝙤𝙢𝙢𝙖𝙣𝙙: `{cmd}lirik` <Penyanyi atau Band - Judul Lagu>`\
          \n↳ : Mencari Lirik Lagu Yang Diinginkan."
     }
 )

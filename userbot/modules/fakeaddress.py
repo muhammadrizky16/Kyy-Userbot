@@ -2,13 +2,13 @@ import json
 import urllib.request
 
 
-from userbot.events import register
-from userbot import CMD_HELP
+from userbot.utils import kyy_cmd
+from userbot import CMD_HELP, CMD_HANDLER as cmd
 
 
 # Port By @VckyouuBitch From GeezProject
 # Buat Kamu Yang Hapus Credits. Intinya Kamu Anjing:)
-@register(outgoing=True, pattern="^.ip(?: |$)(.*)")
+@kyy_cmd(pattern="ip(?: |$)(.*)")
 async def _(event):
     if event.fwd_from:
         return
@@ -39,8 +39,8 @@ async def _(event):
 
 CMD_HELP.update(
     {
-        "fakeaddress": "**IP HACK**\
-\n\n**Syntax : **`.ip <ip address>`\
+        "fakeaddress": f"**IP HACK**\
+\n\n**Syntax : **`{cmd}ip <ip address>`\
 \n**Usage :** Memberikan detail tentang alamat ip."
     }
 )

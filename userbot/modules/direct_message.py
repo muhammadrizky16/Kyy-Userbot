@@ -1,11 +1,9 @@
-from userbot.events import register
-from userbot import CMD_HELP
-
-# Ported By @VckyouuBitch From GeezProject
-# Devoted To GeezProject
+from userbot.utils import kyy_cmd
+from userbot import CMD_HELP, CMD_HANDLER as cmd
 
 
-@register(outgoing=True, pattern=r"^\.(?:dm)\s?(.*)?")
+
+@kyy_cmd(pattern="(?:dm)\s?(.*)?")
 async def remoteaccess(event):
 
     p = event.pattern_match.group(1)
@@ -35,6 +33,6 @@ async def remoteaccess(event):
 
 CMD_HELP.update(
     {
-        "message": "`.dm`\
+        "message": f"`{cmd}dm`\
     \nMengirim Pesan Dengan Jarak Jauh Dengan .dm <username> <pesan>."
     })

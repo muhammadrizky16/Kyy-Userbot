@@ -11,8 +11,8 @@ from subprocess import PIPE, Popen
 import aria2p
 from requests import get
 
-from userbot import CMD_HELP, LOGS, TEMP_DOWNLOAD_DIRECTORY
-from userbot.events import register
+from userbot import CMD_HELP, LOGS, TEMP_DOWNLOAD_DIRECTORY, CMD_HANDLER as cmd
+from userbot.utils import kyy_cmd
 from userbot.utils import humanbytes
 
 
@@ -66,7 +66,7 @@ aria2 = aria2p.API(
 aria2.set_global_options({"dir": download_path})
 
 
-@register(outgoing=True, pattern=r"^\.amag(?: |$)(.*)")
+@kyy_cmd(pattern="amag(?: |$)(.*)")
 async def magnet_download(event):
     magnet_uri = event.pattern_match.group(1)
     # Add Magnet URI Into Queue
@@ -82,7 +82,7 @@ async def magnet_download(event):
     await check_progress_for_dl(gid=new_gid, event=event, previous=None)
 
 
-@register(outgoing=True, pattern=r"^\.ator(?: |$)(.*)")
+@kyy_cmd(pattern="ator(?: |$)(.*)")
 async def torrent_download(event):
     torrent_file_path = event.pattern_match.group(1)
     # Add Torrent Into Queue
@@ -96,7 +96,7 @@ async def torrent_download(event):
     await check_progress_for_dl(gid=gid, event=event, previous=None)
 
 
-@register(outgoing=True, pattern=r"^\.aurl(?: |$)(.*)")
+@kyy_cmd(pattern="aurl(?: |$)(.*)")
 async def aurl_download(event):
     uri = [event.pattern_match.group(1)]
     try:  # Add URL Into Queue
@@ -112,7 +112,7 @@ async def aurl_download(event):
         await check_progress_for_dl(gid=new_gid, event=event, previous=None)
 
 
-@register(outgoing=True, pattern=r"^\.aclear(?: |$)(.*)")
+@kyy_cmd(pattern="aclear(?: |$)(.*)")
 async def remove_all(event):
     try:
         removed = aria2.remove_all(force=True)
@@ -127,7 +127,7 @@ async def remove_all(event):
     await sleep(2.5)
 
 
-@register(outgoing=True, pattern=r"^\.apause(?: |$)(.*)")
+@kyy_cmd(pattern="apause(?: |$)(.*)")
 async def pause_all(event):
     # Pause ALL Currently Running Downloads.
     await event.edit("`Pausing downloads...`")
@@ -137,7 +137,7 @@ async def pause_all(event):
     await sleep(2.5)
 
 
-@register(outgoing=True, pattern=r"^\.aresume(?: |$)(.*)")
+@kyy_cmd(pattern="aresume(?: |$)(.*)")
 async def resume_all(event):
     await event.edit("`Resuming downloads...`")
     aria2.resume_all()
@@ -147,7 +147,7 @@ async def resume_all(event):
     await event.delete()
 
 
-@register(outgoing=True, pattern=r"^\.ashow(?: |$)(.*)")
+@kyy_cmd(pattern="ashow(?: |$)(.*)")
 async def show_all(event):
     downloads = aria2.get_downloads()
     msg = ""
@@ -257,11 +257,11 @@ async def check_progress_for_dl(gid, event, previous):
 
 CMD_HELP.update(
     {
-        "aria": ">`.aurl [URL]` (or) >`.amag [Magnet Link]` (or) >`.ator [path to torrent file]`"
+        "aria": f">`{cmd}aurl [URL]` (or) >`{cmd}=amag [Magnet Link]` (or) >`{cmd}ator [path to torrent file]`"
         "\nUsage: Downloads the file into your userbot server storage."
-        "\n\n>`.apause (or) .aresume`"
+        f"\n\n>`{cmd}apause (or) .aresume`"
         "\nUsage: Pauses/resumes on-going downloads."
-        "\n\n>`.aclear`"
+        f"\n\n>`{cmd}aclear`"
         "\nUsage: Clears the download queue, deleting all on-going downloads."
-        "\n\n>`.ashow`"
+        f"\n\n>`{cmd}ashow`"
         "\nUsage: Shows progress of the on-going downloads."})
