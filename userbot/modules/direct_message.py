@@ -2,8 +2,7 @@ from userbot.utils import kyy_cmd
 from userbot import CMD_HELP, CMD_HANDLER as cmd
 
 
-
-@kyy_cmd(pattern="(?:dm)\s?(.*)?")
+@kyy_cmd(pattern="(?:dm)\\s?(.*)?")
 async def remoteaccess(event):
 
     p = event.pattern_match.group(1)

@@ -225,12 +225,9 @@ async def original(event):
 
 
 CMD_HELP.update(
-    {
-        "musikdownload": f"𝘾𝙤𝙢𝙢𝙖𝙣𝙙: `{cmd}song <Penyanyi atau Band - Judul Lagu>`\
+    {"musikdownload": f"𝘾𝙤𝙢𝙢𝙖𝙣𝙙: `{cmd}song <Penyanyi atau Band - Judul Lagu>`\
          \n↳ : Mengunduh Sebuah Lagu Yang Diinginkan.\
          \n𝘾𝙤𝙢𝙢𝙖𝙣𝙙: `{cmd}vsong` `<judul lagu>`\
          \n↳ : `unggah video lagu.`\
          \n𝘾𝙤𝙢𝙢𝙖𝙣𝙙: `{cmd}lirik` <Penyanyi atau Band - Judul Lagu>`\
-         \n↳ : Mencari Lirik Lagu Yang Diinginkan."
-    }
-)
+         \n↳ : Mencari Lirik Lagu Yang Diinginkan."})
