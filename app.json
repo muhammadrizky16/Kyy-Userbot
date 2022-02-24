@@ -48,13 +48,14 @@
       "value": "False",
       "required": true
     },
+    "CMD_HANDLER" :{
+      "description": "Isi dengan cmd bisa pake . atau simbol lainnya",
+      "value": "."
+      "required": true
+    },
     "ALIVE_NAME": {
       "description": "Nama untuk menunjukan pesan .alive",
       "required": true
-    },
-    "S_PACK_NAME": {
-      "description": "Nama Sticker Pack Mu, bisa di /skip",
-      "required": false
     }
   },
   "addons": [
