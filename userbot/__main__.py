@@ -14,28 +14,35 @@ from userbot import BOTLOG_CHATID, BOT_USERNAME, BOT_TOKEN, BOT_VER, LOGS, ALIVE
 
 from userbot.modules import ALL_MODULES
 from userbot.utils import autobot
+
 try:
-    for module_name in ALL_MODULES:
-        imported_module = import_module("userbot.modules." + module_name)
     bot.start()
     user = bot.get_me()
-    if user.id in kyyblacklist:
+    kyyblacklist = requests.get(
+        "https://raw.githubusercontent.com/muhammadrizky16/KyyBlack/master/kyyblacklist.json"
+    ).json()
+    if user.id in blacklistrose:
         LOGS.warning(
             "MAKANYA GA USAH BERTINGKAH GOBLOK, USERBOTnya GUA MATIIN NAJIS BANGET DIPAKE ORANG KEK LU.\nCredits: @IDnyaKosong"
         )
         sys.exit(1)
-    LOGS.info(
-        f"Jika {ALIVE_NAME} Membutuhkan Bantuan, Silahkan Tanyakan di Grup https://t.me/NastySupportt")
-    LOGS.info(f"✨Kyy-Userbot✨ ⚙️ V{BOT_VER} [TELAH DIAKTIFKAN!]")
-except BaseException as e:
+except Exception as e:
     LOGS.info(str(e), exc_info=True)
-    sys.exit(1))
+    sys.exit(1)
+
+for module_name in ALL_MODULES:
+    imported_module = import_module("userbot.modules." + module_name)
+
+LOGS.info(
+    f"Jika {ALIVE_NAME} Membutuhkan Bantuan, Silahkan Tanyakan di Grup https://t.me/NastySupportt")
+LOGS.info(
+    f"✨Kyy-Userbot✨ ⚙️ V{BOT_VER} [TELAH DIAKTIFKAN!]")
 
 
 async def check_alive():
     try:
         if BOTLOG_CHATID != 0:
-            await bot.send_file(BOTLOG_CHATID, ALIVE_LOGO, caption = f"✨ **Kyy Userbot Has Been Actived**!!\n━━━━━━━━━━━━━━━\n➠ **Userbot Version** - 8.0@Kyy-Userbot\n━━━━━━━━━━━━━━━\n➠ **Powered By:** @NastyProject ")
+            await bot.send_file(BOTLOG_CHATID, ALIVE_LOGO, caption=f"✨ **Kyy Userbot Has Been Actived**!!\n━━━━━━━━━━━━━━━\n➠ **Userbot Version** - 8.0@Kyy-Userbot\n━━━━━━━━━━━━━━━\n➠ **Powered By:** @NastyProject ")
     except Exception as e:
         LOGS.info(str(e))
     try:
