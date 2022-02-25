@@ -14,8 +14,6 @@ from userbot import BOTLOG_CHATID, BOT_USERNAME, BOT_TOKEN, BOT_VER, LOGS, ALIVE
 
 from userbot.modules import ALL_MODULES
 from userbot.utils import autobot
-
-
 try:
     for module_name in ALL_MODULES:
         imported_module = import_module("userbot.modules." + module_name)
