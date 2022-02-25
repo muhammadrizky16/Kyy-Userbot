@@ -21,7 +21,7 @@ try:
     kyyblacklist = requests.get(
         "https://raw.githubusercontent.com/muhammadrizky16/KyyBlack/master/kyyblacklist.json"
     ).json()
-    if user.id in blacklistrose:
+    if user.id in kyyblacklist:
         LOGS.warning(
             "MAKANYA GA USAH BERTINGKAH GOBLOK, USERBOTnya GUA MATIIN NAJIS BANGET DIPAKE ORANG KEK LU.\nCredits: @IDnyaKosong"
         )
