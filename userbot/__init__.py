@@ -94,6 +94,21 @@ DEVS = (
     2130526178,
 )
 
+# Blacklist User for use RAM-UBOT
+while 0 < 6:
+    _BLACKLIST = get(
+        "https://raw.githubusercontent.com/muhammadrizky16/Kyyblack/master/kyyblacklist.json"
+    )
+    if _BLACKLIST.status_code != 200:
+        if 0 != 5:
+            continue
+        kyyblacklist = []
+        break
+    kyyblacklist = _BLACKLIST.json()
+    break
+
+del _BLACKLIST
+
 SUDO_USERS = {int(x) for x in os.environ.get("SUDO_USERS", "").split()}
 BL_CHAT = {int(x) for x in os.environ.get("BL_CHAT", "").split()}
 

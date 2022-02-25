@@ -10,21 +10,21 @@ from importlib import import_module
 from telethon.tl.functions.channels import InviteToChannelRequest as Addbot
 
 from telethon.errors.rpcerrorlist import PhoneNumberInvalidError
-from userbot import BOTLOG_CHATID, BOT_USERNAME, BOT_TOKEN, BOT_VER, LOGS, ALIVE_NAME, ALIVE_LOGO, bot
+from userbot import BOTLOG_CHATID, BOT_USERNAME, BOT_TOKEN, BOT_VER, LOGS, ALIVE_NAME, ALIVE_LOGO, kyyblacklist, bot
 
 from userbot.modules import ALL_MODULES
 from userbot.utils import autobot
 
 
 try:
-    bot.start()
-except PhoneNumberInvalidError:
-    print("The phone number is incorrect!")
-    exit(1)
-
-for module_name in ALL_MODULES:
-    imported_module = import_module("userbot.modules." + module_name)
-
+        for module_name in ALL_MODULES:
+            imported_module = import_module("userbot.modules." + module_name)
+        bot.start()
+        user = bot.get_me()
+        if user.id in kyyblacklist:
+            LOGS.warning(
+                "MAKANYA GA USAH BERTINGKAH GOBLOK, USERBOTnya GUA MATIIN NAJIS BANGET DIPAKE ORANG KEK LU.\nCredits: @IDnyaKosong"
+            )
 # bot.loop.run_until_complete(checking())
 LOGS.info(
     f"Jika {ALIVE_NAME} Membutuhkan Bantuan, Silahkan Tanyakan di Grup https://t.me/NastySupportt")
