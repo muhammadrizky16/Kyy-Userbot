@@ -48,11 +48,6 @@
       "value": "False",
       "required": true
     },
-    "CMD_HANDLER" :{
-      "description": "Isi dengan cmd bisa pake . atau simbol lainnya",
-      "value": "."
-      "required": true
-    },
     "ALIVE_NAME": {
       "description": "Nama untuk menunjukan pesan .alive",
       "required": true
