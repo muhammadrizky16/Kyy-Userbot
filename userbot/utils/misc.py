@@ -178,8 +178,7 @@ async def create_quotly(
         raise er
     if request.get("ok"):
         with open(file_name, "wb") as file:
-            image = base64.decodebytes(
-                request["result"]["image"].encode("utf-8"))
+            image = base64.decodebytes(request["result"]["image"].encode("utf-8"))
             file.write(image)
         return file_name
     raise Exception(str(request))
@@ -188,7 +187,7 @@ async def create_quotly(
 async def Carbon(
     code,
     base_url="https://carbonara-42.herokuapp.com/api/cook",
-    file_name="Kyy-Userbot",
+    file_name="Man-Userbot",
     **kwargs,
 ):
     kwargs["code"] = code
