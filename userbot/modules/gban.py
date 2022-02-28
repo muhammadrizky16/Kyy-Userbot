@@ -2,7 +2,8 @@ from telethon.events import ChatAction
 from telethon.tl.functions.contacts import BlockRequest, UnblockRequest
 from telethon.tl.types import MessageEntityMentionName
 
-from userbot import ALIVE_NAME, CMD_HELP, DEVS, bot, CMD_HANDLER as cmd
+from userbot import ALIVE_NAME, CMD_HELP, DEVS, bot
+from userbot import CMD_HANDLER as cmd
 from userbot.events import register
 from userbot.utils import kyy_cmd
 
