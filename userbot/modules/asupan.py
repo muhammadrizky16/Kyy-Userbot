@@ -1,7 +1,6 @@
 # 🍀 © @tofik_dn
 # ⚠️ Do not remove credits
 
-import requests
 
 from userbot import CMD_HANDLER as cmd
 from userbot import CMD_HELP
