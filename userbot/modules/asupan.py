@@ -3,42 +3,32 @@
 
 import requests
 
-from userbot import CMD_HELP, CMD_HANDLER as cmd
+from userbot import CMD_HANDLER as cmd
+from userbot import CMD_HELP
 from userbot.utils import kyy_cmd
+import random
+from userbot import owner
+from telethon.tl.types import InputMessagesFilterVideo
 
 
-@kyy_cmd(pattern=".asupan$")
+@kyy_cmd(pattern="asupan$")
 async def _(event):
     try:
-        response = requests.get(
-            "https://api-tede.herokuapp.com/api/asupan/ptl").json()
-        await event.client.send_file(event.chat_id, response["url"])
+        asupannya = [
+            asupan
+            async for asupan in event.client.iter_messages(
+                "@AsupanKyyUserbot", filter=InputMessagesFilterVideo
+            )
+        ]
+        aing = await event.client.get_me()
+        await event.client.send_file(
+            event.chat_id,
+            file=random.choice(asupannya),
+            caption=f"ᴀsᴜᴘᴀɴ ʙʏ [{owner}](tg://user?id={aing.id})",
+        )
         await event.delete()
     except Exception:
-        await event.edit("**Tidak bisa menemukan video asupan.**")
-
-
-@kyy_cmd(pattern="chika$")
-async def _(event):
-    try:
-        response = requests.get(
-            "https://api-tede.herokuapp.com/api/chika").json()
-        await event.client.send_file(event.chat_id, response["url"])
-        await event.delete()
-    except Exception:
-        await event.edit("**Tidak bisa menemukan video chikakiku.**")
-
-
-@kyy_cmd(pattern="bocil$")
-async def _(event):
-    try:
-        response = requests.get(
-            "https://api-alphabot.herokuapp.com/api/asupan/bocil?apikey=Alphabot"
-        ).json()
-        await event.client.send_file(event.chat_id, response["url"])
-        await event.delete()
-    except Exception:
-        await event.edit("**Tidak bisa menemukan video bocil.**")
+        await event.edit("Tidak bisa menemukan video asupan.")
 
 
 CMD_HELP.update(
@@ -46,10 +36,6 @@ CMD_HELP.update(
         "asupan": f"**Plugin : **`asupan`\
         \n\n  •  **Syntax :** `{cmd}asupan`\
         \n  •  **Function : **Untuk Mengirim video asupan secara random.\
-        \n\n  •  **Syntax :** `{cmd}chika`\
-        \n  •  **Function : **Untuk Mengirim video chikakiku secara random.\
-        \n\n  •  **Syntax :** `{cmd}bocil`\
-        \n  •  **Function : **Untuk Mengirim video bocil secara random.\
     "
     }
 )
