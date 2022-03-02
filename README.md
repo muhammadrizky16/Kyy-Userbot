@@ -30,10 +30,8 @@ Gunakan bot ini dengan risiko Anda sendiri, dan gunakan dengan bijak.
    Metode Deploy
 </h2>
 
-<p align="center">
-<a href="https://dashboard.heroku.com/new?template=https://github.com/muhammadrizky16/templat-userbot3/tree/testi"><img src="https://img.shields.io/badge/Deploy%20To%20Heroku-blueviolet?style=for-the-badge&logo=heroku" width="250""/</a>  
-<a href="https://telegram.dog/XTZ_HerokuBot?start=bXVoYW1tYWRyaXpreTE2L0t5eS1Vc2VyYm90IEt5eS1Vc2VyYm90"><img src="https://img.shields.io/badge/Deploy%20Via%20Telegram-blue?style=for-the-badge&logo=telegram" width="250""/</a>  </p>
-
+<h3 align="center">Klik Tombol di Bawah ini untuk Deploy di Heroku :</h3>
+<p align="center"><a href="https://heroku.com/deploy?template=https://github.com/muhammadrizky16/Kyy-Userbot/tree/testi"> <img src="https://img.shields.io/badge/Deploy%20Ke%20Heroku-black?style=flat&logo=heroku" width="150" height="30.00" /></a></p>
 
 ### Support & Updates 
 <a href="https://t.me/NastySupportt"><img src="https://img.shields.io/badge/Join-Group%20Support-red.svg?style=for-the-badge&logo=Telegram"></a> <a href="https://t.me/NastyProject"><img src="https://img.shields.io/badge/Join-Updates%20Channel-white.svg?style=for-the-badge&logo=Telegram"></a>
