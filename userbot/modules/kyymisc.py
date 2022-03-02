@@ -5,7 +5,6 @@ import bs4
 import os
 import asyncio
 import time
-import html
 from justwatch import JustWatch
 from telethon import *
 from userbot.utils import kyy_cmd

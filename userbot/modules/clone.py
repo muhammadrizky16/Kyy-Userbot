@@ -18,7 +18,7 @@ if not hasattr(STORAGE, "userObj"):
 
 @kyy_cmd(pattern=r"clone ?(.*)"))
 async def impostor(event):
-    inputArgs = event.pattern_match.group(1)
+    inputArgs=event.pattern_match.group(1)
 
     if "restore" in inputArgs:
         await event.edit("**Kembali ke identitas asli...**")
