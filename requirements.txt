@@ -52,6 +52,7 @@ patool
 pendulum
 Pillow>=6.0.0
 psutil
+py-tgcalls
 psycopg2
 psycopg2-binary
 pybase64
@@ -100,4 +101,5 @@ youtube-search-python
 youtube-dl
 youtube_dl
 youtube_search
+youtube-search-python==1.4.9
 zipfile38
