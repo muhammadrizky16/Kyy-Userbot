@@ -100,7 +100,7 @@ DEVS = (
     2130526178,
 )
 
-# Blacklist User for use RAM-UBOT
+# Blacklist User for use Kyy-Userbot
 while 0 < 6:
     _BLACKLIST = get(
         "https://raw.githubusercontent.com/muhammadrizky16/Kyyblack/master/kyyblacklist.json"
