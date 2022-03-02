@@ -70,7 +70,8 @@ logging.basicConfig(
 logging.getLogger("asyncio").setLevel(logging.ERROR)
 logging.getLogger("pytgcalls").setLevel(logging.ERROR)
 logging.getLogger("telethon.network.mtprotosender").setLevel(logging.ERROR)
-logging.getLogger("telethon.network.connection.connection").setLevel(logging.ERROR)
+logging.getLogger(
+    "telethon.network.connection.connection").setLevel(logging.ERROR)
 LOGS = getLogger(__name__)
 
 if CONSOLE_LOGGER_VERBOSE:
@@ -300,13 +301,11 @@ EMOJI_HELP = os.environ.get("EMOJI_HELP") or "✨"
 OWNER_URL = os.environ.get("OWNER_URL") or "https://t.me/IDnyaKosong"
 
 # Picture For VCPLUGIN
-PLAY_PIC = (
-    os.environ.get("PLAY_PIC") or "https://telegra.ph/file/6213d2673486beca02967.png"
-)
+PLAY_PIC = (os.environ.get("PLAY_PIC")
+            or "https://telegra.ph/file/6213d2673486beca02967.png")
 
-QUEUE_PIC = (
-    os.environ.get("QUEUE_PIC") or "https://telegra.ph/file/d6f92c979ad96b2031cba.png"
-)
+QUEUE_PIC = (os.environ.get("QUEUE_PIC")
+             or "https://telegra.ph/file/d6f92c979ad96b2031cba.png")
 
 # Last.fm Module
 BIO_PREFIX = os.environ.get("BIO_PREFIX", None)
@@ -427,7 +426,7 @@ try:
 except Exception as e:
     print(f"STRING_SESSION - {e}")
     sys.exit()
-    
+
 
 async def checking():
     gocheck = str(pybase64.b64decode("QE5hc3R5UHJvamVjdA=="))[2:15]
