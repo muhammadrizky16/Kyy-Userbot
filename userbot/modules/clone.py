@@ -16,7 +16,7 @@ if not hasattr(STORAGE, "userObj"):
     STORAGE.userObj = False
 
 
-@kyy_cmd(pattern=r"clone ?(.*)"))
+@kyy_cmd(pattern=r"clone ?(.*)")
 async def impostor(event):
     inputArgs=event.pattern_match.group(1)
 
