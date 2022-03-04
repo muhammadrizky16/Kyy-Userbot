@@ -29,7 +29,7 @@ async def notes_active(svd):
     await edit_or_reply(svd, message)
 
 
-@kyy_cmd(pattern="clear (\w*)")
+@kyy_cmd(pattern="clear (\\w*)")
 async def remove_notes(clr):
     """ For .clear command, clear note with the given name."""
     try:
@@ -41,10 +41,10 @@ async def remove_notes(clr):
         return await clr.edit("`Couldn't find note:` **{}**".format(notename))
     else:
         return await edit_or_reply(clr,
-            "`Successfully deleted note:` **{}**".format(notename))
+                                   "`Successfully deleted note:` **{}**".format(notename))
 
 
-@kyy_cmd(pattern="save (\w*)")
+@kyy_cmd(pattern="save (\\w*)")
 async def add_note(fltr):
     """ For .save command, saves notes in a chat. """
     try:
