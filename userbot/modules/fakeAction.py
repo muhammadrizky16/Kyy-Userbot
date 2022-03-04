@@ -131,7 +131,8 @@ async def _(event):
                 t = await event.ban_time(t)
             except BaseException:
                 return await edit_delete(event, "`Masukan jumlah detik yang benar`")
-    xx = edit_or_reply(event, f"`Memulai Mengirim Document Palsu Selama` {t} sec.`")
+    xx = edit_or_reply(
+        event, f"`Memulai Mengirim Document Palsu Selama` {t} sec.`")
     await asyncio.sleep(3)
     await xx.delete()
     async with event.client.action(event.chat_id, "document"):
