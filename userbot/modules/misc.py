@@ -7,7 +7,7 @@ import os
 import io
 import sys
 from userbot import ALIVE_NAME, BOTLOG, BOTLOG_CHATID, CMD_HELP, UPSTREAM_REPO_URL, bot
-from userbot.utils import edit_or_reply, edit_delete,  kyy_cmd
+from userbot.utils import edit_or_reply, edit_delete, kyy_cmd
 from userbot.utils import time_formatter
 import urllib
 import requests
@@ -83,11 +83,11 @@ async def killdabot(event):
 
 @kyy_cmd(pattern="readme$")
 async def reedme(e):
-    await edit_or_reply(e, 
-        "Here's Something for You to Read :\n"
-        "\n[✨ Kyy-Userbot Repo](https://github.com/muhammadrizky16/Kyy-Userbot/blob/Kyy-Userbot/README.md)"
-        "\n[Setup Guide - Basic](https://telegra.ph/How-to-host-a-Telegram-Userbot-11-02)"
-        "\n[Special - Note](https://telegra.ph/Special-Note-11-02)")
+    await edit_or_reply(e,
+                        "Here's Something for You to Read :\n"
+                        "\n[✨ Kyy-Userbot Repo](https://github.com/muhammadrizky16/Kyy-Userbot/blob/Kyy-Userbot/README.md)"
+                        "\n[Setup Guide - Basic](https://telegra.ph/How-to-host-a-Telegram-Userbot-11-02)"
+                        "\n[Special - Note](https://telegra.ph/Special-Note-11-02)")
 
 
 @kyy_cmd(pattern="repeat (.*)")
@@ -107,25 +107,25 @@ async def repeat(rep):
 @kyy_cmd(pattern="repo$")
 async def repo_is_here(wannasee):
     """ For .repo command, just returns the repo URL. """
-    await edit_or_reply(wannasee, 
-        "**Hey**, I am using **✨ҡʏʏ-υѕєявσт✨** \n"
-        "卍━━━━━━━━━━━━━━━━━━━━━━卍\n"
-        "➣ **Repo Userbot :** [ɢɪᴛʜᴜʙ](https://github.com/muhammadrizky16/Kyy-Userbot)\n"
-        "➣ **Owner Bot       :** [ҡʏʏ](t.me/IDnyaKosong)\n"
-        "卍━━━━━━━━━━━━━━━━━━━━━━卍\n"
-        "➣ **Support           :** [sᴜᴘᴘᴏʀᴛ](https://t.me/NastySupportt)\n"
-        "➣ **Channel           :** [ᴄʜᴀɴɴᴇʟ](https://t.me/NastyProject)\n"
-        "卍━━━━━━━━━━━━━━━━━━━━━━卍\n"
-    )
+    await edit_or_reply(wannasee,
+                        "**Hey**, I am using **✨ҡʏʏ-υѕєявσт✨** \n"
+                        "卍━━━━━━━━━━━━━━━━━━━━━━卍\n"
+                        "➣ **Repo Userbot :** [ɢɪᴛʜᴜʙ](https://github.com/muhammadrizky16/Kyy-Userbot)\n"
+                        "➣ **Owner Bot       :** [ҡʏʏ](t.me/IDnyaKosong)\n"
+                        "卍━━━━━━━━━━━━━━━━━━━━━━卍\n"
+                        "➣ **Support           :** [sᴜᴘᴘᴏʀᴛ](https://t.me/NastySupportt)\n"
+                        "➣ **Channel           :** [ᴄʜᴀɴɴᴇʟ](https://t.me/NastyProject)\n"
+                        "卍━━━━━━━━━━━━━━━━━━━━━━卍\n"
+                        )
 
 
 @kyy_cmd(pattern="string$")
 async def repo_is_here(wannasee):
     """For .repo command, just returns the repo URL."""
-    await edit_or_reply(wannasee, 
-        f"➣ **GET STRING SESSION VIA REPLIT :** [KLIK DISINI](https://replit.com/@rizkyhmdanii16/StringSession)\n"
-        f"➣ **GET STRING SESSION VIA BOT    :** [KLIK DISINI](https://t.me/NastyStringbot)\n"
-    )
+    await edit_or_reply(wannasee,
+                        f"➣ **GET STRING SESSION VIA REPLIT :** [KLIK DISINI](https://replit.com/@rizkyhmdanii16/StringSession)\n"
+                        f"➣ **GET STRING SESSION VIA BOT    :** [KLIK DISINI](https://t.me/NastyStringbot)\n"
+                        )
 
 
 @kyy_cmd(pattern="raw$")
@@ -189,7 +189,7 @@ async def okgoogle(img):
 
         if response != 400:
             await xx.edit("`Image successfully uploaded to Google. Maybe.`"
-                           "\n`Parsing source now. Maybe.`")
+                          "\n`Parsing source now. Maybe.`")
         else:
             await xx.edit("`Google told me to fuck off.`")
             return

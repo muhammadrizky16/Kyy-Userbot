@@ -56,10 +56,10 @@ async def deploy(event, repo, ups_rem, ac_br, txt):
         heroku_app = None
         heroku_applications = heroku.apps()
         if HEROKU_APP_NAME is None:
-            await edit_or_reply(event, 
-                "`[HEROKU]: Harap Siapkan Variabel` **HEROKU_APP_NAME** `"
-                " untuk dapat deploy perubahan terbaru dari ✨ҡʏʏ-υѕєявσт✨.`"
-            )
+            await edit_or_reply(event,
+                                "`[HEROKU]: Harap Siapkan Variabel` **HEROKU_APP_NAME** `"
+                                " untuk dapat deploy perubahan terbaru dari ✨ҡʏʏ-υѕєявσт✨.`"
+                                )
             repo.__del__()
             return
         for app in heroku_applications:
@@ -67,13 +67,13 @@ async def deploy(event, repo, ups_rem, ac_br, txt):
                 heroku_app = app
                 break
         if heroku_app is None:
-            await edit_delete(event, 
-                f"{txt}\n`Kredensial Heroku tidak valid untuk deploy Kyy-Project dyno.`"
-            )
+            await edit_delete(event,
+                              f"{txt}\n`Kredensial Heroku tidak valid untuk deploy Kyy-Project dyno.`"
+                              )
             return repo.__del__()
-        await edit_or_reply(event, 
-            "`Heroku :` `Sedang MengUpdate`" "\n`Mohon Menunggu 5-7 Menit`"
-        )
+        await edit_or_reply(event,
+                            "`Heroku :` `Sedang MengUpdate`" "\n`Mohon Menunggu 5-7 Menit`"
+                            )
         ups_rem.fetch(ac_br)
         repo.git.reset("--hard", "FETCH_HEAD")
         heroku_git_url = heroku_app.git_url.replace(
@@ -91,13 +91,13 @@ async def deploy(event, repo, ups_rem, ac_br, txt):
             return repo.__del__()
         build = app.builds(order_by="created_at", sort="desc")[0]
         if build.status == "failed":
-            await edit_delete(event, 
-                "`Build Gagal!\n" "Dibatalkan atau ada beberapa kesalahan...`"
-            )
+            await edit_delete(event,
+                              "`Build Gagal!\n" "Dibatalkan atau ada beberapa kesalahan...`"
+                              )
         else:
-            await edit_delete(event, 
-                "`Kyy-Userbot Berhasil DiUpdate🛃,Restart Tunggu Sebentar`"
-            )
+            await edit_delete(event,
+                              "`Kyy-Userbot Berhasil DiUpdate🛃,Restart Tunggu Sebentar`"
+                              )
 
         if BOTLOG:
             await event.client.send_message(
@@ -105,9 +105,9 @@ async def deploy(event, repo, ups_rem, ac_br, txt):
             )
 
     else:
-        await edit_delete(event, 
-            "`[HEROKU]:" "\nHarap Siapkan Variabel` **HEROKU_API_KEY** `.`"
-        )
+        await edit_delete(event,
+                          "`[HEROKU]:" "\nHarap Siapkan Variabel` **HEROKU_API_KEY** `.`"
+                          )
     return
 
 

@@ -20,31 +20,31 @@ async def detect(event):
                 u = await event.client.get_entity(input_str)
             except ValueError:
                 await edit_or_reply(event, "`Please Give ID/Username to Find History.`"
-                                 )
+                                    )
             uid = u.id
     else:
         uid = reply_message.sender_id
     chat = "@tgscanrobot"
-    kyy = await edit_or_reply(event, "`Currently Doing Account Detection...`")
-    kyy = await edit_or_reply(event, "__Checking.__")
-    kyy = await edit_or_reply(event, "__Checking..__")
-    kyy = await edit_or_reply(event, "__Checking...__")
-    kyy = await edit_or_reply(event, "__Checking.__")
-    kyy = await edit_or_reply(event, "__Checking..__")
-    kyy = await edit_or_reply(event, "__Checking...__")
-    kyy = await edit_or_reply(event, "__Connecting.__")
-    kyy = await edit_or_reply(event, "__Connecting..__")
-    kyy = await edit_or_reply(event, "__Connecting...__")
-    kyy = await edit_or_reply(event, "__Connecting.__")
-    kyy = await edit_or_reply(event, "__Connecting..__")
-    kyy = await edit_or_reply(event, "__Connecting...__")
+    await edit_or_reply(event, "`Currently Doing Account Detection...`")
+    await edit_or_reply(event, "__Checking.__")
+    await edit_or_reply(event, "__Checking..__")
+    await edit_or_reply(event, "__Checking...__")
+    await edit_or_reply(event, "__Checking.__")
+    await edit_or_reply(event, "__Checking..__")
+    await edit_or_reply(event, "__Checking...__")
+    await edit_or_reply(event, "__Connecting.__")
+    await edit_or_reply(event, "__Connecting..__")
+    await edit_or_reply(event, "__Connecting...__")
+    await edit_or_reply(event, "__Connecting.__")
+    await edit_or_reply(event, "__Connecting..__")
+    await edit_or_reply(event, "__Connecting...__")
     async with bot.conversation(chat) as conv:
         try:
             await conv.send_message(f"{uid}")
         except YouBlockedUserError:
-            await edit_or_reply(event, 
-                "```Please Unblock @tgscanrobot And Try Again.```"
-            )
+            await edit_or_reply(event,
+                                "```Please Unblock @tgscanrobot And Try Again.```"
+                                )
         response = await conv.get_response()
         await event.client.send_read_acknowledge(conv.chat_id)
         await edit_or_reply(event, response.text)

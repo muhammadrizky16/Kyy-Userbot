@@ -5,7 +5,6 @@
 #
 """ Userbot help command """
 
-import asyncio
 from userbot import ALIVE_NAME, CMD_HELP
 from userbot.utils import edit_or_reply, edit_delete, kyy_cmd
 from platform import uname
@@ -32,9 +31,9 @@ async def help(event):
             string += "`" + str(i)
             string += "`\t ✗  "
         await edit_or_reply(event, "**✨ҡʏʏ-υѕєявσт✨**\n\n"
-                         f"**◉ Bᴏᴛ ᴏꜰ {DEFAULTUSER}**\n**◉ Mᴏᴅᴜʟᴇꜱ : {len(modules)}**\n\n"
-                         "**• Mᴀɪɴ Mᴇɴᴜ :**\n"
-                         f"◉ {string}◉\n\n☞  ᴘʀᴏᴊᴇᴄᴛ : @NastyProject")
+                            f"**◉ Bᴏᴛ ᴏꜰ {DEFAULTUSER}**\n**◉ Mᴏᴅᴜʟᴇꜱ : {len(modules)}**\n\n"
+                            "**• Mᴀɪɴ Mᴇɴᴜ :**\n"
+                            f"◉ {string}◉\n\n☞  ᴘʀᴏᴊᴇᴄᴛ : @NastyProject")
         await event.reply(
             f"\n**Contoh Ketik** `{cmd}help animasi` **Untuk Melihat Informasi Module**"
         )

@@ -33,9 +33,8 @@ from telethon.tl.types import (
 from userbot import BOTLOG, BOTLOG_CHATID, CMD_HELP
 from userbot.utils import (
     edit_delete,
-    edit_or_reply, 
-    kyy_cmd, 
-    kyy_handler,
+    edit_or_reply,
+    kyy_cmd,
 )
 from userbot import CMD_HANDLER as cmd
 from userbot.events import register
@@ -154,7 +153,6 @@ async def promote(event):
     try:
         await event.client(EditAdminRequest(promt.chat_id, user.id, new_rights, rank))
         await edit_delete(eventkyy, "`Berhasil Menambahkan Pengguna Ini Sebagai Admin!`")
-
 
     # If Telethon spit BadRequestError, assume
     # we don't have Promote permission
@@ -333,9 +331,9 @@ async def spider(spdr):
     self_user = await spdr.client.get_me()
 
     if user.id == self_user.id:
-        return await edit_or_reply(kyy, 
-            "`Tangan Terlalu Pendek, Tidak Bisa Membisukan Diri Sendiri...\n(ヘ･_･)ヘ┳━┳`"
-        )
+        return await edit_or_reply(kyy,
+                                   "`Tangan Terlalu Pendek, Tidak Bisa Membisukan Diri Sendiri...\n(ヘ･_･)ヘ┳━┳`"
+                                   )
 
     # If everything goes well, do announcing and mute
     await kyy.edit("`Telah Dibisukan!`")
@@ -637,7 +635,7 @@ async def pin(msg):
         return await edit_delete(msg, NO_PERM)
 
     await edit_delete(msg, "`Berhasil Melakukan Pinned!`")
-    
+
     user = await get_user_from_id(msg.from_id, msg)
 
     if BOTLOG:

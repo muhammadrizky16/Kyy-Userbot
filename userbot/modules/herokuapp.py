@@ -38,7 +38,7 @@ async def variable(var):
     exe = var.pattern_match.group(1)
     if app is None:
         await edit_or_reply(var, "`[HEROKU]"
-                       "\nHarap Siapkan`  **HEROKU_APP_NAME**.")
+                            "\nHarap Siapkan`  **HEROKU_APP_NAME**.")
         return False
     if exe == "get":
         xx = await edit_or_reply(var, "`Mendapatkan Informasi...`")
