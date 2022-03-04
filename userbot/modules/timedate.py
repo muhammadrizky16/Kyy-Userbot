@@ -100,7 +100,7 @@ async def time_func(tdata):
 
     elif COUNTRY:
         await xx.edit(f"`It's`  **{dtnow}**  `here, in {COUNTRY}"
-                         f"({time_zone} timezone).`")
+                      f"({time_zone} timezone).`")
         return
 
 
@@ -163,7 +163,7 @@ async def date_func(dat):
 
     elif COUNTRY:
         await xx.edit(f"`It's`  **{dtnow}**  `here, in {COUNTRY}"
-                       f"({time_zone} timezone).`")
+                      f"({time_zone} timezone).`")
         return
 
 
