@@ -86,7 +86,7 @@ async def typewriter(typew):
 async def typewriter(typew):
     typew.pattern_match.group(1)
     sleep(1)
-    xnxx= await edit_or_reply(typew, "Hai, Kamu Anak Erpe Ya")
+    xnxx = await edit_or_reply(typew, "Hai, Kamu Anak Erpe Ya")
     sleep(1)
     await xnxx.edit("Kok Pake Muka Orang sih?")
     sleep(1)
