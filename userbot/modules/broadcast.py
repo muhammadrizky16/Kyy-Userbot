@@ -339,11 +339,11 @@ CMD_HELP.update(
         \n  **Usage : **Untuk menghapus Obrolan / pengguna / saluran dari nama kategori yang diberikan. \
         \n\n  **𝘾𝙤𝙢𝙢𝙖𝙣𝙙 :** `{cmd}clist` <category_name>\
         \n  **Usage : **Akan menampilkan daftar semua obrolan dalam kategori yang diberikan. \
-        \n\n  **𝘾𝙤𝙢𝙢𝙖𝙣𝙙 :** `.clistall`\
+        \n\n  **𝘾𝙤𝙢𝙢𝙖𝙣𝙙 :** `{cmd}clistall`\
         \n  **Usage : **Akan menampilkan daftar semua nama kategori. \
-        \n\n  **𝘾𝙤𝙢𝙢𝙖𝙣𝙙 :** `.frmfrom` <category_name/chat_id>\
+        \n\n  **𝘾𝙤𝙢𝙢𝙖𝙣𝙙 :** `{cmd}frmfrom` <category_name/chat_id>\
         \n  **Usage : **Untuk memaksa menghapus chat_id yang diberikan dari nama kategori yang diberikan berguna ketika Anda meninggalkan obrolan itu atau melarang Anda di sana \
-        \n\n  **𝘾𝙤𝙢𝙢𝙖𝙣𝙙 :** `.delc` <category_name>\
+        \n\n  **𝘾𝙤𝙢𝙢𝙖𝙣𝙙 :** `{cmd}delc` <category_name>\
         \n  **Usage : **Menghapus kategori sepenuhnya di database \
     "
     }
