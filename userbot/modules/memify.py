@@ -16,8 +16,8 @@ async def mim(event):
         return
     if not event.reply_to_msg_id:
         await edit_delete(event,
-            "Mohon Balas Ke Gambar Ketik `.mmf 'Teks Atas' ; 'Teks Bawah'` "
-        )
+                          "Mohon Balas Ke Gambar Ketik `.mmf 'Teks Atas' ; 'Teks Bawah'` "
+                          )
         return
     reply_message = await event.get_reply_message()
     if not reply_message.media:
@@ -30,8 +30,8 @@ async def mim(event):
         return
     else:
         xx = await edit_or_reply(event,
-            "```Prosess Merubah Gambar Ini.. ```"
-        )
+                                 "```Prosess Merubah Gambar Ini.. ```"
+                                 )
         await asyncio.sleep(5)
         text = event.pattern_match.group(1)
         if event.reply_to_msg_id:
@@ -172,8 +172,8 @@ async def mim(event):
         return
     if not event.reply_to_msg_id:
         await edit_delete(event,
-            "Mohon Balas Ke Gambar Ketik `.mmf2 'Teks Atas' ; 'Teks Bawah'` "
-        )
+                          "Mohon Balas Ke Gambar Ketik `.mmf2 'Teks Atas' ; 'Teks Bawah'` "
+                          )
         return
     reply_message = await event.get_reply_message()
     if not reply_message.media:
@@ -186,8 +186,8 @@ async def mim(event):
         return
     else:
         xx = await edit_or_reply(event,
-            "```Mengubah Gambar Ini Saatnya Menulis```"
-        )
+                                 "```Mengubah Gambar Ini Saatnya Menulis```"
+                                 )
         await asyncio.sleep(5)
         text = event.pattern_match.group(1)
         if event.reply_to_msg_id:
