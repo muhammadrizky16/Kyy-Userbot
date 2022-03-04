@@ -15,13 +15,13 @@ from telethon.tl.types import MessageEntityMentionName
 from telethon.utils import get_input_location
 from userbot import CMD_HELP, TEMP_DOWNLOAD_DIRECTORY
 from userbot import CMD_HANDLER as cmd
-from userbot.utils import kyy_cmd
+from userbot.utils import edit_or_reply, edit_delete, kyy_cmd
 
 
 @kyy_cmd(pattern="info(?: |$)(.*)")
 async def who(event):
 
-    await event.edit(
+    x = await edit_or_reply(event,
         "`Mengambil Informasi Pengguna Ini...`")
 
     if not os.path.isdir(TEMP_DOWNLOAD_DIRECTORY):
@@ -32,7 +32,7 @@ async def who(event):
     try:
         photo, caption = await fetch_info(replied_user, event)
     except AttributeError:
-        return event.edit("`Saya Tidak Mendapatkan Informasi Apapun.`")
+        return edit_delete(event, "`Saya Tidak Mendapatkan Informasi Apapun.`")
 
     message_id_to_reply = event.message.reply_to_msg_id
 
@@ -50,10 +50,10 @@ async def who(event):
 
         if not photo.startswith("http"):
             os.remove(photo)
-        await event.delete()
+        await x.delete()
 
     except TypeError:
-        await event.edit(caption, parse_mode="html")
+        await x.edit(caption, parse_mode="html")
 
 
 async def get_user(event):
