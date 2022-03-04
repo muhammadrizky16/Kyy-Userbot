@@ -50,7 +50,7 @@ async def add_note(fltr):
     try:
         from userbot.modules.sql_helper.notes_sql import add_note
     except AttributeError:
-        x = return await edit_or_reply(fltr, "`Running on Non-SQL mode!`")
+        return await edit_or_reply(fltr, "`Running on Non-SQL mode!`")
     keyword = fltr.pattern_match.group(1)
     string = fltr.text.partition(keyword)[2]
     msg = await fltr.get_reply_message()
@@ -75,9 +75,9 @@ async def add_note(fltr):
         string = rep_msg.text
     success = "`Note {} successfully. Use` #{} `to get it`"
     if add_note(str(fltr.chat_id), keyword, string, msg_id) is False:
-        return await x.edit(success.format('updated', keyword))
+        return await edit_or_reply(fltr, success.format('updated', keyword))
     else:
-        return await x.edit(success.format('added', keyword))
+        return await edit_or_reply(fltr, success.format('added', keyword))
 
 
 @register(pattern=r"#\w*",
