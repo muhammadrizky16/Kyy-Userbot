@@ -20,7 +20,7 @@ async def _(event):
                 u = await event.client.get_entity(input_str)
             except ValueError:
                 await edit_delete(event, "`Mohon Berikan ID/Username untuk menemukan Riwayat`"
-                                    )
+                                  )
             uid = u.id
     else:
         uid = reply_message.sender_id
@@ -31,8 +31,8 @@ async def _(event):
             await conv.send_message(f"{uid}")
         except YouBlockedUserError:
             await steal.reply(
-                                "```Mohon Unblock @tgscanrobot Dan Coba Lagi```"
-                                )
+                "```Mohon Unblock @tgscanrobot Dan Coba Lagi```"
+            )
         response = await conv.get_response()
         await event.client.send_read_acknowledge(conv.chat_id)
         await xx.edit(response.text)
