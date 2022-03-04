@@ -1,5 +1,5 @@
 import aiohttp
-from userbot.utils import kyy_cmd
+from userbot.utils import edit_or_reply, kyy_cmd
 from userbot import CMD_HELP, CMD_HANDLER as cmd
 
 
@@ -28,11 +28,11 @@ async def github(event):
             )
 
             if not result.get("repos_url", None):
-                return await event.edit(REPLY)
+                return await edit_or_reply(event, REPLY)
             async with session.get(result.get("repos_url", None)) as request:
                 result = request.json
                 if request.status == 404:
-                    return await event.edit(REPLY)
+                    return await edit_or_reply(event, REPLY)
 
                 result = await request.json()
 
@@ -41,7 +41,7 @@ async def github(event):
                 for nr in range(len(result)):
                     REPLY += f"[{result[nr].get('name', None)}]({result[nr].get('html_url', None)})\n"
 
-                await event.edit(REPLY)
+                await edit_or_reply(event, REPLY)
 
 
 CMD_HELP.update({
