@@ -1,6 +1,6 @@
 # port by KOALA 🐨 /@manusiarakitann
 
-from userbot.utils import edit_or_reply, edit_delete, kyy_cmd
+from userbot.utils import edit_or_reply, kyy_cmd
 from userbot import CMD_HELP, CMD_HANDLER as cmd
 
 
