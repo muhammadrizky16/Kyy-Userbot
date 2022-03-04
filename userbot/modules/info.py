@@ -22,7 +22,7 @@ from userbot.utils import edit_or_reply, edit_delete, kyy_cmd
 async def who(event):
 
     x = await edit_or_reply(event,
-        "`Mengambil Informasi Pengguna Ini...`")
+                            "`Mengambil Informasi Pengguna Ini...`")
 
     if not os.path.isdir(TEMP_DOWNLOAD_DIRECTORY):
         os.makedirs(TEMP_DOWNLOAD_DIRECTORY)
