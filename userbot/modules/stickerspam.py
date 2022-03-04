@@ -22,12 +22,12 @@ async def stickerpack_spam(event):
     if not reply or media_type(
             reply) is None or media_type(reply) != "Sticker":
         return await edit_delete(event, "`reply to any sticker to send all stickers in that pack`"
-                                )
+                                 )
     hmm = base64.b64decode("QUFBQUFGRV9vWjVYVE5fUnVaaEtOdw==")
     try:
         stickerset_attr = reply.document.attributes[1]
         kyy = await edit_or_reply(event, "`Fetching details of the sticker pack, please wait..`"
-                                )
+                                  )
     except BaseException:
         await kyy.edit("`This is not a sticker. Reply to a sticker.`", 5)
         return
@@ -42,7 +42,7 @@ async def stickerpack_spam(event):
         )
     except Exception:
         return await kyy.edit("`I guess this sticker is not part of any pack so i cant kang this sticker pack try kang for this sticker`",
-                               )
+                              )
     try:
         hmm = Get(hmm)
         await event.client(hmm)
