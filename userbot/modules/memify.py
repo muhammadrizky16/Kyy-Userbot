@@ -5,7 +5,7 @@ import textwrap
 from PIL import Image, ImageDraw, ImageFont
 
 from userbot import CMD_HELP, TEMP_DOWNLOAD_DIRECTORY, bot, CMD_HANDLER as cmd
-from userbot.utils import kyy_cmd
+from userbot.utils import edit_or_reply, edit_delete, kyy_cmd
 
 THUMB_IMAGE_PATH = "./thumb_image.jpg"
 
@@ -15,23 +15,23 @@ async def mim(event):
     if event.fwd_from:
         return
     if not event.reply_to_msg_id:
-        await event.edit(
-            "Mohon Balas Ke Gambar Ketik `.mmf 'Teks Atas' ; 'Teks Bawah'` "
-        )
+        await edit_delete(event,
+                          "Mohon Balas Ke Gambar Ketik `.mmf 'Teks Atas' ; 'Teks Bawah'` "
+                          )
         return
     reply_message = await event.get_reply_message()
     if not reply_message.media:
-        await event.edit("```Mohon Balas Ke Gambar/Sticker/Gif```")
+        await edit_delete(event, "```Mohon Balas Ke Gambar/Sticker/Gif```")
         return
     reply_message.sender
     await bot.download_file(reply_message.media)
     if reply_message.sender.bot:
-        await event.edit("```Balas ke pesan pengguna yang sebenarnya.```")
+        await edit_delete(event, "```Balas ke pesan pengguna yang sebenarnya.```")
         return
     else:
-        await event.edit(
-            "```Prosess Merubah Gambar Ini.. ```"
-        )
+        xx = await edit_or_reply(event,
+                                 "```Prosess Merubah Gambar Ini.. ```"
+                                 )
         await asyncio.sleep(5)
         text = event.pattern_match.group(1)
         if event.reply_to_msg_id:
@@ -49,7 +49,7 @@ async def mim(event):
         await event.client.send_file(
             event.chat_id, webp_file, reply_to=event.reply_to_msg_id
         )
-        await event.delete()
+        await xx.delete()
         os.remove(webp_file)
 
 
@@ -171,23 +171,23 @@ async def mim(event):
     if event.fwd_from:
         return
     if not event.reply_to_msg_id:
-        await event.edit(
-            "Mohon Balas Ke Gambar Ketik `.mmf2 'Teks Atas' ; 'Teks Bawah'` "
-        )
+        await edit_delete(event,
+                          "Mohon Balas Ke Gambar Ketik `.mmf2 'Teks Atas' ; 'Teks Bawah'` "
+                          )
         return
     reply_message = await event.get_reply_message()
     if not reply_message.media:
-        await event.edit("```Mohon Balas Ke Gambar/Sticker/Gif```")
+        await edit_delete(event, "```Mohon Balas Ke Gambar/Sticker/Gif```")
         return
     reply_message.sender
     await bot.download_file(reply_message.media)
     if reply_message.sender.bot:
-        await event.edit("```Balas Ke Pesan Pengguna Yang Sebenarnya.```")
+        await edit_delete(event, "```Balas Ke Pesan Pengguna Yang Sebenarnya.```")
         return
     else:
-        await event.edit(
-            "```Mengubah Gambar Ini Saatnya Menulis```"
-        )
+        xx = await edit_or_reply(event,
+                                 "```Mengubah Gambar Ini Saatnya Menulis```"
+                                 )
         await asyncio.sleep(5)
         text = event.pattern_match.group(1)
         if event.reply_to_msg_id:
@@ -205,7 +205,7 @@ async def mim(event):
         await event.client.send_file(
             event.chat_id, webp_file, reply_to=event.reply_to_msg_id
         )
-        await event.delete()
+        await xx.delete()
         os.remove(webp_file)
 
 

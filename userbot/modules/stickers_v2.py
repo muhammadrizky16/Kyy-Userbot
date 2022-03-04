@@ -2,7 +2,7 @@ from telethon import events
 from telethon.errors.rpcerrorlist import YouBlockedUserError
 import io
 from userbot import bot, CMD_HELP, CMD_HANDLER as cmd
-from userbot.utils import kyy_cmd
+from userbot.utils import edit_or_reply, edit_delete, kyy_cmd
 
 
 @kyy_cmd(pattern="itos$")
@@ -10,14 +10,14 @@ async def _(event):
     if event.fwd_from:
         return
     if not event.reply_to_msg_id:
-        await event.edit("sir this is not a image message reply to image message")
+        await edit_delete(event, "sir this is not a image message reply to image message")
         return
     reply_message = await event.get_reply_message()
     if not reply_message.media:
-        await event.edit("sir, This is not a image ")
+        await edit_delete(event, "sir, This is not a image ")
         return
     chat = "@buildstickerbot"
-    await event.edit("Membuat Sticker..")
+    xx = await edit_or_reply(event, "Membuat Sticker..")
     async with event.client.conversation(chat) as conv:
         try:
             response = conv.wait_event(
@@ -30,7 +30,7 @@ async def _(event):
             await event.reply("unblock me (@buildstickerbot) and try again")
             return
         if response.text.startswith("Hi!"):
-            await event.edit("Can you kindly disable your forward privacy settings for good?")
+            await xx.edit("Can you kindly disable your forward privacy settings for good?")
         else:
             await event.delete()
             await bot.send_read_acknowledge(conv.chat_id)
@@ -43,14 +43,14 @@ async def _(event):
     if event.fwd_from:
         return
     if not event.reply_to_msg_id:
-        await event.edit("`Mohon Maaf, Balas Ke Sticker Terlebih Dahulu.`")
+        await edit_delete(event, "`Mohon Maaf, Balas Ke Sticker Terlebih Dahulu.`")
         return
     reply_message = await event.get_reply_message()
     if not reply_message.media:
-        await event.edit("`Mohon Maaf, Balas Ke Sticker Terlebih Dahulu.`")
+        await edit_delete(event, "`Mohon Maaf, Balas Ke Sticker Terlebih Dahulu.`")
         return
     chat = "@stickers_to_image_bot"
-    await event.edit("`Sedang Mengubah Sticker Menjadi Gambar...`")
+    xx = await edit_or_reply(event, "`Sedang Mengubah Sticker Menjadi Gambar...`")
     async with event.client.conversation(chat) as conv:
         try:
             response = conv.wait_event(
@@ -63,7 +63,7 @@ async def _(event):
             await event.reply("Mohon Maaf, Buka Blokir @stickers_to_image_bot Lalu Coba Lagi.")
             return
         if response.text.startswith("I understand only stickers"):
-            await event.edit("`Maaf, Saya Tidak Bisa Mengubah Ini Menjadi Gambar, Periksa Kembali Apakah Itu Sticker Animasi ?`")
+            await xx.edit("`Maaf, Saya Tidak Bisa Mengubah Ini Menjadi Gambar, Periksa Kembali Apakah Itu Sticker Animasi ?`")
         else:
             response = conv.wait_event(
                 events.NewMessage(
@@ -80,22 +80,22 @@ async def _(event):
                 await event.client.send_message(event.chat_id, response.message, reply_to=reply_message.id)
                 await event.client.delete_message(event.chat_id, [msg.id, response.id])
             else:
-                await event.edit("`Tolong Coba Lagi.`")
+                await xx.edit("`Tolong Coba Lagi.`")
         await bot.send_read_acknowledge(conv.chat_id)
 
 
 @kyy_cmd(pattern="stoi$")
 async def sticker_to_png(sticker):
     if not sticker.is_reply:
-        await sticker.edit("`NULL information to feftch...`")
+        await edit_delete(sticker, "`NULL information to feftch...`")
         return False
 
     img = await sticker.get_reply_message()
     if not img.document:
-        await sticker.edit("`Mohon Maaf, Ini Bukanlah Sticker`")
+        await edit_delete(sticker, "`Mohon Maaf, Ini Bukanlah Sticker`")
         return False
 
-    await sticker.edit("`Berhasil Mengambil Sticker Ini !`")
+    xx = await edit_or_reply(sticker, "`Berhasil Mengambil Sticker Ini !`")
     image = io.BytesIO()
     await sticker.client.download_media(img, image)
     image.name = "sticker.png"
@@ -103,7 +103,7 @@ async def sticker_to_png(sticker):
     await sticker.client.send_file(
         sticker.chat_id, image, reply_to=img.id, force_document=True
     )
-    await sticker.delete()
+    await xx.delete()
     return
 
 

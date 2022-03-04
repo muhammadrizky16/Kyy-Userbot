@@ -4,7 +4,7 @@
 from PIL import Image
 import cv2
 import os
-from userbot.utils import kyy_cmd
+from userbot.utils import edit_or_reply, edit_delete, kyy_cmd
 from userbot import CMD_HELP, bot
 
 
@@ -12,9 +12,9 @@ from userbot import CMD_HELP, bot
 async def _(event):
     reply = await event.get_reply_message()
     if not (reply and (reply.media)):
-        await event.edit("`Mohon Balas Ke Sticker`")
+        await edit_delete(event, "`Mohon Balas Ke Sticker`")
         return
-    xx = await event.edit("`Memproses Tiny....`")
+    xx = await edit_or_reply(event, "`Memproses Tiny....`")
     ik = await bot.download_media(reply)
     im1 = Image.open("resources/sky_blank.png")
     if ik.endswith(".tgs"):
