@@ -19,7 +19,7 @@ from telethon.errors import (
     ChannelPublicGroupNaError)
 from telethon.utils import get_input_location
 from telethon.tl.types import ChannelParticipantAdmin, ChannelParticipantsBots
-from userbot.utils import kyy_cmd
+from userbot.utils import edit_delete, edit_or_reply, kyy_cmd
 from userbot.events import register
 from userbot.modules.admin import get_user_from_event
 from telethon.utils import pack_bot_file_id
@@ -34,11 +34,11 @@ async def _(event):
         r_msg = await event.get_reply_message()
         if r_msg.media:
             bot_api_file_id = pack_bot_file_id(r_msg.media)
-            await event.edit("ID Grup: `{}`\nID Dari Pengguna : `{}`\nID Bot File API: `{}`".format(str(event.chat_id), str(r_msg.from_id), bot_api_file_id))
+            await edit_or_reply(event, "ID Grup: `{}`\nID Dari Pengguna : `{}`\nID Bot File API: `{}`".format(str(event.chat_id), str(r_msg.from_id), bot_api_file_id))
         else:
-            await event.edit("ID Grup: `{}`\nID Dari Pengguna : `{}`".format(str(event.chat_id), str(r_msg.from_id)))
+            await edit_or_reply(event, "ID Grup: `{}`\nID Dari Pengguna : `{}`".format(str(event.chat_id), str(r_msg.from_id)))
     else:
-        await event.edit("ID Grup: `{}`".format(str(event.chat_id)))
+        await edit_or_reply(event, "ID Grup: `{}`".format(str(event.chat_id)))
 
 
 @kyy_cmd(pattern="link(?: |$)(.*)")
@@ -48,11 +48,11 @@ async def permalink(mention):
     if not user:
         return
     if custom:
-        await mention.edit(f"[{custom}](tg://user?id={user.id})")
+        await edit_or_reply(mention, f"[{custom}](tg://user?id={user.id})")
     else:
         tag = user.first_name.replace("\u2060",
                                       "") if user.first_name else user.username
-        await mention.edit(f"[{tag}](tg://user?id={user.id})")
+        await edit_or_reply(mention, f"[{tag}](tg://user?id={user.id})")
 
 
 @kyy_cmd(pattern="getbot(?: |$)(.*)")
@@ -70,7 +70,7 @@ async def _(event):
         try:
             chat = await bot.get_entity(input_str)
         except Exception as e:
-            await event.edit(str(e))
+            await edit_or_reply(event, str(e))
             return None
     try:
         async for x in bot.iter_participants(chat, filter=ChannelParticipantsBots):
@@ -82,7 +82,7 @@ async def _(event):
                     x.first_name, x.id, x.id)
     except Exception as e:
         mentions += " " + str(e) + "\n"
-    await event.edit(mentions)
+    await edit_or_reply(event, mentions)
 
 
 @kyy_cmd(pattern=r"logit(?: |$)([\s\S]*)")
@@ -97,19 +97,17 @@ async def log(log_text):
             textx = user + log_text.pattern_match.group(1)
             await bot.send_message(BOTLOG_CHATID, textx)
         else:
-            await log_text.edit("`Apa Yang Harus Saya Log?`")
+            await edit_or_reply(log_text, "`Apa Yang Harus Saya Log?`")
             return
-        await log_text.edit("`Logged Berhasil!`")
+        await edit_or_reply(log_text, "`Logged Berhasil!`")
     else:
-        await log_text.edit("`Fitur Ini Mengharuskan Loging Diaktifkan!`")
-    await sleep(2)
-    await log_text.delete()
+        await edit_delete(log_text, "`Fitur Ini Mengharuskan Loging Diaktifkan!`")
 
 
 @kyy_cmd(pattern="kickme$")
 async def kickme(leave):
     """ Basically it's .kickme command """
-    await leave.edit(f"**{ALIVE_NAME} Telah Meninggalkan Group,See You Semua!!**")
+    await edit_or_reply(leave, f"**{ALIVE_NAME} Telah Meninggalkan Group,See You Semua!!**")
     await leave.client.kick_participant(leave.chat_id, 'me')
 
 
@@ -119,12 +117,10 @@ async def unmute_chat(unm_e):
     try:
         from userbot.modules.sql_helper.keep_read_sql import unkread
     except AttributeError:
-        await unm_e.edit('`Running on Non-SQL Mode!`')
+        await edit_or_reply(unm_e, '`Running on Non-SQL Mode!`')
         return
     unkread(str(unm_e.chat_id))
-    await unm_e.edit("```Berhasil Dibuka, Obrolan Tidak Lagi Dibisukan```")
-    await sleep(2)
-    await unm_e.delete()
+    await edit_delete(unm_e, "```Berhasil Dibuka, Obrolan Tidak Lagi Dibisukan```")
 
 
 @kyy_cmd(pattern="mutechat$")
@@ -133,13 +129,11 @@ async def mute_chat(mute_e):
     try:
         from userbot.modules.sql_helper.keep_read_sql import kread
     except AttributeError:
-        await mute_e.edit("`Running on Non-SQL mode!`")
+        await edit_or_reply(mute_e, "`Running on Non-SQL mode!`")
         return
-    await mute_e.edit(str(mute_e.chat_id))
+    await edit_or_reply(mute_e, str(mute_e.chat_id))
     kread(str(mute_e.chat_id))
-    await mute_e.edit("`Ssshssh Anda Telah Membisukan Obrolan !`")
-    await sleep(2)
-    await mute_e.delete()
+    await edit_delete(mute_e, "`Ssshssh Anda Telah Membisukan Obrolan !`")
     if BOTLOG:
         await mute_e.client.send_message(
             BOTLOG_CHATID,
@@ -178,26 +172,22 @@ async def sedNinjaToggle(event):
     global regexNinja
     if event.pattern_match.group(1) == "on":
         regexNinja = True
-        await event.edit("`Berhasil Mengaktifkan Mode Regex Ninja.`")
-        await sleep(1)
-        await event.delete()
+        await edit_delete(event, "`Berhasil Mengaktifkan Mode Regex Ninja.`")
     elif event.pattern_match.group(1) == "off":
         regexNinja = False
-        await event.edit("`Berhasil Menonaktifkan Mode Regex Ninja.`")
-        await sleep(1)
-        await event.delete()
+        await edit_delete(event, "`Berhasil Menonaktifkan Mode Regex Ninja.`")
 
 
 @kyy_cmd(pattern="chatinfo(?: |$)(.*)")
 async def info(event):
-    await event.edit("`Menganalisis Obrolan Ini...`")
+    await edit_or_reply(event, "`Menganalisis Obrolan Ini...`")
     chat = await get_chatinfo(event)
     caption = await fetch_info(chat, event)
     try:
-        await event.edit(caption, parse_mode="html")
+        await edit_or_reply(event, caption, parse_mode="html")
     except Exception as e:
         print("Exception:", e)
-        await event.edit("`Terjadi Kesalah Yang Tidak Terduga.`")
+        await edit_delete(event, "`Terjadi Kesalah Yang Tidak Terduga.`")
     return
 
 
@@ -222,16 +212,16 @@ async def get_chatinfo(event):
         try:
             chat_info = await event.client(GetFullChannelRequest(chat))
         except ChannelInvalidError:
-            await event.edit("`Group/Channel Tidak Valid`")
+            await edit_or_reply(event, "`Group/Channel Tidak Valid`")
             return None
         except ChannelPrivateError:
-            await event.edit("`Ini Adalah Group/Channel Privasi Atau Mungkin Anda Telah Terbanned Dari Sana`")
+            await edit_or_reply(event, "`Ini Adalah Group/Channel Privasi Atau Mungkin Anda Telah Terbanned Dari Sana`")
             return None
         except ChannelPublicGroupNaError:
-            await event.edit("`Channel Atau Supergroup Tidak Ditemukan`")
+            await edit_or_reply(event, "`Channel Atau Supergroup Tidak Ditemukan`")
             return None
         except (TypeError, ValueError) as err:
-            await event.edit(str(err))
+            await edit_or_reply(event, str(err))
             return None
     return chat_info
 
@@ -399,7 +389,7 @@ async def _(event):
         return
     to_add_users = event.pattern_match.group(1)
     if event.is_private:
-        await event.edit("`.invite` Pengguna Ke Obrolan, Tidak Ke Pesan Pribadi")
+        await edit_or_reply(event, "`.invite` Pengguna Ke Obrolan, Tidak Ke Pesan Pribadi")
     else:
         if not event.is_channel and event.is_group:
             # https://lonamiwebs.github.io/Telethon/methods/messages/add_chat_user.html
@@ -412,7 +402,7 @@ async def _(event):
                     ))
                 except Exception as e:
                     await event.reply(str(e))
-            await event.edit("`Berhasil Menambahkan Pengguna Ke Obrolan`")
+            await edit_or_reply(event, "`Berhasil Menambahkan Pengguna Ke Obrolan`")
         else:
             # https://lonamiwebs.github.io/Telethon/methods/channels/invite_to_channel.html
             for user_id in to_add_users.split(" "):
@@ -423,7 +413,7 @@ async def _(event):
                     ))
                 except Exception as e:
                     await event.reply(str(e))
-            await event.edit("`Berhasil Menambahkan Pengguna Ke Obrolan`")
+            await edit_or_reply(event, "`Berhasil Menambahkan Pengguna Ke Obrolan`")
 
 CMD_HELP.update({
     "chat":

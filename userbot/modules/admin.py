@@ -31,7 +31,12 @@ from telethon.tl.types import (
 )
 
 from userbot import BOTLOG, BOTLOG_CHATID, CMD_HELP
-from userbot.utils import kyy_cmd
+from userbot.utils import (
+    edit_delete,
+    edit_or_reply, 
+    kyy_cmd, 
+    kyy_handler,
+)
 from userbot import CMD_HANDLER as cmd
 from userbot.events import register
 
@@ -80,52 +85,54 @@ UNMUTE_RIGHTS = ChatBannedRights(until_date=None, send_messages=False)
 
 
 @kyy_cmd(pattern=r"^\.setgpic$")
-async def set_group_photo(gpic):
-    if not gpic.is_group:
-        await gpic.edit("`Mohon Lakukan Perintah Ini Di Grup.`")
-        return
-    replymsg = await gpic.get_reply_message()
-    chat = await gpic.get_chat()
-    admin = chat.admin_rights
-    creator = chat.creator
-    photo = None
-
-    if not admin and not creator:
-        return await gpic.edit(NO_ADMIN)
-
-    if replymsg and replymsg.media:
-        await gpic.edit("`Mengubah Profil Grup`")
-        if isinstance(replymsg.media, MessageMediaPhoto):
-            photo = await gpic.client.download_media(message=replymsg.photo)
-        elif "image" in replymsg.media.document.mime_type.split("/"):
-            photo = await gpic.client.download_file(replymsg.media.document)
-        else:
-            await gpic.edit(INVALID_MEDIA)
-
-    if photo:
+@register(pattern=r"^\.csetgpic( -s| -d)$", sudo=True)
+async def set_group_photo(event):
+    "For changing Group dp"
+    flag = (event.pattern_match.group(1)).strip()
+    if flag == "-s":
+        replymsg = await event.get_reply_message()
+        photo = None
+        if replymsg and replymsg.media:
+            if isinstance(replymsg.media, MessageMediaPhoto):
+                photo = await event.client.download_media(message=replymsg.photo)
+            elif "image" in replymsg.media.document.mime_type.split("/"):
+                photo = await event.client.download_file(replymsg.media.document)
+            else:
+                return await edit_delete(event, INVALID_MEDIA)
+        if photo:
+            try:
+                await event.client(
+                    EditPhotoRequest(
+                        event.chat_id, await event.client.upload_file(photo)
+                    )
+                )
+                await edit_delete(event, CHAT_PP_CHANGED)
+            except PhotoCropSizeSmallError:
+                return await edit_delete(event, PP_TOO_SMOL)
+            except ImageProcessFailedError:
+                return await edit_delete(event, PP_ERROR)
+            except Exception as e:
+                return await edit_delete(event, f"**ERROR : **`{str(e)}`")
+    else:
         try:
-            await gpic.client(
-                EditPhotoRequest(gpic.chat_id, await gpic.client.upload_file(photo))
-            )
-            await gpic.edit(CHAT_PP_CHANGED)
-
-        except PhotoCropSizeSmallError:
-            await gpic.edit(PP_TOO_SMOL)
-        except ImageProcessFailedError:
-            await gpic.edit(PP_ERROR)
+            await event.client(EditPhotoRequest(event.chat_id, InputChatPhotoEmpty()))
+        except Exception as e:
+            return await edit_delete(event, f"**ERROR : **`{e}`")
+        await edit_delete(event, "**Foto Profil Grup Berhasil dihapus.**", 30)
 
 
 @kyy_cmd(pattern="promote(?:\\s|$)([\\s\\S]*)")
-async def promote(promt):
+@register(pattern=r"^\.cpromote(?:\s|$)([\s\S]*)", sudo=True)
+async def promote(event):
     # Get targeted chat
-    chat = await promt.get_chat()
+    chat = await event.get_chat()
     # Grab admin status or creator in a chat
     admin = chat.admin_rights
     creator = chat.creator
 
     # If not admin and not creator, also return
     if not admin and not creator:
-        return await promt.edit(NO_ADMIN)
+        return await event.edit(NO_ADMIN)
 
     new_rights = ChatAdminRights(
         add_admins=False,
@@ -136,8 +143,8 @@ async def promote(promt):
         pin_messages=True,
     )
 
-    await promt.edit("`Promosikan Pengguna Sebagai Admin... Mohon Menunggu`")
-    user, rank = await get_user_from_event(promt)
+    eventkyy = await edit_or_reply(event, "`Promosikan Pengguna Sebagai Admin... Mohon Menunggu`")
+    user, rank = await get_user_from_event(event)
     if not rank:
         rank = "Admin"  # Just in case.
     if not user:
@@ -145,19 +152,18 @@ async def promote(promt):
 
     # Try to promote if current user is admin or creator
     try:
-        await promt.client(EditAdminRequest(promt.chat_id, user.id, new_rights, rank))
-        await promt.edit("`Berhasil Menambahkan Pengguna Ini Sebagai Admin!`")
-        await sleep(5)
-        await promt.delete()
+        await event.client(EditAdminRequest(promt.chat_id, user.id, new_rights, rank))
+        await edit_delete(eventkyy, "`Berhasil Menambahkan Pengguna Ini Sebagai Admin!`")
+
 
     # If Telethon spit BadRequestError, assume
     # we don't have Promote permission
     except BadRequestError:
-        return await promt.edit(NO_PERM)
+        return await eventkyy.edit(NO_PERM)
 
     # Announce to the logging group if we have promoted successfully
     if BOTLOG:
-        await promt.client.send_message(
+        await event.client.send_message(
             BOTLOG_CHATID,
             "#PROMOSI\n"
             f"PENGGUNA: [{user.first_name}](tg://user?id={user.id})\n"
@@ -166,9 +172,10 @@ async def promote(promt):
 
 
 @kyy_cmd(pattern="demote(?:\\s|$)([\\s\\S]*)")
-async def demote(dmod):
+@register(pattern=r"^\.cdemote(?:\s|$)([\s\S]*)", sudo=True)
+async def demote(event):
     # Admin right check
-    chat = await dmod.get_chat()
+    chat = await event.get_chat()
     admin = chat.admin_rights
     creator = chat.creator
 
@@ -176,7 +183,7 @@ async def demote(dmod):
         return await dmod.edit(NO_ADMIN)
 
     # If passing, declare that we're going to demote
-    await dmod.edit("`Sedang Melepas Admin...`")
+    eventkyy = await edit_or_reply(event, "`Sedang Melepas Admin...`")
     rank = "Admin"  # dummy rank, lol.
     user = await get_user_from_event(dmod)
     user = user[0]
@@ -194,19 +201,17 @@ async def demote(dmod):
     )
     # Edit Admin Permission
     try:
-        await dmod.client(EditAdminRequest(dmod.chat_id, user.id, newrights, rank))
+        await event.client(EditAdminRequest(event.chat_id, user.id, newrights, rank))
 
     # If we catch BadRequestError from Telethon
     # Assume we don't have permission to demote
     except BadRequestError:
-        return await dmod.edit(NO_PERM)
-    await dmod.edit("`Berhasil Melepas Pengguna Ini Sebagai Admin!`")
-    await sleep(5)
-    await dmod.delete()
+        return await eventkyy.edit(NO_PERM)
+    await edit_delete(eventkyy, "`Berhasil Melepas Pengguna Ini Sebagai Admin!`")
 
     # Announce to the logging group if we have demoted successfully
     if BOTLOG:
-        await dmod.client.send_message(
+        await event.client.send_message(
             BOTLOG_CHATID,
             "#DEMOTE\n"
             f"PENGGUNA: [{user.first_name}](tg://user?id={user.id})\n"
@@ -215,6 +220,7 @@ async def demote(dmod):
 
 
 @kyy_cmd(pattern="ban(?:\\s|$)([\\s\\S]*)")
+@register(pattern=r"^\.cban(?:\s|$)([\s\S]*)", sudo=True)
 async def ban(bon):
     # Here laying the sanity check
     chat = await bon.get_chat()
@@ -223,14 +229,14 @@ async def ban(bon):
 
     # Well
     if not admin and not creator:
-        return await bon.edit(NO_ADMIN)
+        return await edit_or_reply(bon, NO_ADMIN)
 
     user, reason = await get_user_from_event(bon)
     if not user:
         return
 
     # Announce that we're going to whack the pest
-    await bon.edit("`Melakukan Banned!`")
+    kyy = await edit_or_reply(bon, "`Melakukan Banned!`")
 
     try:
         await bon.client(EditBannedRequest(bon.chat_id, user.id, BANNED_RIGHTS))
@@ -249,11 +255,11 @@ async def ban(bon):
     # is done gracefully
     # Shout out the ID, so that fedadmins can fban later
     if reason:
-        await bon.edit(
+        await kyy.edit(
             f"`PENGGUNA:` [{user.first_name}](tg://user?id={user.id})\n`ID:` `{str(user.id)}` Telah Di Banned !!\n`Alasan:` {reason}"
         )
     else:
-        await bon.edit(
+        await kyy.edit(
             f"`PENGGUNA:` [{user.first_name}](tg://user?id={user.id})\n`ID:` `{str(user.id)}` Telah Di Banned !"
         )
     # Announce to the logging group if we have banned the person
@@ -268,6 +274,7 @@ async def ban(bon):
 
 
 @kyy_cmd(pattern="unban(?:\\s|$)([\\s\\S]*)")
+@register(pattern=r"^\.cunban(?:\s|$)([\s\S]*)", sudo=True)
 async def nothanos(unbon):
     # Here laying the sanity check
     chat = await unbon.get_chat()
@@ -276,10 +283,10 @@ async def nothanos(unbon):
 
     # Well
     if not admin and not creator:
-        return await unbon.edit(NO_ADMIN)
+        return await edit_delete(unbon, NO_ADMIN)
 
     # If everything goes well...
-    await unbon.edit("`Sedang Melakukan Unban...`")
+    kyy = await edit_or_reply(unbon, "`Sedang Melakukan Unban...`")
 
     user = await get_user_from_event(unbon)
     user = user[0]
@@ -288,9 +295,7 @@ async def nothanos(unbon):
 
     try:
         await unbon.client(EditBannedRequest(unbon.chat_id, user.id, UNBAN_RIGHTS))
-        await unbon.edit("```Berhasil Melepas Ban Pengguna!```")
-        await sleep(3)
-        await unbon.delete()
+        await edit_delete(kyy, "```Berhasil Melepas Ban Pengguna!```")
 
         if BOTLOG:
             await unbon.client.send_message(
@@ -300,16 +305,17 @@ async def nothanos(unbon):
                 f"GRUP: {unbon.chat.title}(`{unbon.chat_id}`)",
             )
     except UserIdInvalidError:
-        await unbon.edit("`Sepertinya Terjadi Kesalahan!`")
+        await edit_delete(kyy, "`Sepertinya Terjadi Kesalahan!`")
 
 
 @kyy_cmd(pattern="mute(?: |$)(.*)")
+@register(pattern=r"^\.cmute(?: |$)(.*)", sudo=True)
 async def spider(spdr):
     # Check if the function running under SQL mode
     try:
         from userbot.modules.sql_helper.spam_mute_sql import mute
     except AttributeError:
-        return await spdr.edit(NO_SQL)
+        return await edit_or_reply(spdr, NO_SQL)
 
     # Admin or creator check
     chat = await spdr.get_chat()
@@ -318,8 +324,8 @@ async def spider(spdr):
 
     # If not admin and not creator, return
     if not admin and not creator:
-        return await spdr.edit(NO_ADMIN)
-
+        return await edit_or_reply(spdr, NO_ADMIN)
+    kyy = await edit_or_reply(spdr, "`Sedang melakukan Mute...`")
     user, reason = await get_user_from_event(spdr)
     if not user:
         return
@@ -327,23 +333,23 @@ async def spider(spdr):
     self_user = await spdr.client.get_me()
 
     if user.id == self_user.id:
-        return await spdr.edit(
+        return await edit_or_reply(kyy, 
             "`Tangan Terlalu Pendek, Tidak Bisa Membisukan Diri Sendiri...\n(ヘ･_･)ヘ┳━┳`"
         )
 
     # If everything goes well, do announcing and mute
-    await spdr.edit("`Telah Dibisukan!`")
+    await kyy.edit("`Telah Dibisukan!`")
     if mute(spdr.chat_id, user.id) is False:
-        return await spdr.edit("`Pengguna Sudah Dibisukan!`")
+        return await kyy.edit("`Pengguna Sudah Dibisukan!`")
     else:
         try:
             await spdr.client(EditBannedRequest(spdr.chat_id, user.id, MUTE_RIGHTS))
 
             # Announce that the function is done
             if reason:
-                await spdr.edit(f"**Pengguna Telah Dibisukan!**\n**Alasan:** `{reason}`")
+                await kyy.edit(f"**Pengguna Telah Dibisukan!**\n**Alasan:** `{reason}`")
             else:
-                await spdr.edit("`Telah Dibisukan!`")
+                await kyy.edit("`Telah Dibisukan!`")
 
             # Announce to logging group
             if BOTLOG:
@@ -354,10 +360,11 @@ async def spider(spdr):
                     f"GRUP: {spdr.chat.title}(`{spdr.chat_id}`)",
                 )
         except UserIdInvalidError:
-            return await spdr.edit("`Terjadi Kesalahan!`")
+            return await edit_delete(kyy, "`Terjadi Kesalahan!`")
 
 
-@kyy_cmd(pattern="mute(?: |$)(.*)")
+@kyy_cmd(pattern="unmute(?: |$)(.*)")
+@register(pattern=r"^\.cunmute(?: |$)(.*)", sudo=True)
 async def unmoot(unmot):
     # Admin or creator check
     chat = await unmot.get_chat()
@@ -366,7 +373,7 @@ async def unmoot(unmot):
 
     # If not admin and not creator, return
     if not admin and not creator:
-        return await unmot.edit(NO_ADMIN)
+        return await edit_delete(unmot, NO_ADMIN)
 
     # Check if the function running under SQL mode
     try:
@@ -375,23 +382,21 @@ async def unmoot(unmot):
         return await unmot.edit(NO_SQL)
 
     # If admin or creator, inform the user and start unmuting
-    await unmot.edit("```Melakukan Unmute...```")
+    kyy = await edit_or_reply(unmot, "```Melakukan Unmute...```")
     user = await get_user_from_event(unmot)
     user = user[0]
     if not user:
         return
 
     if unmute(unmot.chat_id, user.id) is False:
-        return await unmot.edit("`Pengguna Sudah Tidak Dibisukan!`")
+        return await edit_delete(unmot, "`Pengguna Sudah Tidak Dibisukan!`")
     else:
 
         try:
             await unmot.client(EditBannedRequest(unmot.chat_id, user.id, UNBAN_RIGHTS))
-            await unmot.edit("```Berhasil Melakukan Unmute! Pengguna Sudah Tidak Dibisukan```")
-            await sleep(3)
-            await unmot.delete()
+            await edit_delete(kyy, "```Berhasil Melakukan Unmute! Pengguna Sudah Tidak Dibisukan```")
         except UserIdInvalidError:
-            return await unmot.edit("`Terjadi Kesalahan!`")
+            return await edit_delete(kyy, "`Terjadi Kesalahan!`")
 
         if BOTLOG:
             await unmot.client.send_message(
@@ -434,6 +439,7 @@ async def muter(moot):
 
 
 @kyy_cmd(pattern="ungmute(?: |$)(.*)")
+@register(pattern=r"^\.cungmute(?: |$)(.*)", sudo=True)
 async def ungmoot(un_gmute):
     # Admin or creator check
     chat = await un_gmute.get_chat()
@@ -442,29 +448,27 @@ async def ungmoot(un_gmute):
 
     # If not admin and not creator, return
     if not admin and not creator:
-        return await un_gmute.edit(NO_ADMIN)
+        return await edit_delete(un_gmute, NO_ADMIN)
 
     # Check if the function running under SQL mode
     try:
         from userbot.modules.sql_helper.gmute_sql import ungmute
     except AttributeError:
-        return await un_gmute.edit(NO_SQL)
-
+        return await edit_or_reply(un_gmute, NO_SQL)
+    kyy = await edit_or_reply(un_gmute, "`Sedang melakukan membuka Global Mute...`")
     user = await get_user_from_event(un_gmute)
     user = user[0]
     if not user:
         return
 
     # If pass, inform and start ungmuting
-    await un_gmute.edit("```Membuka Global Mute Pengguna...```")
+    await kyy.edit("```Membuka Global Mute Pengguna...```")
 
     if ungmute(user.id) is False:
-        await un_gmute.edit("`Pengguna Sedang Tidak Di Gmute!`")
+        await kyy.edit("`Pengguna Sedang Tidak Di Gmute!`")
     else:
         # Inform about success
-        await un_gmute.edit("```Berhasil! Pengguna Sudah Tidak Lagi Dibisukan```")
-        await sleep(3)
-        await un_gmute.delete()
+        await edit_delete(un_gmute, "```Berhasil! Pengguna Sudah Tidak Lagi Dibisukan```")
 
         if BOTLOG:
             await un_gmute.client.send_message(
@@ -476,6 +480,7 @@ async def ungmoot(un_gmute):
 
 
 @kyy_cmd(pattern="gmute(?: |$)(.*)")
+@register(pattern=r"^\.cgmute(?: |$)(.*)", sudo=True)
 async def gspider(gspdr):
     # Admin or creator check
     chat = await gspdr.get_chat()
@@ -484,25 +489,25 @@ async def gspider(gspdr):
 
     # If not admin and not creator, return
     if not admin and not creator:
-        return await gspdr.edit(NO_ADMIN)
+        return await edit_delete(gspdr, NO_ADMIN)
 
     # Check if the function running under SQL mode
     try:
         from userbot.modules.sql_helper.gmute_sql import gmute
     except AttributeError:
-        return await gspdr.edit(NO_SQL)
-
+        return await edit_delete(gspdr, NO_SQL)
+    kyy = await edit_or_reply(gspdr, "`Processing...`")
     user, reason = await get_user_from_event(gspdr)
     if not user:
         return
 
     # If pass, inform and start gmuting
-    await gspdr.edit("`Pengguna Berhasil Dibisukan!`")
+    await kyy.edit("`Pengguna Berhasil Dibisukan!`")
     if gmute(user.id) is False:
-        await gspdr.edit("`Kesalahan! Pengguna Sudah Dibisukan.`")
+        await edit_delete(gspdr, "`Kesalahan! Pengguna Sudah Dibisukan.`")
     else:
         if reason:
-            await gspdr.edit(f"**Dibisukan Secara Global!**\n**Alasan:** `{reason}`")
+            await kyy.edit(f"**Dibisukan Secara Global!**\n**Alasan:** `{reason}`")
         else:
             await gspdr.edit("`Berhasil Membisukan Pengguna Secara Global!`")
 
@@ -603,6 +608,7 @@ async def get_admin(show):
 
 
 @kyy_cmd(pattern="pin( loud|$)")
+@register(pattern=r"^\.cpin( loud|$)", sudo=True)
 async def pin(msg):
     # Admin or creator check
     chat = await msg.get_chat()
@@ -611,12 +617,12 @@ async def pin(msg):
 
     # If not admin and not creator, return
     if not admin and not creator:
-        return await msg.edit(NO_ADMIN)
+        return await edit_delete(msg, NO_ADMIN)
 
     to_pin = msg.reply_to_msg_id
 
     if not to_pin:
-        return await msg.edit("`Mohon Balas Ke Pesan Untuk Melakukan Pin.`")
+        return await edit_delete(msg, "`Mohon Balas Ke Pesan Untuk Melakukan Pin.`")
 
     options = msg.pattern_match.group(1)
 
@@ -628,12 +634,10 @@ async def pin(msg):
     try:
         await msg.client(UpdatePinnedMessageRequest(msg.to_id, to_pin, is_silent))
     except BadRequestError:
-        return await msg.edit(NO_PERM)
+        return await edit_delete(msg, NO_PERM)
 
-    await msg.edit("`Berhasil Melakukan Pinned!`")
-    await sleep(2)
-    await msg.delete()
-
+    await edit_delete(msg, "`Berhasil Melakukan Pinned!`")
+    
     user = await get_user_from_id(msg.from_id, msg)
 
     if BOTLOG:
@@ -647,6 +651,7 @@ async def pin(msg):
 
 
 @kyy_cmd(pattern="kick(?: |$)(.*)")
+@register(pattern=r"^\.ckick(?: |$)(.*)", sudo=True)
 async def kick(usr):
     # Admin or creator check
     chat = await usr.get_chat()
@@ -655,26 +660,26 @@ async def kick(usr):
 
     # If not admin and not creator, return
     if not admin and not creator:
-        return await usr.edit(NO_ADMIN)
+        return await edit_delete(usr, NO_ADMIN)
 
     user, reason = await get_user_from_event(usr)
     if not user:
-        return await usr.edit("`Tidak Dapat Menemukan Pengguna.`")
+        return await edit_delete(usr, "`Tidak Dapat Menemukan Pengguna.`")
 
-    await usr.edit("`Melakukan Kick....`")
+    xnxx = await edit_delete(usr, "`Melakukan Kick....`")
 
     try:
         await usr.client.kick_participant(usr.chat_id, user.id)
         await sleep(0.5)
     except Exception as e:
-        return await usr.edit(NO_PERM + f"\n{str(e)}")
+        return await edit_delete(usr, NO_PERM + f"\n{str(e)}")
 
     if reason:
-        await usr.edit(
+        await xnxx.edit(
             f"[{user.first_name}](tg://user?id={user.id}) **Telah Dikick Dari Grup**\n**Alasan:** `{reason}`"
         )
     else:
-        await usr.edit(f"[{user.first_name}](tg://user?id={user.id}) **Telah Dikick Dari Grup**")
+        await xnxx.edit(f"[{user.first_name}](tg://user?id={user.id}) **Telah Dikick Dari Grup**")
         await sleep(5)
         await usr.delete()
 

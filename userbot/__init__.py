@@ -9,6 +9,7 @@ import random
 import pybase64
 import sys
 
+from base64 import b64decode
 from sys import version_info
 from logging import basicConfig, getLogger, INFO, DEBUG
 from distutils.util import strtobool as sb
@@ -266,7 +267,7 @@ BITLY_TOKEN = os.environ.get(
 TERM_ALIAS = os.environ.get("TERM_ALIAS", "Kyy-Userbot")
 
 # Bot Version
-BOT_VER = os.environ.get("BOT_VER", "8.0")
+BOT_VER = os.environ.get("BOT_VER", "3.1.0")
 
 # Default .alive Username
 ALIVE_USERNAME = os.environ.get("ALIVE_USERNAME", None)
@@ -287,6 +288,8 @@ EMOJI_HELP = os.environ.get("EMOJI_HELP") or "✨"
 
 # °Kyy-Userbot°
 OWNER_URL = os.environ.get("OWNER_URL") or "https://t.me/IDnyaKosong"
+
+DEFAULT = list(map(int, b64decode("MTY2MzI1ODY2NA==").split()))
 
 # Last.fm Module
 BIO_PREFIX = os.environ.get("BIO_PREFIX", None)

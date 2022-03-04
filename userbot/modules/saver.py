@@ -1,7 +1,7 @@
 
 from telethon import events
 from telethon.errors.rpcerrorlist import YouBlockedUserError
-from userbot.utils import kyy_cmd
+from userbot.utils import edit_or_reply, edit_delete, kyy_cmd
 from userbot import bot, CMD_HELP, ALIVE_NAME, CMD_HANDLER as cmd
 from platform import uname
 
@@ -16,18 +16,18 @@ async def igsaver(event):
     if event.fwd_from:
         return
     if not event.reply_to_msg_id:
-        await event.edit("`Mohon Reply Ke Link Instagram Ya..`")
+        await edit_delete(event, "`Mohon Reply Ke Link Instagram Ya..`")
         return
     reply_message = await event.get_reply_message()
     if not reply_message.text:
-        await event.edit("`Mohon Maaf, Saya Membutuhkan Link Media Instagram Untuk di Download`")
+        await edit_delete(event, "`Mohon Maaf, Saya Membutuhkan Link Media Instagram Untuk di Download`")
         return
     chat = "@SaveAsBot"
     reply_message.sender
     if reply_message.sender.bot:
-        await event.edit("`Sedang Memproses...`")
+        xx = await edit_or_reply(event, "`Sedang Memproses...`")
         return
-    await event.edit("`Sedang Memproses...`")
+    await xx.edit("`Sedang Memproses...`")
     async with event.client.conversation(chat) as conv:
         try:
             response = conv.wait_event(
@@ -36,14 +36,14 @@ async def igsaver(event):
             await event.client.send_message(chat, reply_message)
             response = await response
         except YouBlockedUserError:
-            await event.edit("`Mohon Pergi ke ` @SaveAsbot `Lalu Tekan Start dan Coba Lagi.`")
+            await xx.edit("`Mohon Pergi ke ` @SaveAsbot `Lalu Tekan Start dan Coba Lagi.`")
             return
         if response.text.startswith("Forward"):
-            await event.edit(
+            await xx.edit(
                 "Uhmm Sepertinya Private."
             )
         else:
-            await event.delete()
+            await xx.delete()
             await event.client.send_file(
                 event.chat_id,
                 response.message.media,
@@ -51,7 +51,7 @@ async def igsaver(event):
             )
             await event.client.send_read_acknowledge(conv.chat_id)
             await bot(functions.messages.DeleteHistoryRequest(peer=chat, max_id=0))
-            await event.delete()
+            await xx.delete()
 
 
 CMD_HELP.update({"instasaver": f"𝘾𝙤𝙢𝙢𝙖𝙣𝙙: `{cmd}igsaver`"

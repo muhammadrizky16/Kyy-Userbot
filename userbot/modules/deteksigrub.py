@@ -1,6 +1,6 @@
 from telethon.errors.rpcerrorlist import YouBlockedUserError
 from userbot import CMD_HELP, bot, CMD_HANDLER as cmd
-from userbot.utils import kyy_cmd
+from userbot.utils import edit_or_reply, kyy_cmd
 
 
 @kyy_cmd(pattern="(?:dgrup|dg)\\s?(.*)?")
@@ -10,7 +10,7 @@ async def _(event):
     input_str = "".join(event.text.split(maxsplit=1)[1:])
     reply_message = await event.get_reply_message()
     if not event.reply_to_msg_id:
-        await event.edit("```Mohon Balas Ke Pesan Pengguna atau ketik .dgrup (ID/Username) Yang mau Anda deteksi```")
+        await edit_or_reply(event, "```Mohon Balas Ke Pesan Pengguna atau ketik .dgrup (ID/Username) Yang mau Anda deteksi```")
         return
     if input_str:
         try:
@@ -19,23 +19,23 @@ async def _(event):
             try:
                 u = await event.client.get_entity(input_str)
             except ValueError:
-                await edit.event("`Mohon Berikan ID/Username untuk menemukan Riwayat`"
+                await edit_or_reply(event, "`Mohon Berikan ID/Username untuk menemukan Riwayat`"
                                  )
             uid = u.id
     else:
         uid = reply_message.sender_id
     chat = "@tgscanrobot"
-    event = await event.edit("`Sedang Mendeteksi...`")
+    event = await edit_or_reply(event, "`Sedang Mendeteksi...`")
     async with bot.conversation(chat) as conv:
         try:
             await conv.send_message(f"{uid}")
         except YouBlockedUserError:
-            await steal.reply(
+            await edit_or_reply(event, 
                 "```Mohon Unblock @tgscanrobot Dan Coba Lagi```"
             )
         response = await conv.get_response()
         await event.client.send_read_acknowledge(conv.chat_id)
-        await event.edit(response.text)
+        await edit_or_reply(event, response.text)
 
 
 def inline_mention(user):

@@ -6,15 +6,113 @@
 """ Userbot module for managing events.
  One of the main components of the userbot. """
 
+import inspect
+import re
 import sys
 from asyncio import create_subprocess_shell as asyncsubshell
 from asyncio import subprocess as asyncsub
+from pathlib import Path
 from time import gmtime, strftime
 from traceback import format_exc
 
 from telethon import events
 
-from userbot import LOGSPAMMER, bot
+from userbot import CMD_HANDLER, DEFAULT, CMD_LIST, DEVS, bot
+
+
+def kyy_cmd(pattern=None, command=None, **args):
+    args["func"] = lambda e: e.via_bot_id is None
+    stack = inspect.stack()
+    previous_stack_frame = stack[1]
+    file_test = Path(previous_stack_frame.filename)
+    file_test = file_test.stem.replace(".py", "")
+    args.get("allow_sudo", False)
+    if pattern is not None:
+        if pattern.startswith(r"\#"):
+            args["pattern"] = re.compile(pattern)
+        elif pattern.startswith(r"^"):
+            args["pattern"] = re.compile(pattern)
+            cmd = pattern.replace("$", "").replace("^", "").replace("\\", "")
+            try:
+                CMD_LIST[file_test].append(cmd)
+            except BaseException:
+                CMD_LIST.update({file_test: [cmd]})
+        else:
+            if len(CMD_HANDLER) == 2:
+                catreg = "^" + CMD_HANDLER
+                reg = CMD_HANDLER[1]
+            elif len(CMD_HANDLER) == 1:
+                catreg = "^\\" + CMD_HANDLER
+                reg = CMD_HANDLER
+            args["pattern"] = re.compile(catreg + pattern)
+            if command is not None:
+                cmd = reg + command
+            else:
+                cmd = (
+                    (reg + pattern).replace("$", "").replace("\\", "").replace("^", "")
+                )
+            try:
+                CMD_LIST[file_test].append(cmd)
+            except BaseException:
+                CMD_LIST.update({file_test: [cmd]})
+
+    if "allow_edited_updates" in args and args["allow_edited_updates"]:
+        del args["allow_edited_updates"]
+
+    return events.NewMessage(**args)
+
+
+def command(**args):
+    args["func"] = lambda e: e.via_bot_id is None
+
+    stack = inspect.stack()
+    previous_stack_frame = stack[1]
+    file_test = Path(previous_stack_frame.filename)
+    file_test = file_test.stem.replace(".py", "")
+
+    pattern = args.get("pattern")
+    allow_edited_updates = args.get("allow_edited_updates", False)
+    args["incoming"] = args.get("incoming", False)
+    args["outgoing"] = True
+    if bool(args["incoming"]):
+        args["outgoing"] = False
+
+    try:
+        if pattern is not None and not pattern.startswith("(?i)"):
+            args["pattern"] = "(?i)" + pattern
+    except BaseException:
+        pass
+
+    reg = re.compile("(.*)")
+    if pattern is not None:
+        try:
+            cmd = re.search(reg, pattern)
+            try:
+                cmd = cmd.group(1).replace("$", "").replace("\\", "").replace("^", "")
+            except BaseException:
+                pass
+            try:
+                CMD_LIST[file_test].append(cmd)
+            except BaseException:
+                CMD_LIST.update({file_test: [cmd]})
+        except BaseException:
+            pass
+
+    def decorator(func):
+        async def wrapper(check):
+            if check.edit_date and check.is_channel and not check.is_group:
+                return
+            if not trigger_on_fwd and check.fwd_from:
+                return
+            if groups_only and not check.is_group:
+                await check.respond("`I don't think this is a group.`")
+                return
+
+        if allow_edited_updates:
+            bot.add_event_handler(func, events.MessageEdited(**args))
+        bot.add_event_handler(func, events.NewMessage(**args))
+
+    return decorator
 
 
 def register(**args):
@@ -33,6 +131,11 @@ def register(**args):
 
     if "disable_edited" in args:
         del args['disable_edited']
+    
+    if "sudo" in args:
+        del args["sudo"]
+        args["incoming"] = True
+        args["from_users"] = DEVS
 
     if "ignore_unsafe" in args:
         del args['ignore_unsafe']
@@ -45,6 +148,11 @@ def register(**args):
 
     if "trigger_on_fwd" in args:
         del args['trigger_on_fwd']
+
+    if "own" in args:
+        del args["own"]
+        args["incoming"] = True
+        args["from_users"] = DEFAULT
 
     if "insecure" in args:
         del args['insecure']
@@ -59,11 +167,6 @@ def register(**args):
                 # Messages sent in channels can be edited by other users.
                 # Ignore edits that take place in channels.
                 return
-            if not LOGSPAMMER:
-                check.chat_id
-            else:
-                pass
-
             if not trigger_on_fwd and check.fwd_from:
                 return
 
@@ -77,14 +180,8 @@ def register(**args):
             try:
                 await func(check)
 
-            # Thanks to @kandnub for this HACK.
-            # Raise StopPropagation to Raise StopPropagation
-            # This needed for AFK to working properly
-
             except events.StopPropagation:
                 raise events.StopPropagation
-            # This is a gay exception and must be passed out. So that it doesnt
-            # spam chats
             except KeyboardInterrupt:
                 pass
             except BaseException:

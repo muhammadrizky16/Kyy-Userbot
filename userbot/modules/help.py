@@ -7,7 +7,7 @@
 
 import asyncio
 from userbot import ALIVE_NAME, CMD_HELP
-from userbot.utils import kyy_cmd
+from userbot.utils import edit_or_reply, edit_delete, kyy_cmd
 from platform import uname
 
 modules = CMD_HELP
@@ -23,19 +23,18 @@ async def help(event):
     args = event.pattern_match.group(1).lower()
     if args:
         if args in CMD_HELP:
-            await event.edit(str(CMD_HELP[args]))
+            await edit_or_reply(event, str(CMD_HELP[args]))
         else:
-            await event.edit("`Command` **Tidak Valid**")
-            await asyncio.sleep(200)
-            await event.delete()
+            await edit_delete(event, "`Command` **Tidak Valid**")
     else:
         string = ""
         for i in CMD_HELP:
             string += "`" + str(i)
             string += "`\t ✗  "
-        await event.edit("**✨ҡʏʏ-υѕєявσт✨**\n\n"
+        await edit_or_reply(event, "**✨ҡʏʏ-υѕєявσт✨**\n\n"
                          f"**◉ Bᴏᴛ ᴏꜰ {DEFAULTUSER}**\n**◉ Mᴏᴅᴜʟᴇꜱ : {len(modules)}**\n\n"
                          "**• Mᴀɪɴ Mᴇɴᴜ :**\n"
-                         f"◉ {string}◉\n\n✐ **ɴᴏᴛᴇꜱ :**  `.help animasi`\n☞  sᴜᴘᴘᴏʀᴛ : @NastySupportt")
-        await asyncio.sleep(1000)
-        await event.delete()
+                         f"◉ {string}◉\n\n☞  ᴘʀᴏᴊᴇᴄᴛ : @NastyProject")
+        await event.reply(
+            f"\n**Contoh Ketik** `{cmd}help animasi` **Untuk Melihat Informasi Module**"
+        )

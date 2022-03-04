@@ -50,7 +50,7 @@ opencv-python
 oauth2client
 patool
 pendulum
-Pillow>=6.0.0
+pillow
 psutil
 psycopg2
 psycopg2-binary

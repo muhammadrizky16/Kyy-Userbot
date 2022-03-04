@@ -5,7 +5,7 @@ from telethon.errors.rpcerrorlist import YouBlockedUserError
 from telethon.tl.functions.contacts import UnblockRequest
 
 from userbot import CMD_HELP, CMD_HANDLER as cmd
-from userbot.utils import kyy_cmd
+from userbot.utils import edit_or_reply, kyy_cmd
 
 chat = "@BotFather"
 
@@ -18,7 +18,7 @@ async def _(event):
         text, username = event.pattern_match.group(1).split()
 
     else:
-        await event.edit("`Masukan Yang Benar Cok Biar Bisa Bikin Bot!!`")
+        await edit_or_reply(event, "`Masukan Yang Benar Cok Biar Bisa Bikin Bot!!`")
         return
 
     async with event.client.conversation(chat) as conv:

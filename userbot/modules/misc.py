@@ -7,7 +7,7 @@ import os
 import io
 import sys
 from userbot import ALIVE_NAME, BOTLOG, BOTLOG_CHATID, CMD_HELP, UPSTREAM_REPO_URL, bot
-from userbot.utils import kyy_cmd
+from userbot.utils import edit_or_reply, edit_delete,  kyy_cmd
 from userbot.utils import time_formatter
 import urllib
 import requests
@@ -45,7 +45,7 @@ async def randomise(items):
 async def sleepybot(time):
     """ For .sleep command, let the userbot snooze for a few second. """
     counter = int(time.pattern_match.group(1))
-    await time.edit("`I am sulking and snoozing...`")
+    xx = await edit_or_reply(time, "`I am sulking and snoozing...`")
     if BOTLOG:
         str_counter = time_formatter(counter)
         await time.client.send_message(
@@ -53,13 +53,13 @@ async def sleepybot(time):
             f"You put the bot to sleep for {str_counter}.",
         )
     sleep(counter)
-    await time.edit("`OK, I'm awake now.`")
+    await xx.edit("`OK, I'm awake now.`")
 
 
 @kyy_cmd(pattern="shutdown$")
 async def killdabot(event):
     """ For .shutdown command, shut the bot down."""
-    await event.edit("`Mematikan Kyy-Userbot....`")
+    await edit_or_reply(event, "`Mematikan Kyy-Userbot....`")
     await asyncio.sleep(7)
     await event.delete()
     if BOTLOG:
@@ -70,7 +70,7 @@ async def killdabot(event):
 
 @kyy_cmd(pattern="restart$")
 async def killdabot(event):
-    await event.edit("`Restarting Kyy-Userbot...`")
+    await edit_or_reply(event, "`Restarting Kyy-Userbot...`")
     await asyncio.sleep(10)
     await event.delete()
     if BOTLOG:
@@ -83,7 +83,7 @@ async def killdabot(event):
 
 @kyy_cmd(pattern="readme$")
 async def reedme(e):
-    await e.edit(
+    await edit_or_reply(e, 
         "Here's Something for You to Read :\n"
         "\n[✨ Kyy-Userbot Repo](https://github.com/muhammadrizky16/Kyy-Userbot/blob/Kyy-Userbot/README.md)"
         "\n[Setup Guide - Basic](https://telegra.ph/How-to-host-a-Telegram-Userbot-11-02)"
@@ -107,7 +107,7 @@ async def repeat(rep):
 @kyy_cmd(pattern="repo$")
 async def repo_is_here(wannasee):
     """ For .repo command, just returns the repo URL. """
-    await wannasee.edit(
+    await edit_or_reply(wannasee, 
         "**Hey**, I am using **✨ҡʏʏ-υѕєявσт✨** \n"
         "卍━━━━━━━━━━━━━━━━━━━━━━卍\n"
         "➣ **Repo Userbot :** [ɢɪᴛʜᴜʙ](https://github.com/muhammadrizky16/Kyy-Userbot)\n"
@@ -122,7 +122,7 @@ async def repo_is_here(wannasee):
 @kyy_cmd(pattern="string$")
 async def repo_is_here(wannasee):
     """For .repo command, just returns the repo URL."""
-    await wannasee.edit(
+    await edit_or_reply(wannasee, 
         f"➣ **GET STRING SESSION VIA REPLIT :** [KLIK DISINI](https://replit.com/@rizkyhmdanii16/StringSession)\n"
         f"➣ **GET STRING SESSION VIA BOT    :** [KLIK DISINI](https://t.me/NastyStringbot)\n"
     )
@@ -163,15 +163,15 @@ async def okgoogle(img):
         photo = io.BytesIO()
         await bot.download_media(message, photo)
     else:
-        await img.edit("`Harap Reply Di Gambar...`")
+        await edit_delete(img, "`Harap Reply Di Gambar...`")
         return
 
     if photo:
-        await img.edit("`Processing...`")
+        xx = await edit_or_reply(img, "`Processing...`")
         try:
             image = Image.open(photo)
         except OSError:
-            await img.edit('`Gambar tidak di dukung`')
+            await edit_delete(img, '`Gambar tidak di dukung`')
             return
         name = "okgoogle.png"
         image.save(name, "PNG")
@@ -188,10 +188,10 @@ async def okgoogle(img):
         fetchUrl = response.headers['Location']
 
         if response != 400:
-            await img.edit("`Image successfully uploaded to Google. Maybe.`"
+            await xx.edit("`Image successfully uploaded to Google. Maybe.`"
                            "\n`Parsing source now. Maybe.`")
         else:
-            await img.edit("`Google told me to fuck off.`")
+            await xx.edit("`Google told me to fuck off.`")
             return
 
         os.remove(name)
@@ -201,9 +201,9 @@ async def okgoogle(img):
         imgspage = match['similar_images']
 
         if guess and imgspage:
-            await img.edit(f"[{guess}]({fetchUrl})\n\n`Looking for images...`")
+            await xx.edit(f"[{guess}]({fetchUrl})\n\n`Looking for images...`")
         else:
-            await img.edit("`Couldn't find anything for your uglyass.`")
+            await xx.edit("`Couldn't find anything for your uglyass.`")
             return
 
         if img.pattern_match.group(1):
@@ -223,7 +223,7 @@ async def okgoogle(img):
                                        reply_to=img)
         except TypeError:
             pass
-        await img.edit(
+        await xx.edit(
             f"[{guess}]({fetchUrl})\n\n[Visually similar images]({imgspage})")
 
 

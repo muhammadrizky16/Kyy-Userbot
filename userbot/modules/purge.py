@@ -9,7 +9,7 @@ from asyncio import sleep
 from telethon.errors import rpcbaseerrors
 
 from userbot import CMD_HELP, DEVS, CMD_HANDLER as cmd
-from userbot.utils import kyy_cmd
+from userbot.utils import edit_or_reply, kyy_cmd
 from userbot.events import register
 
 
@@ -30,7 +30,7 @@ async def fastpurger(purg):
                 await purg.client.delete_messages(chat, msgs)
                 msgs = []
     else:
-        return await purg.edit("`Mohon Balas Ke Pesan ✨ `")
+        return await edit_or_reply(purg, "`Mohon Balas Ke Pesan ✨ `")
 
     if msgs:
         await purg.client.delete_messages(chat, msgs)
@@ -89,7 +89,7 @@ async def delete_it(delme):
                     BOTLOG_CHATID, "`Berhasil Menghapus Pesan ✨`")
             """
         except rpcbaseerrors.BadRequestError:
-            await delme.edit("`Tidak Bisa Menghapus Pesan`")
+            await edit_or_reply(delme, "`Tidak Bisa Menghapus Pesan`")
             """
             if BOTLOG:
                 await delme.client.send_message(

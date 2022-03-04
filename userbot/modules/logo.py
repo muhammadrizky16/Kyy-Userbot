@@ -5,7 +5,7 @@ import asyncio
 from telethon.errors.rpcerrorlist import YouBlockedUserError
 
 from userbot import ALIVE_NAME, CMD_HELP
-from userbot.utils import kyy_cmd
+from userbot.utils import edit_or_reply, kyy_cmd
 
 
 @kyy_cmd(pattern="logo(?: |$)(.*)")
@@ -15,9 +15,9 @@ async def _(event):
     aing = await event.client.get_me()
     text = event.pattern_match.group(1)
     if not text:
-        await event.edit("`Give a name too!`")
+        await edit_or_reply(event, "`Give a name too!`")
     else:
-        await event.edit("`Processing`")
+        await edit_or_reply(event, "`Processing`")
     chat = "@Nastymusiicbot"
     async with event.client.conversation(chat) as conv:
         try:
@@ -35,7 +35,7 @@ async def _(event):
         await event.client.send_file(
             event.chat_id,
             logo,
-            caption=f"Logo by [{ALIVE_NAME}](tg://user?id={aing.id})",
+            caption=f"ʟᴏɢᴏ ʙʏ [{ALIVE_NAME}](tg://user?id={aing.id})",
         )
         await event.client.delete_messages(conv.chat_id, [msg.id, response.id, logo.id])
         await event.delete()

@@ -189,7 +189,7 @@ async def catbroadcast_remove(event):
             )
 
 
-@kyy_cmd(pattern="list ?(.*)")
+@kyy_cmd(pattern="clist ?(.*)")
 async def catbroadcast_list(event):
     if event.fwd_from:
         return
@@ -229,7 +229,7 @@ async def catbroadcast_list(event):
     await catevent.edit(finaloutput)
 
 
-@kyy_cmd(pattern="listall ?(.*)")
+@kyy_cmd(pattern="clistall ?(.*)")
 async def catbroadcast_list(event):
     if event.fwd_from:
         return
@@ -337,9 +337,9 @@ CMD_HELP.update(
         \n  **Usage : **Ini akan menambahkan obrolan / pengguna / saluran ini ke kategori nama yang diberikan. \
         \n\n  **𝘾𝙤𝙢𝙢𝙖𝙣𝙙 :** `{cmd}rmfrom` <category name>\
         \n  **Usage : **Untuk menghapus Obrolan / pengguna / saluran dari nama kategori yang diberikan. \
-        \n\n  **𝘾𝙤𝙢𝙢𝙖𝙣𝙙 :** `{cmd}list` <category_name>\
+        \n\n  **𝘾𝙤𝙢𝙢𝙖𝙣𝙙 :** `{cmd}clist` <category_name>\
         \n  **Usage : **Akan menampilkan daftar semua obrolan dalam kategori yang diberikan. \
-        \n\n  **𝘾𝙤𝙢𝙢𝙖𝙣𝙙 :** `.listall`\
+        \n\n  **𝘾𝙤𝙢𝙢𝙖𝙣𝙙 :** `.clistall`\
         \n  **Usage : **Akan menampilkan daftar semua nama kategori. \
         \n\n  **𝘾𝙤𝙢𝙢𝙖𝙣𝙙 :** `.frmfrom` <category_name/chat_id>\
         \n  **Usage : **Untuk memaksa menghapus chat_id yang diberikan dari nama kategori yang diberikan berguna ketika Anda meninggalkan obrolan itu atau melarang Anda di sana \

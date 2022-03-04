@@ -11,7 +11,16 @@ from importlib import import_module
 import requests
 from telethon.tl.functions.channels import InviteToChannelRequest as Addbot
 
-from userbot import BOTLOG_CHATID, BOT_USERNAME, BOT_TOKEN, BOT_VER, LOGS, ALIVE_NAME, ALIVE_LOGO, kyyblacklist, bot
+from userbot import (
+    BOTLOG_CHATID, 
+    BOT_USERNAME, 
+    BOT_TOKEN, 
+    BOT_VER, 
+    LOGS, 
+    ALIVE_NAME, 
+    kyyblacklist, 
+    bot,
+)
 from userbot.modules import ALL_MODULES
 from userbot.utils import autobot
 
@@ -42,7 +51,7 @@ LOGS.info(
 async def check_alive():
     try:
         if BOTLOG_CHATID != 0:
-            await bot.send_file(BOTLOG_CHATID, ALIVE_LOGO, caption=f"✨ **Kyy Userbot Has Been Actived**!!\n━━━━━━━━━━━━━━━\n➠ **Userbot Version** - 8.0@Kyy-Userbot\n━━━━━━━━━━━━━━━\n➠ **Powered By:** @NastyProject ")
+            await bot.send_message(BOTLOG_CHATID, "✨ **Kyy Userbot Berhasil Diaktifkan**!!\n━━━━━━━━━━━━━━━\n➠ **Userbot Version** - 3.1.0@Kyy-Userbot\n➠ **Ketik** `.ping` **Untuk Mengecheck Bot**\n━━━━━━━━━━━━━━━\n➠ **Powered By:** @NastyProject ")
     except Exception as e:
         LOGS.info(str(e))
     try:

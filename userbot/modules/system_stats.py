@@ -19,7 +19,7 @@ import time
 from datetime import datetime
 import psutil
 from userbot import ALIVE_LOGO, ALIVE_NAME, BOT_VER, CMD_HELP, KYY_TEKS_KUSTOM, StartTime, UPSTREAM_REPO_BRANCH, bot, CMD_HANDLER as cmd
-from userbot.utils import kyy_cmd
+from userbot.utils import edit_or_reply, kyy_cmd
 
 
 # ================= CONSTANT =================
@@ -296,14 +296,14 @@ async def amireallyalive(alive):
 async def redis(alive):
     user = await bot.get_me()
     await get_readable_time((time.time() - StartTime))
-    await alive.edit("__Sedang Memuat.__")
-    await alive.edit("__Sedang Memuat..__")
-    await alive.edit("__Sedang Memuat.__")
-    await alive.edit("__Sedang Memuat..__")
-    await alive.edit("__Sedang Memuat...__")
-    await alive.edit("__Sedang Memuat..__")
-    await alive.edit("__Sedang Memuat...__")
-    await alive.edit("✨")
+    xx = await edit_or_reply(alive, "__Sedang Memuat.__")
+    await xx.edit("__Sedang Memuat..__")
+    await xx.edit("__Sedang Memuat.__")
+    await xx.edit("__Sedang Memuat..__")
+    await xx.edit("__Sedang Memuat...__")
+    await xx.edit("__Sedang Memuat..__")
+    await xx.edit("__Sedang Memuat...__")
+    await xx.edit("✨")
     await asyncio.sleep(2)
     output = (
         f"┏━━━━✨ҡʏʏ-υѕєявσт✨━━━━ \n"
@@ -321,7 +321,7 @@ async def redis(alive):
     if ALIVE_LOGO:
         try:
             logo = ALIVE_LOGO
-            await alive.delete()
+            await xx.delete()
             msg = await bot.send_file(alive.chat_id, logo, caption=output)
             await asyncio.sleep(500)
             await msg.delete()
@@ -331,11 +331,11 @@ async def redis(alive):
                 "\nPastikan Tautan Yang Anda Gunakan Valid`"
             )
             await asyncio.sleep(100)
-            await alive.delete()
+            await xx.delete()
     else:
-        await alive.edit(output)
+        await xx.edit(output)
         await asyncio.sleep(100)
-        await alive.delete()
+        await xx.delete()
 
 
 @kyy_cmd(pattern="aliveu")
