@@ -5,18 +5,19 @@
 #
 """ Userbot module containing commands for keeping notes. """
 
-from userbot import BOTLOG, BOTLOG_CHATID, CMD_HELP
+from userbot import BOTLOG, BOTLOG_CHATID, CMD_HELP, CMD_HANDLER as cmd
+from userbot.utils import edit_or_reply, edit_delete, kyy_cmd
 from userbot.events import register
 from asyncio import sleep
 
 
-@register(outgoing=True, pattern="^.notes$")
+@kyy_cmd(pattern="notes$")
 async def notes_active(svd):
     """ For .notes command, list all of the notes saved in a chat. """
     try:
         from userbot.modules.sql_helper.notes_sql import get_notes
     except AttributeError:
-        return await svd.edit("`Running on Non-SQL mode!`")
+        return await edit_or_reply(svd, "`Running on Non-SQL mode!`")
     message = "`There are no saved notes in this chat`"
     notes = get_notes(svd.chat_id)
     for note in notes:
@@ -25,31 +26,31 @@ async def notes_active(svd):
             message += "`#{}`\n".format(note.keyword)
         else:
             message += "`#{}`\n".format(note.keyword)
-    await svd.edit(message)
+    await edit_or_reply(svd, message)
 
 
-@register(outgoing=True, pattern=r"^.clear (\w*)")
+@kyy_cmd(pattern="clear (\w*)")
 async def remove_notes(clr):
     """ For .clear command, clear note with the given name."""
     try:
         from userbot.modules.sql_helper.notes_sql import rm_note
     except AttributeError:
-        return await clr.edit("`Running on Non-SQL mode!`")
+        return await edit_or_reply(clr, "`Running on Non-SQL mode!`")
     notename = clr.pattern_match.group(1)
     if rm_note(clr.chat_id, notename) is False:
         return await clr.edit("`Couldn't find note:` **{}**".format(notename))
     else:
-        return await clr.edit(
+        return await edit_or_reply(clr,
             "`Successfully deleted note:` **{}**".format(notename))
 
 
-@register(outgoing=True, pattern=r"^.save (\w*)")
+@kyy_cmd(pattern="save (\w*)")
 async def add_note(fltr):
     """ For .save command, saves notes in a chat. """
     try:
         from userbot.modules.sql_helper.notes_sql import add_note
     except AttributeError:
-        return await fltr.edit("`Running on Non-SQL mode!`")
+        x = return await edit_or_reply(fltr, "`Running on Non-SQL mode!`")
     keyword = fltr.pattern_match.group(1)
     string = fltr.text.partition(keyword)[2]
     msg = await fltr.get_reply_message()
@@ -66,7 +67,7 @@ async def add_note(fltr):
                                                        silent=True)
             msg_id = msg_o.id
         else:
-            return await fltr.edit(
+            return await x.edit(
                 "`Saving media as data for the note requires the BOTLOG_CHATID to be set.`"
             )
     elif fltr.reply_to_msg_id and not string:
@@ -74,9 +75,9 @@ async def add_note(fltr):
         string = rep_msg.text
     success = "`Note {} successfully. Use` #{} `to get it`"
     if add_note(str(fltr.chat_id), keyword, string, msg_id) is False:
-        return await fltr.edit(success.format('updated', keyword))
+        return await x.edit(success.format('updated', keyword))
     else:
-        return await fltr.edit(success.format('added', keyword))
+        return await x.edit(success.format('added', keyword))
 
 
 @register(pattern=r"#\w*",
@@ -112,14 +113,14 @@ async def incom_note(getnt):
         pass
 
 
-@register(outgoing=True, pattern="^.rmbotnotes (.*)")
+@kyy_cmd(pattern="rmbotnotes (.*)")
 async def kick_marie_notes(kick):
     """ For .rmbotnotes command, allows you to kick all \
         Marie(or her clones) notes from a chat. """
     bot_type = kick.pattern_match.group(1).lower()
     if bot_type not in ["marie", "rose"]:
-        return await kick.edit("`That bot is not yet supported!`")
-    await kick.edit("```Will be kicking away all Notes!```")
+        return await edit_delete(kick, "`That bot is not yet supported!`")
+    await edit_or_reply(kick, "```Will be kicking away all Notes!```")
     await sleep(3)
     resp = await kick.get_reply_message()
     filters = resp.text.split("-")[1:]
@@ -139,15 +140,15 @@ async def kick_marie_notes(kick):
 
 CMD_HELP.update({
     "notes":
-    "\
+    f"\
 #<notename>\
 \nUsage: Gets the specified note.\
-\n\n`.save` <notename> <notedata> or reply to a message with .save <notename>\
+\n\n`{cmd}save` <notename> <notedata> or reply to a message with .save <notename>\
 \nUsage: Saves the replied message as a note with the notename. (Works with pics, docs, and stickers too!)\
-\n\n`.notes`\
+\n\n`{cmd}notes`\
 \nUsage: Gets all saved notes in a chat.\
-\n\n`.clear` <notename>\
+\n\n`{cmd}clear` <notename>\
 \nUsage: Deletes the specified note.\
-\n\n`.rmbotnotes` <marie/rose>\
+\n\n`{cmd}rmbotnotes` <marie/rose>\
 \nUsage: Removes all notes of admin bots (Currently supported: Marie, Rose and their clones.) in the chat."
 })
