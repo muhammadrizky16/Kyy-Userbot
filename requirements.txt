@@ -52,7 +52,7 @@ patool
 pendulum
 Pillow>=6.0.0
 psutil
-py-tgcalls
+py-tgcalls==0.8.6
 psycopg2
 psycopg2-binary
 pybase64
