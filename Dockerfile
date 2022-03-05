@@ -3,8 +3,9 @@ FROM kyyex/kyy-userbot:busterv2
 #━━━━━ Userbot Telegram ━━━━━
 #━━━━━ By Kyy-Userbot ━━━━━━
 
-RUN apt update && apt upgrade -y
-RUN apt install ffmpeg -y
+FROM nikolaik/python-nodejs:python3.10-nodejs17
+RUN apt-get update && apt-get upgrade -y
+RUN apt-get install ffmpeg -y
 RUN git clone -b testi https://github.com/muhammadrizky16/Kyy-Userbot /root/userbot
 RUN mkdir /root/userbot/.bin
 RUN pip install --upgrade pip setuptools
