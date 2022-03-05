@@ -34,7 +34,7 @@ async def gen_thumb(thumbnail, title, userid, ctitle):
     image5 = image3.convert("RGBA")
     image6 = image4.convert("RGBA")
     Image.alpha_composite(image5, image6).save(f"resources/temp{userid}.png")
-    img = Image.open(f"userbot/resources/temp{userid}.png")
+    img = Image.open(f"resources/temp{userid}.png")
     draw = ImageDraw.Draw(img)
     font = ImageFont.truetype("resources/Roboto-Light.ttf", 52)
     font2 = ImageFont.truetype("resources/Roboto-Medium.ttf", 76)
