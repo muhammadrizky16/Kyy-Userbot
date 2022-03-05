@@ -22,6 +22,7 @@ gitpython
 git+https://github.com/ahupp/python-magic
 git+https://github.com/johnwmillr/LyricsGenius.git
 git+https://github.com/voins/google-images-download.git@2cd68173c961324a2c41c61e8b6f40a49663ce60
+git+https://github.com/yt-dlp/yt-dlp@master
 geopy
 glitch_this
 google-api-python-client==2.3.0
@@ -50,7 +51,7 @@ opencv-python
 oauth2client
 patool
 pendulum
-Pillow>=6.0.0
+pillow
 psutil
 py-tgcalls
 psycopg2
