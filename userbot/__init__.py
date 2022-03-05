@@ -74,6 +74,8 @@ logging.getLogger(
     "telethon.network.connection.connection").setLevel(logging.ERROR)
 LOGS = getLogger(__name__)
 
+CONSOLE_LOGGER_VERBOSE = sb(os.environ.get("CONSOLE_LOGGER_VERBOSE", "False"))
+
 if CONSOLE_LOGGER_VERBOSE:
     basicConfig(
         format="%(asctime)s - %(name)s - %(levelname)s - %(message)s",
