@@ -170,6 +170,7 @@ async def run_cmd(cmd: list) -> tuple[bytes, bytes]:
     e_resp = err.strip()
     return t_resp, e_resp
 
+
 async def bash(cmd):
     process = await asyncio.create_subprocess_shell(
         cmd,
@@ -194,6 +195,7 @@ def post_to_telegraph(title, html_format_content):
         text=html_format_content,
     )
     return post_page["url"]
+
 
 async def reply_id(event):
     reply_to_id = None
