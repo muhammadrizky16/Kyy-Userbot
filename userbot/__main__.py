@@ -12,12 +12,13 @@ import requests
 from telethon.tl.functions.channels import InviteToChannelRequest as Addbot
 
 from userbot import BOTLOG_CHATID, BOT_USERNAME, BOT_TOKEN, BOT_VER, LOGS, ALIVE_NAME, ALIVE_LOGO
-from userbot import bot, kyyblacklist
+from userbot import bot, kyyblacklist, call_py
 from userbot.modules import ALL_MODULES
 from userbot.utils import autobot
 
 try:
     bot.start()
+    call_py.start()
     user = bot.get_me()
     kyyblacklist = requests.get(
         "https://raw.githubusercontent.com/muhammadrizky16/Kyyblack/master/kyyblacklist.json"
