@@ -22,6 +22,7 @@ gitpython
 git+https://github.com/ahupp/python-magic
 git+https://github.com/johnwmillr/LyricsGenius.git
 git+https://github.com/voins/google-images-download.git@2cd68173c961324a2c41c61e8b6f40a49663ce60
+git+https://github.com/yt-dlp/yt-dlp@master
 geopy
 glitch_this
 google-api-python-client==2.3.0
@@ -52,6 +53,7 @@ patool
 pendulum
 pillow
 psutil
+py-tgcalls
 psycopg2
 psycopg2-binary
 pybase64
@@ -100,4 +102,5 @@ youtube-search-python
 youtube-dl
 youtube_dl
 youtube_search
+youtube-search-python==1.4.9
 zipfile38

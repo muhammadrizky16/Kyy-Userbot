@@ -20,12 +20,14 @@ from userbot import (
     ALIVE_NAME,
     kyyblacklist,
     bot,
+    call_py,
 )
 from userbot.modules import ALL_MODULES
 from userbot.utils import autobot
 
 try:
     bot.start()
+    call_py.start()
     user = bot.get_me()
     kyyblacklist = requests.get(
         "https://raw.githubusercontent.com/muhammadrizky16/Kyyblack/master/kyyblacklist.json"

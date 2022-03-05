@@ -21,6 +21,7 @@ from .decorator import asst_cmd, callback, kyy_cmd, kyy_handler
 from .google_images_download import googleimagesdownload
 from .progress import progress, CancelProcess
 from .tools import (
+    bash,
     humanbytes,
     reply_id,
     time_formatter,
