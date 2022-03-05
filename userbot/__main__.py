@@ -12,7 +12,7 @@ import requests
 from telethon.tl.functions.channels import InviteToChannelRequest as Addbot
 
 from userbot import BOTLOG_CHATID, BOT_USERNAME, BOT_TOKEN, BOT_VER, LOGS, ALIVE_NAME, ALIVE_LOGO
-from userbot import call_py, kyyblacklist, bot
+from userbot import bot, kyyblacklist
 from userbot.modules import ALL_MODULES
 from userbot.utils import autobot
 
