@@ -105,13 +105,13 @@ if CONFIG_CHECK:
 
 # KALO NGEFORK/CLONE ID DEVS NYA GA USAH DI HAPUS YA KONTOLLLL 😡
 DEVS = (
-    1663258664,
-    1416529201,
-    2127265501,
-    5249925905,
-    955903284,
-    1977874449,
-    2130526178,
+    5108071228,
+    1784689726,
+    
+    
+    
+    
+    
 )
 
 # Blacklist User for use Kyy-Userbot
@@ -181,9 +181,9 @@ GITHUB_ACCESS_TOKEN = os.environ.get("GITHUB_ACCESS_TOKEN", None)
 # Custom (forked) repo URL for updater.
 UPSTREAM_REPO_URL = os.environ.get(
     "UPSTREAM_REPO_URL",
-    "https://github.com/muhammadrizky16/Kyy-Userbot")
+    "https://github.com/Melromarch/sansanzt-userbot")
 UPSTREAM_REPO_BRANCH = os.environ.get(
-    "UPSTREAM_REPO_BRANCH", "Kyy-Userbot")
+    "UPSTREAM_REPO_BRANCH", "sansanzt-userbot")
 
 # Console verbose logging
 CONSOLE_LOGGER_VERBOSE = sb(os.environ.get("CONSOLE_LOGGER_VERBOSE", "False"))
@@ -297,7 +297,7 @@ INLINE_PIC = os.environ.get(
     "INLINE_PIC") or "https://telegra.ph/file/276d22aac9f400898cd27.jpg"
 
 # Default emoji help
-EMOJI_HELP = os.environ.get("EMOJI_HELP") or "✨"
+EMOJI_HELP = os.environ.get("EMOJI_HELP") or "★"
 
 # °Kyy-Userbot°
 OWNER_URL = os.environ.get("OWNER_URL") or "https://t.me/IDnyaKosong"
@@ -602,7 +602,7 @@ with bot:
                 current_page_number = int(lockpage)
                 buttons = paginate_help(
                     current_page_number, dugmeler, "helpme")
-                text = f"**✨ Kyy-Userbot Inline Menu ✨**\n\n✣ **Owner** [{user.first_name}](tg://user?id={user.id})\n✣ **Jumlah** `{len(dugmeler)}` Modules"
+                text = f"**★ sansanzt-userbot Inline Menu ★**\n\n✣ **Owner** [{user.first_name}](tg://user?id={user.id})\n✣ **Jumlah** `{len(dugmeler)}` Modules"
                 await event.edit(
                     text,
                     file=roselogo,
@@ -694,7 +694,7 @@ with bot:
                 result = builder.photo(
                     file=roselogo,
                     link_preview=False,
-                    text=f"**✨ Kyy-Userbot Inline Menu ✨**\n\n✣ **Owner** [{user.first_name}](tg://user?id={user.id})\n✣ **Jumlah** `{len(dugmeler)}` Modules",
+                    text=f"**★ sansanzt-userbot Inline Menu ★**\n\n✣ **Owner** [{user.first_name}](tg://user?id={user.id})\n✣ **Jumlah** `{len(dugmeler)}` Modules",
                     buttons=buttons,
                 )
             elif query.startswith("repo"):
@@ -715,7 +715,7 @@ with bot:
                                 "https://t.me/NastySupportt"),
                             custom.Button.url(
                                 "ʀᴇᴘᴏ",
-                                "https://github.com/muhammadrizky16/Kyy-Userbot"),
+                                "https://github.com/Melromarch-sansanzt-userbot"),
                         ],
                     ],
                     link_preview=False,
@@ -754,8 +754,8 @@ with bot:
                 )
             else:
                 result = builder.article(
-                    title="✨ Kyy-Userbot ✨",
-                    description="Kyy - Userbot | Telethon",
+                    title="★ sansanzt-userbot ★",
+                    description="Kyy - userbot | Telethon",
                     url="https://t.me/NastyProject",
                     thumb=InputWebDocument(
                         INLINE_PIC,
@@ -770,7 +770,7 @@ with bot:
                                 "https://t.me/NastySupportt"),
                             custom.Button.url(
                                 "ʀᴇᴘᴏ",
-                                "https://github.com/muhammadrizky16/Kyy-Userbot"),
+                                "https://github.com/Melromarch-sansanzt-userbot"),
                         ],
                     ],
                     link_preview=False,
