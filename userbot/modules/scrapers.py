@@ -169,7 +169,7 @@ async def moni(event):
         return await event.edit("`Invalid syntax.`")
 
 
-@kyy_cmd(pattern="kyy_cmd(pattern="google (.*)")
+@kyy_cmd(pattern="kyy_cmd(pattern="google(.*)")
 async def gsearch(q_event):
     match = q_event.pattern_match.group(1)
     page = findall(r"page=\d+", match)
@@ -283,7 +283,7 @@ async def urban_dict(ud_e):
         await ud_e.edit("No result found for **" + query + "**")
 
 
-@kyy_cmd(pattern="tts(?: |$)([\s\S]*)")
+@kyy_cmd(pattern="tts(?: |$)([\\s\\S]*)")
 async def text_to_speech(query):
     textx = await query.get_reply_message()
     message = query.pattern_match.group(1)
@@ -421,7 +421,7 @@ async def imdb(e):
         await cs.edit("Plox enter **Valid movie name** kthx")
 
 
-@kyy_cmd(pattern="tr(?: |$)([\s\S]*)")
+@kyy_cmd(pattern="tr(?: |$)([\\s\\S]*)")
 async def translateme(trans):
     translator = Translator()
     textx = await trans.get_reply_message()
@@ -706,7 +706,7 @@ async def capture(url):
         await url.delete()
 
 
-@kyy_cmd(pattern="nekko(?: |$)([\s\S]*)")
+@kyy_cmd(pattern="nekko(?: |$)([\\s\\S]*)")
 async def neko(nekobin):
     """For .paste command, pastes the text directly to dogbin."""
     nekobin_final_url = ""
@@ -759,7 +759,7 @@ async def neko(nekobin):
         )
 
 
-@kyy_cmd(pattern="neko(?: |$)([\s\S]*)")
+@kyy_cmd(pattern="neko(?: |$)([\\s\\S]*)")
 async def neko(nekobin):
     """For .paste command, pastes the text directly to dogbin."""
     nekobin_final_url = ""
@@ -942,7 +942,7 @@ async def ReTrieveURL(input_url):
     return r
 
 
-@kyy_cmd(pattern="direct(?: |$)([\s\S]*)")
+@kyy_cmd(pattern="direct(?: |$)([\\s\\S]*)")
 async def direct_link_generator(request):
     """ direct links generator """
     await request.edit("`Processing...`")
@@ -1275,7 +1275,7 @@ async def parseqr(qr_e):
     await qr_e.edit(qr_contents)
 
 
-@kyy_cmd(pattern="barcode(?: |$)([\s\S]*)")
+@kyy_cmd(pattern="barcode(?: |$)([\\s\\S]*)")
 async def bq(event):
     """ For .barcode command, genrate a barcode containing the given content. """
     await event.edit("`Processing..`")
@@ -1317,7 +1317,7 @@ async def bq(event):
     await event.delete()
 
 
-@kyy_cmd(pattern="makeqr(?: |$)([\s\S]*)")
+@kyy_cmd(pattern="makeqr(?: |$)([\\s\\S]*)")
 async def make_qr(makeqr):
     """ For .makeqr command, make a QR Code containing the given content. """
     input_str = makeqr.pattern_match.group(1)
