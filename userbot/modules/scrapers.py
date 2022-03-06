@@ -169,7 +169,7 @@ async def moni(event):
         return await event.edit("`Invalid syntax.`")
 
 
-@kyy_cmd(pattern="kyy_cmd(pattern="google(.*)")
+@kyy_cmd(pattern="google(.*)")
 async def gsearch(q_event):
     match = q_event.pattern_match.group(1)
     page = findall(r"page=\d+", match)
