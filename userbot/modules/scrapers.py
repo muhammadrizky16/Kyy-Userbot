@@ -1466,7 +1466,7 @@ CMD_HELP.update(
 CMD_HELP.update(
     {
         "youtube":
-        f"𝘾𝙤𝙢𝙢𝙖𝙣𝙙 : `.aud <link yt>`\
+        f"𝘾𝙤𝙢𝙢𝙖𝙣𝙙 : `{cmd}aud <link yt>`\
     \n↳ : Downloads the AUDIO from the given link\
     \n\n𝘾𝙤𝙢𝙢𝙖𝙣𝙙 : `{cmd}vid <link yt>`\
     \n↳ : Downloads the VIDEO from the given link\
