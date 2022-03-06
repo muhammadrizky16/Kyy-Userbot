@@ -27,7 +27,7 @@ async def var(m):
 CMD_HELP.update({
     "helper":
     "`.lhelp`\
-\nUsage: Bantuan Untuk Rose-Userbot.\
+\nUsage: Bantuan Untuk Kyy-Userbot.\
 \n`.vars`\
 \nUsage: Melihat Daftar Vars."
 })
