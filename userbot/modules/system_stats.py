@@ -231,7 +231,7 @@ async def amireallyalive(alive):
         f" **✨ҡʏʏ-υѕєявσт✨** \n\n"
         f"\n__**{KYY_TEKS_KUSTOM}**__\n\n\n"
         f"╭✠╼━━━━━━━━━━━━━━━✠╮\n"
-        f"◙ `Name       :` [{user.first_name}](tg://user?id={user.id}) \n"
+        f"◙ `Name       :` {DEFAULTUSER} \n"
         f"◙ `Username   :` @{user.username} \n"
         f"◙ `Telethon   :` {version.__version__} \n"
         f"◙ `Python     :` {python_version()} \n"
@@ -307,7 +307,7 @@ async def redis(alive):
     await asyncio.sleep(2)
     output = (
         f"┏━━━━✨ҡʏʏ-υѕєявσт✨━━━━ \n"
-        f"┣  **Name     :** [{user.first_name}](tg://user?id={user.id}) \n"
+        f"┣  **Name     :** {DEFAULTUSER} \n"
         f"┣  **Username :** @{user.username} \n"
         f"┣  **Telethon :** Ver {version.__version__} \n"
         f"┣  **Python   :** Ver {python_version()} \n"
