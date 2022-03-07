@@ -590,7 +590,7 @@ with bot:
         uid = user.id
         owner = user.first_name
         logo = ALIVE_LOGO
-        roselogo = INLINE_PIC
+        kyylogo = INLINE_PIC
         tgbotusername = BOT_USERNAME
         BTN_URL_REGEX = re.compile(
             r"(\[([^\[]+?)\]\<buttonurl:(?:/{0,2})(.+?)(:same)?\>)"
@@ -605,7 +605,7 @@ with bot:
                 text = f"**✨ Kyy-Userbot Inline Menu ✨**\n\n✣ **Owner** [{user.first_name}](tg://user?id={user.id})\n✣ **Jumlah** `{len(dugmeler)}` Modules"
                 await event.edit(
                     text,
-                    file=roselogo,
+                    file=kyylogo,
                     buttons=buttons,
                     link_preview=False,
                 )
@@ -692,7 +692,7 @@ with bot:
             if event.query.user_id == uid and query.startswith("@KyyUserbot"):
                 buttons = paginate_help(0, dugmeler, "helpme")
                 result = builder.photo(
-                    file=roselogo,
+                    file=kyylogo,
                     link_preview=False,
                     text=f"**✨ Kyy-Userbot Inline Menu ✨**\n\n✣ **Owner** [{user.first_name}](tg://user?id={user.id})\n✣ **Jumlah** `{len(dugmeler)}` Modules",
                     buttons=buttons,
