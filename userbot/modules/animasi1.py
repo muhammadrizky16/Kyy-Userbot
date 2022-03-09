@@ -2,7 +2,7 @@
 
 from time import sleep
 from userbot import CMD_HELP, bot, CMD_HANDLER as cmd
-from userbot.utils import kyy_cmd
+from userbot.utils import edit_or_reply, kyy_cmd
 from telethon import events
 import asyncio
 
@@ -10,7 +10,7 @@ import asyncio
 @kyy_cmd(pattern="hua$")
 async def koc(e):
     if not e.text[0].isalpha() and e.text[0] not in ("/", "#", "@", "!"):
-        await e.edit("أ‿أ")
+        e = await edit_or_reply(e, "أ‿أ")
         await e.edit("╥﹏╥")
         await e.edit("(;﹏;)")
         await e.edit("(ToT)")
@@ -45,15 +45,15 @@ async def koc(e):
 @kyy_cmd(pattern='huh(?: |$)(.*)')
 async def typewriter(typew):
     typew.pattern_match.group(1)
-    await typew.edit("`\n(\\_/)`"
+    xnxx = await edit_or_reply(typew, "`\n(\\_/)`"
                      "`\n(●_●)`"
                      "`\n />❤️ *Ini Buat Kamu`")
     sleep(3)
-    await typew.edit("`\n(\\_/)`"
+    await xnxx.edit("`\n(\\_/)`"
                      "`\n(●_●)`"
                      "`\n/>💔  *Aku Ambil Lagi`")
     sleep(2)
-    await typew.edit("`\n(\\_/)`"
+    await xnxx.edit("`\n(\\_/)`"
                      "`\n(●_●)`"
                      "`\n💔<\\  *Terimakasih`")
 
@@ -133,11 +133,11 @@ async def _(event):
 @kyy_cmd(pattern='nah(?: |$)(.*)')
 async def typewriter(typew):
     typew.pattern_match.group(1)
-    await typew.edit("`\n(\\_/)`"
+    xnxx = await edit_or_reply(typew, "`\n(\\_/)`"
                      "`\n(●_●)`"
                      "`\n />💖 *Ini Buat Kamu`")
     sleep(2)
-    await typew.edit("`\n(\\_/)`"
+    await xnxx.edit("`\n(\\_/)`"
                      "`\n(●_●)`"
                      "`\n💖<\\  *Tapi Bo'ong Hiyahiyahiya`")
 
