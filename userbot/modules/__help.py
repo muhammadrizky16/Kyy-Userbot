@@ -20,13 +20,14 @@
 
 
 from userbot import BOT_USERNAME, CMD_HELP, bot
+from userbot.utils import kyy_cmd
 
 user = bot.get_me()
 DEFAULTUSER = user.first_name
 CUSTOM_HELP_EMOJI = "✨"
 
 
-@flicks_cmd(pattern="help ?(.*)")
+@kyy_cmd(pattern="help ?(.*)")
 async def cmd_list(event):
     args = event.pattern_match.group(1).lower()
     if args:
