@@ -46,16 +46,16 @@ async def koc(e):
 async def typewriter(typew):
     typew.pattern_match.group(1)
     xnxx = await edit_or_reply(typew, "`\n(\\_/)`"
-                     "`\n(●_●)`"
-                     "`\n />❤️ *Ini Buat Kamu`")
+                               "`\n(●_●)`"
+                               "`\n />❤️ *Ini Buat Kamu`")
     sleep(3)
     await xnxx.edit("`\n(\\_/)`"
-                     "`\n(●_●)`"
-                     "`\n/>💔  *Aku Ambil Lagi`")
+                    "`\n(●_●)`"
+                    "`\n/>💔  *Aku Ambil Lagi`")
     sleep(2)
     await xnxx.edit("`\n(\\_/)`"
-                     "`\n(●_●)`"
-                     "`\n💔<\\  *Terimakasih`")
+                    "`\n(●_●)`"
+                    "`\n💔<\\  *Terimakasih`")
 
 
 @bot.on(events.NewMessage(pattern=r"\.(.*)", outgoing=True))
@@ -134,12 +134,12 @@ async def _(event):
 async def typewriter(typew):
     typew.pattern_match.group(1)
     xnxx = await edit_or_reply(typew, "`\n(\\_/)`"
-                     "`\n(●_●)`"
-                     "`\n />💖 *Ini Buat Kamu`")
+                               "`\n(●_●)`"
+                               "`\n />💖 *Ini Buat Kamu`")
     sleep(2)
     await xnxx.edit("`\n(\\_/)`"
-                     "`\n(●_●)`"
-                     "`\n💖<\\  *Tapi Bo'ong Hiyahiyahiya`")
+                    "`\n(●_●)`"
+                    "`\n💖<\\  *Tapi Bo'ong Hiyahiyahiya`")
 
 
 @bot.on(events.NewMessage(pattern=r"\.(.*)", outgoing=True))
