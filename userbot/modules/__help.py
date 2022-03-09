@@ -18,16 +18,12 @@
 #    From Flicks-Userbot
 #    <t.me/TheFlicksUserbot>
 
-import os
 
-from userbot import ALIVE_NAME, BOT_USERNAME, CMD_HELP, CMD_HANDLER, CMD_LIST, bot, tgbot
-from userbot.utils import kyy_cmd
+from userbot import BOT_USERNAME, CMD_HELP, bot
 
 user = bot.get_me()
 DEFAULTUSER = user.first_name
 CUSTOM_HELP_EMOJI = "✨"
-
-
 
 
 @flicks_cmd(pattern="help ?(.*)")
