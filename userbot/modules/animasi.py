@@ -1,17 +1,17 @@
 from time import sleep
 from userbot import CMD_HELP, CMD_HANDLER as cmd
-from userbot.utils import kyy_cmd
+from userbot.utils import edit_or_reply, kyy_cmd
 
 
 @kyy_cmd(pattern='sadboy(?: |$)(.*)')
 async def typewriter(typew):
     typew.pattern_match.group(1)
     sleep(2)
-    await typew.edit("`Pertama-tama kamu cantik`")
+    xnxx = await edit_or_reply(typew, "`Pertama-tama kamu cantik`")
     sleep(2)
-    await typew.edit("`Kedua kamu manis`")
+    await xnxx.edit("`Kedua kamu manis`")
     sleep(1)
-    await typew.edit("`Dan yang terakhir adalah kamu bukan jodohku`")
+    await xnxx.edit("`Dan yang terakhir adalah kamu bukan jodohku`")
 
 # Create by myself @localheart
 
@@ -19,7 +19,7 @@ async def typewriter(typew):
 @kyy_cmd(pattern='punten(?: |$)(.*)')
 async def typewriter(typew):
     typew.pattern_match.group(1)
-    await typew.edit("`\n┻┳|―-∩`"
+    await edit_or_reply(typew, "`\n┻┳|―-∩`"
                      "`\n┳┻|     ヽ`"
                      "`\n┻┳|    ● |`"
                      "`\n┳┻|▼) _ノ`"
@@ -34,7 +34,7 @@ async def typewriter(typew):
 @kyy_cmd(pattern='pantau(?: |$)(.*)')
 async def typewriter(typew):
     typew.pattern_match.group(1)
-    await typew.edit("`\n┻┳|―-∩`"
+    await edit_or_reply(typew, "`\n┻┳|―-∩`"
                      "`\n┳┻|     ヽ`"
                      "`\n┻┳|    ● |`"
                      "`\n┳┻|▼) _ノ`"
@@ -50,7 +50,7 @@ async def typewriter(typew):
 @kyy_cmd(pattern='idiot(?: |$)(.*)')
 async def typewriter(typew):
     typew.pattern_match.group(1)
-    await typew.edit("\n╭╮╱╱╭╮"
+    await edit_or_reply(typew, "\n╭╮╱╱╭╮"
                      "\n┃╰╮╭╯┃"
                      "\n╰╮╰╯╭┻━┳╮╭╮"
                      "\n╱╰╮╭┫╭╮┃┃┃┃"
