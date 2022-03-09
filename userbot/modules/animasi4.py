@@ -1,6 +1,6 @@
 from time import sleep
 from userbot import CMD_HELP, bot, CMD_HANDLER as cmd
-from userbot.utils import kyy_cmd
+from userbot.utils import edit_or_reply, kyy_cmd
 from telethon import events
 import asyncio
 
@@ -66,7 +66,7 @@ async def _(event):
 @kyy_cmd(pattern='helikopter(?: |$)(.*)')
 async def typewriter(typew):
     typew.pattern_match.group(1)
-    await typew.edit("▬▬▬.◙.▬▬▬ \n"
+    await edit_or_reply(typew, "▬▬▬.◙.▬▬▬ \n"
                      "═▂▄▄▓▄▄▂ \n"
                      "◢◤ █▀▀████▄▄▄▄◢◤ \n"
                      "█▄ █ █▄ ███▀▀▀▀▀▀▀╬ \n"
@@ -87,7 +87,7 @@ async def typewriter(typew):
 @kyy_cmd(pattern='tembak(?: |$)(.*)')
 async def typewriter(typew):
     typew.pattern_match.group(1)
-    await typew.edit("_/﹋\\_\n"
+    await edit_or_reply(typew, "_/﹋\\_\n"
                      "(҂`_´)\n"
                      "<,︻╦╤─ ҉\n"
                      r"_/﹋\_"
@@ -97,7 +97,7 @@ async def typewriter(typew):
 @kyy_cmd(pattern='bundir(?: |$)(.*)')
 async def typewriter(typew):
     typew.pattern_match.group(1)
-    await typew.edit("`Dadah Semuanya...`          \n　　　　　|"
+    await edit_or_reply(typew, "`Dadah Semuanya...`          \n　　　　　|"
                      "\n　　　　　| \n"
                      "　　　　　| \n"
                      "　　　　　| \n"
@@ -116,7 +116,7 @@ async def typewriter(typew):
 @kyy_cmd(pattern='awkwok(?: |$)(.*)')
 async def typewriter(typew):
     typew.pattern_match.group(1)
-    await typew.edit("────██──────▀▀▀██\n"
+    await edit_or_reply(typew, "────██──────▀▀▀██\n"
                      "──▄▀█▄▄▄─────▄▀█▄▄▄\n"
                      "▄▀──█▄▄──────█─█▄▄\n"
                      "─▄▄▄▀──▀▄───▄▄▄▀──▀▄\n"
@@ -126,7 +126,7 @@ async def typewriter(typew):
 @kyy_cmd(pattern='ular(?: |$)(.*)')
 async def typewriter(typew):
     typew.pattern_match.group(1)
-    await typew.edit("░░░░▓\n"
+    await edit_or_reply(typew, "░░░░▓\n"
                      "░░░▓▓\n"
                      "░░█▓▓█\n"
                      "░██▓▓██\n"
@@ -216,7 +216,7 @@ async def typewriter(typew):
 @kyy_cmd(pattern='y(?: |$)(.*)')
 async def typewriter(typew):
     typew.pattern_match.group(1)
-    await typew.edit("‡‡‡‡‡‡‡‡‡‡‡‡▄▄▄▄\n"
+    await edit_or_reply(typew, "‡‡‡‡‡‡‡‡‡‡‡‡▄▄▄▄\n"
                      "‡‡‡‡‡‡‡‡‡‡‡█‡‡‡‡█\n"
                      "‡‡‡‡‡‡‡‡‡‡‡█‡‡‡‡█\n"
                      "‡‡‡‡‡‡‡‡‡‡█‡‡‡‡‡█\n"
@@ -234,7 +234,7 @@ async def typewriter(typew):
 @kyy_cmd(pattern='tank(?: |$)(.*)')
 async def typewriter(typew):
     typew.pattern_match.group(1)
-    await typew.edit("█۞███████]▄▄▄▄▄▄▄▄▄▄▃ \n"
+    await edit_or_reply(typew, "█۞███████]▄▄▄▄▄▄▄▄▄▄▃ \n"
                      "▂▄▅█████████▅▄▃▂…\n"
                      "[███████████████████]\n"
                      "◥⊙▲⊙▲⊙▲⊙▲⊙▲⊙▲⊙◤\n")
@@ -243,7 +243,7 @@ async def typewriter(typew):
 @kyy_cmd(pattern='babi(?: |$)(.*)')
 async def typewriter(typew):
     typew.pattern_match.group(1)
-    await typew.edit("┈┈┏━╮╭━┓┈╭━━━━╮\n"
+    await edit_or_reply(typew, "┈┈┏━╮╭━┓┈╭━━━━╮\n"
                      "┈┈┃┏┗┛┓┃╭┫Ngok ┃\n"
                      "┈┈╰┓▋▋┏╯╯╰━━━━╯\n"
                      "┈╭━┻╮╲┗━━━━╮╭╮┈\n"
@@ -256,7 +256,7 @@ async def typewriter(typew):
 @kyy_cmd(pattern='ajg(?: |$)(.*)')
 async def typewriter(typew):
     typew.pattern_match.group(1)
-    await typew.edit("╥━━━━━━━━╭━━╮━━┳\n"
+    await edit_or_reply(typew, "╥━━━━━━━━╭━━╮━━┳\n"
                      "╢╭╮╭━━━━━┫┃▋▋━▅┣\n"
                      "╢┃╰┫┈┈┈┈┈┃┃┈┈╰┫┣\n"
                      "╢╰━┫┈┈┈┈┈╰╯╰┳━╯┣\n"
@@ -267,7 +267,7 @@ async def typewriter(typew):
 @kyy_cmd(pattern='bernyanyi(?: |$)(.*)')
 async def typewriter(typew):
     typew.pattern_match.group(1)
-    await typew.edit("**Ganteng Doang Gak Bernyanyi (ง˙o˙)ว**")
+    typew = await edit_or_reply(typew, "**Ganteng Doang Gak Bernyanyi (ง˙o˙)ว**")
     sleep(2)
     await typew.edit("**♪┗ ( ･o･) ┓♪┏ (・o･) ┛♪**")
     sleep(1)
@@ -301,7 +301,7 @@ async def typewriter(typew):
 
 
 CMD_HELP.update({
-    "animasi5":
+    "animasi4":
     f"`{cmd}bulan` ; `{cmd}hati` ; `{cmd}bernyanyi`\
     \nUsage: liat aja.\
     \n\n`{cmd}helikopter` ; `{cmd}tank` `{cmd}tembak`\n`{cmd}bundir`\
