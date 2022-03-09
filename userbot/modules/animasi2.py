@@ -13,7 +13,7 @@ import requests
 from cowpy import cow
 
 from userbot import CMD_HELP, CMD_HANDLER as cmd
-from userbot.utils import kyy_cmd
+from userbot.utils import edit_or_reply, kyy_cmd
 from userbot.modules.admin import get_user_from_event
 
 # ================= CONSTANT =================
@@ -805,7 +805,7 @@ AENJEAYE = """
 
 @kyy_cmd(pattern=r"^\.anjay$")
 async def anjay(njay):
-    await njay.edit(AENJEAYE)
+    await edit_or_reply(njay, AENJEAYE)
 
 
 @kyy_cmd(pattern=r"^\.(\w+)say (.*)")
@@ -1380,29 +1380,29 @@ async def typewriter(typew):
 @kyy_cmd(pattern=r"^\.leave$")
 async def leave(e):
     if not e.text[0].isalpha() and e.text[0] not in ("/", "#", "@", "!"):
-        await e.edit("`You must Leaving dis Group kek!`")
+        await edit_or_reply(e, "`You must Leaving dis Group kek!`")
 
 
 @kyy_cmd(pattern=r"^\.fail$")
 async def fail(e):
     if not e.text[0].isalpha() and e.text[0] not in ("/", "#", "@", "!"):
-        await e.edit(
-            "`\n▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄ `"
-            "`\n████▌▄▌▄▐▐▌█████ `"
-            "`\n████▌▄▌▄▐▐▌▀████ `"
-            "`\n▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀ `"
-        )
+        await edit_or_reply(e,
+                            "`\n▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄ `"
+                            "`\n████▌▄▌▄▐▐▌█████ `"
+                            "`\n████▌▄▌▄▐▐▌▀████ `"
+                            "`\n▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀ `"
+                            )
 
 
 @kyy_cmd(pattern=r"^\.lolz$")
 async def leol(e):
     if not e.text[0].isalpha() and e.text[0] not in ("/", "#", "@", "!"):
-        await e.edit(
-            "`\n╱┏┓╱╱╱╭━━━╮┏┓╱╱╱╱ `"
-            "`\n╱┃┃╱╱╱┃╭━╮┃┃┃╱╱╱╱ `"
-            "`\n╱┃┗━━┓┃╰━╯┃┃┗━━┓╱ `"
-            "`\n╱┗━━━┛╰━━━╯┗━━━┛╱ `"
-        )
+        await edit_or_reply(e,
+                            "`\n╱┏┓╱╱╱╭━━━╮┏┓╱╱╱╱ `"
+                            "`\n╱┃┃╱╱╱┃╭━╮┃┃┃╱╱╱╱ `"
+                            "`\n╱┃┗━━┓┃╰━╯┃┃┗━━┓╱ `"
+                            "`\n╱┗━━━┛╰━━━╯┗━━━┛╱ `"
+                            )
 
 
 @kyy_cmd(pattern=r"^\.lool$")
@@ -1450,15 +1450,15 @@ async def gtfo(e):
 @kyy_cmd(pattern=r"^\.nih$")
 async def nih(e):
     if not e.text[0].isalpha() and e.text[0] not in ("/", "#", "@", "!"):
-        await e.edit(
-            r"`(\_/)`"
-            "`\n(•_•)`"
-            "`\n >🌹 *ini buat kamu`"
-            "`\n`"
-            r"`(\_/)`"
-            "`\n(•_•)`\n"
-            r"`🌹<\ *tapi boong`"
-        )
+        await edit_or_reply(e,
+                            r"`(\_/)`"
+                            "`\n(•_•)`"
+                            "`\n >🌹 *ini buat kamu`"
+                            "`\n`"
+                            r"`(\_/)`"
+                            "`\n(•_•)`\n"
+                            r"`🌹<\ *tapi boong`"
+                            )
 
 
 @kyy_cmd(pattern=r"^\.fag$")
@@ -1507,12 +1507,12 @@ async def gey(e):
 @kyy_cmd(pattern=r"^\.gay$")
 async def ghey(e):
     if not e.text[0].isalpha() and e.text[0] not in ("/", "#", "@", "!"):
-        await e.edit(
-            "`\n┈┈┈╭━━━━━╮┈┈┈┈┈\n┈┈┈┃┊┊┊┊┊┃┈┈┈┈┈`"
-            "`\n┈┈┈┃┊┊╭━╮┻╮┈┈┈┈\n┈┈┈╱╲┊┃▋┃▋┃┈┈┈┈\n┈┈╭┻┊┊╰━┻━╮┈┈┈┈`"
-            "`\n┈┈╰┳┊╭━━━┳╯┈┈┈┈\n┈┈┈┃┊┃╰━━┫┈BAPAQ U GAY`"
-            "\n┈┈┈┈┈┈┏━┓┈┈┈┈┈┈"
-        )
+        await edit_or_reply(e,
+                            "`\n┈┈┈╭━━━━━╮┈┈┈┈┈\n┈┈┈┃┊┊┊┊┊┃┈┈┈┈┈`"
+                            "`\n┈┈┈┃┊┊╭━╮┻╮┈┈┈┈\n┈┈┈╱╲┊┃▋┃▋┃┈┈┈┈\n┈┈╭┻┊┊╰━┻━╮┈┈┈┈`"
+                            "`\n┈┈╰┳┊╭━━━┳╯┈┈┈┈\n┈┈┈┃┊┃╰━━┫┈BAPAQ U GAY`"
+                            "\n┈┈┈┈┈┈┏━┓┈┈┈┈┈┈"
+                            )
 
 
 @kyy_cmd(pattern=r"^\.bot$")
@@ -1575,7 +1575,7 @@ async def emoji_penis(e):
     titid = GAMBAR_TITIT
     if emoji:
         titid = titid.replace("🍆", emoji)
-    await e.edit(titid)
+    await edit_or_reply(e, titid)
 
 
 CMD_HELP.update(
