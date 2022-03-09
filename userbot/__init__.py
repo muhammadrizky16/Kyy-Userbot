@@ -842,27 +842,29 @@ with bot:
                         + " "
                     )
                 else:
-                    help_string = (str(CMD_HELP[modul_name]).replace(
-                        "`", "").replace("**", ""))
+                    help_string = (
+                        str(CMD_HELP[modul_name]).replace("`", "").replace("**", "")
+                    )
 
                 reply_pop_up_alert = (
                     help_string
                     if help_string is not None
-                    else "{} No document has been written for module.".format(
+                    else "{} Tidak ada dokumen yang telah ditulis untuk modul.".format(
                         modul_name
                     )
                 )
             else:
-                f"🚫!WARNING!🚫 Jangan Menggunakan Milik {DEFAULTUSER} Nanti Kena Ghosting."
+                reply_pop_up_alert = f"Kamu Tidak diizinkan, ini Userbot Milik {owner}"
+            await event.answer(reply_pop_up_alert, cache_time=0, alert=True)
 
     except BaseException:
         LOGS.info(
-            "Mode Inline Bot Mu Nonaktif. "
-            "Untuk Mengaktifkannya, Silahkan Pergi Ke @BotFather Lalu, Settings Bot > Pilih Mode Inline > Turn On. ")
+            "Help Mode Inline Bot Mu Tidak aktif. Tidak di aktifkan juga tidak apa-apa. "
+            "Untuk Mengaktifkannya Buat bot di @BotFather Lalu Tambahkan var BOT_TOKEN dan BOT_USERNAME. "
+            "Pergi Ke @BotFather lalu settings bot » Pilih mode inline » Turn On. "
+        )
     try:
         bot.loop.run_until_complete(check_botlog_chatid())
-    except BaseException:
-        LOGS.info(
-            "BOTLOG_CHATID Environment Variable Isn't a "
-            "Valid Entity. Please Check Your Environment variables/config.env File.")
-        quit(1)
+    except BaseException as e:
+        LOGS.exception(f"[BOTLOG] - {e}")
+        sys.exit(1)
