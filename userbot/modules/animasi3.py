@@ -1,6 +1,6 @@
 from time import sleep
 from userbot import CMD_HELP, bot, CMD_HANDLER as cmd
-from userbot.utils import kyy_cmd
+from userbot.utils import edit_or_reply, kyy_cmd
 from telethon import events
 import asyncio
 
@@ -8,7 +8,7 @@ import asyncio
 @kyy_cmd(pattern="sayang$")
 async def koc(e):
     if not e.text[0].isalpha() and e.text[0] not in ("/", "#", "@", "!"):
-        await e.edit("I LOVEE YOUUU 💕")
+        e = await edit_or_reply(e, "I LOVEE YOUUU 💕")
         await e.edit("💝💘💓💗")
         await e.edit("💞💕💗💘")
         await e.edit("💝💘💓💗")
@@ -37,7 +37,7 @@ async def koc(e):
 @kyy_cmd(pattern='dino(?: |$)(.*)')
 async def typewriter(typew):
     typew.pattern_match.group(1)
-    await typew.edit("`DIN DINNN.....`")
+    typew = await edit_or_reply(typew, "`DIN DINNN.....`")
     sleep(1)
     await typew.edit("`DINOOOOSAURUSSSSS!!`")
     sleep(1)
@@ -95,7 +95,7 @@ async def typewriter(typew):
 @kyy_cmd(pattern="gabut$")
 async def koc(e):
     if not e.text[0].isalpha() and e.text[0] not in ("/", "#", "@", "!"):
-        await e.edit("`PERNAAHHHHH KAHHH KAUUU MENGIRA`")
+        e = await edit_or_reply(e, "`PERNAAHHHHH KAHHH KAUUU MENGIRA`")
         await e.edit("`SEPEEERTIIIII APAAAA BENTUKKKKKKK CINTAAAA`")
         await e.edit("`RAMBUUUT WARNAAA WARNII`")
         await e.edit("`BAGAI GULALI`")
@@ -387,7 +387,7 @@ async def _(event):
 
 
 CMD_HELP.update({
-    "animasi4":
+    "animasi3":
     f"𝘾𝙤𝙢𝙢𝙖𝙣𝙙: `{cmd}gabut` atau `{cmd}dino`\
     \n↳ : Dikala gabut, yaaa pake aja xixixi.\
     \n\n𝘾𝙤𝙢𝙢𝙖𝙣𝙙: `{cmd}cinta`\
