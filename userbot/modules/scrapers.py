@@ -288,16 +288,16 @@ async def text_to_speech(query):
         message = textx.text
     else:
         return await edit_delete(query,
-            "`Give a text or reply to a message for Text-to-Speech!`"
-        )
+                                 "`Give a text or reply to a message for Text-to-Speech!`"
+                                 )
 
     try:
         gTTS(message, lang=TTS_LANG)
     except AssertionError:
         return await edit_delete(query,
-            "The text is empty.\n"
-            "Nothing left to speak after pre-precessing, tokenizing and cleaning."
-        )
+                                 "The text is empty.\n"
+                                 "Nothing left to speak after pre-precessing, tokenizing and cleaning."
+                                 )
     except ValueError:
         return await edit_delete(query, "Language is not supported.")
     except RuntimeError:
@@ -457,8 +457,8 @@ async def lang(value):
             LANG = LANGUAGES[arg]
         else:
             return await edit_delete(value,
-                f"`Invalid Language code !!`\n`Available language codes for TRT`:\n\n`{LANGUAGES}`"
-            )
+                                     f"`Invalid Language code !!`\n`Available language codes for TRT`:\n\n`{LANGUAGES}`"
+                                     )
     elif util == "tts":
         scraper = "Text to Speech"
         global TTS_LANG
@@ -467,9 +467,9 @@ async def lang(value):
             TTS_LANG = arg
             LANG = tts_langs()[arg]
         else:
-            return await edit_delete(value, 
-                f"`Invalid Language code !!`\n`Available language codes for TTS`:\n\n`{tts_langs()}`"
-            )
+            return await edit_delete(value,
+                                     f"`Invalid Language code !!`\n`Available language codes for TTS`:\n\n`{tts_langs()}`"
+                                     )
     await edit_or_reply(value, f"`Language for {scraper} changed to {LANG.title()}.`")
     if BOTLOG:
         await value.client.send_message(
