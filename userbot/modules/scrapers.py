@@ -56,7 +56,7 @@ from userbot import (
     bot
 )
 from userbot import CMD_HANDLER as cmd
-from userbot.utils import kyy_cmd
+from userbot.utils import edit_or_reply, edit_delete, kyy_cmd
 from userbot.utils import chrome, googleimagesdownload, progress, options
 
 TTS_LANG = "id"
@@ -228,19 +228,19 @@ async def wiki(wiki_q):
 
 @kyy_cmd(pattern="ud (.*)")
 async def urban_dict(ud_e):
-    await ud_e.edit("Processing...")
+    xx = await edit_or_reply(ud_e, "Processing...")
     query = ud_e.pattern_match.group(1)
     try:
         define(query)
     except HTTPError:
-        return await ud_e.edit(f"Sorry, couldn't find any results for: {query}")
+        return await edit_delete(ud_e, f"Sorry, couldn't find any results for: {query}")
     mean = define(query)
     deflen = sum(len(i) for i in mean[0]["def"])
     exalen = sum(len(i) for i in mean[0]["example"])
     meanlen = deflen + exalen
     if int(meanlen) >= 0:
         if int(meanlen) >= 4096:
-            await ud_e.edit("`Output too large, sending as file.`")
+            await xx.edit("`Output too large, sending as file.`")
             file = open("output.txt", "w+")
             file.write(
                 "Text: "
@@ -260,7 +260,7 @@ async def urban_dict(ud_e):
             if os.path.exists("output.txt"):
                 os.remove("output.txt")
             return await ud_e.delete()
-        await ud_e.edit(
+        await xx.edit(
             "Text: **"
             + query
             + "**\n\nMeaning: **"
@@ -275,7 +275,7 @@ async def urban_dict(ud_e):
                 BOTLOG_CHATID, "ud query `" + query + "` executed successfully."
             )
     else:
-        await ud_e.edit("No result found for **" + query + "**")
+        await edit_delete(ud_e, "No result found for **" + query + "**")
 
 
 @kyy_cmd(pattern="tts(?: |$)([\\s\\S]*)")
@@ -287,21 +287,21 @@ async def text_to_speech(query):
     elif textx:
         message = textx.text
     else:
-        return await query.edit(
+        return await edit_delete(query,
             "`Give a text or reply to a message for Text-to-Speech!`"
         )
 
     try:
         gTTS(message, lang=TTS_LANG)
     except AssertionError:
-        return await query.edit(
+        return await edit_delete(query,
             "The text is empty.\n"
             "Nothing left to speak after pre-precessing, tokenizing and cleaning."
         )
     except ValueError:
-        return await query.edit("Language is not supported.")
+        return await edit_delete(query, "Language is not supported.")
     except RuntimeError:
-        return await query.edit("Error loading the languages dictionary.")
+        return await edit_delete(query, "Error loading the languages dictionary.")
     tts = gTTS(message, lang=TTS_LANG)
     tts.save("k.mp3")
     with open("k.mp3", "rb") as audio:
@@ -426,18 +426,18 @@ async def translateme(trans):
     elif textx:
         message = textx.text
     else:
-        return await trans.edit("`Give a text or reply to a message to translate!`")
+        return await edit_delete(trans, "`Give a text or reply to a message to translate!`")
 
     try:
         reply_text = translator.translate(deEmojify(message), dest=TRT_LANG)
     except ValueError:
-        return await trans.edit("Invalid destination language.")
+        return await edit_delete(trans, "Invalid destination language.")
 
     source_lan = LANGUAGES[f"{reply_text.src.lower()}"]
     transl_lan = LANGUAGES[f"{reply_text.dest.lower()}"]
     reply_text = f"From **{source_lan.title()}**\nTo **{transl_lan.title()}:**\n\n{reply_text.text}"
 
-    await trans.edit(reply_text)
+    await edit_or_reply(trans, reply_text)
     if BOTLOG:
         await trans.client.send_message(
             BOTLOG_CHATID,
@@ -456,7 +456,7 @@ async def lang(value):
             TRT_LANG = arg
             LANG = LANGUAGES[arg]
         else:
-            return await value.edit(
+            return await edit_delete(value,
                 f"`Invalid Language code !!`\n`Available language codes for TRT`:\n\n`{LANGUAGES}`"
             )
     elif util == "tts":
@@ -467,10 +467,10 @@ async def lang(value):
             TTS_LANG = arg
             LANG = tts_langs()[arg]
         else:
-            return await value.edit(
+            return await edit_delete(value, 
                 f"`Invalid Language code !!`\n`Available language codes for TTS`:\n\n`{tts_langs()}`"
             )
-    await value.edit(f"`Language for {scraper} changed to {LANG.title()}.`")
+    await edit_or_reply(value, f"`Language for {scraper} changed to {LANG.title()}.`")
     if BOTLOG:
         await value.client.send_message(
             BOTLOG_CHATID, f"`Language for {scraper} changed to {LANG.title()}.`"
