@@ -40,7 +40,7 @@
       "required": true
     },
     "PM_AUTO_BAN": {
-      "description": "PM Auto-Ban Feature Switch. Also known as the 'bleep blop, this is a bot...' module. or /skip",
+      "description": "Pengalihan Fitur Larangan Otomatis PM. atau /skip",
       "value": "False",
       "required": true
     }
