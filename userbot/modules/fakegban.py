@@ -8,7 +8,6 @@ from userbot.utils import kyy_cmd
 from userbot import owner, CMD_HELP, bot, CMD_HANDLER as cmd
 
 
-
 @kyy_cmd(pattern="fgban(?: |$)(.*)")
 async def gbun(event):
     if event.fwd_from:

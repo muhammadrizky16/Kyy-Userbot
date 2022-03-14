@@ -10,7 +10,6 @@ from userbot import G_BAN_LOGGER_GROUP, bot
 # imported from uniborg by @heyworld
 
 
-
 @kyy_cmd(pattern="gbanb(?: |$)(.*)")
 async def _(event):
     if G_BAN_LOGGER_GROUP is None:

@@ -9,7 +9,7 @@
 import asyncio
 from asyncio import create_subprocess_exec as asyncrunapp
 from asyncio.subprocess import PIPE as asyncPIPE
-from platform import python_version, uname
+from platform import python_version
 from shutil import which
 from os import remove
 from telethon import __version__, version
@@ -20,7 +20,6 @@ from datetime import datetime
 import psutil
 from userbot import ALIVE_LOGO, BOT_VER, CMD_HELP, KYY_TEKS_KUSTOM, StartTime, UPSTREAM_REPO_BRANCH, bot, CMD_HANDLER as cmd
 from userbot.utils import edit_or_reply, kyy_cmd
-
 
 
 modules = CMD_HELP
@@ -327,7 +326,6 @@ async def redis(alive):
         await xx.edit(output)
         await asyncio.sleep(100)
         await xx.delete()
-
 
 
 CMD_HELP.update({

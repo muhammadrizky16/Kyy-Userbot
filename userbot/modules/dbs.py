@@ -5,12 +5,10 @@
 #
 """ Userbot module for getting information about the server. """
 
-from platform import uname
 
 
 from userbot import owner, BOT_VER, is_mongo_alive, is_redis_alive
 from userbot.events import register
-
 
 
 @register(outgoing=True, pattern="^.db$")

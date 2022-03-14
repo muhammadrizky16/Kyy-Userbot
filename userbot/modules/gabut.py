@@ -1,7 +1,5 @@
-from platform import uname
 from userbot import owner, CMD_HELP, CMD_HANDLER as cmd
 from userbot.utils import kyy_cmd
-
 
 
 @kyy_cmd(pattern="p(?: |$)(.*)")

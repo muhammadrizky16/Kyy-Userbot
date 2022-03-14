@@ -3,8 +3,6 @@ from telethon import events
 from telethon.errors.rpcerrorlist import YouBlockedUserError
 from userbot.utils import edit_or_reply, edit_delete, kyy_cmd
 from userbot import bot, CMD_HELP, owner, CMD_HANDLER as cmd
-from platform import uname
-
 
 
 @kyy_cmd(pattern="igsaver ?(.*)")
