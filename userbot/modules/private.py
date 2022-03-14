@@ -1,3 +1,10 @@
+# Copyright (C) 2020 Catuserbot <https://github.com/sandy1709/catuserbot>
+# Copyright (C) 2021 TeamUltroid <https://github.com/TeamUltroid/Ultroid>
+# Recode by @mrismanaziz
+# FROM Man-Userbot <https://github.com/mrismanaziz/Man-Userbot>
+# t.me/SharingUserbot & t.me/Lunatic0de
+
+
 import io
 import re
 import time
