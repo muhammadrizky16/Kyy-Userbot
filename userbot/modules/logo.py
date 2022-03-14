@@ -4,7 +4,7 @@ import asyncio
 
 from telethon.errors.rpcerrorlist import YouBlockedUserError
 
-from userbot import ALIVE_NAME, CMD_HELP
+from userbot import CMD_HELP, owner, CMD_HANDLER as cmd
 from userbot.utils import edit_or_reply, kyy_cmd
 
 
@@ -35,11 +35,11 @@ async def _(event):
         await event.client.send_file(
             event.chat_id,
             logo,
-            caption=f"ʟᴏɢᴏ ʙʏ [{ALIVE_NAME}](tg://user?id={aing.id})",
+            caption=f"ʟᴏɢᴏ ʙʏ [{owner}](tg://user?id={aing.id})",
         )
         await event.client.delete_messages(conv.chat_id, [msg.id, response.id, logo.id])
         await event.delete()
 
 
-CMD_HELP.update({"logo": "𝘾𝙤𝙢𝙢𝙖𝙣𝙙: `{cmd}logo <text>`"
+CMD_HELP.update({"logo": f"𝘾𝙤𝙢𝙢𝙖𝙣𝙙: `{cmd}logo <text>`"
                  "\n↳ : Hasilkan logo dari Teks atau Balas Ke gambar yang diberikan, untuk menulis teks Anda di atasnya. Atau Balas Ke File Font, Untuk menulis dengan font itu."})

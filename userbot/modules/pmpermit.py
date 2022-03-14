@@ -19,7 +19,7 @@ from userbot import (
     LASTMSG,
     LOGS,
     PM_AUTO_BAN,
-    ALIVE_NAME,
+    owner,
     PMPERMIT_TEXT,
     PMPERMIT_PIC,
     ALIVE_LOGO,
@@ -37,18 +37,17 @@ LASTMSG = {}
 
 # ========================= CONSTANTS ============================
 
-DEFAULTUSER = str(ALIVE_NAME) if ALIVE_NAME else uname().node
 CUSTOM_TEXT = str(
-    PMPERMIT_TEXT) if PMPERMIT_TEXT else f"__Halo kawan, saya bot yang menjaga room chat Kyy-Userbot {DEFAULTUSER} di mohon jangan melakukan spam , kalau anda melakukan itu OTOMATIS saya akan memblockir anda!__ \n"
+    PMPERMIT_TEXT) if PMPERMIT_TEXT else f"__Halo kawan, saya bot yang menjaga room chat Kyy-Userbot {owner} di mohon jangan melakukan spam , kalau anda melakukan itu OTOMATIS saya akan memblockir anda!__ \n"
 DEF_UNAPPROVED_MSG = (
     "╔═════════════════════╗\n"
     "“𝐖𝐞𝐥𝐜𝐨𝐦𝐞 𝐭𝐨 𝐓𝐡𝐞 𝐏𝐫𝐢𝐯𝐚𝐜𝐲 𝐌𝐞𝐬𝐬𝐚𝐠𝐞”    ”\n"
     "╚═════════════════════╝\n"
     "**Dimohon Untuk Tidak Melakukan Spam Ke Room Chat ini!** \n"
-    f"**Karena bisa menggangu** {ALIVE_NAME} [⚠️]({ALIVE_LOGO})\n"
+    f"**Karena bisa menggangu** {owner} \n"
     f"**Jika Anda Melakukan Spamming, Anda Akan Terblokir Otomatis!**\n"
     "╔═════════════════════╗\n"
-    f"➠ **Owner :** {ALIVE_NAME} \n"
+    f"➠ **Owner :** {owner} \n"
     f"➠ **Pesan Otomatis by Kyy-Userbot** \n"
     "╚═════════════════════╝")
 # =================================================================
@@ -300,12 +299,12 @@ async def blockpm(block):
         aname = replied_user.id
         name0 = str(replied_user.first_name)
         await block.client(BlockRequest(aname))
-        await block.edit(f"`Anda Telah Diblokir Oleh {DEFAULTUSER}`")
+        await block.edit(f"`Anda Telah Diblokir Oleh {owner}`")
         uid = replied_user.id
     else:
         await block.client(BlockRequest(block.chat_id))
         aname = await block.client.get_entity(block.chat_id)
-        await block.edit(f"`Anda Telah Diblokir Oleh {DEFAULTUSER}`")
+        await block.edit(f"`Anda Telah Diblokir Oleh {owner}`")
         name0 = str(aname.first_name)
         uid = block.chat_id
 
@@ -411,9 +410,9 @@ async def permitpm(event):
     if event.is_private:
         if not pm_permit_sql.is_approved(chats.id):
             pm_permit_sql.approve(
-                chats.id, f"`{ALIVE_NAME} Telah Mengirimi Anda Pesan 😯`")
+                chats.id, f"`{owner} Telah Mengirimi Anda Pesan 😯`")
             await borg.send_message(
-                chats, f"**Menerima Pesan!, Pengguna Terdeteksi Adalah {DEFAULTUSER}**"
+                chats, f"**Menerima Pesan!, Pengguna Terdeteksi Adalah {owner}**"
             )
 
 CMD_HELP.update(

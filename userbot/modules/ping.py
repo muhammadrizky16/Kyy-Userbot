@@ -97,8 +97,9 @@ async def redis(pong):
     lping = await edit_or_reply(pong, "`Connecting...`")
     end = datetime.now()
     duration = (end - start).microseconds / 1000
+    user = await pong.client.get_me()
     await lping.edit(
-        f"**`{ALIVE_NAME}`**\n"
+        f"** [{user.first_name}](tg://user?id={user.id}) **\n"
         f"✧ **-ꜱɪɢɴᴀʟ- :** "
         f"`%sms` \n"
         f"✧ **-ᴜᴘᴛɪᴍᴇ- :** "
@@ -146,13 +147,14 @@ async def redis(pong):
     await asyncio.sleep(2)
     end = datetime.now()
     duration = (end - start).microseconds / 1000
+    user = await pong.client.get_me()
     await sinyal.edit(
         f"**✨ ҡʏʏ-υѕєявσт ✨**\n\n"
         f"** ▹  Sɪɢɴᴀʟ   :** "
         f"`%sms` \n"
         f"** ▹  Uᴘᴛɪᴍᴇ  :** "
         f"`{uptime}` \n"
-        f"** ▹  Oᴡɴᴇʀ   :** `{ALIVE_NAME}` \n" % (duration)
+        f"** ▹  Oᴡɴᴇʀ   :** [{user.first_name}](tg://user?id={user.id}) \n" % (duration)
     )
 
 
@@ -168,9 +170,9 @@ async def pingme(pong):
     duration = (end - start).microseconds / 1000
     await ping.edit(
         f"**PONG!!!🏓**\n"
-        f"• **Pɪɴɢᴇʀ** ⪼ "
+        f"• **Pɪɴɢᴇʀ** = "
         f"`%sms` \n"
-        f"• **Uᴘᴛɪᴍᴇ** ⪼ "
+        f"• **Uᴘᴛɪᴍᴇ** = "
         f"`{uptime}` \n" % (duration)
     )
 

@@ -5,7 +5,7 @@
 """ Userbot module containing userid, chatid and log commands"""
 
 from asyncio import sleep
-from userbot import BOTLOG, BOTLOG_CHATID, CMD_HELP, bot, ALIVE_NAME, CMD_HANDLER as cmd
+from userbot import BOTLOG, BOTLOG_CHATID, CMD_HELP, bot, owner, CMD_HANDLER as cmd
 from datetime import datetime
 from telethon import functions
 from emoji import emojize
@@ -107,7 +107,7 @@ async def log(log_text):
 @kyy_cmd(pattern="kickme$")
 async def kickme(leave):
     """ Basically it's .kickme command """
-    await edit_or_reply(leave, f"**{ALIVE_NAME} Telah Meninggalkan Group,See You Semua!!**")
+    await edit_or_reply(leave, f"**{owner} Telah Meninggalkan Group,See You Semua!!**")
     await leave.client.kick_participant(leave.chat_id, 'me')
 
 

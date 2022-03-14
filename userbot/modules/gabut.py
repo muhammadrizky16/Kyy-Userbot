@@ -1,10 +1,7 @@
 from platform import uname
-from userbot import ALIVE_NAME, CMD_HELP, CMD_HANDLER as cmd
+from userbot import owner, CMD_HELP, CMD_HANDLER as cmd
 from userbot.utils import kyy_cmd
 
-# ================= CONSTANT =================
-DEFAULTUSER = str(ALIVE_NAME) if ALIVE_NAME else uname().node
-# ============================================
 
 
 @kyy_cmd(pattern="p(?: |$)(.*)")
@@ -31,7 +28,7 @@ async def perkenalan(event):
 @kyy_cmd(pattern="perkenalan(?: |$)(.*)")
 async def perkenalan(event):
     event.pattern_match.group(1)
-    await event.edit(f"`Hai Guys , Perkenalkan Nama Gw {DEFAULTUSER}`")
+    await event.edit(f"`Hai Guys , Perkenalkan Nama Gw {owner}`")
     sleep(2)
     await event.edit(f"`Gw Tinggal Di {WEATHER_DEFCITY}`")
     sleep(2)

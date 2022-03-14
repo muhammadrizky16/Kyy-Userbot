@@ -4,14 +4,11 @@ Available Commands:
 .gban REASON
 .ungban REASON"""
 import asyncio
-from userbot import CMD_HELP, CMD_HANDLER as cmd
+from userbot import CMD_HELP, owner, CMD_HANDLER as cmd
 from userbot.utils import kyy_cmd
-from userbot import ALIVE_NAME, G_BAN_LOGGER_GROUP, bot
+from userbot import G_BAN_LOGGER_GROUP, bot
 # imported from uniborg by @heyworld
 
-# ================= CONSTANT =================
-DEFAULTUSER = str(ALIVE_NAME) if ALIVE_NAME else uname().node
-# ============================================
 
 
 @kyy_cmd(pattern="gbanb(?: |$)(.*)")
@@ -35,7 +32,7 @@ async def _(event):
     await event.delete()
     await event.reply("**gbanning...**")
     asyncio.sleep(3.5)
-    await event.edit(f"**User gbanned by {DEFAULTUSER}**")
+    await event.edit(f"**User gbanned by {owner}**")
     asyncio.sleep(5)
     await event.delete()
 
@@ -58,7 +55,7 @@ async def _(event):
     await event.delete()
     await event.reply("**ungbanning...**")
     asyncio.sleep(3.5)
-    await event.edit(f"**User ungbanned by {DEFAULTUSER}**")
+    await event.edit(f"**User ungbanned by {owner}**")
     asyncio.sleep(5)
     await event.delete()
 

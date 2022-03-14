@@ -6,7 +6,7 @@ import sys
 import os
 import io
 import sys
-from userbot import ALIVE_NAME, BOTLOG, BOTLOG_CHATID, CMD_HELP, UPSTREAM_REPO_URL, bot
+from userbot import BOTLOG, BOTLOG_CHATID, CMD_HELP, UPSTREAM_REPO_URL, bot
 from userbot.utils import edit_or_reply, edit_delete, kyy_cmd
 from userbot.utils import time_formatter
 import urllib
@@ -16,8 +16,6 @@ import re
 from PIL import Image
 
 
-# ================= CONSTANT =================
-DEFAULTUSER = str(ALIVE_NAME) if ALIVE_NAME else uname().node
 REPOLINK = str(
     UPSTREAM_REPO_URL) if UPSTREAM_REPO_URL else "https://github.com/muhammadrizky16/Kyy-Userbot"
 # ============================================

@@ -16,7 +16,8 @@ from userbot import (
     BOTLOG,
     BOTLOG_CHATID,
     CMD_HELP,
-    ALIVE_NAME)
+    owner,
+)
 from userbot.utils import edit_or_reply, kyy_cmd
 
 heroku_api = "https://api.heroku.com"
@@ -178,7 +179,7 @@ async def dyno_usage(dyno):
 
             AppHours = math.floor(AppQuotaUsed / 60)
             AppMinutes = math.floor(AppQuotaUsed % 60)
-
+            
             await xx.edit(
                 "✨ **ɪɴꜰᴏʀᴍᴀsɪ ᴅʏɴᴏ ʜᴇʀᴏᴋᴜ :**\n"
                 "╔════════════════════╗\n"
@@ -189,7 +190,7 @@ async def dyno_usage(dyno):
                 "• **sɪsᴀ ᴋᴏᴜᴛᴀ ᴅʏɴᴏ ʙᴜʟᴀɴ ɪɴɪ :**\n"
                 f"  `{hours}`**ᴊᴀᴍ**  `{minutes}`**ᴍᴇɴɪᴛ**  "
                 f"**|**  [`{percentage}`**%**]\n"
-                f"• **ʙᴏᴛ ᴏꜰ :** {ALIVE_NAME}  "
+                f"• **ʙᴏᴛ ᴏꜰ :** {owner}  "
                 "\n╚════════════════════╝"
             )
             await asyncio.sleep(30)

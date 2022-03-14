@@ -43,10 +43,6 @@
       "description": "PM Auto-Ban Feature Switch. Also known as the 'bleep blop, this is a bot...' module. or /skip",
       "value": "False",
       "required": true
-    },
-    "ALIVE_NAME": {
-      "description": "Nama untuk menunjukan pesan .alive",
-      "required": true
     }
   },
   "addons": [

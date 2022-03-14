@@ -9,13 +9,13 @@ from userbot.events import register
 from userbot import (
     CMD_HELP,
     bot,
-    ALIVE_NAME,
+    owner,
 )
 from userbot import TEMP_DOWNLOAD_DIRECTORY
 
 
-OFFLINE_TAG = f"{ALIVE_NAME} #OFFLINE"
-ONLINE_TAG = f"{ALIVE_NAME} #ONLINE"
+OFFLINE_TAG = f"{owner} #OFFLINE"
+ONLINE_TAG = f"{owner} #ONLINE"
 PROFILE_IMAGE = os.environ.get(
     "PROFILE_IMAGE", "https://telegra.ph/file/44784d03e4e4ecbdf9e04.jpg"
 )

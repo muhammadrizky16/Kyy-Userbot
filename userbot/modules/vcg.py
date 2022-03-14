@@ -11,6 +11,7 @@ from telethon.tl.functions.phone import InviteToGroupCallRequest as invitetovc
 from telethon.tl import types
 from telethon.utils import get_display_name
 
+from userbot import owner
 from userbot import CMD_HELP, CMD_HANDLER as cmd
 from userbot.utils import edit_delete, edit_or_reply, kyy_cmd
 from userbot.events import register
@@ -44,7 +45,7 @@ async def start_voice(c):
     creator = chat.creator
 
     if not admin and not creator:
-        await edit_delete(c, f"**Maaf {ALIVE_NAME} Bukan Admin 👮**")
+        await edit_delete(c, f"**Maaf {owner} Bukan Admin 👮**")
         return
     try:
         await c.client(startvc(c.chat_id))
@@ -61,7 +62,7 @@ async def stop_voice(c):
     creator = chat.creator
 
     if not admin and not creator:
-        await edit_delete(c, f"**Maaf {ALIVE_NAME} Bukan Admin 👮**")
+        await edit_delete(c, f"**Maaf {owner} Bukan Admin 👮**")
         return
     try:
         await c.client(stopvc(await get_call(c)))

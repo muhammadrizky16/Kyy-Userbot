@@ -2,13 +2,9 @@
 from telethon import events
 from telethon.errors.rpcerrorlist import YouBlockedUserError
 from userbot.utils import edit_or_reply, edit_delete, kyy_cmd
-from userbot import bot, CMD_HELP, ALIVE_NAME, CMD_HANDLER as cmd
+from userbot import bot, CMD_HELP, owner, CMD_HANDLER as cmd
 from platform import uname
 
-
-# ================= CONSTANT =================
-DEFAULTUSER = str(ALIVE_NAME) if ALIVE_NAME else uname().node
-# ============================================
 
 
 @kyy_cmd(pattern="igsaver ?(.*)")
@@ -47,7 +43,7 @@ async def igsaver(event):
             await event.client.send_file(
                 event.chat_id,
                 response.message.media,
-                caption=f"**Download By {DEFAULTUSER}**",
+                caption=f"**Download By {owner}**",
             )
             await event.client.send_read_acknowledge(conv.chat_id)
             await bot(functions.messages.DeleteHistoryRequest(peer=chat, max_id=0))
