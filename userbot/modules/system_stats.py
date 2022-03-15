@@ -292,11 +292,14 @@ async def redis(alive):
     user = await bot.get_me()
     await get_readable_time((time.time() - StartTime))
     xx = await edit_or_reply(alive, "__Sedang Memuat.__")
+    await xx.edit("__Sedang Memuat..__")
     await xx.edit("__Sedang Memuat.__")
     await xx.edit("__Sedang Memuat..__")
     await xx.edit("__Sedang Memuat...__")
+    await xx.edit("__Sedang Memuat..__")
+    await xx.edit("__Sedang Memuat...__")
     await xx.edit("✨")
-    await asyncio.sleep(1)
+    await asyncio.sleep(2)
     output = (
         f"•  **Name     :** [{user.first_name}](tg://user?id={user.id}) \n"
         f"•  **Username :** @{user.username} \n"
