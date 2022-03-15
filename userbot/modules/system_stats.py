@@ -301,16 +301,13 @@ async def redis(alive):
     await xx.edit("✨")
     await asyncio.sleep(2)
     output = (
-        f"•  **Name     :** [{user.first_name}](tg://user?id={user.id}) \n"
+        f"•  **Name :** [{user.first_name}](tg://user?id={user.id}) \n"
         f"•  **Username :** @{user.username} \n"
         f"•  **Telethon :** Ver {version.__version__} \n"
-        f"•  **Python   :** Ver {python_version()} \n"
-        f"•  **Branch   :** {UPSTREAM_REPO_BRANCH} \n"
-        f"•  **Bot Ver  :** {BOT_VER} \n"
-        f"•  **Modules  :** {len(modules)} Modules \n"
-        f"•  **GitHub   :** [Kyy](https://github.com/muhammadrizky16/Kyy-Userbot) \n"
-        f"•  **Support  :** [Groups](https://t.me/NastySupportt) \n"
-        f"•  **Owner    :** [Kyy](https://t.me/IDnyaKosong) \n"
+        f"•  **Python :** Ver {python_version()} \n"
+        f"•  **Branch :** {UPSTREAM_REPO_BRANCH} \n"
+        f"•  **Bot Ver :** {BOT_VER} \n"
+        f"•  **Modules :** {len(modules)} Modules \n"
         f"[ɢʀᴏᴜᴘꜱ](https://t.me/NastySupportt) | [ᴄʜᴀɴɴᴇʟ](https://t.me/NastyProject) | [ᴏᴡɴᴇʀ](https://t.me/IDnyaKosong) | [ɢɪᴛʜᴜʙ](https://github.com/muhammadrizky16/Kyy-Userbot)")
     if ALIVE_LOGO:
         try:
