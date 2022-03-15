@@ -310,7 +310,8 @@ async def redis(alive):
         f"•  **Modules  :** {len(modules)} Modules \n"
         f"•  **GitHub   :** [Kyy](https://github.com/muhammadrizky16/Kyy-Userbot) \n"
         f"•  **Support  :** [Groups](https://t.me/NastySupportt) \n"
-        f"•  **Owner    :** [Kyy](https://t.me/IDnyaKosong) ")
+        f"•  **Owner    :** [Kyy](https://t.me/IDnyaKosong) \n"
+        f"[ɢʀᴏᴜᴘꜱ](https://t.me/NastySupportt) | [ᴄʜᴀɴɴᴇʟ](https://t.me/NastyProject) | [ᴏᴡɴᴇʀ](https://t.me/IDnyaKosong) | [ɢɪᴛʜᴜʙ](https://github.com/muhammadrizky16/Kyy-Userbot)")
     if ALIVE_LOGO:
         try:
             logo = ALIVE_LOGO
