@@ -12,7 +12,7 @@ import redis
 
 from datetime import datetime
 from speedtest import Speedtest
-from userbot import CMD_HELP, StartTime, ALIVE_NAME, owner, CMD_HANDLER as cmd
+from userbot import CMD_HANDLER as cmd, CMD_HELP, StartTime, owner
 from userbot.events import register
 from userbot.utils import edit_or_reply, kyy_cmd
 
