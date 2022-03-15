@@ -12,7 +12,7 @@ import redis
 
 from datetime import datetime
 from speedtest import Speedtest
-from userbot import CMD_HELP, StartTime, ALIVE_NAME, CMD_HANDLER as cmd
+from userbot import CMD_HELP, StartTime, ALIVE_NAME, owner, CMD_HANDLER as cmd
 from userbot.events import register
 from userbot.utils import edit_or_reply, kyy_cmd
 
@@ -83,7 +83,7 @@ async def redis(pong):
     end = datetime.now()
     duration = (end - start).microseconds / 1000
     await xx.edit(
-        f"**{ALIVE_NAME}**        \n"
+        f"**{owner}**        \n"
         f"**➾Kecepatan : ** '%sms'  \n"
         f"**➾Branch : ** 'Kyy-Userbot` \n" % (duration)
     )
@@ -229,7 +229,7 @@ async def pingme(pong):
     await asyncio.sleep(2)
     end = datetime.now()
     duration = (end - start).microseconds / 9000
-    await pong.edit(f"**✨KyyName : {ALIVE_NAME}**\n📗 `%sms`" % (duration))
+    await pong.edit(f"**✨KyyName : {owner}**\n📗 `%sms`" % (duration))
 
 
 @kyy_cmd(pattern="pink$")
