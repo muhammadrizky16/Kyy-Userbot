@@ -19,7 +19,7 @@ logger = logging.getLogger(__name__)
 @kyy_cmd(pattern="stats(?: |$)(.*)")
 async def stats(event: NewMessage.Event) -> None:  # pylint: disable = R0912, R0914, R0915
     """Command to get stats about the account"""
-    await event.edit('`Collecting stats, Wait Master`')
+    xx = await edit_or_reply(event, '`Collecting stats, Wait Master`')
     start_time = time.time()
     private_chats = 0
     bots = 0
@@ -89,7 +89,7 @@ async def stats(event: NewMessage.Event) -> None:  # pylint: disable = R0912, R0
     response += f'**Unread Mentions:** {unread_mentions} \n\n'
     response += f'__It Took:__ {stop_time:.02f}s \n'
 
-    await event.edit(response)
+    await xx.edit(response)
 
 
 def make_mention(user):

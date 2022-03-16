@@ -21,15 +21,14 @@ from hachoir.metadata import extractMetadata
 from hachoir.parser import createParser
 from telethon.tl.types import DocumentAttributeVideo
 
-from userbot import LOGS, CMD_HELP, TEMP_DOWNLOAD_DIRECTORY
-from userbot.utils import progress, humanbytes
-from userbot.events import register
+from userbot import LOGS, CMD_HELP, TEMP_DOWNLOAD_DIRECTORY, CMD_HANDLER as cmd
+from userbot.utils import progress, humanbytes, edit_or_reply, edit_delete, kyy_cmd
 
 
-@register(pattern=r".download(?: |$)(.*)", outgoing=True)
+@kyy_cmd(pattern="download(?: |$)(.*)")
 async def download(target_file):
     """ For .download command, download files to the userbot's server. """
-    await target_file.edit("Processing ...")
+    await edit_or_reply(target_file, "Processing ...")
     input_str = target_file.pattern_match.group(1)
     if not os.path.isdir(TEMP_DOWNLOAD_DIRECTORY):
         os.makedirs(TEMP_DOWNLOAD_DIRECTORY)
@@ -80,10 +79,10 @@ async def download(target_file):
             except Exception as e:
                 LOGS.info(str(e))
         if downloader.isSuccessful():
-            await target_file.edit("Downloaded to `{}` successfully !!".format(
+            await edit_delete(target_file, "Downloaded to `{}` successfully !!".format(
                 downloaded_file_name))
         else:
-            await target_file.edit("Incorrect URL\n{}".format(url))
+            await edit_delete(target_file, "Incorrect URL\n{}".format(url))
     elif target_file.reply_to_msg_id:
         try:
             c_time = time.time()
@@ -94,21 +93,21 @@ async def download(target_file):
                 ).create_task(
                     progress(d, t, target_file, c_time, "[DOWNLOAD]")))
         except Exception as e:  # pylint:disable=C0103,W0703
-            await target_file.edit(str(e))
+            await edit_or_reply(target_file, str(e))
         else:
-            await target_file.edit("Downloaded to `{}` successfully !!".format(
+            await edit_delete(target_file, "Downloaded to `{}` successfully !!".format(
                 downloaded_file_name))
     else:
-        await target_file.edit(
+        await edit_delete(target_file,
             "Reply to a message to download to my local server.")
 
 
-@register(pattern=r".uploadir (.*)", outgoing=True)
+@kyy_cmd(pattern="uploadir (.*)")
 async def uploadir(udir_event):
     """ For .uploadir command, allows you to upload everything from a folder in the server"""
     input_str = udir_event.pattern_match.group(1)
     if os.path.exists(input_str):
-        await udir_event.edit("Processing ...")
+        await edit_or_reply(udir_event, "Processing ...")
         lst_of_files = []
         for r, d, f in os.walk(input_str):
             for file in f:
@@ -173,16 +172,16 @@ async def uploadir(udir_event):
                                      single_file)))
                 os.remove(single_file)
                 uploaded = uploaded + 1
-        await udir_event.edit(
+        await edit_delete(udir_event,
             "Uploaded {} files successfully !!".format(uploaded))
     else:
-        await udir_event.edit("404: Directory Not Found")
+        await edit_delete(udir_delete, "404: Directory Not Found")
 
 
-@register(pattern=r".upload (.*)", outgoing=True)
+@kyy_cmd(pattern="upload (.*)")
 async def upload(u_event):
     """ For .upload command, allows you to upload a file from the userbot's server """
-    await u_event.edit("Processing ...")
+    await edit_or_reply(u_event, "Processing ...")
     input_str = u_event.pattern_match.group(1)
     if input_str in ("userbot.session", "config.env"):
         return await u_event.edit("`That's a dangerous operation! Not Permitted!`")
@@ -197,9 +196,9 @@ async def upload(u_event):
             progress_callback=lambda d, t: asyncio.get_event_loop(
             ).create_task(
                 progress(d, t, u_event, c_time, "[UPLOAD]", input_str)))
-        await u_event.edit("Uploaded successfully !!")
+        await edit_delete(u_event, "Uploaded successfully !!")
     else:
-        await u_event.edit("404: File Not Found")
+        await edit_delete(u_event, "404: File Not Found")
 
 
 def get_video_thumb(file, output=None, width=90):
@@ -255,10 +254,10 @@ def extract_w_h(file):
         return width, height
 
 
-@register(pattern=r".uploadas(stream|vn|all) (.*)", outgoing=True)
+@kyy_cmd(pattern="uploadas(stream|vn|all) (.*)")
 async def uploadas(uas_event):
     """ For .uploadas command, allows you to specify some arguments for upload. """
-    await uas_event.edit("Processing ...")
+    await edit_or_reply(uas_event, "Processing ...")
     type_of_upload = uas_event.pattern_match.group(1)
     supports_streaming = False
     round_message = False
@@ -340,17 +339,17 @@ async def uploadas(uas_event):
             elif spam_big_messages:
                 return await uas_event.edit("TBD: Not (yet) Implemented")
             os.remove(thumb)
-            await uas_event.edit("Uploaded successfully !!")
+            await edit_delete(uas_event, "Uploaded successfully !!")
         except FileNotFoundError as err:
             await uas_event.edit(str(err))
     else:
-        await uas_event.edit("404: File Not Found")
+        await edit_delete(uas_event, "404: File Not Found")
 
 
 CMD_HELP.update({
     "download":
-    "`.download` <link|filename> or reply to media\
+    f"`{cmd}download` <link|filename> or reply to media\
 \nUsage: Downloads file to the server.\
-\n\n`.upload` <path in server>\
+\n\n`{cmd}upload` <path in server>\
 \nUsage: Uploads a locally stored file to the chat."
 })
