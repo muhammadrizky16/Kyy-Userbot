@@ -6,14 +6,14 @@ Available Commands:
 import asyncio
 from userbot import CMD_HELP, owner, CMD_HANDLER as cmd
 from userbot.utils import kyy_cmd
-from userbot import G_BAN_LOGGER_GROUP, bot
+from userbot import BOTLOG_CHATID, bot
 # imported from uniborg by @heyworld
 
 
 @kyy_cmd(pattern="gbanb(?: |$)(.*)")
 async def _(event):
-    if G_BAN_LOGGER_GROUP is None:
-        await event.edit("Set G_BAN_LOGGER_GROUP in vars otherwise module won't work.")
+    if BOTLOG_CHATID is None:
+        await event.edit("Set BOTLOG_CHATID in vars otherwise module won't work.")
         return
     if event.fwd_from:
         return
@@ -25,7 +25,7 @@ async def _(event):
         else:
             r_from_id = r.from_id
         await bot.send_message(
-            G_BAN_LOGGER_GROUP,
+            BOTLOG_CHATID,
             "/gban [user](tg://user?id={}) {}".format(r_from_id, reason)
         )
     await event.delete()
@@ -38,8 +38,8 @@ async def _(event):
 
 @kyy_cmd(pattern="ungbanb(?: |$)(.*)")
 async def _(event):
-    if G_BAN_LOGGER_GROUP is None:
-        await event.edit("Set G_BAN_LOGGER_GROUP in vars otherwise module won't work.")
+    if BOTLOG_CHATID is None:
+        await event.edit("Set BOTLOG_CHATID in vars otherwise module won't work.")
         return
     if event.fwd_from:
         return
@@ -48,7 +48,7 @@ async def _(event):
         r = await event.get_reply_message()
         r_from_id = r.from_id
         await bot.send_message(
-            G_BAN_LOGGER_GROUP,
+            BOTLOG_CHATID,
             "/ungban [user](tg://user?id={}) {}".format(r_from_id, reason)
         )
     await event.delete()
