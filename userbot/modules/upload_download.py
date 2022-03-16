@@ -28,7 +28,7 @@ from userbot.utils import progress, humanbytes, edit_or_reply, edit_delete, kyy_
 @kyy_cmd(pattern="download(?: |$)(.*)")
 async def download(target_file):
     """ For .download command, download files to the userbot's server. """
-    await edit_or_reply(target_file, "Processing ...")
+    await edit_delete(target_file, "Processing ...")
     input_str = target_file.pattern_match.group(1)
     if not os.path.isdir(TEMP_DOWNLOAD_DIRECTORY):
         os.makedirs(TEMP_DOWNLOAD_DIRECTORY)
@@ -95,7 +95,7 @@ async def download(target_file):
         except Exception as e:  # pylint:disable=C0103,W0703
             await edit_or_reply(target_file, str(e))
         else:
-            await edit_delete(target_file, "Downloaded to `{}` successfully !!".format(
+            await edit_or_reply(target_file, "Downloaded to `{}` successfully !!".format(
                 downloaded_file_name))
     else:
         await edit_delete(target_file,
@@ -107,7 +107,7 @@ async def uploadir(udir_event):
     """ For .uploadir command, allows you to upload everything from a folder in the server"""
     input_str = udir_event.pattern_match.group(1)
     if os.path.exists(input_str):
-        await edit_or_reply(udir_event, "Processing ...")
+        await edit_delete(udir_event, "Processing ...")
         lst_of_files = []
         for r, d, f in os.walk(input_str):
             for file in f:
@@ -172,7 +172,7 @@ async def uploadir(udir_event):
                                      single_file)))
                 os.remove(single_file)
                 uploaded = uploaded + 1
-        await edit_delete(udir_event,
+        await edit_or_reply(udir_event,
                           "Uploaded {} files successfully !!".format(uploaded))
     else:
         await edit_delete(udir_delete, "404: Directory Not Found")
@@ -181,10 +181,10 @@ async def uploadir(udir_event):
 @kyy_cmd(pattern="upload (.*)")
 async def upload(u_event):
     """ For .upload command, allows you to upload a file from the userbot's server """
-    await edit_or_reply(u_event, "Processing ...")
+    await edit_delete(u_event, "Processing ...")
     input_str = u_event.pattern_match.group(1)
     if input_str in ("userbot.session", "config.env"):
-        return await u_event.edit("`That's a dangerous operation! Not Permitted!`")
+        return await edit_delete(u_event, "`That's a dangerous operation! Not Permitted!`")
     if os.path.exists(input_str):
         c_time = time.time()
         await u_event.client.send_file(
@@ -196,7 +196,7 @@ async def upload(u_event):
             progress_callback=lambda d, t: asyncio.get_event_loop(
             ).create_task(
                 progress(d, t, u_event, c_time, "[UPLOAD]", input_str)))
-        await edit_delete(u_event, "Uploaded successfully !!")
+        await edit_or_reply(u_event, "Uploaded successfully !!")
     else:
         await edit_delete(u_event, "404: File Not Found")
 
@@ -257,7 +257,7 @@ def extract_w_h(file):
 @kyy_cmd(pattern="uploadas(stream|vn|all) (.*)")
 async def uploadas(uas_event):
     """ For .uploadas command, allows you to specify some arguments for upload. """
-    await edit_or_reply(uas_event, "Processing ...")
+    await edit_delete(uas_event, "Processing ...")
     type_of_upload = uas_event.pattern_match.group(1)
     supports_streaming = False
     round_message = False
@@ -337,9 +337,9 @@ async def uploadas(uas_event):
                         progress(d, t, uas_event, c_time, "[UPLOAD]",
                                  file_name)))
             elif spam_big_messages:
-                return await uas_event.edit("TBD: Not (yet) Implemented")
+                return await edit_delete(uas_event, "TBD: Not (yet) Implemented")
             os.remove(thumb)
-            await edit_delete(uas_event, "Uploaded successfully !!")
+            await edit_or_reply(uas_event, "Uploaded successfully !!")
         except FileNotFoundError as err:
             await uas_event.edit(str(err))
     else:
