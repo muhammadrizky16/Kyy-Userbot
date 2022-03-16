@@ -99,7 +99,7 @@ async def download(target_file):
                 downloaded_file_name))
     else:
         await edit_delete(target_file,
-            "Reply to a message to download to my local server.")
+                          "Reply to a message to download to my local server.")
 
 
 @kyy_cmd(pattern="uploadir (.*)")
@@ -173,7 +173,7 @@ async def uploadir(udir_event):
                 os.remove(single_file)
                 uploaded = uploaded + 1
         await edit_delete(udir_event,
-            "Uploaded {} files successfully !!".format(uploaded))
+                          "Uploaded {} files successfully !!".format(uploaded))
     else:
         await edit_delete(udir_delete, "404: Directory Not Found")
 

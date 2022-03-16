@@ -26,8 +26,8 @@ async def lyrics(lyric):
         playing = User(LASTFM_USERNAME, lastfm).get_now_playing()
         if playing is None:
             await edit_delete(lyric,
-                "`No information current lastfm scrobbling...`"
-            )
+                              "`No information current lastfm scrobbling...`"
+                              )
             return False
         artist = playing.get_artist()
         song = playing.get_title()
