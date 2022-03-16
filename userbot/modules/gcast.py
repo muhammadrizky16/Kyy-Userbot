@@ -14,6 +14,8 @@ from userbot import CMD_HELP, CMD_HANDLER as cmd
 from userbot.utils import edit_or_reply, edit_delete, kyy_cmd
 from userbot.events import register
 
+# KALO FORK/CLONE ID GC DI BAWAH G USH DI HAPUSS YAA KONTOLL
+
 GCAST_BLACKLIST = [
     -1001380293847,  # NastySupport
     -1001473548283,  # SharingUserbot
@@ -23,6 +25,7 @@ GCAST_BLACKLIST = [
     -1001267233272,  # PocongUserbot
     -1001489233533,  # RumahKitaro
     -1001318051930,  # Gatau GC mana
+    -1001692751821,  # RamSupport
 
 ]
 
