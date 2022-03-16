@@ -173,7 +173,7 @@ async def uploadir(udir_event):
                 os.remove(single_file)
                 uploaded = uploaded + 1
         await edit_or_reply(udir_event,
-                          "Uploaded {} files successfully !!".format(uploaded))
+                            "Uploaded {} files successfully !!".format(uploaded))
     else:
         await edit_delete(udir_delete, "404: Directory Not Found")
 
