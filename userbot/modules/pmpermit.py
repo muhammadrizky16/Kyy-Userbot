@@ -279,8 +279,8 @@ async def disapprovepm(disapprvpm):
         name0 = str(aname.first_name)
 
     await edit_or_reply(disapprvpm,
-        f"`Maaf` [{name0}](tg://user?id={disapprvpm.chat_id}) `Pesan Anda Telah Ditolak, Mohon Jangan Melakukan Spam Ke Room Chat!`"
-    )
+                        f"`Maaf` [{name0}](tg://user?id={disapprvpm.chat_id}) `Pesan Anda Telah Ditolak, Mohon Jangan Melakukan Spam Ke Room Chat!`"
+                        )
 
     if BOTLOG:
         await disapprvpm.client.send_message(

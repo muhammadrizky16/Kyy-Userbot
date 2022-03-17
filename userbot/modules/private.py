@@ -180,7 +180,7 @@ async def alivemenu(event):
             [
                 Button.inline("ʙᴀᴄᴋ", data="apiset"),
             ],
-       ],
+        ],
     )
 
 
