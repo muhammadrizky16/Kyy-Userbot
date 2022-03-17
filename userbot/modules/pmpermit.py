@@ -40,14 +40,14 @@ LASTMSG = {}
 CUSTOM_TEXT = str(
     PMPERMIT_TEXT) if PMPERMIT_TEXT else f"__Halo kawan, saya bot yang menjaga room chat Kyy-Userbot {owner} di mohon jangan melakukan spam , kalau anda melakukan itu OTOMATIS saya akan memblockir anda!__ \n"
 DEF_UNAPPROVED_MSG = (
-    "╔═════════════════════╗\n"
-    "𝗪𝗘𝗟𝗖𝗢𝗠𝗘 𝗧𝗢 𝗧𝗛𝗘 𝗣𝗥𝗜𝗩𝗔𝗖𝗬 𝗠𝗘𝗦𝗦𝗔𝗚𝗘”    ”\n"
-    "╚═════════════════════╝\n"
+    "╔═════════════════════════╗\n"
+    " 𝗪𝗘𝗟𝗖𝗢𝗠𝗘 𝗧𝗢 𝗧𝗛𝗘 𝗣𝗥𝗜𝗩𝗔𝗖𝗬 𝗠𝗘𝗦𝗦𝗔𝗚𝗘 \n"
+    "╚═════════════════════════╝\n"
     "**Dimohon Untuk Tidak Melakukan Spam Ke Room Chat ini!** \n"
     f"**Karena bisa menggangu** {owner} \n"
     f"**Jika Anda Melakukan Spamming, Anda Akan Terblokir Otomatis!**\n"
     "╔═════════════════════╗\n"
-    f"➠ 𝗢𝘄𝗻𝗲𝗿 :** {owner} \n"
+    f"➠ 𝗢𝘄𝗻𝗲𝗿 : {owner} \n"
     f"➠ 𝗣𝗲𝘀𝗮𝗻 𝗢𝘁𝗼𝗺𝗮𝘁𝗶𝘀 𝗯𝘆 𝗞𝘆𝘆-𝗨𝘀𝗲𝗿𝗯𝗼𝘁\n"
     "╚═════════════════════╝")
 # =================================================================
