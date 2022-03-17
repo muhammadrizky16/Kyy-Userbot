@@ -226,12 +226,13 @@ async def redis(alive):
     output = (
         f"• **Name :** [{user.first_name}](tg://user?id={user.id}) \n"
         f"• **Username :** @{user.username} \n"
-        f"• **Telethon :** Ver `{version.__version__}` \n"
-        f"• **Python :** Ver `{python_version()}` \n"
+        f"• **Telethon Version :** `{version.__version__}` \n"
+        f"• **Python Version :** `{python_version()}` \n"
         f"• **Pytgcalls Version :** `{pytgcalls.__version__}` \n"
-        f"• **Bot Ver :** `{BOT_VER}` \n"
+        f"• **Bot Version :** `{BOT_VER}` \n"
         f"• **Modules :** `{len(modules)}` Modules \n"
-        f"  **[ɢʀᴏᴜᴘꜱ](https://t.me/NastySupportt)** | **[ᴄʜᴀɴɴᴇʟ](https://t.me/NastyProject)** | **[ᴏᴡɴᴇʀ](https://t.me/IDnyaKosong)** | **[ɢɪᴛʜᴜʙ](https://github.com/muhammadrizky16/Kyy-Userbot)**")
+        f"  **[ɢʀᴏᴜᴘꜱ](https://t.me/NastySupportt)** | **[ᴄʜᴀɴɴᴇʟ](https://t.me/NastyProject)** | **[ᴏᴡɴᴇʀ](https://t.me/IDnyaKosong)** | **[ɢɪᴛʜᴜʙ](https://github.com/muhammadrizky16/Kyy-Userbot)**"
+    )
     if ALIVE_LOGO:
         try:
             logo = ALIVE_LOGO
