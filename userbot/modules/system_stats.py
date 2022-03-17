@@ -12,14 +12,15 @@ from asyncio.subprocess import PIPE as asyncPIPE
 from platform import python_version
 from shutil import which
 from os import remove
+from pytgcalls import __version__ as pytgcalls
 from telethon import __version__, version
 import platform
 import sys
 import time
 from datetime import datetime
 import psutil
-from userbot import ALIVE_LOGO, BOT_VER, CMD_HELP, KYY_TEKS_KUSTOM, StartTime, UPSTREAM_REPO_BRANCH, bot, CMD_HANDLER as cmd
-from userbot.utils import edit_or_reply, kyy_cmd
+from userbot import ALIVE_LOGO, BOT_VER, CMD_HELP, StartTime,  bot, CMD_HANDLER as cmd
+from userbot.utils import edit_or_reply, edit_delete, kyy_cmd
 
 
 modules = CMD_HELP
@@ -176,7 +177,7 @@ async def pipcheck(pip):
         return
     pipmodule = pip.pattern_match.group(1)
     if pipmodule:
-        await pip.edit("`Mencari...`")
+        xx = await edit_or_reply(pip, "`Mencari...`")
         pipc = await asyncrunapp(
             "pip3",
             "search",
@@ -190,7 +191,7 @@ async def pipcheck(pip):
 
         if pipout:
             if len(pipout) > 4096:
-                await pip.edit("`Output Terlalu Besar, Dikirim Sebagai File`")
+                await edit_delete(pip, "`Output Terlalu Besar, Dikirim Sebagai File`")
                 file = open("output.txt", "w+")
                 file.write(pipout)
                 file.close()
@@ -201,7 +202,7 @@ async def pipcheck(pip):
                 )
                 remove("output.txt")
                 return
-            await pip.edit(
+            await xx.edit(
                 "**Query: **\n`"
                 f"pip3 search {pipmodule}"
                 "`\n**Result: **\n`"
@@ -209,110 +210,33 @@ async def pipcheck(pip):
                 "`"
             )
         else:
-            await pip.edit(
+            await xx.edit(
                 "**Query: **\n`"
                 f"pip3 search {pipmodule}"
                 "`\n**Result: **\n`No Result Returned/False`"
             )
     else:
-        await pip.edit("Gunakan `.help pip` Untuk Melihat Contoh")
+        await edit_delete(pip, f"Gunakan `{cmd}help pip` Untuk Melihat Contoh")
 
-
-@kyy_cmd(pattern="(?:kyyalive)\\s?(.)?")
-async def amireallyalive(alive):
-    user = await bot.get_me()
-    await get_readable_time((time.time() - StartTime))
-    output = (
-        f" **✨ҡʏʏ-υѕєявσт✨** \n\n"
-        f"\n__**{KYY_TEKS_KUSTOM}**__\n\n\n"
-        f"╭✠╼━━━━━━━━━━━━━━━✠╮\n"
-        f"◙ `Name       :` [{user.first_name}](tg://user?id={user.id}) \n"
-        f"◙ `Username   :` @{user.username} \n"
-        f"◙ `Telethon   :` {version.__version__} \n"
-        f"◙ `Python     :` {python_version()} \n"
-        f"◙ `Bot Ver    :` {BOT_VER} \n"
-        f"◙ `Modules    :` {len(modules)} \n"
-        f"╰✠╼━━━━━━━━━━━━━━━✠╯\n"
-        f"[ɢʀᴏᴜᴘꜱ](https://t.me/NastySupportt) | [ᴄʜᴀɴɴᴇʟ](https://t.me/NastyProject) | [ᴏᴡɴᴇʀ](https://t.me/IDnyaKosong) | [ɢɪᴛʜᴜʙ](https://github.com/muhammadrizky16/Kyy-Userbot)")
-    if ALIVE_LOGO:
-        try:
-            logo = ALIVE_LOGO
-            await alive.delete()
-            msg = await bot.send_file(alive.chat_id, logo, caption=output)
-            await asyncio.sleep(200)
-            await msg.delete()
-        except BaseException:
-            await alive.edit(
-                output + "\n\n *`The provided logo is invalid."
-                "\nMake sure the link is directed to the logo picture`"
-            )
-            await asyncio.sleep(100)
-            await alive.delete()
-    else:
-        await alive.edit(output)
-        await asyncio.sleep(100)
-        await alive.delete()
-
-
-@kyy_cmd(pattern="(?:kyyon)\\s?(.)?")
-async def amireallyalive(alive):
-    await bot.get_me()
-    await get_readable_time((time.time() - StartTime))
-    output = (
-        f"●▬▬▬▬▬▬ஜ۩۞۩ஜ▬▬▬▬▬▬● \n"
-        f"✾ 🤴 • `ᴏᴡɴᴇʀ    :`[Kyy](t.me/IDnyaKosong) \n"
-        f"✾ 🖥️ • `ꜱʏꜱᴛᴇᴍ   :`Ubuntu 20.10 \n"
-        f"✾ ⚙️ • `ᴛᴇʟᴇᴛʜᴏɴ :`v.{version.__version__} \n"
-        f"✾ 🐍 • `ᴘʏᴛʜᴏɴ   :`v.{python_version()} \n"
-        f"✾ 👾 • `ʙᴏᴛ      :`v.{BOT_VER} \n"
-        f"✾ 📂 • `ᴍᴏᴅᴜʟᴇ   :`{len(modules)} \n"
-        f"●▬▬▬▬▬▬ஜ۩۞۩ஜ▬▬▬▬▬▬●")
-    if ALIVE_LOGO:
-        try:
-            logo = ALIVE_LOGO
-            await alive.delete()
-            msg = await bot.send_file(alive.chat_id, logo, caption=output)
-            await asyncio.sleep(200)
-            await msg.delete()
-        except BaseException:
-            await alive.edit(
-                output + "\n\n *`The provided logo is invalid."
-                "\nMake sure the link is directed to the logo picture`"
-            )
-            await asyncio.sleep(100)
-            await alive.delete()
-    else:
-        await alive.edit(output)
-        await asyncio.sleep(100)
-        await alive.delete()
 
 
 @kyy_cmd(pattern="(?:alive|on)\\s?(.)?")
 async def redis(alive):
     user = await bot.get_me()
     await get_readable_time((time.time() - StartTime))
-    xx = await edit_or_reply(alive, "__Sedang Memuat.__")
-    await xx.edit("__Sedang Memuat..__")
-    await xx.edit("__Sedang Memuat.__")
-    await xx.edit("__Sedang Memuat..__")
-    await xx.edit("__Sedang Memuat...__")
-    await xx.edit("__Sedang Memuat..__")
-    await xx.edit("__Sedang Memuat...__")
-    await xx.edit("✨")
-    await asyncio.sleep(2)
     output = (
         f"•  **Name :** [{user.first_name}](tg://user?id={user.id}) \n"
-        f"•  **Username :** @{user.username} \n"
-        f"•  **Telethon :** Ver {version.__version__} \n"
-        f"•  **Python :** Ver {python_version()} \n"
-        f"•  **Branch :** {UPSTREAM_REPO_BRANCH} \n"
-        f"•  **Bot Ver :** {BOT_VER} \n"
-        f"•  **Modules :** {len(modules)} Modules \n"
-        f"[ɢʀᴏᴜᴘꜱ](https://t.me/NastySupportt) | [ᴄʜᴀɴɴᴇʟ](https://t.me/NastyProject) | [ᴏᴡɴᴇʀ](https://t.me/IDnyaKosong) | [ɢɪᴛʜᴜʙ](https://github.com/muhammadrizky16/Kyy-Userbot)")
+        f"• **Username :** @{user.username} \n"
+        f"• **Telethon :** Ver '{version.__version__}'' \n"
+        f"• **Python :** Ver '{python_version()}'' \n"
+        f"• **Pytgcalls Version :** `{pytgcalls.__version__}` \n"
+        f"• **Bot Ver :** '{BOT_VER}'' \n"
+        f"• **Modules :** '{len(modules)}'' Modules \n"
+        f"  **[ɢʀᴏᴜᴘꜱ](https://t.me/NastySupportt)** | **[ᴄʜᴀɴɴᴇʟ](https://t.me/NastyProject)** | **[ᴏᴡɴᴇʀ](https://t.me/IDnyaKosong)** | **[ɢɪᴛʜᴜʙ](https://github.com/muhammadrizky16/Kyy-Userbot)**")
     if ALIVE_LOGO:
         try:
             logo = ALIVE_LOGO
-            await xx.delete()
+            await alive.delete()
             msg = await bot.send_file(alive.chat_id, logo, caption=output)
             await asyncio.sleep(500)
             await msg.delete()
@@ -322,11 +246,9 @@ async def redis(alive):
                 "\nPastikan Tautan Yang Anda Gunakan Valid`"
             )
             await asyncio.sleep(100)
-            await xx.delete()
+            await alive.delete()
     else:
-        await xx.edit(output)
-        await asyncio.sleep(100)
-        await xx.delete()
+        await edit_or_reply(alive, output)
 
 
 CMD_HELP.update({

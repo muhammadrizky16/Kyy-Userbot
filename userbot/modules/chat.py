@@ -97,7 +97,7 @@ async def log(log_text):
             textx = user + log_text.pattern_match.group(1)
             await bot.send_message(BOTLOG_CHATID, textx)
         else:
-            await edit_or_reply(log_text, "`Apa Yang Harus Saya Log?`")
+            await edit_delete(log_text, "`Apa Yang Harus Saya Log?`")
             return
         await edit_or_reply(log_text, "`Logged Berhasil!`")
     else:
@@ -117,7 +117,7 @@ async def unmute_chat(unm_e):
     try:
         from userbot.modules.sql_helper.keep_read_sql import unkread
     except AttributeError:
-        await edit_or_reply(unm_e, '`Running on Non-SQL Mode!`')
+        await edit_delete(unm_e, '`Running on Non-SQL Mode!`')
         return
     unkread(str(unm_e.chat_id))
     await edit_delete(unm_e, "```Berhasil Dibuka, Obrolan Tidak Lagi Dibisukan```")
@@ -129,7 +129,7 @@ async def mute_chat(mute_e):
     try:
         from userbot.modules.sql_helper.keep_read_sql import kread
     except AttributeError:
-        await edit_or_reply(mute_e, "`Running on Non-SQL mode!`")
+        await edit_delete(mute_e, "`Running on Non-SQL mode!`")
         return
     await edit_or_reply(mute_e, str(mute_e.chat_id))
     kread(str(mute_e.chat_id))
@@ -180,7 +180,7 @@ async def sedNinjaToggle(event):
 
 @kyy_cmd(pattern="chatinfo(?: |$)(.*)")
 async def info(event):
-    await edit_or_reply(event, "`Menganalisis Obrolan Ini...`")
+    await edit_delete(event, "`Menganalisis Obrolan Ini...`")
     chat = await get_chatinfo(event)
     caption = await fetch_info(chat, event)
     try:
@@ -389,7 +389,7 @@ async def _(event):
         return
     to_add_users = event.pattern_match.group(1)
     if event.is_private:
-        await edit_or_reply(event, "`.invite` Pengguna Ke Obrolan, Tidak Ke Pesan Pribadi")
+        await edit_delete(event, f"`{cmd}invite` Pengguna Ke Obrolan, Tidak Ke Pesan Pribadi")
     else:
         if not event.is_channel and event.is_group:
             # https://lonamiwebs.github.io/Telethon/methods/messages/add_chat_user.html

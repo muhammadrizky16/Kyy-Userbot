@@ -6,7 +6,7 @@ import sys
 import os
 import io
 import sys
-from userbot import BOTLOG, BOTLOG_CHATID, CMD_HELP, UPSTREAM_REPO_URL, bot
+from userbot import BOTLOG, BOTLOG_CHATID, CMD_HELP, UPSTREAM_REPO_URL, bot, CMD_HANDLER as cmd
 from userbot.utils import edit_or_reply, edit_delete, kyy_cmd
 from userbot.utils import time_formatter
 import urllib
@@ -109,10 +109,10 @@ async def repo_is_here(wannasee):
                         "**Hey**, I am using **✨ҡʏʏ-υѕєявσт✨** \n"
                         "卍━━━━━━━━━━━━━━━━━━━━━━卍\n"
                         "➣ **Repo Userbot :** [ɢɪᴛʜᴜʙ](https://github.com/muhammadrizky16/Kyy-Userbot)\n"
-                        "➣ **Owner Bot       :** [ҡʏʏ](t.me/IDnyaKosong)\n"
+                        "➣ **Owner Bot :** [ҡʏʏ](t.me/IDnyaKosong)\n"
                         "卍━━━━━━━━━━━━━━━━━━━━━━卍\n"
-                        "➣ **Support           :** [sᴜᴘᴘᴏʀᴛ](https://t.me/NastySupportt)\n"
-                        "➣ **Channel           :** [ᴄʜᴀɴɴᴇʟ](https://t.me/NastyProject)\n"
+                        "➣ **Support :** [sᴜᴘᴘᴏʀᴛ](https://t.me/NastySupportt)\n"
+                        "➣ **Channel :** [ᴄʜᴀɴɴᴇʟ](https://t.me/NastyProject)\n"
                         "卍━━━━━━━━━━━━━━━━━━━━━━卍\n"
                         )
 
@@ -121,8 +121,8 @@ async def repo_is_here(wannasee):
 async def repo_is_here(wannasee):
     """For .repo command, just returns the repo URL."""
     await edit_or_reply(wannasee,
-                        f"➣ **GET STRING SESSION VIA REPLIT :** [KLIK DISINI](https://replit.com/@rizkyhmdanii16/StringSession)\n"
                         f"➣ **GET STRING SESSION VIA BOT    :** [KLIK DISINI](https://t.me/NastyStringbot)\n"
+                        f"➣ **GET STRING SESSION VIA REPLIT :** [KLIK DISINI](https://replit.com/@rizkyhmdanii16/StringSession)\n"
                         )
 
 
@@ -269,23 +269,23 @@ async def scam(results, lim):
 
 
 CMD_HELP.update({
-    f"random": "𝘾𝙤𝙢𝙢𝙖𝙣𝙙: `{cmd}random <item1> <item2> ... <itemN>`\
+    "random": f"𝘾𝙤𝙢𝙢𝙖𝙣𝙙: `{cmd}random <item1> <item2> ... <itemN>`\
     \n↳ : Dapatkan item acak dari daftar item.",
-    f"sleep": "𝘾𝙤𝙢𝙢𝙖𝙣𝙙: `{cmd}sleep <seconds>`\
+    "sleep": f"𝘾𝙤𝙢𝙢𝙖𝙣𝙙: `{cmd}sleep <seconds>`\
     \n↳ : `{cmd}sleep`\
     \n  •  **Function : Biarkan Kyy-Userbot tidur selama beberapa detik.",
-    f"shutdown": "𝘾𝙤𝙢𝙢𝙖𝙣𝙙: `{cmd}shutdown`\
+    "shutdown": f"𝘾𝙤𝙢𝙢𝙖𝙣𝙙: `{cmd}shutdown`\
     \n↳ : Mematikan bot",
-    f"repo": "𝘾𝙤𝙢𝙢𝙖𝙣𝙙: `{cmd}repo`\
+    "repo": f"𝘾𝙤𝙢𝙢𝙖𝙣𝙙: `{cmd}repo`\
     \n↳ : Menampilan link Repository Kyy-Userbot.",
-    f"string": "𝘾𝙤𝙢𝙢𝙖𝙣𝙙: `{cmd}string`\
+    "string": f"𝘾𝙤𝙢𝙢𝙖𝙣𝙙: `{cmd}string`\
     \n↳: Menampilkan link String Kyy-Userbot",
-    f"readme": "𝘾𝙤𝙢𝙢𝙖𝙣𝙙 `{cmd}readme`\
+    "readme": f"𝘾𝙤𝙢𝙢𝙖𝙣𝙙 `{cmd}readme`\
     \n↳ : Menyediakan tautan untuk mengatur userbot dan modulnya.",
-    f"repeat": "𝘾𝙤𝙢𝙢𝙖𝙣𝙙: `{cmd}repeat <no> <text>`\
+    "repeat": f"𝘾𝙤𝙢𝙢𝙖𝙣𝙙: `{cmd}repeat <no> <text>`\
     \n↳ : Mengulangi teks untuk beberapa kali. Jangan bingung ini dengan spam tho.",
-    f"restart": "𝘾𝙤𝙢𝙢𝙖𝙣𝙙: `{cmd}restart`\
+    "restart": f"𝘾𝙤𝙢𝙢𝙖𝙣𝙙: `{cmd}restart`\
     \n↳ : Merestart bot",
-    f"raw": "𝘾𝙤𝙢𝙢𝙖𝙣𝙙: `{cmd}raw`\
+    "raw": f"𝘾𝙤𝙢𝙢𝙖𝙣𝙙: `{cmd}raw`\
     \n↳ : Dapatkan data berformat seperti JSON terperinci tentang pesan yang dibalas.",
 })

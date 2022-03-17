@@ -20,7 +20,7 @@ async def _(event):
             )
             await conv.send_message("/setinline")
             await conv.get_response()
-            await conv.send_message(f"@{BOT_USERNAME}")
+            await conv.send_message(f"{BOT_USERNAME}")
             await conv.get_response()
             await conv.send_message("Search")
             await conv.get_response()
