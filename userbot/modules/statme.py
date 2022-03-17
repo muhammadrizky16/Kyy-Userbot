@@ -7,7 +7,7 @@ from telethon.events import NewMessage
 from telethon.tl.custom import Dialog
 from telethon.tl.types import Channel, Chat, User
 
-from userbot.utils import kyy_cmd
+from userbot.utils import edit_or_reply, kyy_cmd
 from userbot import CMD_HELP, CMD_HANDLER as cmd
 
 logging.basicConfig(
