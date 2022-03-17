@@ -191,7 +191,6 @@ async def inlinemenu(event):
         buttons=[
             [
                 Button.inline("ɪɴʟɪɴᴇ ᴇᴍᴏᴊɪ", data="inmoji"),
-                Button.inline("ɪɴʟɪɴᴇ ᴘɪᴄ", data="inpics"),
             ],
             [Button.inline("ʙᴀᴄᴋ", data="apiset")],
         ],
@@ -283,7 +282,7 @@ async def alivemenu(event):
         buttons=[
             [
                 Button.inline("ᴘᴍᴘᴇʀᴍɪᴛ ᴏɴ", data="pmon"),
-                Button.inline("ᴘᴍᴘᴇʀᴍɪᴛ ᴏᴏꜰ", data="pmoff"),
+                Button.inline("ᴘᴍᴘᴇʀᴍɪᴛ ᴏғғ", data="pmoff"),
             ],
             [Button.inline("ʙᴀᴄᴋ", data="apiset")],
         ],
