@@ -34,7 +34,7 @@ async def _(event):
     stdout, stderr, exc = None, None, None
 
     try:
-        returned = await aexec(cmd, s_m_)
+        returned = await aexec(cmd, xx)
     except Exception:
         exc = traceback.format_exc()
 
@@ -59,7 +59,7 @@ async def _(event):
     if len(final_output) >= 4096:
         with io.BytesIO(str.encode(final_output)) as out_file:
             out_file.name = "eval.txt"
-            await s_m_.reply(cmd, file=out_file)
+            await xx.reply(cmd, file=out_file)
             await xx.delete()
     else:
         await xx.edit(final_output)
