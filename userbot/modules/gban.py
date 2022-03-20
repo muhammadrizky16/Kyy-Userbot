@@ -2,7 +2,7 @@ from telethon.events import ChatAction
 from telethon.tl.functions.contacts import BlockRequest, UnblockRequest
 from telethon.tl.types import MessageEntityMentionName
 
-from userbot import owner, CMD_HELP, DEVS, bot
+from userbot import CMD_HELP, DEVS, bot
 from userbot import CMD_HANDLER as cmd
 from userbot.events import register
 from userbot.utils import edit_or_reply, kyy_cmd

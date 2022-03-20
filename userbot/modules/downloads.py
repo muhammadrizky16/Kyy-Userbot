@@ -13,7 +13,7 @@ from youtube_dl.utils import (ContentTooShortError, DownloadError,
 from youtubesearchpython import SearchVideos
 
 from userbot.utils import edit_or_reply, kyy_cmd
-from userbot import CMD_HELP, owner, CMD_HANDLER as cmd
+from userbot import CMD_HANDLER as cmd, CMD_HELP
 
 
 @kyy_cmd(pattern="song (.*)")
