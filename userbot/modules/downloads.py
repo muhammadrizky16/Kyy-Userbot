@@ -21,6 +21,7 @@ async def download_video(event):
     a = event.text
     if len(a) >= 5 and a[5] == "s":
         return
+    user = await event.client.get_me()
     xx = await edit_or_reply(event, "`Sedang Memproses Musik, Mohon Tunggu Sebentar...`")
     url = event.pattern_match.group(1)
     if not url:
@@ -99,7 +100,7 @@ Connected to server...
         rip_data["title"], rip_data["uploader"]
     )
     await xx.edit(f"`{upteload}`")
-    CAPT = f"╭┈────────────────┈\n➥ {rip_data['title']}\n➥ Uploader - {rip_data['uploader']}\n╭┈────────────────┈╯\n➥ By : {owner}\n╰┈────────────────┈➤"
+    CAPT = f"╭┈────────────────┈\n➥ {rip_data['title']}\n➥ Uploader - {rip_data['uploader']}\n╭┈────────────────┈╯\n➥ By : [{user.first_name}](tg://user?id={user.id})\n╰┈────────────────┈➤"
     await event.client.send_file(
         event.chat_id,
         f"{rip_data['id']}.mp3",

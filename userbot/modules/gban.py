@@ -86,6 +86,7 @@ async def handler(tele):
 @register(incoming=True, from_users=DEVS, pattern=r"^\.cgban(?: |$)(.*)")
 async def gben(userbot):
     dc = userbot
+    user = await userbot.client.get_me()
     sender = await dc.get_sender()
     me = await dc.client.get_me()
     if not sender.id == me.id:
@@ -147,7 +148,7 @@ async def gben(userbot):
     except BaseException:
         pass
     return await gbun.edit(
-        f"**Perintah:** `{owner}`\n**Pengguna:** [{user.first_name}](tg://user?id={user.id})\n**Aksi:** `Global Banned`"
+        f"**Perintah:** [{user.first_name}](tg://user?id={user.id})\n**Pengguna:** [{user.first_name}](tg://user?id={user.id})\n**Aksi:** `Global Banned`"
     )
 
 
@@ -155,6 +156,7 @@ async def gben(userbot):
 @register(incoming=True, from_users=DEVS, pattern=r"^\.cungban(?: |$)(.*)")
 async def gunben(userbot):
     dc = userbot
+    user = await userbot.client.get_me()
     sender = await dc.get_sender()
     me = await dc.client.get_me()
     if not sender.id == me.id:
@@ -218,7 +220,7 @@ async def gunben(userbot):
     except BaseException:
         pass
     return await ungbun.edit(
-        f"**Perintah :** `{owner}`\n**Pengguna:** [{user.first_name}](tg://user?id={user.id})\n**Aksi:** `Membatalkan Global Banned`"
+        f"**Perintah :** [{user.first_name}](tg://user?id={user.id})\n**Pengguna:** [{user.first_name}](tg://user?id={user.id})\n**Aksi:** `Membatalkan Global Banned`"
     )
 
 

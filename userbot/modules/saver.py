@@ -21,6 +21,7 @@ async def igsaver(event):
     if reply_message.sender.bot:
         xx = await edit_or_reply(event, "`Sedang Memproses...`")
         return
+    user = await event.client.get_me()
     await xx.edit("`Sedang Memproses...`")
     async with event.client.conversation(chat) as conv:
         try:
@@ -41,7 +42,7 @@ async def igsaver(event):
             await event.client.send_file(
                 event.chat_id,
                 response.message.media,
-                caption=f"**Download By {owner}**",
+                caption=f"**Download By [{user.first_name}](tg://user?id={user.id})**",
             )
             await event.client.send_read_acknowledge(conv.chat_id)
             await bot(functions.messages.DeleteHistoryRequest(peer=chat, max_id=0))
