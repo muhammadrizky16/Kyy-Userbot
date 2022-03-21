@@ -51,7 +51,7 @@ CMD_HELP.update(
         "button": f"**Plugin : **`button`\
         \n\n  •  **Syntax :** `{cmd}button` <text> [Name on button]<buttonurl:link you want to open>\
         \n  •  **Function : **Untuk membuat pesan button melalui inline\
-        \n  •  **Examples : **`{cmd}button test [google]<buttonurl:https://www.google.com> [Channel]<buttonurl:https://t.me/InfoFlicksUserbot:same> [Support]<buttonurl:https://t.me/FlicksSupport>`\
+        \n  •  **Examples : **`{cmd}button test [google]<buttonurl:https://www.google.com> [Channel]<buttonurl:https://t.me/NastyProject:same> [Support]<buttonurl:https://t.me/NastySupportt>`\
     "
     }
 )
