@@ -35,10 +35,6 @@
       "value": "Check Di Heroku Dashboard Mu",
       "required": true
     },
-    "BOTLOG_CHATID": {
-      "description": "Buatlah Sebuah Grup Publik Lalu Masukkan Bot @MissRose_Bot Ke Grup Mu, Setelah itu Ketik /id. Nanti akan muncul ID seperti ini Contoh : -1001234567890",
-      "required": true
-    },
     "PM_AUTO_BAN": {
       "description": "Pengalihan Fitur Larangan Otomatis PM. atau /skip",
       "value": "False",

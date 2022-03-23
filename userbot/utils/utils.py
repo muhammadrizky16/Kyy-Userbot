@@ -12,7 +12,14 @@ from random import randint
 
 import heroku3
 from telethon.tl.functions.contacts import UnblockRequest
-
+from telethon.tl.functions.channels import (
+    CreateChannelRequest,
+    InviteToChannelRequest,
+)
+from telethon.tl.types import (
+    ChatAdminRights,
+)
+from telethon.utils import get_peer_id
 from userbot import (
     BOT_TOKEN,
     BOTLOG_CHATID,
@@ -21,6 +28,7 @@ from userbot import (
     HEROKU_APP_NAME,
     LOGS,
     bot,
+    tgbot,
 )
 
 heroku_api = "https://api.heroku.com"
@@ -233,6 +241,8 @@ def remove_plugin(shortname):
         raise ValueError
 
 
+# bye Ice-Userbot
+
 async def create_supergroup(group_name, client, botusername, descript):
     try:
         result = await client(
@@ -259,3 +269,49 @@ async def create_supergroup(group_name, client, botusername, descript):
     if not str(created_chat_id).startswith("-100"):
         created_chat_id = int("-100" + str(created_chat_id))
     return result, created_chat_id
+
+async def autopilot():
+    if BOTLOG_CHATID and str(BOTLOG_CHATID).startswith("-100"):
+      return
+    k = []  # To Refresh private ids
+    async for x in bot.iter_dialogs():
+        k.append(x.id)
+    if BOTLOG_CHATID:
+        try:
+            await bot.get_entity(int("BOTLOG_CHATID"))
+            return
+        except BaseException:
+            del heroku_var["BOTLOG_CHATID"]
+    try:
+        r = await bot(
+            CreateChannelRequest(
+                title="ᴋʏʏ ʟᴏɢs",
+                about="ᴍʏ ᴋʏʏ ʟᴏɢs ɢʀᴏᴜᴘ\n\n Join @NastyProject",
+                megagroup=True,
+            ),
+        )
+    except ChannelsTooMuchError:
+        LOGS.info(
+            "Terlalu banyak channel dan grup, hapus salah satu dan restart lagi"
+        )
+        exit(1)
+    except BaseException:
+        LOGS.info(
+            "Terjadi kesalahan, Buat sebuah grup lalu isi id nya di config var BOTLOG_CHATID."
+        )
+        exit(1)
+    chat_id = r.chats[0].id
+    if not str(chat_id).startswith("-100"):
+        heroku_var["BOTLOG_CHATID"] = "-100" + str(chat_id)
+    else:
+        heroku_var["BOTLOG_CHATID"] = str(chat_id)
+    rights = ChatAdminRights(
+        add_admins=True,
+        invite_users=True,
+        change_info=True,
+        ban_users=True,
+        delete_messages=True,
+        pin_messages=True,
+        anonymous=False,
+        manage_call=True,
+    )

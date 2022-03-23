@@ -9,8 +9,7 @@ import sys
 from importlib import import_module
 
 import requests
-from telethon.tl.functions.channels import InviteToChannelRequest as Addbot
-
+from telethon.tl.functions.channel import InviteToChannelRequest as Addbot
 from userbot import (
     BOTLOG_CHATID,
     BOT_USERNAME,
@@ -22,7 +21,7 @@ from userbot import (
     call_py,
 )
 from userbot.modules import ALL_MODULES
-from userbot.utils import autobot
+from userbot.utils import autobot, autopilot
 
 try:
     bot.start()
@@ -43,16 +42,21 @@ except Exception as e:
 for module_name in ALL_MODULES:
     imported_module = import_module("userbot.modules." + module_name)
 
+if not BOTLOG_CHATID:
+    LOGS.info(
+        "BOTLOG_CHATID Vars tidak terisi, Memulai Membuat Grup Otomatis..."
+    )
+    bot.loop.run_until_complete(autopilot())
+
 LOGS.info(
     f"Jika {user.first_name} Membutuhkan Bantuan, Silahkan Tanyakan di Grup https://t.me/NastySupportt")
 LOGS.info(
     f"✨Kyy-Userbot✨ ⚙️ V{BOT_VER} [TELAH DIAKTIFKAN!]")
 
-
 async def check_alive():
     try:
         if BOTLOG_CHATID != 0:
-            await bot.send_message(BOTLOG_CHATID, "✨ **Kyy Userbot Berhasil Diaktifkan**!!\n━━━━━━━━━━━━━━━\n➠ **Userbot Version** - 3.1.0@Kyy-Userbot\n➠ **Ketik** `.ping` **Untuk Mengecheck Bot**\n━━━━━━━━━━━━━━━\n➠ **Powered By:** @NastyProject ")
+            await bot.send_message(BOTLOG_CHATID, "✨ **Kyy Userbot Berhasil Diaktifkan**!!\n━━━━━━━━━━━━━━━\n➠ **Userbot Version** - 3.1.5@Kyy-Userbot\n➠ **Ketik** `.ping` **Untuk Mengecheck Bot**\n━━━━━━━━━━━━━━━\n➠ **Powered By:** @NastyProject ")
     except Exception as e:
         LOGS.info(str(e))
     try:

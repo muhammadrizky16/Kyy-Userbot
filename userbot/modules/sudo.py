@@ -16,7 +16,7 @@ heroku_api = "https://api.heroku.com"
 sudousers = os.environ.get("SUDO_USERS") or ""
 
 
-@kyy_cmd(pattern="sudo$")
+@kyy_cmd(pattern="listsudo$")
 async def sudo(event):
     sudo = "True" if SUDO_USERS else "False"
     users = sudousers
@@ -136,7 +136,7 @@ async def get_user(event):
 CMD_HELP.update(
     {
         "sudo": f"**Plugin : **`sudo`\
-        \n\n  •  **Syntax :** `{cmd}sudo`\
+        \n\n  •  **Syntax :** `{cmd}listsudo`\
         \n  •  **Function : **Untuk Mengecek informasi Sudo.\
         \n\n  •  **Syntax :** `{cmd}addsudo` <reply/user id>\
         \n  •  **Function : **Untuk Menambahkan User ke Pengguna Sudo.\
