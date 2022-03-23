@@ -9,7 +9,7 @@ import sys
 from importlib import import_module
 
 import requests
-from telethon.tl.functions.channel import InviteToChannelRequest as Addbot
+from telethon.tl.functions.channels import InviteToChannelRequest as Addbot
 from userbot import (
     BOTLOG_CHATID,
     BOT_USERNAME,
