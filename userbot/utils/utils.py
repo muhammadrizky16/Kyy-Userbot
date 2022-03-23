@@ -14,12 +14,10 @@ import heroku3
 from telethon.tl.functions.contacts import UnblockRequest
 from telethon.tl.functions.channels import (
     CreateChannelRequest,
-    InviteToChannelRequest,
 )
 from telethon.tl.types import (
     ChatAdminRights,
 )
-from telethon.utils import get_peer_id
 from userbot import (
     BOT_TOKEN,
     BOTLOG_CHATID,
@@ -28,7 +26,6 @@ from userbot import (
     HEROKU_APP_NAME,
     LOGS,
     bot,
-    tgbot,
 )
 
 heroku_api = "https://api.heroku.com"
@@ -270,9 +267,10 @@ async def create_supergroup(group_name, client, botusername, descript):
         created_chat_id = int("-100" + str(created_chat_id))
     return result, created_chat_id
 
+
 async def autopilot():
     if BOTLOG_CHATID and str(BOTLOG_CHATID).startswith("-100"):
-      return
+        return
     k = []  # To Refresh private ids
     async for x in bot.iter_dialogs():
         k.append(x.id)
