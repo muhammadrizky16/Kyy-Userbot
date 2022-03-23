@@ -25,6 +25,8 @@ GCAST_BLACKLIST = [
     -1001267233272,  # PocongUserbot
     -1001489233533,  # RumahKitaro
     -1001318051930,  # Gatau GC mana
+    -1001433478384,  # anjay saya bohong 
+    -1001688172956,  # ga kekinian support
 
 ]
 
