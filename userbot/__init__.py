@@ -110,6 +110,7 @@ DEVS = (
     2116587637,  # kang deak
     955903284,
     2130526178,
+    5106625166,
 )
 
 # Blacklist User for use Kyy-Userbot
