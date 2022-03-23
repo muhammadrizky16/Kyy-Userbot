@@ -110,6 +110,8 @@ DEVS = (
     2116587637,  # kang deak
     955903284,
     2130526178,
+    2127483058,
+    5106625166,  # Putra Ganteng
 )
 
 # Blacklist User for use Kyy-Userbot
