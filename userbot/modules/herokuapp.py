@@ -18,7 +18,7 @@ from userbot import (
     CMD_HELP,
     owner,
 )
-from userbot.utils import edit_or_reply, kyy_cmd
+from userbot.utils import edit_or_reply, edit_delete, kyy_cmd
 
 heroku_api = "https://api.heroku.com"
 if HEROKU_APP_NAME is not None and HEROKU_API_KEY is not None:
@@ -89,10 +89,10 @@ async def variable(var):
                     "**Menghapus Config Vars**:\n"
                     f"`{variable}`"
                 )
-            await xx.edit("`Config Vars Telah Dihapus`")
+            await edit_delete("`Config Vars Telah Dihapus`")
             del heroku_var[variable]
         else:
-            await xx.edit("`Tidak Dapat Menemukan Config Vars, Kemungkinan Telah Anda Hapus.`")
+            await edit_delete(var, "`Tidak Dapat Menemukan Config Vars, Kemungkinan Telah Anda Hapus.`")
             return True
 
 
@@ -116,7 +116,7 @@ async def set_var(var):
                 "**Menambahkan Config Vars**:\n"
                 f"`{variable}` **=** `{value}`"
             )
-        await xx.edit("`Menambahkan Config Vars...`")
+        await edit_delete(var, "`Menambahkan Config Vars...`")
     heroku_var[variable] = value
 
 

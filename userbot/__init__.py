@@ -296,7 +296,7 @@ INLINE_PIC = os.environ.get(
     "INLINE_PIC") or "https://telegra.ph/file/276d22aac9f400898cd27.jpg"
 
 # Default emoji help
-EMOJI_HELP = os.environ.get("EMOJI_HELP") or "✨"
+EMOJI_HELP = os.environ.get("EMOJI_HELP") or "✘"
 
 # °Kyy-Userbot°
 OWNER_URL = os.environ.get("OWNER_URL") or "https://t.me/IDnyaKosong"
