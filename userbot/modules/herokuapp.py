@@ -89,7 +89,7 @@ async def variable(var):
                     "**Menghapus Config Vars**:\n"
                     f"`{variable}`"
                 )
-            await edit_delete("`Config Vars Telah Dihapus`")
+            await edit_delete(var, "`Config Vars Telah Dihapus`")
             del heroku_var[variable]
         else:
             await edit_delete(var, "`Tidak Dapat Menemukan Config Vars, Kemungkinan Telah Anda Hapus.`")
