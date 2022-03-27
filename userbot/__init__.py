@@ -823,7 +823,7 @@ with bot:
                 )
 
                 await event.edit(
-                    reply_pop_up_alert, buttons=[Button.inline("Back", data="open")]
+                    reply_pop_up_alert, buttons=[Button.inline("Back", data="reopen")]
                 )
             else:
                 reply_pop_up_alert = f"Kamu Tidak diizinkan, ini Userbot Milik {owner}"
