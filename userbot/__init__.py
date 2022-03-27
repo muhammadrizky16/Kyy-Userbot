@@ -800,11 +800,11 @@ with bot:
                 modul_name = event.data_match.group(1).decode("UTF-8")
 
                 cmdhel = str(CMD_HELP[modul_name])
-                if len(cmdhel) > 4095:
+                if len(cmdhel) > 4070:
                     help_string = (
                         str(CMD_HELP[modul_name])
                         .replace("`", "")
-                        .replace("**", "")[:4095]
+                        .replace("**", "")[:4070]
                         + "..."
                         + "\n\nBaca Teks Berikutnya Ketik .help "
                         + modul_name
