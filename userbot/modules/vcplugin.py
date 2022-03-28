@@ -500,7 +500,7 @@ async def join_(event):
         stream_type=StreamType().pulse_stream,
     )
     try:
-        await xnxx.edit("**{} Berhasil Naik Ke VCG** `{}`".format(owner,str(event.chat_id)))
+        await xnxx.edit("**{} Berhasil Naik Ke VCG** `{}`".format(owner, str(event.chat_id)))
     except Exception as ex:
         await edit_delete(event, f"**ERROR:** `{ex}`")
 
@@ -516,7 +516,7 @@ async def leavevc(event):
             await call_py.leave_group_call(chat_id)
         except (NotInGroupCallError, NoActiveGroupCall):
             pass
-        await xnxx.edit("**{} Berhasil Turun Dari VCG** `{}`".format(owner,str(event.chat_id)))
+        await xnxx.edit("**{} Berhasil Turun Dari VCG** `{}`".format(owner, str(event.chat_id)))
     else:
         await edit_delete(event, f"**Maaf {owner} Tidak Berada Di VCG**")
 
