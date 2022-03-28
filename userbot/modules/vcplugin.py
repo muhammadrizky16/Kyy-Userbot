@@ -485,7 +485,7 @@ async def join_(event):
             await edit_delete(event, f"**ERROR:** `{e}`", 30)
     else:
         chat = event.chat_id
-        from_user = vcmention(event.sender)
+        vcmention(event.sender)
     if not call_py.is_connected:
         await call_py.start()
     await call_py.join_group_call(
