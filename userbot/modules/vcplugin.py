@@ -473,6 +473,10 @@ async def vc_playlist(event):
     else:
         await edit_delete(event, "**Tidak Sedang Memutar Streaming**")
 
+        
+# credits by @vckyaz < vicky \>
+# FROM GeezProjects < https://github.com/vckyou/GeezProjects \>
+# ambil boleh apus credits jangan ya ka:)
 
 @kyy_cmd(pattern="joinvc(?: |$)(.*)")
 async def join_(event):
@@ -496,7 +500,7 @@ async def join_(event):
         stream_type=StreamType().pulse_stream,
     )
     try:
-        await xnxx.edit(f"**{owner} Berhasil Naik Ke VCG**")
+        await xnxx.edit(f"**{owner} Berhasil Naik Ke VCG** `{}`".format(str(event.chat_id)))
     except Exception as ex:
         await edit_delete(event, f"**ERROR:** `{ex}`")
 
@@ -512,7 +516,7 @@ async def leavevc(event):
             await call_py.leave_group_call(chat_id)
         except (NotInGroupCallError, NoActiveGroupCall):
             pass
-        await xnxx.edit(f"**{owner} Berhasil Turun Dari VCG**")
+        await xnxx.edit(f"**{owner} Berhasil Turun Dari VCG** `{}`".format(str(event.chat_id)))
     else:
         await edit_delete(event, f"**Maaf {owner} Tidak Berada Di VCG**")
 
