@@ -473,7 +473,7 @@ async def vc_playlist(event):
     else:
         await edit_delete(event, "**Tidak Sedang Memutar Streaming**")
 
-        
+
 # credits by @vckyaz < vicky \>
 # FROM GeezProjects < https://github.com/vckyou/GeezProjects \>
 # ambil boleh apus credits jangan ya ka:)
