@@ -213,7 +213,7 @@ async def pipcheck(pip):
             await xx.edit(
                 "**Query: **\n`"
                 f"pip3 search {pipmodule}"
-                "`\n**Result: **\n`No Result Returned/False`"
+                "`\n**Result: **\n`:No Result Returned/False`"
             )
     else:
         await edit_delete(pip, f"Gunakan `{cmd}help pip` Untuk Melihat Contoh")
@@ -231,7 +231,7 @@ async def redis(alive):
         f"• **Pytgcalls Version :** `{pytgcalls.__version__}` \n"
         f"• **Bot Version :** `{BOT_VER}` \n"
         f"• **Modules :** `{len(modules)}` Modules \n"
-        f"  **[ɢʀᴏᴜᴘꜱ](https://t.me/NastySupportt)** | **[ᴄʜᴀɴɴᴇʟ](https://t.me/NastyProject)** | **[ᴏᴡɴᴇʀ](https://t.me/IDnyaKosong)** | **[ɢɪᴛʜᴜʙ](https://github.com/muhammadrizky16/Kyy-Userbot)**"
+        f"  **[ɢʀᴏᴜᴘꜱ](https://t.me/NastySupportt)** | **[ᴄʜᴀɴɴᴇʟ](https://t.me/NastyProject)** | **[ᴏᴡɴᴇʀ](https://t.me/IDnyaKosong)** | **[ɢɪᴛʜᴜʙ](https://github.com/muhammadrizky16/Kyy-Userbot)** "
     )
     if ALIVE_LOGO:
         try:
