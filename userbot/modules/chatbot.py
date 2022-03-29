@@ -14,7 +14,7 @@ from userbot.modules.sql_helper.tede_chatbot_sql import is_tede, rem_tede, set_t
 translator = Translator()
 LANGUAGE = "id"
 
-url = "https://api-tede.herokuapp.com/api/chatbot?message={message}"
+url = "https://apitede.herokuapp.com/api/chatbot?message={message}"
 
 
 async def ngapain_rep(message):
