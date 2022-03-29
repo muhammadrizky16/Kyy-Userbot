@@ -567,7 +567,7 @@ with bot:
             r"(\[([^\[]+?)\]\<buttonurl:(?:/{0,1})(.+?)(:same)?\>)"
         )
 
-        main_help_button=[
+        main_help_button = [
             [
                 Button.inline("ᴍᴏᴅᴜʟᴇs", data="reopen"),
                 Button.url("sᴇᴛᴛɪɴɢs", f"t.me/{botusername}"),
@@ -645,7 +645,7 @@ with bot:
                                 BOTLOG_CHATID,
                                 f"**ERROR:** Saat menyimpan detail pesan di database\n`{e}`",
                             )
-       
+
         @tgbot.on(events.callbackquery.CallbackQuery(data=re.compile(rb"reopen")))
         async def on_plug_in_callback_query_handler(event):
             if event.query.user_id == uid or event.query.user_id in SUDO_USERS:
@@ -660,7 +660,6 @@ with bot:
             else:
                 reply_pop_up_alert = f"Kamu Tidak diizinkan, ini Userbot Milik {owner}"
                 await event.answer(reply_pop_up_alert, cache_time=0, alert=True)
-
 
         @tgbot.on(events.InlineQuery)
         async def inline_handler(event):
