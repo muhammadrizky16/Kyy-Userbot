@@ -14,6 +14,8 @@ import heroku3
 from telethon.tl.functions.contacts import UnblockRequest
 from telethon.tl.functions.channels import (
     CreateChannelRequest,
+    EditPhotoRequest,
+    EditAdminRequest
 )
 from telethon.tl.types import (
     ChatAdminRights,
@@ -121,6 +123,19 @@ async def autobot():
                 BOTLOG_CHATID,
                 "**Tunggu Sebentar, Sedang MeRestart Heroku untuk Menerapkan Perubahan.**",
             )
+            rights = ChatAdminRights(
+                             add_admins=False,
+                             invite_users=True,
+                             change_info=True,
+                             ban_users=True,
+                             delete_messages=True,
+                             pin_messages=True,
+                             anonymous=False,
+                             manage_call=True,
+                         )
+            await bot(EditAdminRequest(int(BOTLOG_CHATID), f"@{username}", rights, "ᴀssɪsᴛᴀɴᴛ  ᴋʏʏ"))
+            kntl = "userbot/resources/IMG_20211216_160240_756.jpg"
+            await bot(EditPhotoRequest(BOTLOG_CHATID, await bot.upload_file(kntl)))
             heroku_var["BOT_TOKEN"] = token
             heroku_var["BOT_USERNAME"] = f"@{username}"
         else:
@@ -163,6 +178,19 @@ async def autobot():
             BOTLOG_CHATID,
             "**Tunggu Sebentar, Sedang MeRestart Heroku untuk Menerapkan Perubahan.**",
         )
+        rights = ChatAdminRights(
+                 add_admins=False,
+                 invite_users=True,
+                 change_info=True,
+                 ban_users=True,
+                 delete_messages=True,
+                 pin_messages=True,
+                 anonymous=False,
+                 manage_call=True,
+             )
+        await bot(EditAdminRequest(int(BOTLOG_CHATID), f"@{username}", rights, "ᴀssɪsᴛᴀɴᴛ  ᴋʏʏ"))
+        kntl = "userbot/resources/IMG_20211216_160240_756.jpg"
+        await bot(EditPhotoRequest(BOTLOG_CHATID, await bot.upload_file(kntl)))
         heroku_var["BOT_TOKEN"] = token
         heroku_var["BOT_USERNAME"] = f"@{username}"
     else:
