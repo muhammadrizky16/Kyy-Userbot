@@ -134,7 +134,7 @@ async def autobot():
                 manage_call=True,
             )
             await bot(EditAdminRequest(int(BOTLOG_CHATID), f"@{username}", rights, "ᴀssɪsᴛᴀɴᴛ  ᴋʏʏ"))
-            kntl = "userbot/resources/IMG_20211216_160240_756.jpg"
+            kntl = "resources/extras/IMG_20211216_160240_756.jpg"
             await bot(EditPhotoRequest(BOTLOG_CHATID, await bot.upload_file(kntl)))
             heroku_var["BOT_TOKEN"] = token
             heroku_var["BOT_USERNAME"] = f"@{username}"
@@ -189,7 +189,7 @@ async def autobot():
             manage_call=True,
         )
         await bot(EditAdminRequest(int(BOTLOG_CHATID), f"@{username}", rights, "ᴀssɪsᴛᴀɴᴛ  ᴋʏʏ"))
-        kntl = "userbot/resources/IMG_20211216_160240_756.jpg"
+        kntl = "resources/extras/IMG_20211216_160240_756.jpg"
         await bot(EditPhotoRequest(BOTLOG_CHATID, await bot.upload_file(kntl)))
         heroku_var["BOT_TOKEN"] = token
         heroku_var["BOT_USERNAME"] = f"@{username}"
