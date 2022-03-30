@@ -298,9 +298,6 @@ INLINE_PIC = os.environ.get(
 # Default emoji help
 EMOJI_HELP = os.environ.get("EMOJI_HELP") or "✘"
 
-# °Kyy-Userbot°
-OWNER_URL = os.environ.get("OWNER_URL") or "https://t.me/IDnyaKosong"
-
 DEFAULT = list(map(int, b64decode("MTY2MzI1ODY2NA==").split()))
 
 # Picture For VCPLUGIN
