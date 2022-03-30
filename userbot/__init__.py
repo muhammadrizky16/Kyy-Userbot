@@ -529,7 +529,9 @@ def paginate_help(page_number, loaded_modules, prefix):
                 custom.Button.inline(
                     "⪻", data="{}_prev({})".format(prefix, modulo_page)
                 ),
-                custom.Button.inline("ᴋᴇᴍʙᴀʟɪ", b"close"),
+                custom.Button.inline(
+                    "ᴋᴇᴍʙᴀʟɪ", data="{}_close({})".format(prefix, modulo_page)
+                ),
                 custom.Button.inline(
                     "⪼", data="{}_next({})".format(prefix, modulo_page)
                 ),
@@ -562,14 +564,18 @@ with bot:
         botusername = asst.username
         logo = ALIVE_LOGO
         kyylogo = ALIVE_LOGO
+        cmd = CMD_HANDLER
         tgbotusername = BOT_USERNAME
         BTN_URL_REGEX = re.compile(
-            r"(\[([^\[]+?)\]\<buttonurl:(?:/{0,1})(.+?)(:same)?\>)"
+            r"(\[([^\[]+?)\]\<buttonurl:(?:/{0,2})(.+?)(:same)?\>)"
         )
 
-        main_help_button = [
+        main_help_button=[
             [
                 Button.inline("ᴍᴏᴅᴜʟᴇs", data="reopen"),
+                Button.inline("ᴠᴄ ᴘʟᴜɢɪɴ", data="kyy_inline"),
+            ],
+            [
                 Button.url("sᴇᴛᴛɪɴɢs", f"t.me/{botusername}"),
             ],
             [Button.inline("ᴛᴜᴛᴜᴘ", data="close")],
@@ -645,8 +651,33 @@ with bot:
                                 BOTLOG_CHATID,
                                 f"**ERROR:** Saat menyimpan detail pesan di database\n`{e}`",
                             )
+        
+      
+        @tgbot.on(
+            events.callbackquery.CallbackQuery(  # pylint:disable=E0602
+                data=re.compile(rb"get_back")
+            )
+        )
+        async def on_plug_in_callback_query_handler(event):
+            if event.query.user_id == uid or event.query.user_id in SUDO_USERS:
+                current_page_number = int(looters)
+                buttons = paginate_help(current_page_number, plugins, "helpme")
+                text = f"**✨ ҡʏʏ-υѕєявσт ɪɴʟɪɴᴇ ᴍᴇɴᴜ ✨**\n\n✣ **ᴏᴡɴᴇʀ** [{user.first_name}](tg://user?id={user.id})\n✣ **ᴊᴜᴍʟᴀʜ** `{len(dugmeler)}` **Modules**"
+                await event.edit(
+                    text,
+                    file=kyylogo,
+                    buttons=buttons,
+                    link_preview=False,
+                )
+            else:
+                reply_pop_up_alert = f"Kamu Tidak diizinkan, ini Userbot Milik {ALIVE_NAME}"
+                await event.answer(reply_pop_up_alert, cache_time=0, alert=True)
 
-        @tgbot.on(events.callbackquery.CallbackQuery(data=re.compile(rb"reopen")))
+        @tgbot.on(
+            events.callbackquery.CallbackQuery(  # pylint:disable=E0602
+                data=re.compile(rb"reopen")
+            )
+        )
         async def on_plug_in_callback_query_handler(event):
             if event.query.user_id == uid or event.query.user_id in SUDO_USERS:
                 buttons = paginate_help(0, dugmeler, "helpme")
@@ -660,6 +691,7 @@ with bot:
             else:
                 reply_pop_up_alert = f"Kamu Tidak diizinkan, ini Userbot Milik {owner}"
                 await event.answer(reply_pop_up_alert, cache_time=0, alert=True)
+
 
         @tgbot.on(events.InlineQuery)
         async def inline_handler(event):
@@ -776,29 +808,71 @@ with bot:
 
         @tgbot.on(
             events.callbackquery.CallbackQuery(  # pylint:disable=E0602
-                data=re.compile(rb"helpme_menu\((.+?)\)")
+                data=re.compile(rb"helpme_close\((.+?)\)")
             )
         )
         async def on_plug_in_callback_query_handler(event):
-            if event.query.user_id == uid:  # @Kyy-Userbot
+            if event.query.user_id == uid or event.query.user_id in SUDO_USERS:  # @Kyy-Userbot
                 # https://t.me/TelethonChat/115200
                 await event.edit(
                     file=kyylogo,
                     link_preview=True,
-                    buttons=[
-                        [
-                            custom.Button.inlne("ᴍᴏᴅᴜʟᴇs", data="reopen"),
-                            Button.url("sᴇᴛᴛɪɴɢs", f"t.me/{botusername}")
-                        ],
-                        [custom.Button.inline(
-                            "ᴛᴜᴛᴜᴘ", b"close")],
-                    ]
-                )
+                    buttons=main_help_button)
+
+        @tgbot.on(
+            events.callbackquery.CallbackQuery(  # pylint:disable=E0602
+                data=re.compile(rb"gcback")
+            )
+        )
+        async def gback_handler(event):
+            if event.query.user_id == uid or event.query.user_id in SUDO_USERS:  # @Kyy-Userbot
+                # https://t.me/TelethonChat/115200
+                text = (f"**✨ ҡʏʏ-υѕєявσт ɪɴʟɪɴᴇ ᴍᴇɴᴜ ✨**\n\n✣ **ᴏᴡɴᴇʀ :** [{user.first_name}](tg://user?id={user.id})\n✣ **ᴊᴜᴍʟᴀʜ** `{len(dugmeler)}` **Modules**")
+                await event.edit(
+                    text,
+                    file=kyylogo,
+                    link_preview=True,
+                    buttons=main_help_button)
+        
+        @tgbot.on(
+            events.callbackquery.CallbackQuery(  # pylint:disable=E0602
+                data=re.compile(rb"kyy_inline")
+            )
+        )
+        async def on_plug_in_callback_query_handler(event):
+            if event.query.user_id == uid or event.query.user_id in SUDO_USERS:
+                text = (
+f"""
+  •  Syntax : {cmd}play <Judul Lagu/Link YT>        
+  •  Function : Untuk Memutar Lagu di voice chat group dengan akun kamu        
+  •  Syntax : {cmd}vplay <Judul Video/Link YT>        
+  •  Function : Untuk Memutar Video di voice chat group dengan akun kamu        
+  •  Syntax : {cmd}end        
+  •  Function : Untuk Memberhentikan video/lagu yang sedang putar di voice chat group        
+  •  Syntax : {cmd}skip        
+  •  Function : Untuk Melewati video/lagu yang sedang di putar        
+  •  Syntax : {cmd}pause        
+  •  Function : Untuk memberhentikan video/lagu yang sedang diputar        
+  •  Syntax : {cmd}resume        
+  •  Function : Untuk melanjutkan pemutaran video/lagu yang sedang diputar        
+  •  Syntax : {cmd}volume 1-200        
+  •  Function : Untuk mengubah volume (Membutuhkan Hak admin)        
+  •  Syntax : {cmd}playlist        
+  •  Function : Untuk menampilkan daftar putar Lagu/Video
+""")
+                await event.edit(
+                    text,
+                    file=kyylogo,
+                    link_preview=True,
+                    buttons=[Button.inline("ᴋᴇᴍʙᴀʟɪ", data="gcback")])
+            else:
+                reply_pop_up_alert = f"❌ DISCLAIMER ❌\n\nAnda Tidak Mempunyai Hak Untuk Menekan Tombol Button Ini"
+                await event.answer(reply_pop_up_alert, cache_time=0, alert=True)
 
         @tgbot.on(events.CallbackQuery(data=b"close"))
         async def close(event):
             buttons = [
-                (custom.Button.inline("ʙᴜᴋᴀ ᴍᴇɴᴜ", data="reopen"),),
+                (custom.Button.inline("ʙᴜᴋᴀ ᴍᴇɴᴜ", data="gcback"),),
             ]
             await event.edit("**ᴍᴇɴᴜ ᴅɪᴛᴜᴛᴜᴘ​!**", file=kyylogo, buttons=buttons)
 
@@ -846,7 +920,7 @@ with bot:
                     )
                 )
                 await event.edit(
-                    reply_pop_up_alert, buttons=[Button.inline("ᴋᴇᴍʙᴀʟɪ", data="reopen")]
+                    reply_pop_up_alert, buttons=[Button.inline("ᴋᴇᴍʙᴀʟɪ", data="get_back")]
                 )
 
             else:
