@@ -570,7 +570,7 @@ with bot:
             r"(\[([^\[]+?)\]\<buttonurl:(?:/{0,2})(.+?)(:same)?\>)"
         )
 
-        main_help_button=[
+        main_help_button = [
             [
                 Button.inline("ᴍᴏᴅᴜʟᴇs", data="reopen"),
                 Button.inline("ᴠᴄ ᴘʟᴜɢɪɴ", data="kyy_inline"),
@@ -651,8 +651,7 @@ with bot:
                                 BOTLOG_CHATID,
                                 f"**ERROR:** Saat menyimpan detail pesan di database\n`{e}`",
                             )
-        
-      
+
         @tgbot.on(
             events.callbackquery.CallbackQuery(  # pylint:disable=E0602
                 data=re.compile(rb"get_back")
@@ -691,7 +690,6 @@ with bot:
             else:
                 reply_pop_up_alert = f"Kamu Tidak diizinkan, ini Userbot Milik {owner}"
                 await event.answer(reply_pop_up_alert, cache_time=0, alert=True)
-
 
         @tgbot.on(events.InlineQuery)
         async def inline_handler(event):
@@ -827,13 +825,14 @@ with bot:
         async def gback_handler(event):
             if event.query.user_id == uid or event.query.user_id in SUDO_USERS:  # @Kyy-Userbot
                 # https://t.me/TelethonChat/115200
-                text = (f"**✨ ҡʏʏ-υѕєявσт ɪɴʟɪɴᴇ ᴍᴇɴᴜ ✨**\n\n✣ **ᴏᴡɴᴇʀ :** [{user.first_name}](tg://user?id={user.id})\n✣ **ᴊᴜᴍʟᴀʜ** `{len(dugmeler)}` **Modules**")
+                text = (
+                    f"**✨ ҡʏʏ-υѕєявσт ɪɴʟɪɴᴇ ᴍᴇɴᴜ ✨**\n\n✣ **ᴏᴡɴᴇʀ :** [{user.first_name}](tg://user?id={user.id})\n✣ **ᴊᴜᴍʟᴀʜ** `{len(dugmeler)}` **Modules**")
                 await event.edit(
                     text,
                     file=kyylogo,
                     link_preview=True,
                     buttons=main_help_button)
-        
+
         @tgbot.on(
             events.callbackquery.CallbackQuery(  # pylint:disable=E0602
                 data=re.compile(rb"kyy_inline")
@@ -842,22 +841,22 @@ with bot:
         async def on_plug_in_callback_query_handler(event):
             if event.query.user_id == uid or event.query.user_id in SUDO_USERS:
                 text = (
-f"""
-  •  Syntax : {cmd}play <Judul Lagu/Link YT>        
-  •  Function : Untuk Memutar Lagu di voice chat group dengan akun kamu        
-  •  Syntax : {cmd}vplay <Judul Video/Link YT>        
-  •  Function : Untuk Memutar Video di voice chat group dengan akun kamu        
-  •  Syntax : {cmd}end        
-  •  Function : Untuk Memberhentikan video/lagu yang sedang putar di voice chat group        
-  •  Syntax : {cmd}skip        
-  •  Function : Untuk Melewati video/lagu yang sedang di putar        
-  •  Syntax : {cmd}pause        
-  •  Function : Untuk memberhentikan video/lagu yang sedang diputar        
-  •  Syntax : {cmd}resume        
-  •  Function : Untuk melanjutkan pemutaran video/lagu yang sedang diputar        
-  •  Syntax : {cmd}volume 1-200        
-  •  Function : Untuk mengubah volume (Membutuhkan Hak admin)        
-  •  Syntax : {cmd}playlist        
+                    f"""
+  •  Syntax : {cmd}play <Judul Lagu/Link YT>
+  •  Function : Untuk Memutar Lagu di voice chat group dengan akun kamu
+  •  Syntax : {cmd}vplay <Judul Video/Link YT>
+  •  Function : Untuk Memutar Video di voice chat group dengan akun kamu
+  •  Syntax : {cmd}end
+  •  Function : Untuk Memberhentikan video/lagu yang sedang putar di voice chat group
+  •  Syntax : {cmd}skip
+  •  Function : Untuk Melewati video/lagu yang sedang di putar
+  •  Syntax : {cmd}pause
+  •  Function : Untuk memberhentikan video/lagu yang sedang diputar
+  •  Syntax : {cmd}resume
+  •  Function : Untuk melanjutkan pemutaran video/lagu yang sedang diputar
+  •  Syntax : {cmd}volume 1-200
+  •  Function : Untuk mengubah volume (Membutuhkan Hak admin)
+  •  Syntax : {cmd}playlist
   •  Function : Untuk menampilkan daftar putar Lagu/Video
 """)
                 await event.edit(
