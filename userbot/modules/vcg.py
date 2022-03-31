@@ -7,6 +7,7 @@ from telethon.tl.functions.phone import CreateGroupCallRequest as startvc
 from telethon.tl.functions.phone import DiscardGroupCallRequest as stopvc
 from telethon.tl.functions.phone import GetGroupCallRequest as getvc
 from telethon.tl.functions.phone import InviteToGroupCallRequest as invitetovc
+from telethon.tl.functions.phone import EditGroupCallTitleRequest as settitle
 
 from telethon.tl import types
 from telethon.utils import get_display_name
@@ -28,7 +29,7 @@ def vcmention(user):
 
 async def get_call(kyy):
     kyy = await kyy.client(getchat(kyy.chat_id))
-    await kyy.client(getvc(kyy.full_chat.call, limit=1))
+    hehe = await kyy.client(getvc(kyy.full_chat.call, limit=1))
     return hehe.call
 
 
