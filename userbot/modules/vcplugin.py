@@ -518,7 +518,7 @@ async def leavevc(event):
             pass
         await xnxx.edit("**Left the voice chat** `{}`".format(str(event.chat_id)))
     else:
-        await edit_delete(event, f"**Maaf {owner} Tidak Berada Di VCG**")
+        await edit_delete(event, f"**Sorry {owner} not on Voice Chat**")
 
 
 @call_py.on_stream_end()
@@ -573,9 +573,9 @@ CMD_HELP.update(
     {
         "vctools": f"**Plugin : **`vctools`\
       \n\n  •  **Syntax :** `{cmd}joinvc`\
-      \n  •  **Function :** Melakukan Fake OS.\
+      \n  •  **Function :** Melakukan Fake voice chat group.\
       \n\n  •  **Syntax :** `{cmd}leavevc`\
-      \n  •  **Function :** Memberhentikan Fake OS.\
+      \n  •  **Function :** Memberhentikan Fake voice chat group.\
       "
     }
 )
