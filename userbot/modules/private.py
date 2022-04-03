@@ -191,6 +191,7 @@ async def inlinemenu(event):
         buttons=[
             [
                 Button.inline("ɪɴʟɪɴᴇ ᴇᴍᴏᴊɪ", data="inmoji"),
+                Button.inline("ɪɴʟɪɴᴇ ᴘɪᴄ", data="inpics"),
             ],
             [Button.inline("ʙᴀᴄᴋ", data="apiset")],
         ],
@@ -367,6 +368,30 @@ async def sdhndlr(event):
                 f"{name} **Berhasil diganti Menjadi** `{themssg}`",
                 buttons=get_back_button("hndlrmenu"),
             )
+
+
+@callback(data=re.compile(b"inpics"))
+async def inpics(event):
+    await event.delete()
+    pru = event.sender_id
+    var = "INLINE_PIC"
+    async with event.client.conversation(pru) as conv:
+        await conv.send_message(
+            "**Silahkan Kirimkan Link Telegraph Untuk var INLINE_PIC anda**\n\nGunakan /cancel untuk membatalkan."
+        )
+        response = conv.wait_event(events.NewMessage(chats=pru))
+        response = await response
+        themssg = response.message.message
+        if themssg == "/cancel":
+            return await conv.send_message(
+                "Membatalkan Proses Settings VAR!",
+                buttons=get_back_button("inlinemenu"),
+            )
+        await setit(event, var, themssg)
+        await conv.send_message(
+            f"**INLINE_PIC Berhasil di Ganti Menjadi** `{themssg}`\n\nSedang MeRestart Heroku untuk Menerapkan Perubahan.",
+            buttons=get_back_button("inlinemenu"),
+        )
 
 
 @callback(data=re.compile(b"inmoji"))

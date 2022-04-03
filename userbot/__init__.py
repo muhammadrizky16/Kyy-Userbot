@@ -527,7 +527,7 @@ def paginate_help(page_number, loaded_modules, prefix):
                     "⪻", data="{}_prev({})".format(prefix, modulo_page)
                 ),
                 custom.Button.inline(
-                    "ᴋᴇᴍʙᴀʟɪ", data="{}_close({})".format(prefix, modulo_page)
+                    "Kembali", data="{}_close({})".format(prefix, modulo_page)
                 ),
                 custom.Button.inline(
                     "⪼", data="{}_next({})".format(prefix, modulo_page)
@@ -560,7 +560,7 @@ with bot:
         asst = tgbot.get_me()
         botusername = asst.username
         logo = ALIVE_LOGO
-        kyylogo = ALIVE_LOGO
+        kyylogo = INLINE_PIC
         cmd = CMD_HANDLER
         tgbotusername = BOT_USERNAME
         BTN_URL_REGEX = re.compile(
@@ -569,13 +569,13 @@ with bot:
 
         main_help_button = [
             [
-                Button.inline("ᴍᴏᴅᴜʟᴇs", data="reopen"),
-                Button.inline("ᴠᴄ ᴘʟᴜɢɪɴ", data="kyy_inline"),
+                Button.inline("Modules 📚", data="reopen"),
+                Button.inline("VC Menu 📎", data="kyy_inline"),
             ],
             [
-                Button.url("sᴇᴛᴛɪɴɢs", f"t.me/{botusername}"),
+                Button.url("Settings ⚙️", f"t.me/{botusername}"),
             ],
-            [Button.inline("ᴛᴜᴛᴜᴘ", data="close")],
+            [Button.inline("Kembali", data="close")],
         ]
 
         @tgbot.on(events.NewMessage(incoming=True,
@@ -708,7 +708,7 @@ with bot:
                     description="Repository Kyy - Userbot",
                     url="https://t.me/NastySupportt",
                     thumb=InputWebDocument(
-                        ALIVE_LOGO,
+                        INLINE_PIC,
                         0,
                         "image/jpeg",
                         []),
@@ -763,7 +763,7 @@ with bot:
                     description="Kyy - Userbot | Telethon",
                     url="https://t.me/NastyProject",
                     thumb=InputWebDocument(
-                        ALIVE_LOGO,
+                        INLINE_PIC,
                         0,
                         "image/jpeg",
                         []),
@@ -861,7 +861,7 @@ with bot:
                     text,
                     file=kyylogo,
                     link_preview=True,
-                    buttons=[Button.inline("ᴋᴇᴍʙᴀʟɪ", data="gcback")])
+                    buttons=[Button.inline("Kembali", data="gcback")])
             else:
                 reply_pop_up_alert = f"❌ DISCLAIMER ❌\n\nAnda Tidak Mempunyai Hak Untuk Menekan Tombol Button Ini"
                 await event.answer(reply_pop_up_alert, cache_time=0, alert=True)
@@ -869,9 +869,9 @@ with bot:
         @tgbot.on(events.CallbackQuery(data=b"close"))
         async def close(event):
             buttons = [
-                (custom.Button.inline("ʙᴜᴋᴀ ᴍᴇɴᴜ", data="gcback"),),
+                (custom.Button.inline("Main Menu", data="gcback"),),
             ]
-            await event.edit("**ᴍᴇɴᴜ ᴅɪᴛᴜᴛᴜᴘ​!**", file=kyylogo, buttons=buttons)
+            await event.edit("**Menu Ditutup!**", file=kyylogo, buttons=buttons)
 
         @tgbot.on(
             events.callbackquery.CallbackQuery(
@@ -917,7 +917,7 @@ with bot:
                     )
                 )
                 await event.edit(
-                    reply_pop_up_alert, buttons=[Button.inline("ᴋᴇᴍʙᴀʟɪ", data="get_back")]
+                    reply_pop_up_alert, buttons=[Button.inline("Kembali", data="get_back")]
                 )
 
             else:

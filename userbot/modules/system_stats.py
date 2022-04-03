@@ -224,14 +224,15 @@ async def redis(alive):
     user = await bot.get_me()
     await get_readable_time((time.time() - StartTime))
     output = (
-        f"• **Name :** [{user.first_name}](tg://user?id={user.id}) \n"
+        f"• **Master :** [{user.first_name}](tg://user?id={user.id}) \n"
         f"• **Username :** @{user.username} \n"
         f"• **Telethon Version :** `{version.__version__}` \n"
         f"• **Python Version :** `{python_version()}` \n"
         f"• **Pytgcalls Version :** `{pytgcalls.__version__}` \n"
         f"• **Bot Version :** `{BOT_VER}` \n"
         f"• **Modules :** `{len(modules)}` Modules \n"
-        f"  **[ɢʀᴏᴜᴘꜱ](https://t.me/NastySupportt)** | **[ᴄʜᴀɴɴᴇʟ](https://t.me/NastyProject)** | **[ᴏᴡɴᴇʀ](https://t.me/IDnyaKosong)** | **[ɢɪᴛʜᴜʙ](https://github.com/muhammadrizky16/Kyy-Userbot)** "
+        f"• **Github :** [Github](https://github.com/muhammadrizky16/Kyy-Userbot) \n"
+        f"  **[ɢʀᴏᴜᴘꜱ](https://t.me/NastySupportt)** | **[ᴄʜᴀɴɴᴇʟ](https://t.me/NastyProject)** | **[ᴏᴡɴᴇʀ](https://t.me/IDnyaKosong)**"
     )
     if ALIVE_LOGO:
         try:
