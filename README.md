@@ -49,7 +49,7 @@ Gunakan bot ini dengan risiko Anda sendiri, dan gunakan dengan bijak.
 
 🔰 **THANKS YOU TO**
 *   [Kyy](https://github.com/muhammadrizky16/Kyy-Userbot)   Kyy - Userbot
-*   [Alfa](https://github.com/CoeF) Alfa
+*   [X Not For You](https://github.com/CoeF) CoeF
 *   [Risman](https://github.com/mrismanaziz/Man-Userbot)   Suhu - Userbot
 *   [Sendi](https://github.com/SendiAp/Rose-Userbot)   Rose-Userbot
 *   [Skyzu](https://github.com/Skyzu/skyzu-userbot)   skyzu paling ganteng
