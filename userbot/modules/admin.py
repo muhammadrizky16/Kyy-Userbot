@@ -35,6 +35,7 @@ from userbot.utils import (
     edit_delete,
     edit_or_reply,
     kyy_cmd,
+    kyy_handler,
 )
 from userbot import CMD_HANDLER as cmd
 from userbot.events import register
@@ -178,12 +179,12 @@ async def demote(event):
     creator = chat.creator
 
     if not admin and not creator:
-        return await dmod.edit(NO_ADMIN)
+        return await event.edit(NO_ADMIN)
 
     # If passing, declare that we're going to demote
     eventkyy = await edit_or_reply(event, "`Sedang Melepas Admin...`")
     rank = "Admin"  # dummy rank, lol.
-    user = await get_user_from_event(dmod)
+    user = await get_user_from_event(event)
     user = user[0]
     if not user:
         return
@@ -213,7 +214,7 @@ async def demote(event):
             BOTLOG_CHATID,
             "#DEMOTE\n"
             f"PENGGUNA: [{user.first_name}](tg://user?id={user.id})\n"
-            f"GRUP: {dmod.chat.title}(`{dmod.chat_id}`)",
+            f"GRUP: {event.chat.title}(`{event.chat_id}`)",
         )
 
 
@@ -405,7 +406,7 @@ async def unmoot(unmot):
             )
 
 
-@register(incoming=True)
+@kyy_handler(incoming=True)
 async def muter(moot):
     try:
         from userbot.modules.sql_helper.gmute_sql import is_gmuted

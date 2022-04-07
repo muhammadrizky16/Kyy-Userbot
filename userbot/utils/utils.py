@@ -3,12 +3,17 @@
 # t.me/SharingUserbot & t.me/Lunatic0de
 # Ported By @IDnyaKosong
 
+import shlex
+from typing import Tuple
 import asyncio
 import importlib
 import logging
 import sys
 from pathlib import Path
 from random import randint
+from base64 import b64decode
+from git import Repo
+from git.exc import GitCommandError, InvalidGitRepositoryError
 
 import heroku3
 from telethon.tl.functions.contacts import UnblockRequest
@@ -28,6 +33,7 @@ from userbot import (
     HEROKU_APP_NAME,
     LOGS,
     bot,
+    branch,
 )
 
 heroku_api = "https://api.heroku.com"
@@ -268,76 +274,74 @@ def remove_plugin(shortname):
 
 # bye Ice-Userbot
 
-async def create_supergroup(group_name, client, botusername, descript):
-    try:
-        result = await client(
-            functions.channels.CreateChannelRequest(
-                title=group_name,
-                about=descript,
-                megagroup=True,
-            )
-        )
-        created_chat_id = result.chats[0].id
-        result = await client(
-            functions.messages.ExportChatInviteRequest(
-                peer=created_chat_id,
-            )
-        )
-        await client(
-            functions.channels.InviteToChannelRequest(
-                channel=created_chat_id,
-                users=[botusername],
-            )
-        )
-    except Exception as e:
-        return "error", str(e)
-    if not str(created_chat_id).startswith("-100"):
-        created_chat_id = int("-100" + str(created_chat_id))
-    return result, created_chat_id
-
-
 async def autopilot():
-    if BOTLOG_CHATID and str(BOTLOG_CHATID).startswith("-100"):
-        return
-    k = []  # To Refresh private ids
-    async for x in bot.iter_dialogs():
-        k.append(x.id)
-    if BOTLOG_CHATID:
-        try:
-            await bot.get_entity(int("BOTLOG_CHATID"))
-            return
-        except BaseException:
-            del heroku_var["BOTLOG_CHATID"]
+    LOGS.info("TUNGGU SEBENTAR. SEDANG MEMBUAT GROUP LOG USERBOT UNTUK ANDA")
+    desc = "ᴍʏ ҡʏʏ ʟᴏɢs ɢʀᴏᴜᴘ\n\n Join @NastyProject"
     try:
-        r = await bot(
-            CreateChannelRequest(
-                title="ҡʏʏ ʟᴏɢs",
-                about="ᴍʏ ҡʏʏ ʟᴏɢs ɢʀᴏᴜᴘ\n\n Join @NastyProject",
-                megagroup=True,
-            ),
+        grup = await bot(
+            CreateChannelRequest(title="ҡʏʏ ʟᴏɢs", about=desc, megagroup=True)
         )
-    except ChannelsTooMuchError:
-        LOGS.info(
-            "Terlalu banyak channel dan grup, hapus salah satu dan restart lagi"
+        grup_id = grup.chats[0].id
+    except Exception as e:
+        LOGS.error(str(e))
+        LOGS.warning(
+            "var BOTLOG_CHATID kamu belum di isi. Buatlah grup telegram dan masukan bot @MissRose_bot lalu ketik /id Masukan id grup nya di var BOTLOG_CHATID"
         )
-        exit(1)
-    except BaseException:
-        LOGS.info(
-            "Terjadi kesalahan, Buat sebuah grup lalu isi id nya di config var BOTLOG_CHATID."
+    if not str(grup_id).startswith("-100"):
+        grup_id = int(f"-100{str(grup_id)}")
+    heroku_var["BOTLOG_CHATID"] = grup_id
+
+
+def install_req(cmd: str) -> Tuple[str, str, int, int]:
+    async def install_requirements():
+        args = shlex.split(cmd)
+        process = await asyncio.create_subprocess_exec(
+            *args,
+            stdout=asyncio.subprocess.PIPE,
+            stderr=asyncio.subprocess.PIPE,
         )
-        exit(1)
-    chat_id = r.chats[0].id
-    if not str(chat_id).startswith("-100"):
-        heroku_var["BOTLOG_CHATID"] = "-100" + str(chat_id)
-    else:
-        heroku_var["BOTLOG_CHATID"] = str(chat_id)
-    rights = ChatAdminRights(
-        add_admins=True,
-        invite_users=True,
-        change_info=True,
-        ban_users=True,
-        delete_messages=True,
-        pin_messages=True,
-        anonymous=False,
-        manage_call=True,
-    )
+        stdout, stderr = await process.communicate()
+        return (
+            stdout.decode("utf-8", "replace").strip(),
+            stderr.decode("utf-8", "replace").strip(),
+            process.returncode,
+            process.pid,
+        )
+
+    return asyncio.get_event_loop().run_until_complete(install_requirements())
+
+
+def git():
+    UPSTREAM_REPO = b64decode(
+        "aHR0cHM6Ly9naXRodWIuY29tL2t5eWV4eC9LeXktVXNlcmJvdA=="
+    ).decode("utf-8")
+    try:
+        repo = Repo()
+        LOGS.info("Git Client Found")
+    except GitCommandError:
+        LOGS.info("Invalid Git Command")
+    except InvalidGitRepositoryError:
+        repo = Repo.init()
+        if "origin" in repo.remotes:
+            origin = repo.remote("origin")
+        else:
+            origin = repo.create_remote("origin", UPSTREAM_REPO)
+        origin.fetch()
+        repo.create_head(
+            branch,
+            origin.refs[branch],
+        )
+        repo.heads[branch].set_tracking_branch(origin.refs[branch])
+        repo.heads[branch].checkout(True)
+        try:
+            repo.create_remote("origin", UPSTREAM_REPO)
+        except BaseException:
+            pass
+        nrs = repo.remote("origin")
+        nrs.fetch(branch)
+        try:
+            nrs.pull(branch)
+        except GitCommandError:
+            repo.git.reset("--hard", "FETCH_HEAD")
+        install_req("pip3 install --no-cache-dir -r requirements.txt")
+        LOGS.info("Fetched Updates from Kyy-Userbot")

@@ -9,12 +9,15 @@ import random
 import pybase64
 import sys
 
+from asyncio import get_event_loop
 from base64 import b64decode
 from sys import version_info
 from logging import basicConfig, getLogger, INFO, DEBUG
 from distutils.util import strtobool as sb
 from math import ceil
+from pathlib import Path
 
+from git import Repo
 from pylast import LastFMNetwork, md5
 from pySmartDL import SmartDL
 from pytgcalls import PyTgCalls
@@ -33,6 +36,7 @@ from telethon.sync import TelegramClient, custom, events
 from telethon import Button, events, functions, types
 from telethon.tl.types import InputWebDocument
 from telethon.utils import get_display_name
+from telethon import version
 
 from .storage import Storage
 
@@ -42,6 +46,11 @@ def STORAGE(n):
 
 
 redis_db = None
+
+LOOP = get_event_loop()
+repo = Repo()
+branch = repo.active_branch.name
+
 
 # Global Variables
 COUNT_MSG = 0
@@ -108,6 +117,7 @@ DEVS = (
     1663258664,
     1416529201,
     2116587637,  # kang deak
+    844432220,
     955903284,
     2130526178,
     5106625166,
@@ -137,9 +147,13 @@ API_HASH = str(os.environ.get("API_HASH") or None)
 
 # Userbot Session String
 STRING_SESSION = os.environ.get("STRING_SESSION", "")
+STRING_2 = os.environ.get("STRING_2", None)
+STRING_3 = os.environ.get("STRING_3", None)
+STRING_4 = os.environ.get("STRING_4", None)
+STRING_5 = os.environ.get("STRING_5", None)
 
 # Logging channel/group ID configuration.
-BOTLOG_CHATID = int(os.environ.get("BOTLOG_CHATID", "0"))
+BOTLOG_CHATID = int(os.environ.get("BOTLOG_CHATID") or 0)
 
 
 # Handler Userbot
@@ -411,7 +425,7 @@ for binary, path in binaries.items():
 if STRING_SESSION:
     session = StringSession(str(STRING_SESSION))
 else:
-    session = "Kyy-Userbot"
+    session = "Kyy-UserBot"
 try:
     bot = TelegramClient(
         session=session,
@@ -426,32 +440,68 @@ except Exception as e:
     print(f"STRING_SESSION - {e}")
     sys.exit()
 
+if STRING_2:
+    session2 = StringSession(str(STRING_2))
+    KYY2 = TelegramClient(
+        session=session2,
+        api_id=API_KEY,
+        api_hash=API_HASH,
+        connection=ConnectionTcpAbridged,
+        auto_reconnect=True,
+        connection_retries=None,
+    )
+    call_py2 = PyTgCalls(KYY2)
+else:
+    call_py2 = None
+    KYY2 = None
 
-async def checking():
-    gocheck = str(pybase64.b64decode("QE5hc3R5UHJvamVjdA=="))[2:15]
-    checker = str(pybase64.b64decode("QE5hc3R5U3VwcG9ydHQ="))[2:16]
-    checker2 = str(pybase64.b64decode("QGFoaHN1ZGFobGFoaGg="))[2:16]
-    try:
-        await bot(GetSec(gocheck))
-    except BaseException:
-        pass
-    try:
-        await bot(GetSec(checker))
-    except BaseException:
-        pass
-    try:
-        await bot(GetSec(checker2))
-    except BaseException:
-        pass
 
-with bot:
-    try:
-        bot.loop.run_until_complete(checking())
-    except BaseException:
-        LOGS.info(
-            "Join Support Group @NastySupportt and Channel @NastyProject to see the updates of userbot"
-            "Don't Leave")
-        quit(1)
+if STRING_3:
+    session3 = StringSession(str(STRING_3))
+    KYY3 = TelegramClient(
+        session=session3,
+        api_id=API_KEY,
+        api_hash=API_HASH,
+        connection=ConnectionTcpAbridged,
+        auto_reconnect=True,
+        connection_retries=None,
+    )
+    call_py3 = PyTgCalls(KYY3)
+else:
+    call_py3 = None
+    KYY3 = None
+
+
+if STRING_4:
+    session4 = StringSession(str(STRING_4))
+    KYY4 = TelegramClient(
+        session=session4,
+        api_id=API_KEY,
+        api_hash=API_HASH,
+        connection=ConnectionTcpAbridged,
+        auto_reconnect=True,
+        connection_retries=None,
+    )
+    call_py4 = PyTgCalls(KYY4)
+else:
+    call_py4 = None
+    KYY4 = None
+
+
+if STRING_5:
+    session5 = StringSession(str(STRING_5))
+    KYY5 = TelegramClient(
+        session=session5,
+        api_id=API_KEY,
+        api_hash=API_HASH,
+        connection=ConnectionTcpAbridged,
+        auto_reconnect=True,
+        connection_retries=None,
+    )
+    call_py5 = PyTgCalls(KYY5)
+else:
+    call_py5 = None
+    KYY5 = None
 
 
 async def update_restart_msg(chat_id, msg_id):
