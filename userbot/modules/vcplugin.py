@@ -18,6 +18,7 @@ from pytgcalls.exceptions import (
 )
 from telethon.tl import types
 from telethon.utils import get_display_name
+from telethon.tl.functions.users import GetFullUserRequest
 from youtubesearchpython import VideosSearch
 
 from userbot import CMD_HANDLER as cmd
