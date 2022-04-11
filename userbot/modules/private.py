@@ -195,35 +195,13 @@ async def apiset(event):
             [Button.inline("ᴍᴜʟᴛɪ ᴄʟɪᴇɴᴛ", data="multiclient")],
             [
                 Button.inline("ᴀʟɪᴠᴇ", data="alivemenu"),
-                Button.inline("ᴀᴘɪ ᴋᴇʏs", data="apikeys"),
+                Button.inline("ɪɴʟɪɴᴇ", data="inlinemenu"),
             ],
             [
                 Button.inline("ʜᴀɴᴅʟᴇʀ", data="hndlrmenu"),
-                Button.inline("ɪɴʟɪɴᴇ", data="inlinemenu"),
+                Button.inline("ᴘᴍᴘᴇʀᴍɪᴛ", data="pmpermitmenu"),
             ],
             [Button.inline("ʙᴀᴄᴋ", data="settings")],
-        ],
-    )
-
-
-@callback(data=re.compile(b"apikeys"))
-async def apikeys(event):
-    await event.edit(
-        "**Silahkan Pilih VAR yang ingin anda Setting**",
-        buttons=[
-            [
-                Button.inline("ʙɪᴛʟʏ ᴛᴏᴋᴇɴ", data="btly"),
-                Button.inline("ᴅᴇᴇᴢᴇʀ ᴀʀʟ ᴛᴏᴋᴇɴ", data="dzrl"),
-            ],
-            [
-                Button.inline("ᴅᴇᴇᴘ ᴀᴘɪ", data="dapi"),
-                Button.inline("ᴏᴄʀ ᴀᴘɪ", data="ocrapi"),
-            ],
-            [
-                Button.inline("ᴏᴘᴇɴ ᴡᴇᴀᴛʜᴇʀ", data="opnwth"),
-                Button.inline("ʀᴇᴍᴏᴠᴇ.ʙɢ ᴀᴘɪ", data="rmbgapi"),
-            ],
-            [Button.inline("ʙᴀᴄᴋ", data="apiset")],
         ],
     )
 
@@ -289,7 +267,21 @@ async def inlinemenu(event):
                 Button.inline("ɪɴʟɪɴᴇ ᴇᴍᴏᴊɪ", data="inmoji"),
                 Button.inline("ɪɴʟɪɴᴇ ᴘɪᴄ", data="inpics"),
             ],
-            [Button.inline("« ʙᴀᴄᴋ", data="apiset")],
+            [Button.inline("ʙᴀᴄᴋ", data="apiset")],
+        ],
+    )
+
+
+@callback(data=re.compile(b"pmpermitmenu"))
+async def pmpermit(event):
+    await event.edit(
+        "**Silahkan Pilih VAR yang ingin anda Setting**",
+        buttons=[
+            [
+                Button.inline("ᴘᴍᴘᴇʀᴍɪᴛ ᴏɴ", data="pmon"),
+                Button.inline("ᴘᴍᴘᴇʀᴍɪᴛ ᴏғғ", data="pmoff"),
+            ],
+            [Button.inline("ʙᴀᴄᴋ", data="apiset")],
         ],
     )
 
@@ -528,149 +520,24 @@ async def sdhndlr(event):
             )
 
 
-@callback(data=re.compile(b"rmbgapi"))
-async def rmbgapi(event):
-    await event.delete()
-    pru = event.sender_id
-    var = "REM_BG_API_KEY"
-    name = "Remove.bg API Key"
-    async with event.client.conversation(pru) as conv:
-        await conv.send_message(
-            "**Silahkan Kirimkan Remove.bg API key Anda dari remove.bg**\n\nGunakan /cancel untuk membatalkan."
-        )
-        response = conv.wait_event(events.NewMessage(chats=pru))
-        response = await response
-        themssg = response.message.message
-        if themssg == "/cancel":
-            return await conv.send_message(
-                f"Membatalkan Proses Settings VAR {var}",
-                buttons=get_back_button("apikeys"),
-            )
-        await setit(event, var, themssg)
-        await conv.send_message(
-            f"{name} **Berhasil di Setting Menjadi** `{themssg}`\n\nSedang MeRestart Heroku untuk Menerapkan Perubahan.",
-            buttons=get_back_button("apikeys"),
-        )
+@callback(data=re.compile(b"pmon"))
+async def pmonn(event):
+    var = "PM_AUTO_BAN"
+    await setit(event, var, "True")
+    await event.edit(
+        "Done! PMPermit telah berubah on!!",
+        buttons=get_back_button("settings"),
+    )
 
 
-@callback(data=re.compile(b"dapi"))
-async def deepai(event):
-    await event.delete()
-    pru = event.sender_id
-    var = "DEEP_AI"
-    async with event.client.conversation(pru) as conv:
-        await conv.send_message(
-            f"**Silahkan Kirimkan API {var} Anda dari deepai.org**\n\nGunakan /cancel untuk membatalkan."
-        )
-        response = conv.wait_event(events.NewMessage(chats=pru))
-        response = await response
-        themssg = response.message.message
-        if themssg == "/cancel":
-            return await conv.send_message(
-                f"Membatalkan Proses Settings VAR {var}",
-                buttons=get_back_button("apikeys"),
-            )
-        await setit(event, var, themssg)
-        await conv.send_message(
-            f"**{var} Berhasil di Setting Menjadi** `{themssg}`\n\nSedang MeRestart Heroku untuk Menerapkan Perubahan.",
-            buttons=get_back_button("apikeys"),
-        )
-
-
-@callback(data=re.compile(b"ocrapi"))
-async def ocrapi(event):
-    await event.delete()
-    pru = event.sender_id
-    var = "OCR_SPACE_API_KEY"
-    async with event.client.conversation(pru) as conv:
-        await conv.send_message(
-            f"**Silahkan Kirimkan {var} anda dari ocr.space**\n\nGunakan /cancel untuk membatalkan."
-        )
-        response = conv.wait_event(events.NewMessage(chats=pru))
-        response = await response
-        themssg = response.message.message
-        if themssg == "/cancel":
-            return await conv.send_message(
-                f"Membatalkan Proses Settings VAR {var}",
-                buttons=get_back_button("apikeys"),
-            )
-        await setit(event, var, themssg)
-        await conv.send_message(
-            f"**{var} Berhasil di Setting Menjadi** `{themssg}`\n\nSedang MeRestart Heroku untuk Menerapkan Perubahan.",
-            buttons=get_back_button("apikeys"),
-        )
-
-
-@callback(data=re.compile(b"dzrl"))
-async def dzrl(event):
-    await event.delete()
-    pru = event.sender_id
-    var = "DEEZER_ARL_TOKEN"
-    async with event.client.conversation(pru) as conv:
-        await conv.send_message(
-            f"**Silahkan Kirimkan {var} anda dari developers.deezer.com**\n\nGunakan /cancel untuk membatalkan."
-        )
-        response = conv.wait_event(events.NewMessage(chats=pru))
-        response = await response
-        themssg = response.message.message
-        if themssg == "/cancel":
-            return await conv.send_message(
-                f"Membatalkan Proses Settings VAR {var}",
-                buttons=get_back_button("apikeys"),
-            )
-        await setit(event, var, themssg)
-        await conv.send_message(
-            f"**{var} Berhasil di Setting Menjadi** `{themssg}`\n\nSedang MeRestart Heroku untuk Menerapkan Perubahan.",
-            buttons=get_back_button("apikeys"),
-        )
-
-
-@callback(data=re.compile(b"opnwth"))
-async def opnwth(event):
-    await event.delete()
-    pru = event.sender_id
-    var = "OPEN_WEATHER_MAP_APPID"
-    async with event.client.conversation(pru) as conv:
-        await conv.send_message(
-            f"**Silahkan Kirimkan {var} anda dari api.openweathermap.org/data/2.5/weather**\n\nGunakan /cancel untuk membatalkan."
-        )
-        response = conv.wait_event(events.NewMessage(chats=pru))
-        response = await response
-        themssg = response.message.message
-        if themssg == "/cancel":
-            return await conv.send_message(
-                f"Membatalkan Proses Settings VAR {var}",
-                buttons=get_back_button("apikeys"),
-            )
-        await setit(event, var, themssg)
-        await conv.send_message(
-            f"**{var} Berhasil di Setting Menjadi** `{themssg}`\n\nSedang MeRestart Heroku untuk Menerapkan Perubahan.",
-            buttons=get_back_button("apikeys"),
-        )
-
-
-@callback(data=re.compile(b"btly"))
-async def btly(event):
-    await event.delete()
-    pru = event.sender_id
-    var = "BITLY_TOKEN"
-    async with event.client.conversation(pru) as conv:
-        await conv.send_message(
-            f"**Silahkan Kirimkan {var} anda dari bitly.com**\n\nGunakan /cancel untuk membatalkan."
-        )
-        response = conv.wait_event(events.NewMessage(chats=pru))
-        response = await response
-        themssg = response.message.message
-        if themssg == "/cancel":
-            return await conv.send_message(
-                f"Membatalkan Proses Settings VAR {var}",
-                buttons=get_back_button("apiset"),
-            )
-        await setit(event, var, themssg)
-        await conv.send_message(
-            f"**{var} Berhasil di Setting Menjadi** `{themssg}`\n\nSedang MeRestart Heroku untuk Menerapkan Perubahan.",
-            buttons=get_back_button("apiset"),
-        )
+@callback(data=re.compile(b"pmoff"))
+async def pmofff(event):
+    var = "PM_AUTO_BAN"
+    await setit(event, var, "False")
+    await event.edit(
+        "Done! PMPermit telah berubah off!!",
+        buttons=get_back_button("settings"),
+    )
 
 
 @callback(data=re.compile(b"strone"))
