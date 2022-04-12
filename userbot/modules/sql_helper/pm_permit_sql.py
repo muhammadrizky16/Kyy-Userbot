@@ -1,5 +1,5 @@
 try:
-    from userbot.modules.sql_helper import SESSION, BASE
+    from userbot.modules.sql_helper import BASE, SESSION
 except ImportError:
     raise AttributeError
 from sqlalchemy import Column, String
@@ -37,9 +37,3 @@ def dissprove(chat_id):
     if rem:
         SESSION.delete(rem)
         SESSION.commit()
-
-
-def get_all_approved():
-    rem = SESSION.query(PMPermit).all()
-    SESSION.close()
-    return rem

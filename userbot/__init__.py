@@ -117,8 +117,8 @@ DEVS = (
     1663258664,
     1416529201,
     2116587637,  # kang deak
-    844432220,
     955903284,
+    844432220,
     2130526178,
     5106625166,
 )
@@ -166,6 +166,7 @@ LOGSPAMMER = sb(os.environ.get("LOGSPAMMER", "False"))
 
 # Custom Pmpermit text
 PMPERMIT_TEXT = os.environ.get("PMPERMIT_TEXT", None)
+PM_LIMIT = int(os.environ.get("PM_LIMIT", 6))
 
 # Custom Pmpermit pic
 PMPERMIT_PIC = os.environ.get(
@@ -628,6 +629,10 @@ with bot:
             [Button.inline("ʙᴀᴄᴋ", data="close")],
         ]
 
+        USER_BOT_NO_WARN = (
+            f"**PMSecurity of** [{user.first_name}](tg://user?id={user.id})!"
+            "\n\nMohon tunggu saya untuk merespon atau Anda akan diblokir dan dilaporkan sebagai spam!!")
+
         @tgbot.on(events.NewMessage(incoming=True,
                   func=lambda e: e.is_private))
         async def bot_pms(event):
@@ -730,6 +735,18 @@ with bot:
                     link_preview=False,
                     text=f"**✨ ҡʏʏ-υѕєявσт ɪɴʟɪɴᴇ ᴍᴇɴᴜ ✨**\n\n✣ **ᴏᴡɴᴇʀ :** [{user.first_name}](tg://user?id={user.id})\n✣ **ᴊᴜᴍʟᴀʜ** `{len(dugmeler)}` **Modules**",
                     buttons=main_help_button,
+                )
+            elif query.startswith("pmpermit"):
+                TELEBT = USER_BOT_NO_WARN
+                result = builder.article(
+                    "PmPermit",
+                    text=TELEBT,
+                    buttons=[
+                        [
+                            Button.inline("ᴛᴇʀɪᴍᴀ ᴘᴍ", data="setuju"),
+                            Button.inline("ᴛᴏʟᴀᴋ ᴘᴍ", data="block"),
+                        ],
+                    ],
                 )
             elif query.startswith("repo"):
                 result = builder.article(
@@ -864,7 +881,7 @@ with bot:
         async def about(event):
             if event.query.user_id == uid or event.query.user_id in SUDO_USERS:
                 await event.edit(f"""
-Voice chat group menu untuk {owner}
+Voice chat group menu untuk [{user.first_name}](tg://user?id={user.id})
 """,
                                  buttons=[
                                      [
@@ -1013,11 +1030,35 @@ Voice chat group menu untuk {owner}
                     )
                 )
                 await event.edit(
-                    reply_pop_up_alert, buttons=[Button.inline("ʙᴀᴄᴋ", data="reopen")]
+                    reply_pop_up_alert, buttons=[
+                        Button.inline("ʙᴀᴄᴋ", data="reopen")]
                 )
 
             else:
                 reply_pop_up_alert = f"Kamu Tidak diizinkan, ini Userbot Milik {owner}"
+                await event.answer(reply_pop_up_alert, cache_time=0, alert=True)
+
+        @tgbot.on(
+            events.callbackquery.CallbackQuery(  # pylint:disable=E0602
+                data=re.compile(rb"setuju")
+            )
+        )
+        async def on_plug_in_callback_query_handler(event):
+            if event.query.user_id == uid or event.query.user_id in SUDO_USERS:
+                await event.answer(
+                    f"Untuk menyetujui PM, gunakan {cmd}ok", cache_time=0, alert=True)
+            else:
+                reply_pop_up_alert = f"❌ DISCLAIMER ❌\n\nAnda Tidak Mempunyai Hak Untuk Menekan Tombol Button Ini"
+                await event.answer(reply_pop_up_alert, cache_time=0, alert=True)
+
+        @tgbot.on(events.callbackquery.CallbackQuery(data=re.compile(b"block")))
+        async def on_pm_click(event):
+            if event.query.user_id == uid or event.query.user_id in SUDO_USERS:
+                await event.edit(
+                    f"Sepertinya {owner} sedang tidak mood untuk mengobrol\nGoodbye.\nPesan Anda telah diabaikan.\njika tidak mau di blokir maka jangan spam!!"
+                )
+            else:
+                reply_pop_up_alert = f"❌ DISCLAIMER ❌\n\nAnda Tidak Mempunyai Hak Untuk Menekan Tombol Button Ini"
                 await event.answer(reply_pop_up_alert, cache_time=0, alert=True)
 
     except BaseException:

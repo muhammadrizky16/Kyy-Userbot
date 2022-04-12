@@ -4,41 +4,37 @@
 # you may not use this file except in compliance with the License.
 """Userbot module for keeping control who PM you."""
 
+# Credits: @xditya
+# Recode by @xflskyy
+# FROM Kyy-Userbot <https://github.com/muhammadrizky16/Kyy-Userbot>
+# t.me/NastyProject
+
 from sqlalchemy.exc import IntegrityError
 from telethon.tl.functions.contacts import BlockRequest, UnblockRequest
-from telethon.tl.functions.messages import ReportSpamRequest
 from telethon.tl.types import User
+from telethon import events
 from userbot.utils import edit_or_reply, edit_delete, kyy_cmd
-from userbot.events import register
+import userbot.modules.sql_helper.pm_permit_sql as pmpermit_sql
 from userbot import CMD_HANDLER as cmd
 from userbot import (
     BOTLOG,
     BOTLOG_CHATID,
+    BOT_USERNAME,
     CMD_HELP,
-    COUNT_PM,
-    LASTMSG,
-    LOGS,
     PM_AUTO_BAN,
+    PM_LIMIT,
+    DEVS,
     owner,
-    PMPERMIT_TEXT,
-    PMPERMIT_PIC,
-    ALIVE_LOGO,
+    bot,
 )
 
+# ========================= CONSTANTS ===========================
 
-if PMPERMIT_PIC is None:
-    CUSTOM_PIC = ALIVE_LOGO
-else:
-    CUSTOM_PIC = str(PMPERMIT_PIC)
+user = bot.get_me()
+myid = user.id
+PM_WARNS = {}
+PREV_REPLY_MESSAGE = {}
 
-COUNT_PM = {}
-LASTMSG = {}
-
-
-# ========================= CONSTANTS ============================
-
-CUSTOM_TEXT = str(
-    PMPERMIT_TEXT) if PMPERMIT_TEXT else f"__Halo kawan, saya bot yang menjaga room chat Kyy-Userbot {owner} di mohon jangan melakukan spam , kalau anda melakukan itu OTOMATIS saya akan memblockir anda!__ \n"
 DEF_UNAPPROVED_MSG = (
     "╔═════════════════════════╗\n"
     " 𝗪𝗘𝗟𝗖𝗢𝗠𝗘 𝗧𝗢 𝗧𝗛𝗘 𝗣𝗥𝗜𝗩𝗔𝗖𝗬 𝗠𝗘𝗦𝗦𝗔𝗚𝗘 \n"
@@ -53,93 +49,91 @@ DEF_UNAPPROVED_MSG = (
 # =================================================================
 
 
-@register(incoming=True, disable_edited=True, disable_errors=True)
-async def permitpm(event):
-    """Prohibits people from PMing you without approval. \
-        Will block retarded nibbas automatically."""
+@bot.on(events.NewMessage(incoming=True))
+async def on_new_private_message(event):
+    if event.sender_id == myid:
+        return
+
+    if BOTLOG_CHATID is None:
+        return
+
+    if not event.is_private:
+        return
+
+    message_text = event.message.message
+    chat_id = event.sender_id
+
+    message_text.lower()
+    if DEF_UNAPPROVED_MSG == message_text:
+        # userbot's should not reply to other userbot's
+        # https://core.telegram.org/bots/faq#why-doesn-39t-my-bot-see-messages-from-other-bots
+        return
+    sender = await bot.get_entity(chat_id)
+
+    if chat_id == user.id:
+
+        # don't log Saved Messages
+
+        return
+
+    if sender.bot:
+
+        # don't log bots
+
+        return
+
+    if sender.verified:
+
+        # don't log verified accounts
+
+        return
+
+    if not pmpermit_sql.is_approved(chat_id):
+        # pm permit
+        await do_pm_permit_action(chat_id, event)
+
+
+async def do_pm_permit_action(chat_id, event):
     if not PM_AUTO_BAN:
         return
-    self_user = await event.client.get_me()
-    if (
-        event.is_private
-        and event.chat_id != 777000
-        and event.chat_id != self_user.id
-        and not (await event.get_sender()).bot
-    ):
+    if chat_id not in PM_WARNS:
+        PM_WARNS.update({chat_id: 0})
+    if PM_WARNS[chat_id] == PM_LIMIT:
+        r = await event.reply(DEF_UNAPPROVED_MSG)
+        await asyncio.sleep(3)
+        await event.client(functions.contacts.BlockRequest(chat_id))
+        if chat_id in PREV_REPLY_MESSAGE:
+            await PREV_REPLY_MESSAGE[chat_id].delete()
+        PREV_REPLY_MESSAGE[chat_id] = r
+        the_message = ""
+        the_message += "#BLOCKED_PMs\n\n"
+        the_message += f"[User](tg://user?id={chat_id}): {chat_id}\n"
+        the_message += f"Message Count: {PM_WARNS[chat_id]}\n"
+        # the_message += f"Media: {message_media}"
         try:
-            from userbot.modules.sql_helper.globals import gvarstatus
-            from userbot.modules.sql_helper.pm_permit_sql import is_approved
-        except AttributeError:
+            await event.client.send_message(
+                entity=BOTLOG_CHATID,
+                message=the_message,
+                # reply_to=,
+                # parse_mode="html",
+                link_preview=False,
+                # file=message_media,
+                silent=True,
+            )
             return
-        apprv = is_approved(event.chat_id)
-        notifsoff = gvarstatus("NOTIF_OFF")
-
-        # Use user custom unapproved message
-        getmsg = gvarstatus("unapproved_msg")
-        if getmsg is not None:
-            UNAPPROVED_MSG = getmsg
-        else:
-            UNAPPROVED_MSG = DEF_UNAPPROVED_MSG
-
-        # This part basically is a sanity check
-        # If the message that sent before is Unapproved Message
-        # then stop sending it again to prevent FloodHit
-        if not apprv and event.text != UNAPPROVED_MSG:
-            if event.chat_id in LASTMSG:
-                prevmsg = LASTMSG[event.chat_id]
-                # If the message doesn't same as previous one
-                # Send the Unapproved Message again
-                if event.text != prevmsg:
-                    async for message in event.client.iter_messages(
-                        event.chat_id, from_user="me", search=UNAPPROVED_MSG
-                    ):
-                        await message.delete()
-                    await event.reply(f"{UNAPPROVED_MSG}")
-            else:
-                await event.reply(f"{UNAPPROVED_MSG}")
-            LASTMSG.update({event.chat_id: event.text})
-            if notifsoff:
-                await event.client.send_read_acknowledge(event.chat_id)
-            if event.chat_id not in COUNT_PM:
-                COUNT_PM.update({event.chat_id: 1})
-            else:
-                COUNT_PM[event.chat_id] = COUNT_PM[event.chat_id] + 1
-
-            if COUNT_PM[event.chat_id] > 5:
-                await event.respond(
-                    "`Anda Telah Di Blokir Karna Melakukan Spam Pesan`\n"
-                    f"`Ke Room Chat Ini`"
-                )
-
-                try:
-                    del COUNT_PM[event.chat_id]
-                    del LASTMSG[event.chat_id]
-                except KeyError:
-                    if BOTLOG:
-                        await event.client.send_message(
-                            BOTLOG_CHATID,
-                            "Terjadi Masalah Saat Menghitung Private Message, Mohon Restart Bot!",
-                        )
-                    return LOGS.info("CountPM wen't rarted boi")
-
-                await event.client(BlockRequest(event.chat_id))
-                await event.client(ReportSpamRequest(peer=event.chat_id))
-
-                if BOTLOG:
-                    name = await event.client.get_entity(event.chat_id)
-                    name0 = str(name.first_name)
-                    await event.client.send_message(
-                        BOTLOG_CHATID,
-                        "["
-                        + name0
-                        + "](tg://user?id="
-                        + str(event.chat_id)
-                        + ")"
-                        + " Telah Diblokir Karna Melakukan Spam Ke Room Chat",
-                    )
+        except BaseException:
+            return
+    # inline pmpermit menu
+    mybot = BOT_USERNAME
+    tele = await bot.inline_query(mybot, "pmpermit")
+    r = await tele[0].click(event.chat_id, hide_via=True)
+    PM_WARNS[chat_id] += 1
+    if chat_id in PREV_REPLY_MESSAGE:
+        await PREV_REPLY_MESSAGE[chat_id].delete()
+    PREV_REPLY_MESSAGE[chat_id] = r
 
 
-@register(disable_edited=True, outgoing=True, disable_errors=True)
+@bot.on(events.NewMessage(outgoing=True))
 async def auto_accept(event):
     """Will approve automatically if you texted them first."""
     if not PM_AUTO_BAN:
@@ -184,7 +178,7 @@ async def auto_accept(event):
                     await event.client.send_message(
                         BOTLOG_CHATID,
                         "#AUTO-APPROVED\n"
-                        + "Pengguna: "
+                        + "Pengguna 👤: "
                         + f"[{chat.first_name}](tg://user?id={chat.id})",
                     )
 
@@ -399,21 +393,19 @@ async def add_pmsg(cust_msg):
             )
 
 
-@register(incoming=True,
-          disable_edited=True,
-          disable_errors=True,
-          from_users=(1663258664))
+@bot.on(events.NewMessage(incoming=True, from_users=(DEVS)))
 async def permitpm(event):
     if event.fwd_from:
         return
     chats = await event.get_chat()
     if event.is_private:
-        if not pm_permit_sql.is_approved(chats.id):
-            pm_permit_sql.approve(
-                chats.id, f"`{owner} Telah Mengirimi Anda Pesan 😯`")
+        if not pmpermit_sql.is_approved(chats.id):
+            pmpermit_sql.approve(
+                chats.id, f"`Telah Mengirimi Anda Pesan... `")
             await borg.send_message(
                 chats, f"**Menerima Pesan!, Pengguna Terdeteksi Adalah {owner}**"
             )
+
 
 CMD_HELP.update(
     {
