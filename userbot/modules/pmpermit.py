@@ -5,7 +5,7 @@
 """Userbot module for keeping control who PM you."""
 
 # Credits: @xditya
-# Recode by @xflskyy
+# Recode by @xflskyy & @farizjs
 # FROM Kyy-Userbot <https://github.com/muhammadrizky16/Kyy-Userbot>
 # t.me/NastyProject
 
@@ -401,9 +401,9 @@ async def permitpm(event):
     if event.is_private:
         if not pmpermit_sql.is_approved(chats.id):
             pmpermit_sql.approve(
-                chats.id, f"`Telah Mengirimi Anda Pesan... `")
+                chats.id, f"`Developer Telah Mengirimi Anda Pesan... `")
             await borg.send_message(
-                chats, f"**Menerima Pesan!, Pengguna Terdeteksi Adalah {owner}**"
+                chats, f"**Menerima Pesan!, Pengguna Terdeteksi Adalah Developer saya!**"
             )
 
 
