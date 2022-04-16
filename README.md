@@ -1,16 +1,4 @@
-<h1 align="center">ҡʏʏ-υѕєявσт</h1>
-
-<p align="center">
-    <a href="https://github.com/muhammadrizky16/Kyy-Userbot/commits/Kyy-Userbot"><img src="https://img.shields.io/github/last-commit/muhammadrizky16/Kyy-Userbot?color=ff0000&logo=github&logoColor=ffffff&style=for-the-badge" /></a>
-    <a href="https://github.com/muhammadrizky16/Kyy-Userbot"> <img src="https://img.shields.io/github/repo-size/muhammadrizky16/Kyy-Userbot?logo=github&style=for-the-badge" /></a>
-    <a href="https://pypi.org/project/Telethon/"><img src="https://img.shields.io/pypi/v/telethon?color=important&label=telethon&logo=python&logoColor=brightgreen&style=for-the-badge" /></a>
-    <img alt="PYTHON" src="https://img.shields.io/badge/PYTHON-v3.9.6-purple?style=for-the-badge&logo=appveyor"/>
-    </p>
-
-
-<p align="center">
-  <img src="https://telegra.ph/file/276d22aac9f400898cd27.jpg">
-</p>
+<h1 align="center">AMG-Userbot</h1>
 
 
 ## ᴅɪsᴄʟᴀɪᴍᴇʀ
@@ -39,11 +27,7 @@ Gunakan bot ini dengan risiko Anda sendiri, dan gunakan dengan bijak.
 <a href="https://t.me/NastySupportt"><img src="https://img.shields.io/badge/Join-Group%20Support-red.svg?style=for-the-badge&logo=Telegram"></a> 
 <a href="https://t.me/NastyProject"><img src="https://img.shields.io/badge/Join-Updates%20Channel-white.svg?style=for-the-badge&logo=Telegram"></a>
 
-### ғᴏʟʟᴏᴡ ᴍᴇ :
-<p align="left">
-<a href="https://github.com/muhammadrizky16"><img src="https://img.shields.io/badge/GitHub-Follow%20on%20GitHub-inactive.svg?logo=github"></a> 
-<a href="https://instagram.com/rizkyhamdanii16_"><img src="https://img.shields.io/badge/Instagram-Follow%20on%20Instagram-important.svg?logo=instagram"></a>
-</p>
+
 
 ##
 
