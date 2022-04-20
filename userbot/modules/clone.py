@@ -9,7 +9,7 @@ from telethon.tl.functions.users import GetFullUserRequest
 from telethon.tl.types import InputPhoto
 
 from userbot import CMD_HANDLER as cmd
-from userbot import CMD_HELP, DEVS, LOGS, STORAGE, bot
+from userbot import CMD_HELP, DEVS, LOGS, STORAGE
 from userbot.utils import edit_or_reply, kyy_cmd
 
 if not hasattr(STORAGE, "userObj"):
