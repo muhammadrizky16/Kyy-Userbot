@@ -191,7 +191,7 @@ async def dyno_usage(dyno):
                 "• **sɪsᴀ ᴋᴏᴜᴛᴀ ᴅʏɴᴏ ʙᴜʟᴀɴ ɪɴɪ :**\n"
                 f"  `{hours}`**ᴊᴀᴍ**  `{minutes}`**ᴍᴇɴɪᴛ**  "
                 f"**|**  [`{percentage}`**%**]\n"
-                f"• **sɪsᴀ ᴡᴀᴋᴛᴜ :** {day} hari Lagi \n"
+                f"• **sɪsᴀ ᴡᴀᴋᴛᴜ :** {day} ʜᴀʀɪ ʟᴀɢɪ \n"
                 "╚════════════════════╝\n"
                 f"• **ʙᴏᴛ ᴏꜰ :** {owner}  "
             )
