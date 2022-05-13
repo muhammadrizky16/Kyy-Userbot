@@ -37,4 +37,3 @@ async def help(event):
         await event.reply(
             f"\n**Contoh Ketik** `{cmd}help animasi` **Untuk Melihat Informasi Module**"
         )
-        
