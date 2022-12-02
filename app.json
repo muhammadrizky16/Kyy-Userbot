@@ -12,7 +12,7 @@
   "repository": "https://github.com/muhammadrizky16/Kyy-Userbot/Kyy-Userbot",
   "telegram": "https://t.me/IDnyaKosong",
   "success_url": "https://t.me/NastyProject",
-  "stack": "heroku-22",
+  "stack": "container",
   "env": {
     "API_KEY": {
       "description": "Dapatkan Api Key di web my.telegram.org",
@@ -68,7 +68,7 @@
   "formation": {
     "worker": {
       "quantity": 1,
-      "size": "eco"
+      "size": "free"
     }
   }
 }
